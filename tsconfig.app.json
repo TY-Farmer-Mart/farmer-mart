@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["node"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
@@ -19,9 +19,25 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    /* Absolute path */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@constants/*": ["constants/*"],
+      "@schemas/*": ["schemas/*"],
+      "@components/*": ["components/*"],
+      "@features/*": ["features/*"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
+      "@appTypes/*": ["types/*"],
+      "@assets/*": ["assets/*"],
+      "@app/*": ["app/*"],
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api/*"],
+      "@pages/*": ["pages/*"],
+      "@store/*": ["store/*"]
+    }
   },
   "include": ["src"]
 }

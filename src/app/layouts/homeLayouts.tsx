@@ -2,8 +2,6 @@ import React from "react";
 import { Outlet, } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
 
-
-
 const HomeLayout: React.FC = () => {
     return (
         <div className="flex h-screen bg-gray-200">
