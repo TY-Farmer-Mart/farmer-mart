@@ -12,6 +12,7 @@ const sidebarData = [
       "₹9,001-₹50,000",
       "₹50,001 and Above"
     ],
+    showRange: true,
   },
   {
     type: "filter",
@@ -34,29 +35,38 @@ const sidebarData = [
     type: "text",
     title: "Related Category",
     options: [
-      "Automobile Dashboard",
-      "Executive Dashboard",
-      "Car Dashboard Light",
-      "IT Solutions",
-      "Virtual Imaging System",
+      "Agriculture Production Services",
+      "Agricultural Pesticides",
+      "Organic Fertilizers and Manure",
+      "Bio Fertilizers",
+      "Vesicular Arbuscular Mycorrhiza",
+      "Fertilizer",
+
     ],
   },
+  {
+    type: "text",
+    title: "Recommended Searches",
+    options: ["agriculture", "agriculture seating"],
+  },
+
 
 
 
 ];
 
-const SidebarFilters: React.FC = () => {
+const FilterSlideBar: React.FC = () => {
   return (
-<aside className="w-64 bg-white border rounded-lg border-gray-200 flex flex-col h-screen">
+<aside className="w-64 bg-white border rounded-md border-gray-200 flex flex-col h-screen">
   {sidebarData.map((section) => {
     if (section.type === "text") {
       return (
-        <TextDropdown
-          key={section.title}
-          title={section.title}
-          options={section.options}
-        />
+       <TextDropdown
+  key={section.title}
+  title={section.title}
+  options={section.options}
+  showRange={section.showRange} 
+/>
       );
     } else if (section.type === "filter") {
       return (
@@ -74,4 +84,4 @@ const SidebarFilters: React.FC = () => {
   );
 };
 
-export default SidebarFilters;
+export default FilterSlideBar;

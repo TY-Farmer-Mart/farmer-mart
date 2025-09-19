@@ -1,13 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Home, User, Settings, LogOut, Sliders } from "lucide-react";
+import { Home, User, Settings, LogOut } from "lucide-react";
 
 const menuItems = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
     { name: "Profile", icon: <User size={20} />, path: "/profile" },
     { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
     { name: "Logout", icon: <LogOut size={20} />, path: "/" },
-    { name: "FilterProducts", icon:<Sliders size={20} />, path: "/slidebar" },
 ];
 
 const Sidebar: React.FC = () => {

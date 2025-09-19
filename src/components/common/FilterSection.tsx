@@ -29,8 +29,8 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   const visibleOptions = showAll ? options : options.slice(0, limit);
 
   return (
-    <div className="border border-gray-200 rounded mb-4">
-      <div className="px-4 py-2 bg-gray-100 font-medium ">
+    <div className="border border-gray-200 rounded mb-4 m-2 rounded-tl-[6px] rounded-tr-[6px]">
+      <div className="px-4 py-2 bg-gray-100 font-medium bg-[rgb(238,236,236)] rounded-tl-[6px] rounded-tr-[6px]">
         {title}
       </div>
 
@@ -41,7 +41,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
               type="checkbox"
               checked={selectedOptions.has(opt)}
               onChange={() => toggleOption(opt)}
-              className="form-checkbox h-4 w-4"
+              className="form-checkbox h-4 w-4 text-sm"
             />
             <span>{opt}</span>
           </label>
@@ -50,7 +50,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         {options.length > limit && (
           <button
             onClick={() => setShowAll((a) => !a)}
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-blue-600 hover:underline "
           >
             {showAll ? "Show Less" : `Show More (${options.length - limit})`}
           </button>
