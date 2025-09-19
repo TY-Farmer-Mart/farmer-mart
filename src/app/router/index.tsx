@@ -3,17 +3,20 @@ import LandingPage from "../LandingPage";
 import { useRoleRoutes } from "./useRoleRoutes";
 import ProtectedRoute from "./ProtectedRoute";
 import PageNotFound from "../../components/common/PageNotFound";
+import { ROUTES } from "@/constants/routeConstants";
+import { authRoutes } from "./authRoutes";
+import PublicLayout from "../layouts/PublicLayout";
 
 export const useAppRouter = () => {
     const roleRoutes = useRoleRoutes();
 
     return createBrowserRouter([
         { index: true, element: <LandingPage /> },
-        // {
-        //     path: ROUTES.HOME,
-        //     element: <PublicLayout />,
-        //     children: [...authRoutes],
-        // },
+        {
+            path: ROUTES.AUTH,
+            element: <PublicLayout />,
+            children: [...authRoutes],
+        },
         {
             element: <ProtectedRoute />,
             children: roleRoutes,
