@@ -1,19 +1,25 @@
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
-    LOGIN: {
-    TITLE: "Login",
-    SUBTITLE: "Log in to continue to your dashboard",
-    EMAIL_LABEL: "Email",
-    PASSWORD_LABEL: "Password",
-    BUTTON: "Login",
-    REMEMBER_ME: "Remember me",
-    FORGOT_PASSWORD: "Forgot password?",
-    SOCIAL: "OR Login with",
-    FOOTER: "Don’t have an account?",
-    FOOTER_LINK: "Sign up",
-  },
-    REGISTER: "Register",
+  TITLE: "Login",
+  SUBTITLE: "Log in to continue to your dashboard",
+  EMAIL: "Email",
+  PASSWORD: "Password",
+  BUTTON: "Login",
+  REMEMBER_ME: "Remember me",
+  FORGOT_PASSWORD: "Forgot password?",
+  SOCIAL: "OR Login with",
+  FOOTER: "Don’t have an account?",
+  FOOTER_LINK: "Sign up",
+  LOGIN: "Login to your account",
+  SIGNUP_BUTTON: "Sign Up",
+  NAME_LABEL: "Full Name",
+  NAME_PLACEHOLDER: "Enter your full name",
+  EMAIL_LABEL: "Email Address",
+  EMAIL_PLACEHOLDER: "Enter your email",
+  PASSWORD_LABEL: "Password",
+  PASSWORD_PLACEHOLDER: "Enter your password",
+  CONFIRM_PASSWORD_LABEL: "Confirm Password",
+  CONFIRM_PASSWORD_PLACEHOLDER: "Re-enter your password",
+  REGISTER: "Register",
 } as const;
-
-

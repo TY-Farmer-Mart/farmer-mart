@@ -2,7 +2,6 @@ import React from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@utils/helpers";
 import { InputProps } from "@/types/authTypes";
- 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
@@ -22,21 +21,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showPassword, setShowPassword] = React.useState(false);
     const isPassword = type === "password";
     const inputId = id || label?.toLowerCase().replace(/\s+/g, "-");
- 
+
     const inputSizes = {
-      sm: "px-3 py-2 text-sm",
-      md: "px-4 py-2.5 text-base",
-      lg: "px-5 py-3 text-lg",
+      sm: "text-sm",
+      md: "text-base",
+      lg: "text-lg",
     };
- 
+
     const inputType = isPassword ? (showPassword ? "text" : "password") : type;
- 
+
     return (
       <div className="space-y-1">
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-normal text-gray-500 md:text-gray-800"
+            className="block text-sm text-left font-normal text-gray-500 md:text-gray-800"
           >
             <span className="text-red-500 inline md:hidden pl-3">*</span>{" "}
             {label}
@@ -52,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             id={inputId}
             type={inputType}
             className={cn(
-              "w-full border-[0.5px] border-gray-200 md:border-gray-400  rounded-full md:rounded-xl",
+              "w-full border border-gray-200 md:border-gray-400 rounded-xl",
               "placeholder:text-gray-300 shadow-md md:shadow-none text-sm",
               "disabled:bg-gray-50 disabled:cursor-not-allowed",
               inputSizes[size],
@@ -84,7 +83,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="text-sm text-red-500" role="alert">
+          <p className="text-sm text-red-500 text-left" role="alert">
             {error}
           </p>
         )}
@@ -95,8 +94,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
- 
+
 Input.displayName = "Input";
- 
+
 export { Input };
- 
