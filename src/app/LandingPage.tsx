@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import QuoteForm from "@/components/QuoteForm";
-import CitySuppliers from "@/components/CitySuppliers";
 export default function LandingPage() {
   const navigate = useNavigate();
 
@@ -26,7 +24,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* <main className="flex flex-col items-center justify-center text-center flex-1 p-8">
+      <main className="flex flex-col items-center justify-center text-center flex-1 p-8">
         <h2 className="text-4xl font-extrabold text-green-800 mb-4">
           Empowering Farmers to Sell Their Products Online 🚜
         </h2>
@@ -68,9 +66,8 @@ export default function LandingPage() {
             Customers get farm-fresh products delivered directly to their homes.
           </p>
         </div>
-      </section> */}
-      <QuoteForm />
-      <CitySuppliers />
+      </section>
+
       <footer className="text-center p-4 bg-green-100 text-gray-600">
         © {new Date().getFullYear()} FarmerMart. All rights reserved.
       </footer>

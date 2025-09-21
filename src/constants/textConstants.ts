@@ -1,6 +1,7 @@
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
+
     LOGIN: "Login",
     REGISTER: "Register",
 } as const;
@@ -26,4 +27,5 @@ export const QUOTE_FORM = {
 
 export const CITY_SUPPLIERS = {
   HEADING: " Find Suppliers from Top Cities",
+
 } as const;
