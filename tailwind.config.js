@@ -16,6 +16,13 @@ export default {
           800: "#777777",
           900: "#0000008A",
         },
+        black:{
+          500:'#323232'
+        },
+        green:{
+          300:'#007a6e'
+        },
+      
       },
       fontFamily: {
         sans: [
