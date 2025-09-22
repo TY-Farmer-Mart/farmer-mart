@@ -13,3 +13,7 @@ export const AUTH_TEXT = {
   CONFIRM_PASSWORD_LABEL: "Confirm Password",
   CONFIRM_PASSWORD_PLACEHOLDER: "Re-enter your password",
 } as const;
+
+export const MARKET_CATEGORY_PRODUCT={
+    VIEWALL_BUTTON:"View All"
+}
