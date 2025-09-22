@@ -1,3 +1,7 @@
+import { Button } from "@/components/common/ui/Button";
+import FarmerMartLanding from "@/features/market/MoreforyouSection/FarmerMartLanding";
+import MoreForYou from "@/features/market/MoreforyouSection/MoreForYou";
+import CategoryList from "@/features/market/ProductsCategory/CategoryList";
 import { useNavigate } from "react-router-dom";
 import Header from '@/components/common/Header'
 export default function LandingPage() {
@@ -49,7 +53,10 @@ export default function LandingPage() {
             Customers get farm-fresh products delivered directly to their homes.
           </p>
         </div>
-      </section>
+      </section> */}
+      <CategoryList />
+      <MoreForYou />
+      <FarmerMartLanding />
 
       <footer className="text-center p-4 bg-green-100 text-gray-600">
         © {new Date().getFullYear()} FarmerMart. All rights reserved.

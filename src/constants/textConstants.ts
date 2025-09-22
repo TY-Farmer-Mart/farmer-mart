@@ -18,3 +18,73 @@ export const MARKET_TEXT = {
     REGISTERBTN:"Register",
     LOGINBTN:"Login"
 }
+export const MARKET_CATEGORY_PRODUCT = {
+  VIEWALL_BUTTON: "View All",
+};
+export const MORE_FOR_YOU_TEXT = {
+  HEADING: "More for You",
+  SERVICES: [
+    {
+      TITLE: "Connect with verified sellers",
+      DESCRIPTION:
+        "Tell us your requirement & let our experts find verified sellers for you",
+      BUTTON: "Get Verified Sellers",
+    },
+    {
+      TITLE: "Sell on IndiaMART for free",
+      DESCRIPTION: "Reach out to more than 21+ crore buyers. Sell with us.",
+      BUTTON: "Start Selling",
+    },
+    {
+      TITLE: "Download our App",
+      DESCRIPTION: "Get instant notifications on the go. Download our App Now",
+      BUTTON: "Download Now",
+    },
+    {
+      TITLE: "Tally on Mobile",
+      DESCRIPTION:
+        "With Live Keeping, SME's can now connect their Tally offline data to mobile app",
+      BUTTON: "Know More",
+    },
+  ],
+} as const;
+
+export const LANDING_TEXT = {
+  HERO_TITLE: "Accounting Software",
+  HERO_SUBTITLE:
+    "Trusted by 3,60,000+ Small Businesses across different domains",
+  FEATURES: [
+    "GST Accounting Software",
+    "e-Invoice Software",
+    "Inventory Management Software",
+    "e-Way Billing Software",
+  ],
+  GET_APP_TITLE: "Get FarmerMART App",
+  GET_APP_SUBTITLE:
+    "Search for products/services and connect with verified sellers on the go!",
+  DOWNLOAD_INFO:
+    "We will send you a link, open it on your phone to download the App",
+  COMPANY_BADGE: {
+    BUSY_LABEL: "Busy",
+    BUSINESS: "BUSINESS",
+    ACCOUNTING: "ACCOUNTING",
+    SOFTWARE: "SOFTWARE",
+    COMPANY_SUFFIX: "company",
+    TRUSTED_BY: "Trusted by",
+    COUNT: "3,60,000+",
+    SMALL_BUSINESS: "Small Businesses across different domains",
+  },
+  STORE_LABELS: {
+    APP_STORE_TOP: "Download on the",
+    APP_STORE_BOTTOM: "App Store",
+    PLAY_STORE_TOP: "GET IT ON",
+    PLAY_STORE_BOTTOM: "Google Play",
+  },
+  PLACEHOLDERS: {
+    MOBILE_NUMBER: "Enter Mobile Number",
+  },
+  BUTTONS: {
+    SEND_LINK: "Send me the link",
+  },
+  ALERT_PREFIX: "Link will be sent to +91",
+} as const;
