@@ -11,7 +11,7 @@ const FarmerMartLanding: React.FC = () => {
 
   const handleSendLink = () => {
     if (mobileNumber) {
-      alert(`Link will be sent to +91 ${mobileNumber}`);
+      alert(`${LANDING_TEXT.ALERT_PREFIX} ${mobileNumber}`);
     }
   };
 
@@ -21,16 +21,24 @@ const FarmerMartLanding: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center">
             <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xl mr-2">
-              Busy
+              {LANDING_TEXT.COMPANY_BADGE.BUSY_LABEL}
             </div>
+
             <div className="text-sm">
-              <div className="text-red-500 font-semibold">BUSINESS</div>
-              <div className="text-red-500 font-semibold">ACCOUNTING</div>
-              <div className="text-blue-600 font-semibold">SOFTWARE</div>
+              <div className="text-red-500 font-semibold">
+                {LANDING_TEXT.COMPANY_BADGE.BUSINESS}
+              </div>
+              <div className="text-red-500 font-semibold">
+                {LANDING_TEXT.COMPANY_BADGE.ACCOUNTING}
+              </div>
+              <div className="text-blue-600 font-semibold">
+                {LANDING_TEXT.COMPANY_BADGE.SOFTWARE}
+              </div>
             </div>
+
             <div className="ml-4 text-sm text-gray-600">
               an <span className="text-red-500 font-bold">{APP_NAME}</span>{" "}
-              company
+              {LANDING_TEXT.COMPANY_BADGE.COMPANY_SUFFIX}
             </div>
           </div>
         </div>
@@ -44,9 +52,11 @@ const FarmerMartLanding: React.FC = () => {
                 {LANDING_TEXT.HERO_TITLE}
               </h1>
               <p className="text-xl text-gray-600">
-                Trusted by{" "}
-                <span className="text-red-500 font-bold">3,60,000+</span> Small
-                Businesses across different domains
+                {LANDING_TEXT.COMPANY_BADGE.TRUSTED_BY}{" "}
+                <span className="text-red-500 font-bold">
+                  {LANDING_TEXT.COMPANY_BADGE.COUNT}
+                </span>{" "}
+                {LANDING_TEXT.COMPANY_BADGE.SMALL_BUSINESS}
               </p>
             </div>
 
@@ -60,26 +70,22 @@ const FarmerMartLanding: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative flex justify-center lg:justify-end">
-              <img
-                src={accounting}
-                alt="Accounting illustration"
-                className="max-w-full h-auto rounded-xl"
-              />
-            </div>
+          <div className="relative flex justify-center lg:justify-end">
+            <img
+              src={accounting}
+              alt="Accounting illustration"
+              className="max-w-full h-auto rounded-xl"
+            />
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
-            <div>
-              <img
-                src={farmermartapp}
-                alt="Mobile App Screenshot"
-                className="max-w-full max-h-full rounded-[1.5rem]"
-              />
-            </div>
+            <img
+              src={farmermartapp}
+              alt="Mobile App Screenshot"
+              className="max-w-full max-h-full rounded-[1.5rem]"
+            />
           </div>
 
           <div className="space-y-6">
@@ -95,7 +101,7 @@ const FarmerMartLanding: React.FC = () => {
             <div className="flex gap-3">
               <Input
                 type="tel"
-                placeholder="Enter Mobile Number"
+                placeholder={LANDING_TEXT.PLACEHOLDERS.MOBILE_NUMBER}
                 value={mobileNumber}
                 onChange={(e) => setMobileNumber(e.target.value)}
                 leftIcon={
@@ -109,7 +115,7 @@ const FarmerMartLanding: React.FC = () => {
                 variant="primary"
                 className="h-14 px-8 rounded-xl bg-teal-600 hover:bg-teal-700 focus:ring-teal-500"
               >
-                Send me the link
+                {LANDING_TEXT.BUTTONS.SEND_LINK}
               </Button>
             </div>
 
@@ -119,16 +125,24 @@ const FarmerMartLanding: React.FC = () => {
               <div className="bg-black-500 text-white px-6 py-3 rounded-lg flex items-center space-x-3 cursor-pointer hover:bg-gray-800 transition-colors">
                 <div className="text-2xl">🍎</div>
                 <div>
-                  <div className="text-xs">Download on the</div>
-                  <div className="font-bold text-lg">App Store</div>
+                  <div className="text-xs">
+                    {LANDING_TEXT.STORE_LABELS.APP_STORE_TOP}
+                  </div>
+                  <div className="font-bold text-lg">
+                    {LANDING_TEXT.STORE_LABELS.APP_STORE_BOTTOM}
+                  </div>
                 </div>
               </div>
 
               <div className="bg-black-500 text-white px-6 py-3 rounded-lg flex items-center space-x-3 cursor-pointer hover:bg-gray-800 transition-colors">
                 <div className="text-2xl">📱</div>
                 <div>
-                  <div className="text-xs">GET IT ON</div>
-                  <div className="font-bold text-lg">Google Play</div>
+                  <div className="text-xs">
+                    {LANDING_TEXT.STORE_LABELS.PLAY_STORE_TOP}
+                  </div>
+                  <div className="font-bold text-lg">
+                    {LANDING_TEXT.STORE_LABELS.PLAY_STORE_BOTTOM}
+                  </div>
                 </div>
               </div>
             </div>

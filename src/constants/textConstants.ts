@@ -60,4 +60,27 @@ export const LANDING_TEXT = {
     "Search for products/services and connect with verified sellers on the go!",
   DOWNLOAD_INFO:
     "We will send you a link, open it on your phone to download the App",
+  COMPANY_BADGE: {
+    BUSY_LABEL: "Busy",
+    BUSINESS: "BUSINESS",
+    ACCOUNTING: "ACCOUNTING",
+    SOFTWARE: "SOFTWARE",
+    COMPANY_SUFFIX: "company",
+    TRUSTED_BY: "Trusted by",
+    COUNT: "3,60,000+",
+    SMALL_BUSINESS: "Small Businesses across different domains",
+  },
+  STORE_LABELS: {
+    APP_STORE_TOP: "Download on the",
+    APP_STORE_BOTTOM: "App Store",
+    PLAY_STORE_TOP: "GET IT ON",
+    PLAY_STORE_BOTTOM: "Google Play",
+  },
+  PLACEHOLDERS: {
+    MOBILE_NUMBER: "Enter Mobile Number",
+  },
+  BUTTONS: {
+    SEND_LINK: "Send me the link",
+  },
+  ALERT_PREFIX: "Link will be sent to +91",
 } as const;
