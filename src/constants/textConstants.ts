@@ -4,3 +4,7 @@ export const AUTH_TEXT = {
     LOGIN: "Login",
     REGISTER: "Register",
 } as const;
+
+export const DASHBOARD_TEXT = {
+    DASHBOARD: "dashboard"
+}

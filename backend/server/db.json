@@ -1,0 +1,29 @@
+{
+  "contacts": [
+    {
+      "name": "uma",
+      "id": "b0ae"
+    },
+    {
+      "id": "e009"
+    }
+  ],
+  "categories": [
+    {
+      "name": "agrochemicals"
+    },
+    {
+      "name": "fruits",
+      "types": [
+        {
+          "name": "apple"
+        }
+      ]
+    }
+  ],
+  "rawData": [
+    {
+      "name": "daat1"
+    }
+  ]
+}

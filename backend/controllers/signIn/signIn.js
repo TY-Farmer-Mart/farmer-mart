@@ -13,7 +13,8 @@ const signIn = async (req, res) => {
     // 1. Find user by email
     const user = await auth.findOne({ email });
 
-    console.log("user", user);
+    console.log("user data from DB", user);
+    console.log("user data password", user.password);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -42,6 +43,7 @@ const signIn = async (req, res) => {
         id: user._id,
         email: user.email,
         name: user.name,
+        password: user.password,
       },
     });
   } catch (error) {
