@@ -9,34 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { currencyFormatter } from "@/utils/helpers";
-
-interface Product {
-  itemName: string;
-  price?: number | string;
-  quantity?: string;
-  imageUrl: string;
-}
-
-interface Supplier {
-  sellerName: string;
-  location: string;
-  verified?: boolean;
-  memberYears?: string;
-  rating?: number | string;
-  responseRate?: string;
-  products?: Product[];
-}
-
-interface SupplierStats {
-  roundedRating: number;
-  reviewCount: number;
-}
-
-interface ParsedQuantity {
-  amount: number | null;
-  unit: string | null;
-  label: string;
-}
+import { ParsedQuantity, Supplier, SupplierStats } from "@/types/productTypes";
 
 function ProductList() {
   const suppliers: Supplier[] = useMemo(
