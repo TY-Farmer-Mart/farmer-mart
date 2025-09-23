@@ -5,7 +5,7 @@
 # Run sever 
   command line - npm start 
 # you will see Api 
-  http://localhost:7001/products
+  http://localhost:7000/products
 
 ----------------------------------------------------------------------------------------- 
 # React + TypeScript + Vite
