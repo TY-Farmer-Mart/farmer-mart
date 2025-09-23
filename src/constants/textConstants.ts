@@ -84,3 +84,15 @@ export const LANDING_TEXT = {
   },
   ALERT_PREFIX: "Link will be sent to +91",
 } as const;
+export const MARKET_TEXT = {
+    LOGO:'FarmerMart',
+    REGISTERBTN:"Register",
+    LOGINBTN:"Login",
+    EMPOWERING_TAG:"Empowering Farmers to Sell Their Products Online 🚜",
+    HERO_TEXT:"We connect Buyers & Sellers",
+    HERO_SUB:"IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+    TITLE_ICON1: "Trusted Platform",
+    TITLE_ICON2: "Safe & Secure",
+    TITLE_ICON3: "Quick Assistance",
+
+}

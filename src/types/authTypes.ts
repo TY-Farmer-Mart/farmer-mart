@@ -1,6 +1,6 @@
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "social" | "viewAll";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "social"|"viewAll";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
@@ -16,3 +16,5 @@ export interface InputProps
   rightIcon?: React.ReactNode;
   size?: "sm" | "md" | "lg";
 }
+
+

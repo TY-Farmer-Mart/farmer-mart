@@ -433,3 +433,5 @@ export const Market_Category_data: CategoryData = {
     },
   ],
 };
+
+export const heroIcons = []
