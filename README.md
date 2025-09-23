@@ -1,3 +1,13 @@
+# To run server to go path through terminal 
+  path : farmer-mart\backend\server
+# Install package 
+   command line - npm install 
+# Run sever 
+  command line - npm start 
+# you will see Api 
+  http://localhost:7000/products
+
+----------------------------------------------------------------------------------------- 
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

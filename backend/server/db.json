@@ -1,0 +1,588 @@
+{
+    "products": {
+        "tomato": {
+            "list": [
+                {
+                    "id": "TOM001",
+                    "itemName": "Tomato",
+                    "price": 40.0,
+                    "quantity": "20 kg",
+                    "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
+                    "sellerName": "Hyderabad Fresh Vegetables",
+                    "location": "Hyderabad - Abids",
+                    "category": "Vegetables",
+                    "rating": 4.3
+                },
+                {
+                    "id": "TOM002",
+                    "itemName": "Tomato",
+                    "price": 35.0,
+                    "quantity": "20 kg",
+                    "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
+                    "sellerName": "Basavanagudi Veg Traders",
+                    "location": "Bengaluru - Basavanagudi",
+                    "category": "Vegetables",
+                    "rating": 4.2
+                },
+                {
+                    "id": "TOM003",
+                    "itemName": "Tomato",
+                    "price": 45.0,
+                    "quantity": "20 kg",
+                    "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
+                    "sellerName": "Andheri Market Supplier",
+                    "location": "Mumbai - Andheri",
+                    "category": "Vegetables",
+                    "rating": 4.1
+                },
+                {
+                    "id": "TOM004",
+                    "itemName": "Tomato",
+                    "price": 38.0,
+                    "quantity": "20 kg",
+                    "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
+                    "sellerName": "Park Street Greens",
+                    "location": "Kolkata - Park Street",
+                    "category": "Vegetables",
+                    "rating": 4.4
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹20 and Below",
+                        "₹21-₹40",
+                        "₹41-₹60",
+                        "₹61 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Bengaluru-based Suppliers",
+                        "Organic Available",
+                        "Local Farmers"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Cooking",
+                        "Processing",
+                        "Canning"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Retailer",
+                        "Food Processor"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Leafy Vegetables",
+                            "image": "https://3.imimg.com/data3/FN/KW/GLADMIN-171253/agriculture-production-services-125x125.jpg"
+                        },
+                        {
+                            "label": "Root Vegetables",
+                            "image": "https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg"
+                        },
+                        {
+                            "label": "Vegetable Seeds",
+                            "image": "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "tomato wholesale",
+                        "fresh tomato",
+                        "organic tomato"
+                    ]
+                }
+            ]
+        },
+        "potato": {
+            "list": [
+                {
+                    "id": "POT001",
+                    "itemName": "Potato",
+                    "price": 30.0,
+                    "quantity": "1 kg",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg",
+                    "sellerName": "Shivajinagar Potatoes",
+                    "location": "Pune - Shivajinagar",
+                    "category": "Vegetables",
+                    "rating": 4.0
+                },
+                {
+                    "id": "POT002",
+                    "itemName": "Potato",
+                    "price": 25.0,
+                    "quantity": "1 kg",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg",
+                    "sellerName": "Navrangpura Veg Supplier",
+                    "location": "Ahmedabad - Navrangpura",
+                    "category": "Vegetables",
+                    "rating": 4.2
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹10 and Below",
+                        "₹11-₹30",
+                        "₹31-₹60",
+                        "₹61 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Local Produce",
+                        "Cold Storage Available",
+                        "Bengaluru-based Suppliers"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Cooking",
+                        "Fry Processing",
+                        "Seed Potatoes"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Retailer",
+                        "Processor"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Root Vegetables",
+                            "image": "https://3.imimg.com/data3/FU/EW/GLADMIN-3179/agricultural-pesticides-125x125.jpg"
+                        },
+                        {
+                            "label": "Potato Seeds & Tubers",
+                            "image": "https://3.imimg.com/data3/YU/RG/GLADMIN-69082/press-mud-125x125.jpg"
+                        },
+                        {
+                            "label": "Storage Solutions",
+                            "image": "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "fresh potato",
+                        "potato wholesale",
+                        "potato seed lot"
+                    ]
+                }
+            ]
+        },
+        "greenChilli": {
+            "list": [
+                {
+                    "id": "CHI001",
+                    "itemName": "Green Chilli",
+                    "price": 80.0,
+                    "quantity": "500 g",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/538392701/KP/HL/NK/108265937/dookan-green-chilli-hari-mirch-250g-d51e7a7b-5ab1-49ad-a7f9-80c1fe1b932f-250x250.jpg",
+                    "sellerName": "Farm Fresh Traders",
+                    "location": "Pune - Shivajinagar",
+                    "category": "Vegetables",
+                    "rating": 4.6
+                },
+                {
+                    "id": "CHI002",
+                    "itemName": "Green Chilli",
+                    "price": 65.0,
+                    "quantity": "500 g",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/538392701/KP/HL/NK/108265937/dookan-green-chilli-hari-mirch-250g-d51e7a7b-5ab1-49ad-a7f9-80c1fe1b932f-250x250.jpg",
+                    "sellerName": "Nagartapete Chillies",
+                    "location": "Bengaluru - Nagartapete",
+                    "category": "Vegetables",
+                    "rating": 4.5
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹30-₹60",
+                        "₹61-₹90",
+                        "₹91-₹150",
+                        "₹151 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Spicy Variety",
+                        "Organic",
+                        "Chilli Paste Ready"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Cooking",
+                        "Pickling",
+                        "Paste Production"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Exporter",
+                        "Retailer"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Chilli Powders",
+                            "image": "https://3.imimg.com/data3/FN/KW/GLADMIN-171253/agriculture-production-services-125x125.jpg"
+                        },
+                        {
+                            "label": "Pickling Supplies",
+                            "image": "https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg"
+                        },
+                        {
+                            "label": "Spice Seeds",
+                            "image": "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "green chilli bulk",
+                        "organic green chilli",
+                        "chilli paste"
+                    ]
+                }
+            ]
+        },
+        "mango": {
+            "list": [
+                {
+                    "id": "MAN001",
+                    "itemName": "Mangoes",
+                    "price": 120.0,
+                    "quantity": "1 dozen",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg",
+                    "sellerName": "Mango King Farms",
+                    "location": "Ratnagiri",
+                    "category": "Fruits",
+                    "rating": 4.8
+                },
+                {
+                    "id": "MAN002",
+                    "itemName": "Mangoes",
+                    "price": 100.0,
+                    "quantity": "1 dozen",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg",
+                    "sellerName": "Delhi Fruits Supplier",
+                    "location": "Delhi - Karol Bagh",
+                    "category": "Fruits",
+                    "rating": 4.5
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹50-₹100",
+                        "₹101-₹200",
+                        "₹201-₹500",
+                        "₹501 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Seasonal",
+                        "Organic",
+                        "Premium Grade"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Direct Consumption",
+                        "Juice",
+                        "Processing"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Retailer",
+                        "Exporter"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Tropical Fruits",
+                            "image": "https://3.imimg.com/data3/FU/EW/GLADMIN-3179/agricultural-pesticides-125x125.jpg"
+                        },
+                        {
+                            "label": "Fruit Pulp",
+                            "image": "https://3.imimg.com/data3/YU/RG/GLADMIN-69082/press-mud-125x125.jpg"
+                        },
+                        {
+                            "label": "Juice Concentrates",
+                            "image": "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "ratnagiri mango",
+                        "mango bulk",
+                        "alphonso mango"
+                    ]
+                }
+            ]
+        },
+        "banana": {
+            "list": [
+                {
+                    "id": "BAN001",
+                    "itemName": "Banana",
+                    "price": 60.0,
+                    "quantity": "1 dozen",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg",
+                    "sellerName": "Tropical Fruits Supplier",
+                    "location": "Kerala",
+                    "category": "Fruits",
+                    "rating": 4.4
+                },
+                {
+                    "id": "BAN002",
+                    "itemName": "Banana",
+                    "price": 55.0,
+                    "quantity": "1 dozen",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg",
+                    "sellerName": "Basavanagudi Fruit Mart",
+                    "location": "Bengaluru - Basavanagudi",
+                    "category": "Fruits",
+                    "rating": 4.1
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹20-₹40",
+                        "₹41-₹70",
+                        "₹71-₹120",
+                        "₹121 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Ripened Naturally",
+                        "Organic",
+                        "Bunch Pack"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Direct Consumption",
+                        "Smoothies",
+                        "Processing"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Retailer"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Tropical Fruits",
+                            "image": "https://3.imimg.com/data3/FN/KW/GLADMIN-171253/agriculture-production-services-125x125.jpg"
+                        },
+                        {
+                            "label": "Fruit Ripening Services",
+                            "image": "https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg"
+                        },
+                        {
+                            "label": "Banana Chips Supplies",
+                            "image": "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "banana wholesale",
+                        "kerala banana",
+                        "organic banana"
+                    ]
+                }
+            ]
+        },
+        "watermelon": {
+            "list": [
+                {
+                    "id": "WAT001",
+                    "itemName": "Watermelon",
+                    "price": 25.0,
+                    "quantity": "1 piece",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/DQ/PA/CR/53611229/fresh-beans-250x250.jpeg",
+                    "sellerName": "Summer Fruits Traders",
+                    "location": "Nagpur",
+                    "category": "Fruits",
+                    "rating": 4.3
+                },
+                {
+                    "id": "WAT002",
+                    "itemName": "Watermelon",
+                    "price": 30.0,
+                    "quantity": "1 piece",
+                    "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/DQ/PA/CR/53611229/fresh-beans-250x250.jpeg",
+                    "sellerName": "Hyderabad Fruit Depot",
+                    "location": "Hyderabad - Abids",
+                    "category": "Fruits",
+                    "rating": 4.2
+                }
+            ],
+            "filter": [
+                {
+                    "type": "text",
+                    "title": "Price",
+                    "options": [
+                        "₹10-₹25",
+                        "₹26-₹40",
+                        "₹41-₹80",
+                        "₹81 and Above"
+                    ],
+                    "showRange": true
+                },
+                {
+                    "type": "filter",
+                    "title": "Filters",
+                    "options": [
+                        "Seasonal",
+                        "Seedless",
+                        "Bengaluru-based Suppliers"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Usage/Application",
+                    "options": [
+                        "Direct Consumption",
+                        "Juice",
+                        "Events"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Business Type",
+                    "options": [
+                        "Farmer",
+                        "Wholesaler",
+                        "Retailer"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Related Category",
+                    "options": [
+                        {
+                            "label": "Melons & Cucurbits",
+                            "image": "https://3.imimg.com/data3/FU/EW/GLADMIN-3179/agricultural-pesticides-125x125.jpg"
+                        },
+                        {
+                            "label": "Fruit Trays",
+                            "image": "https://3.imimg.com/data3/YU/RG/GLADMIN-69082/press-mud-125x125.jpg"
+                        },
+                        {
+                            "label": "Juice Machines",
+                            "image": "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "title": "Recommended Searches",
+                    "options": [
+                        "watermelon wholesale",
+                        "seedless watermelon",
+                        "fresh watermelon"
+                    ]
+                }
+            ]
+        }
+    }
+}
