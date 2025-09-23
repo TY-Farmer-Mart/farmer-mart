@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
 import Footer from "@/components/common/Footer";
-import { Home, User, Settings, LogOut, TextAlignJustify } from "lucide-react";
+import {
+  Home,
+  User,
+  Settings,
+  LogOut,
+  TextAlignJustify,
+  X,
+} from "lucide-react";
 import { menuItem } from "@/types/sideBar";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSideBar } from "@/redux/dashBoardSlice";
 
 
 const HomeLayout: React.FC = () => {
-  const [toggle, setToggle] = useState(false);
+  const toggle = useSelector(state => state);
+  const dispatch = useDispatch();
   const menuItems: menuItem[] = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
     { name: "Profile", icon: <User size={20} />, path: "/profile" },
@@ -15,13 +25,13 @@ const HomeLayout: React.FC = () => {
     { name: "Logout", icon: <LogOut size={20} />, path: "/" },
   ];
   return (
-    <div className="h-screen bg-gray-200">
+    <div className="h-screen">
       <div className="flex relative">
         <button
           className="sm:hidden absolute top-2 left-2 z-10"
-          onClick={() => setToggle(!toggle)}
+          onClick={() => dispatch(toggleSideBar())}
         >
-          <TextAlignJustify />
+          {toggle ? <X /> : <TextAlignJustify />}
         </button>
 
 
@@ -44,15 +54,17 @@ const HomeLayout: React.FC = () => {
           />
         </div>
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4">
+        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-gray-200">
           <div className="p-6">
             <Outlet />
           </div>
         </main>
       </div>
-      <div className="pb-4">
-        <Footer />
-      </div>
+      {
+        <div className="pb-4">
+          <Footer />
+        </div>
+      }
     </div>
   );
 };

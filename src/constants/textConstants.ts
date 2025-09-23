@@ -77,6 +77,8 @@ export const MORE_FOR_YOU_TEXT = {
   ],
 } as const;
 
+
+
 export const LANDING_TEXT = {
   HERO_TITLE: "Accounting Software",
   HERO_SUBTITLE:
@@ -134,6 +136,24 @@ export const REQUIREMENTFORM_TEXT = {
   TITLE2: "I want quotes for",
   BUTTON_TEXT: "Submit Requirement",
 };
+export const ROLE_OPTIONS = [
+  { label: "Admin", value: "admin" },
+  { label: "User", value: "user" },
+  { label: "Vendor/Farmer", value: "vendor" },
+  { label: "Consultant", value: "consultant" },
+] as const;
+  LOGO: "FarmerMart",
+  REGISTERBTN: "Register",
+  LOGINBTN: "Login",
+  EMPOWERING_TAG: "Empowering Farmers to Sell Their Products Online 🚜",
+  HERO_TEXT: "We connect Buyers & Sellers",
+  HERO_SUB:
+    "IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+  TITLE_ICON1: "Trusted Platform",
+  TITLE_ICON2: "Safe & Secure",
+  TITLE_ICON3: "Quick Assistance",
+};
+
 export const ROLE_OPTIONS = [
   { label: "Admin", value: "admin" },
   { label: "User", value: "user" },
