@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../../components/common/ui/Button";
 import { Input } from "../../components/common/ui/Input";
+import { REQUIREMENTFORM_TEXT } from "../../constants/textConstants";
 
 const RequirementForm: React.FC = () => {
   const [query, setQuery] = React.useState("");
@@ -13,7 +14,7 @@ const RequirementForm: React.FC = () => {
   return (
     <div className="max-w-xl mx-auto p-6 border border-gray-300 rounded-lg shadow-sm bg-white">
       <h2 className="text-xl md:text-2xl font-medium text-center text-indigo-900 mb-4">
-        Tell us what you need, and we'll help you get quotes
+        {REQUIREMENTFORM_TEXT.TITLE1}
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -22,7 +23,8 @@ const RequirementForm: React.FC = () => {
             htmlFor="requirement"
             className="whitespace-nowrap text-base font-medium text-gray-700"
           >
-            I want quotes for<span className="text-red-500">*</span>
+            {REQUIREMENTFORM_TEXT.TITLE2}
+            <span className="text-red-500">*</span>
           </label>
           <Input
             type="text"
@@ -36,7 +38,7 @@ const RequirementForm: React.FC = () => {
 
         <div className="flex justify-center">
           <Button type="submit" variant="primary" size="md">
-            Submit Requirement
+            {REQUIREMENTFORM_TEXT.BUTTON_TEXT}
           </Button>
         </div>
       </form>

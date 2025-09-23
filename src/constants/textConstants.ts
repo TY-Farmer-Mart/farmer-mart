@@ -96,3 +96,9 @@ export const MARKET_TEXT = {
     TITLE_ICON3: "Quick Assistance",
 
 }
+
+export const REQUIREMENTFORM_TEXT = {
+  TITLE1: "Tell us what you need, and we'll help you get quotes",
+  TITLE2: "I want quotes for",
+  BUTTON_TEXT: "Submit Requirement",
+};
