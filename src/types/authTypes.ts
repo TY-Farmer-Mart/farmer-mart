@@ -17,4 +17,9 @@ export interface InputProps
   size?: "sm" | "md" | "lg";
 }
 
-
+export interface CartItem {
+  id?: number;
+  textTop?: string;
+  textBottom?: string;
+  Btn?: string;
+}

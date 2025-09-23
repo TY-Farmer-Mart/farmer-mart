@@ -45,6 +45,10 @@ export const MORE_FOR_YOU_TEXT = {
   ],
 } as const;
 
+export const DASHBOARD_TEXT = {
+  DASHBOARD_CART :"Buyer Testimonials"
+} as const;
+
 export const LANDING_TEXT = {
   HERO_TITLE: "Accounting Software",
   HERO_SUBTITLE:
