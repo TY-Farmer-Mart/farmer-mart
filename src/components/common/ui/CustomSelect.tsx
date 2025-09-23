@@ -1,17 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import {CustomSelectProps} from "@/types/marketTypes";
 
-interface Option {
-  value: string;
-  label: string;
-}
-
-interface CustomSelectProps {
-  value: string;
-  onChange: (value: string) => void;
-  options: Option[];
-  placeholder?: string;
-  className?: string; // optional extra classes
-}
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
   value,

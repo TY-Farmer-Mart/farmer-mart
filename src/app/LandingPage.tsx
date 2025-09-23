@@ -14,7 +14,6 @@ export default function LandingPage() {
       <CategoryList />
       <MoreForYou />
       <FarmerMartLanding />
-
        <Footer/>
     </div>
   );
