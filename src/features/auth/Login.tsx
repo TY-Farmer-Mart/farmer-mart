@@ -18,7 +18,7 @@ const Login = () => {
 
   const handleSubmit = (values: LoginFormValues) => {
     console.log("Form submitted:", values);
-    navigate("/user");
+    navigate("/dashboard");
   };
 
   return (
@@ -42,7 +42,7 @@ const Login = () => {
                     className="p-2"
                   />
                   {touched.email && errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                    <p className="text-red-500 text-left text-sm mt-1">{errors.email}</p>
                   )}
                 </div>
                 <div>
@@ -58,7 +58,7 @@ const Login = () => {
                     className="p-2"
                   />
                   {touched.password && errors.password && (
-                    <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                    <p className="text-red-500 text-left text-sm mt-1">{errors.password}</p>
                   )}
                 </div>
                 <div className="flex items-center justify-between text-sm">
