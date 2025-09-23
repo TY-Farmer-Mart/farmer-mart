@@ -1,6 +1,8 @@
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
+  LOGIN_TITLE: "Login to your account",
+  REGISTER_TITLE: "Create your account",
   TITLE: "Login",
   SUBTITLE: "Log in to continue to your dashboard",
   EMAIL: "Email",
@@ -16,18 +18,25 @@ export const AUTH_TEXT = {
   SIGNUP_BUTTON: "Sign Up",
   NAME_LABEL: "Full Name",
   NAME_PLACEHOLDER: "Enter your full name",
+  PHONE_LABEL: "Phone Number",
+  PHONE_PLACEHOLDER: "Enter your phone number",
   EMAIL_LABEL: "Email Address",
   EMAIL_PLACEHOLDER: "Enter your email",
+  ROLE_LABEL: "Role",
+  ROLE_PLACEHOLDER: "Select your role",
+  GST_LABEL: "GST Number",
+  GST_PLACEHOLDER: "Enter your GST number",
   PASSWORD_LABEL: "Password",
   PASSWORD_PLACEHOLDER: "Enter your password",
   CONFIRM_PASSWORD_LABEL: "Confirm Password",
   CONFIRM_PASSWORD_PLACEHOLDER: "Re-enter your password",
-  REGISTER: "Register",
+  ABOUT_LABEL: "About",
+  ABOUT_PLACEHOLDER: "Tell us about yourself...",
   AUTH_HEADER: "Empower Your Farm With",
   AUTH_SUBHEADING: "Essential Supplies",
   AUTH_ENDING: " Management.",
-  AUTH_FOOTER: `Find everything you need
-  seeds, fertilizers. tools, and aid more – to
+  AUTH_FOOTER: `Find everything you need 
+  seeds, fertilizers. tools, and aid more – to 
   grow other to successful harvest.`,
 } as const;
 
@@ -63,7 +72,7 @@ export const MORE_FOR_YOU_TEXT = {
 } as const;
 
 export const DASHBOARD_TEXT = {
-  DASHBOARD_CART :"Buyer Testimonials"
+  DASHBOARD_CART: "Buyer Testimonials",
 } as const;
 
 export const LANDING_TEXT = {
@@ -106,14 +115,21 @@ export const LANDING_TEXT = {
   ALERT_PREFIX: "Link will be sent to +91",
 } as const;
 export const MARKET_TEXT = {
-    LOGO:'FarmerMart',
-    REGISTERBTN:"Register",
-    LOGINBTN:"Login",
-    EMPOWERING_TAG:"Empowering Farmers to Sell Their Products Online 🚜",
-    HERO_TEXT:"We connect Buyers & Sellers",
-    HERO_SUB:"IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
-    TITLE_ICON1: "Trusted Platform",
-    TITLE_ICON2: "Safe & Secure",
-    TITLE_ICON3: "Quick Assistance",
+  LOGO: "FarmerMart",
+  REGISTERBTN: "Register",
+  LOGINBTN: "Login",
+  EMPOWERING_TAG: "Empowering Farmers to Sell Their Products Online 🚜",
+  HERO_TEXT: "We connect Buyers & Sellers",
+  HERO_SUB:
+    "IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+  TITLE_ICON1: "Trusted Platform",
+  TITLE_ICON2: "Safe & Secure",
+  TITLE_ICON3: "Quick Assistance",
+};
 
-}
+export const ROLE_OPTIONS = [
+  { label: "Admin", value: "admin" },
+  { label: "User", value: "user" },
+  { label: "Vendor/Farmer", value: "vendor" },
+  { label: "Consultant", value: "consultant" },
+] as const;

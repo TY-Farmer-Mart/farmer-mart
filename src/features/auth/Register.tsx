@@ -2,114 +2,179 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
+import { SelectInput } from "@/components/common/ui/SelectInput";
+import { Textarea } from "@/components/common/ui/Textarea";
 import registerSchema from "@/schemas/registerSchema";
-import { AUTH_TEXT } from "@/constants/textConstants";
+import { AUTH_TEXT, ROLE_OPTIONS } from "@/constants/textConstants";
 
 const Register: React.FC = () => {
   const initialValues = {
     name: "",
+    phone: "",
     email: "",
+    role: "",
+    gstNumber: "",
     password: "",
     confirmPassword: "",
+    about: "",
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="hidden lg:flex w-1/2 justify-center items-center"></div>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={registerSchema}
+        onSubmit={() => {
+          alert("Register Successfully!");
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          submitCount,
+        }) => (
+          <Form className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                label={AUTH_TEXT.NAME_LABEL}
+                placeholder={AUTH_TEXT.NAME_PLACEHOLDER}
+                name="name"
+                value={values.name}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.name || submitCount > 0) && errors.name
+                    ? errors.name
+                    : ""
+                }
+              />
 
-      <div className="flex w-full lg:w-1/2 justify-center items-center p-4">
-        <div className="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            {AUTH_TEXT.REGISTER}
-          </h2>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={registerSchema}
-            onSubmit={(values) => {
-              console.log("Form Submitted:", values);
-            }}
-          >
-            {({ values, errors, touched, handleChange, handleBlur }) => (
-              <Form className="space-y-4">
-                <Input
-                  label={AUTH_TEXT.NAME_LABEL}
-                  type="text"
-                  name="name"
-                  placeholder={AUTH_TEXT.NAME_PLACEHOLDER}
-                  value={values.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="px-4 py-2"
-                  error={
-                    touched.name && typeof errors.name === "string"
-                      ? errors.name
-                      : ""
-                  }
-                />
+              <Input
+                label={AUTH_TEXT.PHONE_LABEL}
+                placeholder={AUTH_TEXT.PHONE_PLACEHOLDER}
+                name="phone"
+                value={values.phone}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.phone || submitCount > 0) && errors.phone
+                    ? errors.phone
+                    : ""
+                }
+              />
+            </div>
 
-                <Input
-                  label={AUTH_TEXT.EMAIL_LABEL}
-                  type="email"
-                  name="email"
-                  placeholder={AUTH_TEXT.EMAIL_PLACEHOLDER}
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="px-4 py-2"
-                  error={
-                    touched.email && typeof errors.email === "string"
-                      ? errors.email
-                      : ""
-                  }
-                />
+            <Input
+              label={AUTH_TEXT.EMAIL_LABEL}
+              placeholder={AUTH_TEXT.EMAIL_PLACEHOLDER}
+              name="email"
+              type="email"
+              value={values.email}
+              className="px-4 py-2"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={
+                (touched.email || submitCount > 0) && errors.email
+                  ? errors.email
+                  : ""
+              }
+            />
 
-                <Input
-                  label={AUTH_TEXT.PASSWORD_LABEL}
-                  type="password"
-                  name="password"
-                  placeholder={AUTH_TEXT.PASSWORD_PLACEHOLDER}
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="px-4 py-2"
-                  error={
-                    touched.password && typeof errors.password === "string"
-                      ? errors.password
-                      : ""
-                  }
-                />
+            <SelectInput
+              label={AUTH_TEXT.ROLE_LABEL}
+              name="role"
+              value={values.role}
+              className="px-4 py-2"
+              onChange={handleChange}
+              requiredIndicator={true}
+              onBlur={handleBlur}
+              options={ROLE_OPTIONS}
+              error={
+                (touched.role || submitCount > 0) && errors.role
+                  ? errors.role
+                  : ""
+              }
+            />
 
-                <Input
-                  label={AUTH_TEXT.CONFIRM_PASSWORD_LABEL}
-                  type="password"
-                  name="confirmPassword"
-                  placeholder={AUTH_TEXT.CONFIRM_PASSWORD_PLACEHOLDER}
-                  value={values.confirmPassword}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="px-4 py-2"
-                  error={
-                    touched.confirmPassword &&
-                    typeof errors.confirmPassword === "string"
-                      ? errors.confirmPassword
-                      : ""
-                  }
-                />
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="sm"
-                  className="w-full"
-                >
-                  {AUTH_TEXT.SIGNUP_BUTTON}
-                </Button>
-              </Form>
+            {values.role === "vendor" && (
+              <Input
+                label={AUTH_TEXT.GST_LABEL}
+                placeholder={AUTH_TEXT.GST_PLACEHOLDER}
+                name="gstNumber"
+                requiredIndicator={false}
+                value={values.gstNumber}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.gstNumber || submitCount > 0) && errors.gstNumber
+                    ? errors.gstNumber
+                    : ""
+                }
+              />
             )}
-          </Formik>
-        </div>
-      </div>
-    </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                label={AUTH_TEXT.PASSWORD_LABEL}
+                placeholder={AUTH_TEXT.PASSWORD_PLACEHOLDER}
+                name="password"
+                type="password"
+                value={values.password}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.password || submitCount > 0) && errors.password
+                    ? errors.password
+                    : ""
+                }
+              />
+
+              <Input
+                label={AUTH_TEXT.CONFIRM_PASSWORD_LABEL}
+                placeholder={AUTH_TEXT.CONFIRM_PASSWORD_PLACEHOLDER}
+                name="confirmPassword"
+                type="password"
+                value={values.confirmPassword}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.confirmPassword || submitCount > 0) &&
+                  errors.confirmPassword
+                    ? errors.confirmPassword
+                    : ""
+                }
+              />
+            </div>
+
+            <Textarea
+              label={AUTH_TEXT.ABOUT_LABEL}
+              placeholder={AUTH_TEXT.ABOUT_PLACEHOLDER}
+              name="about"
+              value={values.about}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={
+                (touched.about || submitCount > 0) && errors.about
+                  ? errors.about
+                  : ""
+              }
+            />
+
+            <Button type="submit" variant="primary" className="w-full">
+              {AUTH_TEXT.SIGNUP_BUTTON}
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 
