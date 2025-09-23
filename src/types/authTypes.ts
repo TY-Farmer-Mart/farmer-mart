@@ -22,3 +22,9 @@ export interface Product {
   image: string;
   price: string;
 }
+export interface CartItem {
+  id?: number;
+  textTop?: string;
+  textBottom?: string;
+  Btn?: string;
+}
