@@ -43,7 +43,12 @@ export interface SelectProps {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
 }
-
+export interface Product {
+  id: number;
+  name: string;
+  image: string;
+  price: string;
+}
 export interface CartItem {
   id?: number;
   textTop?: string;

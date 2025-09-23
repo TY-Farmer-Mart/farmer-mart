@@ -1,0 +1,2878 @@
+[
+  {
+    "sellerName": "Agri Supplier 1",
+    "location": "Kolkata - Park Street",
+    "category": "Rice & Grains",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Jasmine Rice",
+        "price": 85.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2025/8/540569304/FC/LX/QY/153835301/153835301-product-1756461349696-250x250.png"
+      },
+      {
+        "itemName": "Jeera Sambar Rice",
+        "price": 200.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524113983/XE/KU/RY/211460257/30-kg-akr-jeera-samba-rice-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 2",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 3.8,
+    "products": [
+      {
+        "itemName": "Tomatoes",
+        "price": 45.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Onions",
+        "price": 35.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314735599/XR/IC/SJ/562159/onion-250x250.jpg"
+      },
+      {
+        "itemName": "Carrots",
+        "price": 50.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/542625277/NL/VV/FE/10325502/indam-kuroda-carrot-250x250.jpg"
+      },
+      {
+        "itemName": "Bell Peppers",
+        "price": 80.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/ZX/ET/NB/IOS-106541983/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 3",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "Fruits",
+    "rating": 4.5,
+    "products": [
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Apples",
+        "price": 180.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/10/XD/BX/KV/79148282/apple-250x250.jpg"
+      },
+      {
+        "itemName": "Bananas",
+        "price": 60.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg"
+      },
+      {
+        "itemName": "Oranges",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/503444598/FO/XJ/AG/79789623/orange-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Grapes",
+        "price": 150.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://4.imimg.com/data4/MN/IS/GLADMIN-11233712/18-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 4",
+    "location": "Kolkata - Park Street",
+    "category": "Dairy",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Cheese",
+        "price": 80.0,
+        "quantity": "2 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/515996018/BM/PO/BY/105161712/emmental-block-cheese-1-250x250.jpg"
+      },
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      },
+      {
+        "itemName": "Butter",
+        "price": 120.0,
+        "quantity": "1 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522906136/VK/OY/DC/183686328/krishna-skimmed-milk-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 5",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Turmeric Powder",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451478408/RO/GB/MP/214663241/turmeric-powder-3jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Cinnamon",
+        "price": 360.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/12/472645634/II/BX/ON/154091840/whatsapp-image-2024-12-13-at-12-11-58-444b703b-250x250.jpg"
+      },
+      {
+        "itemName": "Cloves",
+        "price": 545.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/542150762/LR/OF/EE/111432870/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 6",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Chillies",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2020/12/CW/EI/GE/5158094/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Coriander seeds",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/431008206/LX/SB/UJ/105769481/dry-coriander-seed-250x250.jpeg"
+      },
+      {
+        "itemName": "Pepper",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/7/325017427/MV/LY/CM/88400203/black-pepper-z-black-quality-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 7",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Sunflower Oils",
+        "price": 1200.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/518055249/UO/PL/AG/119715668/silk-city-wood-pressed-sunflower-oil-250x250.png"
+      },
+      {
+        "itemName": "Groundnut oil",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/546516568/HE/GY/GF/13850347/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 8",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Power Weeder Cultivator",
+        "price": 15000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/5/422630681/CZ/JB/FV/100783223/whatsapp-image-2024-05-28-at-3-23-13-pm-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Power Tiller",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/520768645/CD/GL/XB/2497808/tiller-machine-3-5hp-250x250.png"
+      },
+      {
+        "itemName": "Crop And Grain Thresher",
+        "price": 52000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446706777/PV/MN/BE/482290/amar-maize-dehusker-thresher-conveyor-lift-model-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 9",
+    "location": "Jaipur - MI Road",
+    "category": "Fertilizer",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Potassium Sulphate Fertilizer",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/3/292212470/LN/XC/SQ/14422084/potassium-sulphate-powder-250x250.png"
+      },
+      {
+        "itemName": "Nitrogen Fertilizer",
+        "price": 1500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ME/FF/MY-53132786/borax-decahydrate-powder-500x500-250x250.jpg"
+      },
+      {
+        "itemName": "Borax Decahydrate Powder",
+        "price": 250.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/5/309705110/AT/IQ/CS/13524243/potassium-humate-powder-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 10",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      },
+      {
+        "itemName": "Mosambi",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530435506/KP/UV/DY/187563545/mosambi-250x250.webp"
+      },
+      {
+        "itemName": "Guava",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451140397/SN/TU/JX/231745453/oganic-products-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Apple",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/DA/IJ/FC/45117192/kinnaur-apple-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 11",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 1500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/515219123/VV/MD/SN/150289035/10kg-parrys-sona-masoori-steam-rice-deluxe-250x250.png"
+      },
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 2500.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/482006182/DA/LW/FB/237551789/sona-masuri-rice-250x250.jpeg"
+      },
+      {
+        "itemName": "Steam Rice",
+        "price": 32.5,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/IL/KH/MY-66921954/steamed-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446892885/GZ/IH/XP/562159/1121-rice-basmati-rice-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 12",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Pepper Deconing Machine",
+        "price": 150000.0,
+        "quantity": "5 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493470922/PR/KO/SQ/532026/01-250x250.jpg"
+      },
+      {
+        "itemName": "Power Weeder",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/345263521/NV/DT/XH/68636371/7-hp-power-weeder-250x250.png"
+      },
+      {
+        "itemName": "Bed Maker Machine",
+        "price": 32000.0,
+        "quantity": "30 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/544585181/GR/XA/QT/250325331/bed-maker-machine-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 13",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Sintex Water Tank",
+        "price": 60000.0,
+        "quantity": "1000 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/2/JJ/ED/KZ/1742686/water-tanks-250x250.jpg"
+      },
+      {
+        "itemName": "Bharat Water Tank",
+        "price": 45000.0,
+        "quantity": "500 L",
+        "imageUrl": "https://5.imimg.com/data5/GY/JY/MY-2636080/water-tank-250x250.jpg"
+      },
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 14",
+    "location": "Delhi - Karol Bagh",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 15",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Green Chilli",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/538392701/KP/HL/NK/108265937/dookan-green-chilli-hari-mirch-250g-d51e7a7b-5ab1-49ad-a7f9-80c1fe1b932f-250x250.jpg"
+      },
+      {
+        "itemName": "Potato",
+        "price": 25.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 16",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Olive Oil",
+        "price": 800.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2023/2/HD/ZM/GJ/8638825/soguk-sikim-cold-pressed-oil-1675410602634-250x250.jpg"
+      },
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Palm Oil",
+        "price": 120.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524492412/HU/VR/UG/128225669/cp10-palm-oil-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 17",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Liquid Fertilizer",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/PV/IB/PL/5720948/indiamart-pholyphos-250x250.png"
+      },
+      {
+        "itemName": "Compost Fertilizer",
+        "price": 350.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/504244083/EB/CO/KN/206847601/raita-mitra-neem-seed-compost-powder-for-plants-organic-fertilizer-pest-repellent-250x250.jpg"
+      },
+      {
+        "itemName": "Organic Fertilizer",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/6/521107121/MD/ES/WI/202737035/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 18",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      },
+      {
+        "itemName": "Star Anise",
+        "price": 2000.0,
+        "quantity": "5 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/478254088/FC/VB/LD/111274010/whatsapp-image-2025-01-03-at-5-20-54-pm-1-250x250.jpeg"
+      },
+      {
+        "itemName": "Tamarind Powder",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/3/398029714/HU/OV/IC/1310587/tamarind-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 19",
+    "location": "Hyderabad - Abids",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Dairy Creame",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/6/XV/UU/KW/19736347/img-20210615-wa0002-250x250.jpg"
+      },
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      },
+      {
+        "itemName": "Dairy Whitener",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/534270974/JM/SW/HJ/151845639/amul-t-special-dairy-whitener-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 20",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      },
+      {
+        "itemName": "Banana",
+        "price": 50.0,
+        "quantity": "200 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499493288/FC/OZ/QX/241033208/loose-fresh-banana-250x250.png"
+      },
+      {
+        "itemName": "Watermelon",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/DQ/PA/CR/53611229/fresh-beans-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 21",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Sunflower Seeds",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499257911/ZN/ZB/AA/27649943/dried-sunflower-seed-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 22",
+    "location": "Mumbai - Andheri",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Mushroom",
+        "price": 60.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315035508/BQ/DO/MN/51670759/mojo-button-mushroom-250x250.jpg"
+      },
+      {
+        "itemName": "Babycorn",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/8/HA/VZ/OV/143320329/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Oyester Mushroom",
+        "price": 200.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/489422125/FU/UG/ND/117063425/oyster-mushroom-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 23",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Drumsticks",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/5/NZ/IP/DL/24727448/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Garlic",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486331830/PT/UQ/GA/239154742/organic-fresh-garlic-250x250.jpg"
+      },
+      {
+        "itemName": "Ginger",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/5/511696645/UE/PL/SM/237437149/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 24",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Jasmine Rice",
+        "price": 85.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2025/8/540569304/FC/LX/QY/153835301/153835301-product-1756461349696-250x250.png"
+      },
+      {
+        "itemName": "Jeera Sambar Rice",
+        "price": 200.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524113983/XE/KU/RY/211460257/30-kg-akr-jeera-samba-rice-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 25",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 26",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      },
+      {
+        "itemName": "Apple",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/DA/IJ/FC/45117192/kinnaur-apple-250x250.jpg"
+      },
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 27",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Guava",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451140397/SN/TU/JX/231745453/oganic-products-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Coriander seeds",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/431008206/LX/SB/UJ/105769481/dry-coriander-seed-250x250.jpeg"
+      },
+      {
+        "itemName": "Turmeric Powder",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451478408/RO/GB/MP/214663241/turmeric-powder-3jpeg-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 28",
+    "location": "Hyderabad - Abids",
+    "category": "General",
+    "rating": 4.5,
+    "products": [
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 29",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      },
+      {
+        "itemName": "Steam Rice",
+        "price": 32.5,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/IL/KH/MY-66921954/steamed-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 30",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.1,
+    "products": [
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Banana",
+        "price": 50.0,
+        "quantity": "200 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499493288/FC/OZ/QX/241033208/loose-fresh-banana-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 31",
+    "location": "Mumbai - Andheri",
+    "category": "General",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 32",
+    "location": "Mumbai - Andheri",
+    "category": "General",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      },
+      {
+        "itemName": "Grapes",
+        "price": 150.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://4.imimg.com/data4/MN/IS/GLADMIN-11233712/18-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 33",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      },
+      {
+        "itemName": "Oyester Mushroom",
+        "price": 200.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/489422125/FU/UG/ND/117063425/oyster-mushroom-250x250.jpg"
+      },
+      {
+        "itemName": "Potato",
+        "price": 25.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 34",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Pepper",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/7/325017427/MV/LY/CM/88400203/black-pepper-z-black-quality-250x250.jpg"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Steam Rice",
+        "price": 32.5,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/IL/KH/MY-66921954/steamed-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Groundnut oil",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/546516568/HE/GY/GF/13850347/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 35",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "Fruits",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Apple",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/DA/IJ/FC/45117192/kinnaur-apple-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 36",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 3.6,
+    "products": [
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Potassium Sulphate Fertilizer",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/3/292212470/LN/XC/SQ/14422084/potassium-sulphate-powder-250x250.png"
+      },
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 37",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Sunflower Seeds",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499257911/ZN/ZB/AA/27649943/dried-sunflower-seed-250x250.png"
+      },
+      {
+        "itemName": "Garlic",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486331830/PT/UQ/GA/239154742/organic-fresh-garlic-250x250.jpg"
+      },
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 38",
+    "location": "Kolkata - Park Street",
+    "category": "Rice & Grains",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Banana",
+        "price": 50.0,
+        "quantity": "200 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499493288/FC/OZ/QX/241033208/loose-fresh-banana-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 39",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 3.9,
+    "products": [
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Babycorn",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/8/HA/VZ/OV/143320329/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Power Weeder",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/345263521/NV/DT/XH/68636371/7-hp-power-weeder-250x250.png"
+      },
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 40",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Jeera Sambar Rice",
+        "price": 200.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524113983/XE/KU/RY/211460257/30-kg-akr-jeera-samba-rice-250x250.png"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 41",
+    "location": "Mumbai - Andheri",
+    "category": "General",
+    "rating": 4.4,
+    "products": [
+      {
+        "itemName": "Jeera Sambar Rice",
+        "price": 200.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524113983/XE/KU/RY/211460257/30-kg-akr-jeera-samba-rice-250x250.png"
+      },
+      {
+        "itemName": "Liquid Fertilizer",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/PV/IB/PL/5720948/indiamart-pholyphos-250x250.png"
+      },
+      {
+        "itemName": "Cloves",
+        "price": 545.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/542150762/LR/OF/EE/111432870/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 42",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446892885/GZ/IH/XP/562159/1121-rice-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Oranges",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/503444598/FO/XJ/AG/79789623/orange-jpeg-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 43",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Pepper",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/7/325017427/MV/LY/CM/88400203/black-pepper-z-black-quality-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446892885/GZ/IH/XP/562159/1121-rice-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Sintex Water Tank",
+        "price": 60000.0,
+        "quantity": "1000 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/2/JJ/ED/KZ/1742686/water-tanks-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 44",
+    "location": "Kolkata - Park Street",
+    "category": "Dairy",
+    "rating": 3.5,
+    "products": [
+      {
+        "itemName": "Green Chilli",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/538392701/KP/HL/NK/108265937/dookan-green-chilli-hari-mirch-250g-d51e7a7b-5ab1-49ad-a7f9-80c1fe1b932f-250x250.jpg"
+      },
+      {
+        "itemName": "Bharat Water Tank",
+        "price": 45000.0,
+        "quantity": "500 L",
+        "imageUrl": "https://5.imimg.com/data5/GY/JY/MY-2636080/water-tank-250x250.jpg"
+      },
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 45",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Dairy Creame",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/6/XV/UU/KW/19736347/img-20210615-wa0002-250x250.jpg"
+      },
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Power Tiller",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/520768645/CD/GL/XB/2497808/tiller-machine-3-5hp-250x250.png"
+      },
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 46",
+    "location": "Jaipur - MI Road",
+    "category": "Fertilizer",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Sintex Water Tank",
+        "price": 60000.0,
+        "quantity": "1000 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/2/JJ/ED/KZ/1742686/water-tanks-250x250.jpg"
+      },
+      {
+        "itemName": "Jeera Sambar Rice",
+        "price": 200.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524113983/XE/KU/RY/211460257/30-kg-akr-jeera-samba-rice-250x250.png"
+      },
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 47",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 3.8,
+    "products": [
+      {
+        "itemName": "Borax Decahydrate Powder",
+        "price": 250.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/5/309705110/AT/IQ/CS/13524243/potassium-humate-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Carrots",
+        "price": 50.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/542625277/NL/VV/FE/10325502/indam-kuroda-carrot-250x250.jpg"
+      },
+      {
+        "itemName": "Ginger",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/5/511696645/UE/PL/SM/237437149/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 48",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 49",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "Fruits",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 2500.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/482006182/DA/LW/FB/237551789/sona-masuri-rice-250x250.jpeg"
+      },
+      {
+        "itemName": "Potato",
+        "price": 25.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Babycorn",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/8/HA/VZ/OV/143320329/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Butter",
+        "price": 120.0,
+        "quantity": "1 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522906136/VK/OY/DC/183686328/krishna-skimmed-milk-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 50",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Basmati Rice",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446892885/GZ/IH/XP/562159/1121-rice-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Cinnamon",
+        "price": 360.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/12/472645634/II/BX/ON/154091840/whatsapp-image-2024-12-13-at-12-11-58-444b703b-250x250.jpg"
+      },
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 51",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Organic Fertilizer",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/6/521107121/MD/ES/WI/202737035/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Turmeric Powder",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451478408/RO/GB/MP/214663241/turmeric-powder-3jpeg-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 52",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Mosambi",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530435506/KP/UV/DY/187563545/mosambi-250x250.webp"
+      },
+      {
+        "itemName": "Mushroom",
+        "price": 60.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315035508/BQ/DO/MN/51670759/mojo-button-mushroom-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 53",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Apples",
+        "price": 180.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/10/XD/BX/KV/79148282/apple-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Cheese",
+        "price": 80.0,
+        "quantity": "2 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/515996018/BM/PO/BY/105161712/emmental-block-cheese-1-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 54",
+    "location": "Hyderabad - Abids",
+    "category": "General",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/8/446892885/GZ/IH/XP/562159/1121-rice-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 55",
+    "location": "Kolkata - Park Street",
+    "category": "Rice & Grains",
+    "rating": 3.9,
+    "products": [
+      {
+        "itemName": "Sunflower Seeds",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499257911/ZN/ZB/AA/27649943/dried-sunflower-seed-250x250.png"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      },
+      {
+        "itemName": "Apple",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/DA/IJ/FC/45117192/kinnaur-apple-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 56",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.4,
+    "products": [
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Bananas",
+        "price": 60.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg"
+      },
+      {
+        "itemName": "Sintex Water Tank",
+        "price": 60000.0,
+        "quantity": "1000 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/2/JJ/ED/KZ/1742686/water-tanks-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 57",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 4.4,
+    "products": [
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      },
+      {
+        "itemName": "Apple",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/DA/IJ/FC/45117192/kinnaur-apple-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 58",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 5.0,
+    "products": [
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      },
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      },
+      {
+        "itemName": "Olive Oil",
+        "price": 800.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2023/2/HD/ZM/GJ/8638825/soguk-sikim-cold-pressed-oil-1675410602634-250x250.jpg"
+      },
+      {
+        "itemName": "Power Tiller",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/520768645/CD/GL/XB/2497808/tiller-machine-3-5hp-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 59",
+    "location": "Kolkata - Park Street",
+    "category": "Dairy",
+    "rating": 4.4,
+    "products": [
+      {
+        "itemName": "Sunflower Seeds",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499257911/ZN/ZB/AA/27649943/dried-sunflower-seed-250x250.png"
+      },
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      },
+      {
+        "itemName": "Sunflower Oils",
+        "price": 1200.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/518055249/UO/PL/AG/119715668/silk-city-wood-pressed-sunflower-oil-250x250.png"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 60",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Mosambi",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530435506/KP/UV/DY/187563545/mosambi-250x250.webp"
+      },
+      {
+        "itemName": "Jasmine Rice",
+        "price": 85.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2025/8/540569304/FC/LX/QY/153835301/153835301-product-1756461349696-250x250.png"
+      },
+      {
+        "itemName": "Nitrogen Fertilizer",
+        "price": 1500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ME/FF/MY-53132786/borax-decahydrate-powder-500x500-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 61",
+    "location": "Jaipur - MI Road",
+    "category": "Fertilizer",
+    "rating": 4.1,
+    "products": [
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Tamarind Powder",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/3/398029714/HU/OV/IC/1310587/tamarind-powder-250x250.jpeg"
+      },
+      {
+        "itemName": "Power Weeder",
+        "price": 35000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/345263521/NV/DT/XH/68636371/7-hp-power-weeder-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 62",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.5,
+    "products": [
+      {
+        "itemName": "Steam Rice",
+        "price": 32.5,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/IL/KH/MY-66921954/steamed-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Pepper Deconing Machine",
+        "price": 150000.0,
+        "quantity": "5 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493470922/PR/KO/SQ/532026/01-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 63",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 3.5,
+    "products": [
+      {
+        "itemName": "Garlic",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486331830/PT/UQ/GA/239154742/organic-fresh-garlic-250x250.jpg"
+      },
+      {
+        "itemName": "Whole Maze",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/347691481/CD/YN/HP/183671859/whole-mace-spice-250x250.jpeg"
+      },
+      {
+        "itemName": "Cloves",
+        "price": 545.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/542150762/LR/OF/EE/111432870/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 64",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      },
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Ginger",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/5/511696645/UE/PL/SM/237437149/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 65",
+    "location": "Kolkata - Park Street",
+    "category": "Dairy",
+    "rating": 4.5,
+    "products": [
+      {
+        "itemName": "Carrots",
+        "price": 50.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/542625277/NL/VV/FE/10325502/indam-kuroda-carrot-250x250.jpg"
+      },
+      {
+        "itemName": "Grapes",
+        "price": 150.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://4.imimg.com/data4/MN/IS/GLADMIN-11233712/18-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 66",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 1500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/515219123/VV/MD/SN/150289035/10kg-parrys-sona-masoori-steam-rice-deluxe-250x250.png"
+      },
+      {
+        "itemName": "Pineapple",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530434607/ZO/YV/EB/187563545/pineapples-250x250.png"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 67",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Sintex Water Tank",
+        "price": 60000.0,
+        "quantity": "1000 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/2/JJ/ED/KZ/1742686/water-tanks-250x250.jpg"
+      },
+      {
+        "itemName": "Organic Fertilizer",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/6/521107121/MD/ES/WI/202737035/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 68",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      },
+      {
+        "itemName": "Olive Oil",
+        "price": 800.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2023/2/HD/ZM/GJ/8638825/soguk-sikim-cold-pressed-oil-1675410602634-250x250.jpg"
+      },
+      {
+        "itemName": "Coriander seeds",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/431008206/LX/SB/UJ/105769481/dry-coriander-seed-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 69",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.3,
+    "products": [
+      {
+        "itemName": "Pepper Deconing Machine",
+        "price": 150000.0,
+        "quantity": "5 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493470922/PR/KO/SQ/532026/01-250x250.jpg"
+      },
+      {
+        "itemName": "Urad Dal",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/10/SN/DK/UP/57865799/urad-dal-whole-1-250x250.jpg"
+      },
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Turmeric Powder",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451478408/RO/GB/MP/214663241/turmeric-powder-3jpeg-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 70",
+    "location": "Kolkata - Park Street",
+    "category": "Rice & Grains",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      },
+      {
+        "itemName": "Steam Rice",
+        "price": 32.5,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/IL/KH/MY-66921954/steamed-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Star Anise",
+        "price": 2000.0,
+        "quantity": "5 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/478254088/FC/VB/LD/111274010/whatsapp-image-2025-01-03-at-5-20-54-pm-1-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 71",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.3,
+    "products": [
+      {
+        "itemName": "Bananas",
+        "price": 60.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg"
+      },
+      {
+        "itemName": "Palm Oil",
+        "price": 120.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524492412/HU/VR/UG/128225669/cp10-palm-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Carrots",
+        "price": 50.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/542625277/NL/VV/FE/10325502/indam-kuroda-carrot-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 72",
+    "location": "Kolkata - Park Street",
+    "category": "Rice & Grains",
+    "rating": 4.9,
+    "products": [
+      {
+        "itemName": "Compost Fertilizer",
+        "price": 350.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/504244083/EB/CO/KN/206847601/raita-mitra-neem-seed-compost-powder-for-plants-organic-fertilizer-pest-repellent-250x250.jpg"
+      },
+      {
+        "itemName": "Borax Decahydrate Powder",
+        "price": 250.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/5/309705110/AT/IQ/CS/13524243/potassium-humate-powder-250x250.jpg"
+      },
+      {
+        "itemName": "Dairy Whitener",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/534270974/JM/SW/HJ/151845639/amul-t-special-dairy-whitener-250x250.jpg"
+      },
+      {
+        "itemName": "Butter",
+        "price": 120.0,
+        "quantity": "1 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522906136/VK/OY/DC/183686328/krishna-skimmed-milk-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 73",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Pomogranate Seeds",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2023/2/RY/VJ/GJ/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Sunflower Oils",
+        "price": 1200.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/518055249/UO/PL/AG/119715668/silk-city-wood-pressed-sunflower-oil-250x250.png"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 74",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Banana",
+        "price": 50.0,
+        "quantity": "200 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/499493288/FC/OZ/QX/241033208/loose-fresh-banana-250x250.png"
+      },
+      {
+        "itemName": "Pepper",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/7/325017427/MV/LY/CM/88400203/black-pepper-z-black-quality-250x250.jpg"
+      },
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 75",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Carrots",
+        "price": 50.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/542625277/NL/VV/FE/10325502/indam-kuroda-carrot-250x250.jpg"
+      },
+      {
+        "itemName": "Cloves",
+        "price": 545.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/9/542150762/LR/OF/EE/111432870/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Tamarind Powder",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/3/398029714/HU/OV/IC/1310587/tamarind-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 76",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Pepper Deconing Machine",
+        "price": 150000.0,
+        "quantity": "5 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493470922/PR/KO/SQ/532026/01-250x250.jpg"
+      },
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 77",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "General",
+    "rating": 3.7,
+    "products": [
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      },
+      {
+        "itemName": "Pepper",
+        "price": 800.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/7/325017427/MV/LY/CM/88400203/black-pepper-z-black-quality-250x250.jpg"
+      },
+      {
+        "itemName": "Liquid Fertilizer",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/PV/IB/PL/5720948/indiamart-pholyphos-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 78",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Apples",
+        "price": 180.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/10/XD/BX/KV/79148282/apple-250x250.jpg"
+      },
+      {
+        "itemName": "Bed Maker Machine",
+        "price": 32000.0,
+        "quantity": "30 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/9/544585181/GR/XA/QT/250325331/bed-maker-machine-250x250.png"
+      },
+      {
+        "itemName": "Bananas",
+        "price": 60.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 79",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.6,
+    "products": [
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Mushroom",
+        "price": 60.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315035508/BQ/DO/MN/51670759/mojo-button-mushroom-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 80",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 4.8,
+    "products": [
+      {
+        "itemName": "Pepper Deconing Machine",
+        "price": 150000.0,
+        "quantity": "5 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493470922/PR/KO/SQ/532026/01-250x250.jpg"
+      },
+      {
+        "itemName": "Fresh Milk",
+        "price": 52.0,
+        "quantity": "10 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/3/493088926/FX/WP/IO/114068503/whatsapp-image-2025-03-04-at-10-50-28-am-1-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Onions",
+        "price": 35.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314735599/XR/IC/SJ/562159/onion-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 81",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 3.5,
+    "products": [
+      {
+        "itemName": "Butter",
+        "price": 120.0,
+        "quantity": "1 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522906136/VK/OY/DC/183686328/krishna-skimmed-milk-powder-250x250.jpeg"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      },
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 82",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 4.3,
+    "products": [
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 1500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/515219123/VV/MD/SN/150289035/10kg-parrys-sona-masoori-steam-rice-deluxe-250x250.png"
+      },
+      {
+        "itemName": "Compost Fertilizer",
+        "price": 350.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/504244083/EB/CO/KN/206847601/raita-mitra-neem-seed-compost-powder-for-plants-organic-fertilizer-pest-repellent-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 83",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 3.8,
+    "products": [
+      {
+        "itemName": "Cheese",
+        "price": 80.0,
+        "quantity": "2 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/515996018/BM/PO/BY/105161712/emmental-block-cheese-1-250x250.jpg"
+      },
+      {
+        "itemName": "Mushroom",
+        "price": 60.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315035508/BQ/DO/MN/51670759/mojo-button-mushroom-250x250.jpg"
+      },
+      {
+        "itemName": "Cucumber",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/6/424118170/BN/XU/FH/205390344/fresh-cucumber-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 84",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 4.1,
+    "products": [
+      {
+        "itemName": "Palm Oil",
+        "price": 120.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524492412/HU/VR/UG/128225669/cp10-palm-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Guava",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451140397/SN/TU/JX/231745453/oganic-products-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 85",
+    "location": "Jaipur - MI Road",
+    "category": "Fertilizer",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Babycorn",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/8/HA/VZ/OV/143320329/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 86",
+    "location": "Kolkata - Park Street",
+    "category": "General",
+    "rating": 3.9,
+    "products": [
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 2500.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/482006182/DA/LW/FB/237551789/sona-masuri-rice-250x250.jpeg"
+      },
+      {
+        "itemName": "Organic Fertilizer",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/6/521107121/MD/ES/WI/202737035/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Channa Dal",
+        "price": 180.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980120/LW/DF/FJ/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Liquid Fertilizer",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/11/PV/IB/PL/5720948/indiamart-pholyphos-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 87",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 4.9,
+    "products": [
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 2500.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/1/482006182/DA/LW/FB/237551789/sona-masuri-rice-250x250.jpeg"
+      },
+      {
+        "itemName": "Olive Oil",
+        "price": 800.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/NSDMERP/Default/2023/2/HD/ZM/GJ/8638825/soguk-sikim-cold-pressed-oil-1675410602634-250x250.jpg"
+      },
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 88",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.3,
+    "products": [
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      },
+      {
+        "itemName": "Tomatoes",
+        "price": 45.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 89",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "Fruits",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Watermelon",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/DQ/PA/CR/53611229/fresh-beans-250x250.jpeg"
+      },
+      {
+        "itemName": "Sunflower Oils",
+        "price": 1200.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/518055249/UO/PL/AG/119715668/silk-city-wood-pressed-sunflower-oil-250x250.png"
+      },
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Mosambi",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/530435506/KP/UV/DY/187563545/mosambi-250x250.webp"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 90",
+    "location": "Jaipur - MI Road",
+    "category": "General",
+    "rating": 3.6,
+    "products": [
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      },
+      {
+        "itemName": "Guava",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/9/451140397/SN/TU/JX/231745453/oganic-products-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Yogurt",
+        "price": 45.0,
+        "quantity": "5 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/9/341714004/ZF/NW/XV/129839511/frozen-yogurt-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 91",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 3.9,
+    "products": [
+      {
+        "itemName": "Combine Harvester",
+        "price": 120000.0,
+        "quantity": "10 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/1/XF/QW/MI/27113744/gom-peregrine-combine-harvester-250x250.jpg"
+      },
+      {
+        "itemName": "Dairy Creame",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/6/XV/UU/KW/19736347/img-20210615-wa0002-250x250.jpg"
+      },
+      {
+        "itemName": "Pomogranate",
+        "price": 600.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/335861753/DR/CO/LY/180361372/fresh-pomegranate-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 92",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.4,
+    "products": [
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      },
+      {
+        "itemName": "Organic Fertilizer",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/6/521107121/MD/ES/WI/202737035/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Palm Oil",
+        "price": 120.0,
+        "quantity": "20 L",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/7/524492412/HU/VR/UG/128225669/cp10-palm-oil-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 93",
+    "location": "Pune - Shivajinagar",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Mushroom",
+        "price": 60.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315035508/BQ/DO/MN/51670759/mojo-button-mushroom-250x250.jpg"
+      },
+      {
+        "itemName": "Papaya Seeds",
+        "price": 150.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SU/DL/MY-43404348/papaya-seeds-250x250.jpg"
+      },
+      {
+        "itemName": "Butter",
+        "price": 120.0,
+        "quantity": "1 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522906136/VK/OY/DC/183686328/krishna-skimmed-milk-powder-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 94",
+    "location": "Hyderabad - Abids",
+    "category": "Vegetables",
+    "rating": 4.7,
+    "products": [
+      {
+        "itemName": "Apples",
+        "price": 180.0,
+        "quantity": "15 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/10/XD/BX/KV/79148282/apple-250x250.jpg"
+      },
+      {
+        "itemName": "Mangoes",
+        "price": 120.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/314630835/LR/SM/QQ/562159/whatsapp-image-2023-05-18-at-12-36-27-1--250x250.jpeg"
+      },
+      {
+        "itemName": "Bell Peppers",
+        "price": 80.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/ZX/ET/NB/IOS-106541983/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Coconut Oil",
+        "price": 1500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/508573820/PU/JQ/QD/25828906/virgin-coconut-oil-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 95",
+    "location": "Ahmedabad - Navrangpura",
+    "category": "Fruits",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Drumsticks",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2022/5/NZ/IP/DL/24727448/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Paneer",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/490446440/IC/IN/AC/36441693/500g-farm-paneer-250x250.jpg"
+      },
+      {
+        "itemName": "Potato",
+        "price": 25.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg"
+      },
+      {
+        "itemName": "Sona Masoori Rice",
+        "price": 1500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/515219123/VV/MD/SN/150289035/10kg-parrys-sona-masoori-steam-rice-deluxe-250x250.png"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 96",
+    "location": "Kolkata - Park Street",
+    "category": "Dairy",
+    "rating": 4.9,
+    "products": [
+      {
+        "itemName": "Toor Dal",
+        "price": 325.0,
+        "quantity": "30 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2025/7/524980038/CW/QO/QA/26034809/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Bananas",
+        "price": 60.0,
+        "quantity": "25 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/6/315297085/PZ/AC/VH/562159/fresh-bananas-250x250.jpg"
+      },
+      {
+        "itemName": "Garlic",
+        "price": 500.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486331830/PT/UQ/GA/239154742/organic-fresh-garlic-250x250.jpg"
+      },
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 97",
+    "location": "Mumbai - Andheri",
+    "category": "General",
+    "rating": 4.9,
+    "products": [
+      {
+        "itemName": "Dairy Whitener",
+        "price": 2000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/534270974/JM/SW/HJ/151845639/amul-t-special-dairy-whitener-250x250.jpg"
+      },
+      {
+        "itemName": "Oranges",
+        "price": 80.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/503444598/FO/XJ/AG/79789623/orange-jpeg-250x250.jpeg"
+      },
+      {
+        "itemName": "Brown Rice",
+        "price": 75.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/6/522759093/JH/TZ/TW/61583426/loose-brown-rice-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 98",
+    "location": "Chennai - T Nagar",
+    "category": "Spices",
+    "rating": 4.9,
+    "products": [
+      {
+        "itemName": "Tomatoes",
+        "price": 45.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg"
+      },
+      {
+        "itemName": "Power Weeder Cultivator",
+        "price": 15000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2024/5/422630681/CZ/JB/FV/100783223/whatsapp-image-2024-05-28-at-3-23-13-pm-2-250x250.jpeg"
+      },
+      {
+        "itemName": "Amino acid powder",
+        "price": 500.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://2.imimg.com/data2/QW/VL/MY-575041/amino-acid-powder-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 99",
+    "location": "Bengaluru - Nagartapete",
+    "category": "General",
+    "rating": 4.2,
+    "products": [
+      {
+        "itemName": "Bell Peppers",
+        "price": 80.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/ZX/ET/NB/IOS-106541983/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Compost Fertilizer",
+        "price": 350.0,
+        "quantity": "20 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/4/504244083/EB/CO/KN/206847601/raita-mitra-neem-seed-compost-powder-for-plants-organic-fertilizer-pest-repellent-250x250.jpg"
+      },
+      {
+        "itemName": "Basmati Rice",
+        "price": 90.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/JY/CO/JB/SELLER-22909912/1121-basmati-rice-250x250.jpg"
+      }
+    ]
+  },
+  {
+    "sellerName": "Agri Supplier 100",
+    "location": "Bengaluru - Basavanagudi",
+    "category": "General",
+    "rating": 4.0,
+    "products": [
+      {
+        "itemName": "Dairy Creame",
+        "price": 500.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2021/6/XV/UU/KW/19736347/img-20210615-wa0002-250x250.jpg"
+      },
+      {
+        "itemName": "Masoor Dal",
+        "price": 520.0,
+        "quantity": "10 kg",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/2/486343131/DI/UD/RT/239154742/organic-masoor-dal-250x250.jpg"
+      },
+      {
+        "itemName": "Mustard Oil",
+        "price": 45.0,
+        "quantity": "40 kg",
+        "imageUrl": "https://5.imimg.com/data5/IOS/Default/2024/1/375792719/XE/PE/NB/38768188/product-jpeg-250x250.png"
+      },
+      {
+        "itemName": "Stainless Steel Water Storage",
+        "price": 20000.0,
+        "quantity": "20 units",
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/5/512069626/SC/QC/VK/144652273/stainless-steel-water-storage-tank-250x250.jpeg"
+      }
+    ]
+  }
+]

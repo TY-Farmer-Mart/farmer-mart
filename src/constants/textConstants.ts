@@ -40,6 +40,12 @@ export const AUTH_TEXT = {
   grow other to successful harvest.`,
 } as const;
 
+export const DASHBOARD_TEXT = {
+  DASHBOARD_CAROUSEL: "Categories You May Like",
+  CAROUSEL_BUTTON: "Get Quotes",
+  DASHBOARD_CART: "Buyer Testimonials",
+};
+
 export const MARKET_CATEGORY_PRODUCT = {
   VIEWALL_BUTTON: "View All",
 };
@@ -69,10 +75,6 @@ export const MORE_FOR_YOU_TEXT = {
       BUTTON: "Know More",
     },
   ],
-} as const;
-
-export const DASHBOARD_TEXT = {
-  DASHBOARD_CART: "Buyer Testimonials",
 } as const;
 
 export const LANDING_TEXT = {
@@ -127,6 +129,11 @@ export const MARKET_TEXT = {
   TITLE_ICON3: "Quick Assistance",
 };
 
+export const REQUIREMENTFORM_TEXT = {
+  TITLE1: "Tell us what you need, and we'll help you get quotes",
+  TITLE2: "I want quotes for",
+  BUTTON_TEXT: "Submit Requirement",
+};
 export const ROLE_OPTIONS = [
   { label: "Admin", value: "admin" },
   { label: "User", value: "user" },

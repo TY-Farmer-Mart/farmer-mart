@@ -4,7 +4,7 @@ import { getAllStates } from "india-state-district";
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
 import CustomSelect from "@/components/common/ui/CustomSelect";
-import {MARKET_TEXT} from "@/constants/textConstants"
+import { MARKET_TEXT } from "@/constants/textConstants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,7 +20,10 @@ const Header = () => {
     <header className="px-4 sm:px-6 py-3 shadow bg-white flex flex-col sm:flex-row items-center justify-between">
       <div className="flex items-center justify-between w-full sm:w-auto">
         <div className="flex-shrink-0 flex items-center font-bold text-xl text-green-700">
-          🌾 <span className="md:hidden block lg:block xl:block">{MARKET_TEXT.LOGO}</span>
+          🌾{" "}
+          <span className="md:hidden block lg:block xl:block">
+            {MARKET_TEXT.LOGO}
+          </span>
         </div>
 
         <button

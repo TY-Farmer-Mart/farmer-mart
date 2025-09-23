@@ -1,3 +1,4 @@
+import { Product } from "@/types/authTypes";
 import { FooterData } from "@/types/footerType";
 import { CategoryData } from "@/types/marketTypes";
 import FlowerSeed from "@/assets/images/FlowerSeed.jpg";
@@ -54,6 +55,56 @@ export const footer_data: FooterData = {
     "Copyright © 1996-2025 IndiaMART InterMESH Ltd. All rights reserved.",
   termsUse: "Terms of Use-Privacy Policy Link to Us",
 };
+export const products: Product[] = [
+  {
+    id: 1,
+    name: "Organic Grain",
+    image: "/src/assets/card_images/wheat.jpg",
+    price: "$18.00 / 10kg",
+  },
+  {
+    id: 2,
+    name: "Paddy ",
+    image: "/src/assets/card_images/paddy.jpg",
+    price: "$6.50",
+  },
+  {
+    id: 3,
+    name: "Fresh Cow Milk ",
+    image: "/src/assets/card_images/milk.jpg",
+    price: "$3.25",
+  },
+  {
+    id: 4,
+    name: "Honey ",
+    image: "/src/assets/card_images/honey.jpg",
+    price: "$12.00 / 500g",
+  },
+  {
+    id: 5,
+    name: "Seasonal veggies",
+    image: "/src/assets/card_images/veggies.jpg",
+    price: "$25.00 / box",
+  },
+  {
+    id: 6,
+    name: "Farm-Raised ",
+    image: "/src/assets/card_images/sunflower.jpg",
+    price: "$15.00 / kg",
+  },
+  {
+    id: 7,
+    name: "Organic Fertilizer",
+    image: "/src/assets/card_images/tractor.jpg",
+    price: "$10.00 / bag",
+  },
+  {
+    id: 8,
+    name: "Fertilizer",
+    image: "/src/assets/card_images/fertilizer.jpg",
+    price: "$7.00 / bale",
+  },
+];
 
 export const Market_Category_data: CategoryData = {
   categories: [
@@ -434,4 +485,4 @@ export const Market_Category_data: CategoryData = {
   ],
 };
 
-export const heroIcons = []
+export const heroIcons = [];
