@@ -26,6 +26,7 @@ export default defineConfig({
       "@store": path.resolve(__dirname, "src/store"),
       "@": path.resolve(__dirname, "src"),
       "@schemas": path.resolve(__dirname, "src/schemas"),
+      "@types": path.resolve(__dirname, "src/types"),
     },
   },
   optimizeDeps: {
