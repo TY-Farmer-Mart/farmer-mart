@@ -1,10 +1,12 @@
+import Footer from '@/components/common/Footer'
+import Sidebar from '@/components/common/Sidebar'
 import React from 'react'
 
 const SearchLayout:React.FC = () => {
   return (
     <div className="h-screen w-600px flex flex-col">
       <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
-        Farmer Mart
+       <Sidebar />
       </header>
  
       <nav className="flex-[1] border-2 text-black flex items-center px-6 font-medium">
@@ -33,6 +35,7 @@ const SearchLayout:React.FC = () => {
           </p>
         </main>
       </div>
+      <Footer />
     </div>
 
   )
