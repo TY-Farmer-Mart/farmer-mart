@@ -1,20 +1,16 @@
-import Footer from '@/components/common/Footer'
-import Sidebar from '@/components/common/Sidebar'
-import React from 'react'
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import React from "react";
 
-const SearchLayout:React.FC = () => {
+const SearchLayout: React.FC = () => {
   return (
     <div className="h-screen w-600px flex flex-col">
-      <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
-       <Sidebar />
-      </header>
- 
+      <Header />
       <nav className="flex-[1] border-2 text-black flex items-center px-6 font-medium">
         📍 Location: Bangalore, India
       </nav>
- 
-      <div className="flex-[8] flex w-full">
 
+      <div className="flex-[8] flex w-full">
         <aside className="w-1/5 border-2 p-4">
           <ul className="space-y-2">
             <li className="hover:text-blue-600 cursor-pointer">Dashboard</li>
@@ -24,7 +20,7 @@ const SearchLayout:React.FC = () => {
             <li className="hover:text-blue-600 cursor-pointer">Reports</li>
           </ul>
         </aside>
- 
+
         <main className="w-4/5 border-2 overflow-y-auto">
           <h2 className="text-2xl font-semibold mb-4">
             Welcome to Farmer Mart
@@ -35,10 +31,11 @@ const SearchLayout:React.FC = () => {
           </p>
         </main>
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default SearchLayout
+export default SearchLayout;
