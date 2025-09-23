@@ -1,13 +1,7 @@
 import { ReactNode } from "react";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?:
-    | "primary"
-    | "secondary"
-    | "outline"
-    | "ghost"
-    | "social"
-    | "viewAll";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "social"|"viewAll";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
@@ -43,3 +37,5 @@ export interface SelectProps {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
 }
+
+

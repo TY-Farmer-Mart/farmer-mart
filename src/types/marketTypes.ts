@@ -19,3 +19,16 @@ export type CategorySectionType = {
 export type CategoryData = {
   categories: CategorySectionType[];
 };
+
+export interface Option {
+  value: string;
+  label: string;
+}
+
+export interface CustomSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: Option[];
+  placeholder?: string;
+  className?: string; // optional extra classes
+}

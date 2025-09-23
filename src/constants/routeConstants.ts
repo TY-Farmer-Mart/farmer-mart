@@ -6,4 +6,5 @@ export const ROUTES = {
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   NOT_FOUND: "*",
+  SEARCH_PAGE:"/searchlayout"
 } as const;
