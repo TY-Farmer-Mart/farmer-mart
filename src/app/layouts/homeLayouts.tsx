@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
 import Footer from "@/components/common/Footer";
-import { Home, User, Settings, LogOut, TextAlignJustify } from "lucide-react";
+import { Home, User, Settings, LogOut, TextAlignJustify, X } from "lucide-react";
 import { menuItem } from "@/types/sideBar";
-
 
 const HomeLayout: React.FC = () => {
   const [toggle, setToggle] = useState(false);
@@ -21,9 +20,8 @@ const HomeLayout: React.FC = () => {
           className="sm:hidden absolute top-2 left-2 z-10"
           onClick={() => setToggle(!toggle)}
         >
-          <TextAlignJustify />
+          {toggle?<X />:<TextAlignJustify />}
         </button>
-
 
         <div
           className={`absolute sm:relative transition-all duration-500 ease-in-out 

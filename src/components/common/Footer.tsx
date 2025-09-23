@@ -22,7 +22,7 @@ const Footer = () => {
     termsUse,
   } = footer_data;
   return (
-    <div className="w-[100%] mt-4 bg-gray-200 pb-2">
+    <div className="w-[100%] mt-4 bg-gray-200 p-2">
       <div className="flex justify-between flex-col sm:flex-row  px-10 py-2 items-center">
         <span className="text-xl text-blue-900">{footerHeaderText}</span>
         <div className="flex gap-1 sm:gap-4 text-sm flex-col sm:flex-row">

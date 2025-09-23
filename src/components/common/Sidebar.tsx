@@ -9,7 +9,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
     return (
       <aside
         ref={ref}
-        className="w-64 bg-white border rounded-lg border-gray-200 flex flex-col h-screen"
+        className="w-74 sm:w-64 bg-white border rounded-lg border-gray-200 flex flex-col h-screen"
         {...props}
       >
         <div className="p-6 flex flex-col items-center border-b border-gray-200">
