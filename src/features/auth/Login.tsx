@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { AiOutlineApple } from "react-icons/ai";
+import Googleimg from "@assets/images/google.svg"
 
 const Login = () => {
   const text = AUTH_TEXT;
@@ -92,7 +93,7 @@ const Login = () => {
               className="w-full flex items-center justify-center gap-2 text-sm p-1"
             >
               <img
-                src="https://www.svgrepo.com/show/355037/google.svg"
+                src={Googleimg}
                 alt="Google"
                 className="w-10 h-5 inline"
               />
