@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
 import Footer from "@/components/common/Footer";
 
+
 const HomeLayout: React.FC = () => {
   return (
     <div className="h-screen bg-gray-200">

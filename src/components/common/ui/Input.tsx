@@ -2,7 +2,6 @@ import React from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@utils/helpers";
 import { InputProps } from "@/types/authTypes";
-
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
