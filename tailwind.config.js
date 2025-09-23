@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
+         primary: {
+      DEFAULT: "#2AA699",   
+      hover: "#249381",     
+    },
         gray: {
           50: "#f9f9f9",
           100: "#B8B8D2",
