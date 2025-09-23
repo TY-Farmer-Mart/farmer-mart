@@ -1,7 +1,6 @@
 import React from "react";
 import { cn } from "@utils/helpers";
 import { ButtonProps } from "@/types/authTypes";
-
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -36,7 +35,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       md: "text-base ",
       lg: "text-lg ",
     };
-
     return (
       <button
         className={cn(

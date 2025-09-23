@@ -1,8 +1,18 @@
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
+  TITLE: "Login",
+  SUBTITLE: "Log in to continue to your dashboard",
+  EMAIL: "Email",
+  PASSWORD: "Password",
+  REMEMBER_ME: "Remember me",
+  FORGOT_PASSWORD: "Forgot password?",
+  CONTINUE_WITH_GOOGLE: "Continue with Google",
+  CONTINUE_WITH_APPLE: "Continue with Apple",
+  SOCIAL: "OR Login with",
+  FOOTER: "Don’t have an account?",
+  FOOTER_LINK: "Sign up",
   LOGIN: "Login to your account",
-  REGISTER: "Create your account",
   SIGNUP_BUTTON: "Sign Up",
   NAME_LABEL: "Full Name",
   NAME_PLACEHOLDER: "Enter your full name",
@@ -12,6 +22,13 @@ export const AUTH_TEXT = {
   PASSWORD_PLACEHOLDER: "Enter your password",
   CONFIRM_PASSWORD_LABEL: "Confirm Password",
   CONFIRM_PASSWORD_PLACEHOLDER: "Re-enter your password",
+  REGISTER: "Register",
+  AUTH_HEADER: "Empower Your Farm With",
+  AUTH_SUBHEADING: "Essential Supplies",
+  AUTH_ENDING: " Management.",
+  AUTH_FOOTER: `Find everything you need
+  seeds, fertilizers. tools, and aid more – to
+  grow other to successful harvest.`,
 } as const;
 
 export const MARKET_CATEGORY_PRODUCT = {
