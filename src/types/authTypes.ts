@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost" | "social"|"viewAll";
@@ -17,4 +19,9 @@ export interface InputProps
   size?: "sm" | "md" | "lg";
 }
 
-
+export interface CartItem {
+  id?: number;
+  textTop?: string;
+  textBottom?: string;
+  Btn?: string;
+}
