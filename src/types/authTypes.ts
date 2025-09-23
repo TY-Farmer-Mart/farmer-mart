@@ -1,12 +1,18 @@
+import { ReactNode } from "react";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "social"|"viewAll";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "outline"
+    | "ghost"
+    | "social"
+    | "viewAll";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
-
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   label?: string;
@@ -15,6 +21,32 @@ export interface InputProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   size?: "sm" | "md" | "lg";
+  requiredIndicator?: boolean;
+}
+export interface AuthLayoutProps {
+  children: ReactNode;
+  title?: string;
+}
+interface Option {
+  label: string;
+  value: string;
+}
+export interface SelectProps {
+  label?: string;
+  name: string;
+  options: readonly Option[];
+  error?: string;
+  helperText?: string;
+  requiredIndicator?: boolean;
+  className?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
 }
 
-
+export interface CartItem {
+  id?: number;
+  textTop?: string;
+  textBottom?: string;
+  Btn?: string;
+}
