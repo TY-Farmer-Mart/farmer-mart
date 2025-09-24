@@ -23,7 +23,7 @@ export const footer_data: FooterData = {
   followUsOn: "Follow us on:",
   aboutUs: [
     "About Us",
-    "IndiaMART Export",
+    "FarmMART Export",
     "join Sales",
     "Success Stories",
     "Press Section",
@@ -39,7 +39,7 @@ export const footer_data: FooterData = {
   ],
   buyToolkit: [
     "Supplier Tool Kit",
-    "Sell on IndiaMART",
+    "Sell on FarmMart",
     "Latest BuyLead",
     "Learning Centre",
   ],
@@ -52,7 +52,7 @@ export const footer_data: FooterData = {
   ],
   supplierToolkit: ["Accounting Software", "Tally On Mobile", "GST e-Invoice"],
   copyRight:
-    "Copyright © 1996-2025 IndiaMART InterMESH Ltd. All rights reserved.",
+    "Copyright © 1996-2025 FarmMart InterMESH Ltd. All rights reserved.",
   termsUse: "Terms of Use-Privacy Policy Link to Us",
 };
 export const products: Product[] = [
