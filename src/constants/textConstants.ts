@@ -40,12 +40,6 @@ export const AUTH_TEXT = {
   grow other to successful harvest.`,
 } as const;
 
-export const DASHBOARD_TEXT = {
-  DASHBOARD_CAROUSEL: "Categories You May Like",
-  CAROUSEL_BUTTON: "Get Quotes",
-  DASHBOARD_CART: "Buyer Testimonials",
-};
-
 export const MARKET_CATEGORY_PRODUCT = {
   VIEWALL_BUTTON: "View All",
 };
@@ -117,26 +111,14 @@ export const LANDING_TEXT = {
   ALERT_PREFIX: "Link will be sent to +91",
 } as const;
 export const MARKET_TEXT = {
-  LOGO: "FarmerMart",
-  REGISTERBTN: "Register",
-  LOGINBTN: "Login",
-  EMPOWERING_TAG: "Empowering Farmers to Sell Their Products Online 🚜",
-  HERO_TEXT: "We connect Buyers & Sellers",
-  HERO_SUB:
-    "IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
-  TITLE_ICON1: "Trusted Platform",
-  TITLE_ICON2: "Safe & Secure",
-  TITLE_ICON3: "Quick Assistance",
-};
+    LOGO:'FarmerMart',
+    REGISTERBTN:"Register",
+    LOGINBTN:"Login",
+    EMPOWERING_TAG:"Empowering Farmers to Sell Their Products Online 🚜",
+    HERO_TEXT:"We connect Buyers & Sellers",
+    HERO_SUB:"IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+    TITLE_ICON1: "Trusted Platform",
+    TITLE_ICON2: "Safe & Secure",
+    TITLE_ICON3: "Quick Assistance",
 
-export const REQUIREMENTFORM_TEXT = {
-  TITLE1: "Tell us what you need, and we'll help you get quotes",
-  TITLE2: "I want quotes for",
-  BUTTON_TEXT: "Submit Requirement",
-};
-export const ROLE_OPTIONS = [
-  { label: "Admin", value: "admin" },
-  { label: "User", value: "user" },
-  { label: "Vendor/Farmer", value: "vendor" },
-  { label: "Consultant", value: "consultant" },
-] as const;
+}

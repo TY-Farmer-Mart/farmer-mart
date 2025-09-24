@@ -15,9 +15,7 @@ const TextDropdown: React.FC<TextDropdownProps> = ({
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
 
-  const handleGo = () => {
-  };
-
+  
   const visibleOptions =  options;
 
     const isGoEnabled = min.trim() !== "" && max.trim() !== "";
@@ -87,18 +85,19 @@ const TextDropdown: React.FC<TextDropdownProps> = ({
                 onChange={(e) => setMax(e.target.value)}
                 className="w-20 px-2"
               />
-              <Button
-                size="sm"
-                disabled={!isGoEnabled}
-                onClick={handleGo}
-               className={`px-3 py-1 rounded text-white ${
-                isGoEnabled
-                  ? "bg-primary hover:bg-primary-hover"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}>
+             <Button
+  size="sm"
+  disabled={!isGoEnabled}
+  
+  className={`px-3 py-1 rounded text-white ${
+    isGoEnabled
+      ? "bg-primary hover:bg-primary-hover"
+      : "bg-gray-300 hover:bg-gray-350"
+  }`}
+>
+  Go
+</Button>
 
-              Go
-              </Button>
 
             </div>
           )}

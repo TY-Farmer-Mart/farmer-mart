@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import FilterDropdown from "@/components/common/FilterSection";
 import TextDropdown from "@/components/common/TextDropdown";
 import { SidebarSection } from "@/types/sidebarTypes";
+
 const sidebarData: SidebarSection[] = [
   {
     type: "text",
