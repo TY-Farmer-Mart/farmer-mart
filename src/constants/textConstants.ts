@@ -143,3 +143,19 @@ export const ROLE_OPTIONS = [
   { label: "Vendor/Farmer", value: "vendor" },
   { label: "Consultant", value: "consultant" },
 ] as const;
+
+
+
+export const NAVBAR_TEXT = {
+  searchPlaceholder: "Search for product or service",
+  defaultLocation: "Bengaluru",
+  getBestPrice: "Get Best Price",
+  signIn: "Sign In",
+  login: "Login",
+  navOptions: [
+    { label: "Export", value: "export" },
+    { label: "Sell", value: "sell" },
+    { label: "Help", value: "help" },
+  ] as const,
+} as const;
+

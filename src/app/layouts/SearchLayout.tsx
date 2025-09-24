@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import ProductList from "@/features/productList/ProductList";
 import RequirementForm from "@/features/productList/RequirementForm";
-import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import Navbar from "@/components/common/Navbar";
 
 const SearchLayout: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
@@ -30,7 +30,7 @@ const SearchLayout: React.FC = () => {
 
   return (
     <div>
-      <Header />
+      <Navbar />
       <div className="h-screen flex flex-col">
         <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
           Farmer Mart
