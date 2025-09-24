@@ -8,13 +8,13 @@ import CategoryList from "@/features/market/ProductsCategory/CategoryList";
 export default function LandingPage() {
 
   return (
-    <div className="min-h-screen flex flex-col bg-green-50">
-      <Navbar/>
-      <Banner/>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <Banner />
       <CategoryList />
       <MoreForYou />
       <FarmerMartLanding />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
