@@ -1,8 +1,76 @@
-import FilterSlideBar from '@/features/productlist/FilterSlideBar'
-import ProductList from '@/features/productlist/ProductList';
-import RequirementForm from '@/features/productlist/RequirementForm';
+import FilterSlideBar from "@/features/productlist/FilterSlideBar";
+import ProductList from "@/features/productlist/ProductList";
+import RequirementForm from "@/features/productlist/RequirementForm";
+import { SidebarSection } from "@/types/sidebarTypes";
 import React, { useRef, useState, useEffect } from "react";
-
+const sidebarData: SidebarSection[] = [
+  {
+    type: "text",
+    title: "Price",
+    options: [
+      "₹2,000 and Below",
+      "₹2,001-₹9,000",
+      "₹9,001-₹50,000",
+      "₹50,001 and Above",
+    ],
+    showRange: true,
+  },
+  {
+    type: "filter",
+    title: "Filters",
+    options: ["Bengaluru-based Suppliers"],
+  },
+  {
+    type: "text",
+    title: "Usage/Application",
+    options: ["Industrial", "Garage"],
+  },
+  {
+    type: "text",
+    title: "Business Type",
+    options: ["Manufacturer", "Exporter", "Wholesaler", "Retailer"],
+  },
+  {
+    type: "text",
+    title: "Related Category",
+    options: [
+      {
+        label: "Agriculture Production Services",
+        image:
+          "https://3.imimg.com/data3/FN/KW/GLADMIN-171253/agriculture-production-services-125x125.jpg",
+      },
+      {
+        label: "Vermicompost",
+        image:
+          "	https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg",
+      },
+      {
+        label: "Organic Fertilizers and Manure",
+        image:
+          "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg",
+      },
+      {
+        label: "Agricultural Pesticides",
+        image:
+          "https://3.imimg.com/data3/FU/EW/GLADMIN-3179/agricultural-pesticides-125x125.jpg",
+      },
+      {
+        label: "Press Mud",
+        image:
+          "https://3.imimg.com/data3/YU/RG/GLADMIN-69082/press-mud-125x125.jpg",
+      },
+      {
+        label: "Green Manure",
+        image: "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg",
+      },
+    ],
+  },
+  {
+    type: "text",
+    title: "Recommended Searches",
+    options: ["agriculture", "agriculture seating"],
+  },
+];
 
 const SearchLayout: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
@@ -38,8 +106,8 @@ const SearchLayout: React.FC = () => {
       </nav>
 
       <div className="flex-[8] flex w-full overflow-hidden">
-        <aside className="w-1/5 border-2 p-4">
-           <FilterSlideBar/>
+        <aside className="w-1/5 border-2 p-1">
+          <FilterSlideBar sidebarData={sidebarData} />
         </aside>
         <main
           ref={mainRef}
