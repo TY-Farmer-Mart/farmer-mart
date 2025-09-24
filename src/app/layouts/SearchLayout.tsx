@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import ProductList from "@/features/productList/ProductList";
 import RequirementForm from "@/features/productList/RequirementForm";
-import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import Navbar from "@/components/common/Navbar";
 import LocationSearch from "@/features/productList/LocationSearch";
 
 const SearchLayout: React.FC = () => {
@@ -31,24 +31,23 @@ const SearchLayout: React.FC = () => {
 
   return (
     <div>
-      <Header />
+      <Navbar />
       <div className="h-screen flex flex-col">
         <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
           Farmer Mart
         </header>
 
-      <LocationSearch />
+        <LocationSearch />
 
-      <div className="flex-[8] flex w-full">
-        <aside className="w-1/5 border-2 p-4">
-           <FilterSlideBar />
-        </aside>
-        <main
-          ref={mainRef}
-          className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
-        >
-          <ProductList />
-
+        <div className="flex-[8] flex w-full">
+          <aside className="w-1/5 border-2 p-4">
+            <FilterSlideBar />
+          </aside>
+          <main
+            ref={mainRef}
+            className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
+          >
+            <ProductList />
 
             <div ref={productListEndRef} className="h-4" />
 
