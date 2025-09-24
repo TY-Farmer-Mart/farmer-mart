@@ -139,12 +139,12 @@ const LocationSearch: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full p-4 border-b">
-      <h2 className="text-2xl font-poppins text-left mb-3">
+    <div className="w-full px-4 pt-1 border-b">
+      <h2 className="text-2xl font-poppins text-left">
         {LOCATION_SEARCH.TITLE} {activeCity}
       </h2>
 
-      <div className="flex justify-between items-center mb-4 flex-wrap gap-4">
+      <div className="flex justify-between items-center mb-2 flex-wrap gap-4">
         <div className="relative flex items-center flex-grow max-w-md">
           <input
             ref={inputRef}

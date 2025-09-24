@@ -33,13 +33,13 @@ const SearchLayout: React.FC = () => {
     <div>
       <Navbar />
       <div className="h-screen flex flex-col">
-        <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
+        {/* <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
           Farmer Mart
-        </header>
+        </header> */}
 
         <LocationSearch />
 
-        <div className="flex-[8] flex w-full">
+        <div className="flex-[8] flex w-full overflow-hidden">
           <aside className="w-1/5 border-2 p-4">
             <FilterSlideBar />
           </aside>
