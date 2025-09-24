@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaBox,
@@ -55,25 +55,7 @@ const Navbar: FC<NavbarProps> = ({
   const [signinOpen, setSigninOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const signinRef = useRef<HTMLDivElement>(null);
-
-  // Close Sign In dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        signinRef.current &&
-        !signinRef.current.contains(event.target as Node)
-      ) {
-        setSigninOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
+  
   const handleSelect = (value: string) => {
     if (setStatets) setStatets(value);
     setDropdownOpen(false);
@@ -165,7 +147,6 @@ const Navbar: FC<NavbarProps> = ({
 
           {/* Sign In Dropdown */}
           <div
-            ref={signinRef}
             className="relative"
             onMouseEnter={() => setSigninOpen(true)}
             onMouseLeave={() => setSigninOpen(false)}
