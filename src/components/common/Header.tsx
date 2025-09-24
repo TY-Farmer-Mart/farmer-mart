@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllStates } from "india-state-district";
 import { Button } from "@/components/common/ui/Button";

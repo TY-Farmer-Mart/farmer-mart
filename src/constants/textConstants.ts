@@ -77,8 +77,6 @@ export const MORE_FOR_YOU_TEXT = {
   ],
 } as const;
 
-
-
 export const LANDING_TEXT = {
   HERO_TITLE: "Accounting Software",
   HERO_SUBTITLE:
@@ -142,3 +140,8 @@ export const ROLE_OPTIONS = [
   { label: "Vendor/Farmer", value: "vendor" },
   { label: "Consultant", value: "consultant" },
 ] as const;
+
+export const LOCATION_SEARCH = {
+  TITLE: "Farm near",
+  NEARME: "Near Me",
+};

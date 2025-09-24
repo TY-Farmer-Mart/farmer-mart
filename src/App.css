@@ -48,3 +48,12 @@
   outline: 2px solid transparent !important;
   border-radius: 8px;
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

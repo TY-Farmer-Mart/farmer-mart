@@ -4,6 +4,7 @@ import RequirementForm from "@/features/productList/RequirementForm";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import LocationSearch from "@/features/productList/LocationSearch";
 
 const SearchLayout: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
@@ -36,11 +37,9 @@ const SearchLayout: React.FC = () => {
           Farmer Mart
         </header>
 
-        <nav className="flex-[1] border-2 text-black flex items-center px-6 font-medium">
-          📍 Location: Bangalore, India
-        </nav>
+      <LocationSearch />
 
-      <div className="flex-[8] flex w-full overflow-hidden">
+      <div className="flex-[8] flex w-full">
         <aside className="w-1/5 border-2 p-4">
            <FilterSlideBar />
         </aside>
