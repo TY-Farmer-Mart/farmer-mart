@@ -1,3 +1,8 @@
+import { Service } from "@/types/authTypes";
+import { Star, Store, Smartphone, Calculator } from "lucide-react";
+
+
+
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
@@ -49,6 +54,7 @@ export const DASHBOARD_TEXT = {
 export const MARKET_CATEGORY_PRODUCT = {
   VIEWALL_BUTTON: "View All",
 };
+
 export const MORE_FOR_YOU_TEXT = {
   HEADING: "More for You",
   SERVICES: [
@@ -76,6 +82,39 @@ export const MORE_FOR_YOU_TEXT = {
     },
   ],
 } as const;
+
+
+export const SERVICES: Service[] = [
+  {
+    icon: Star,
+    title: "Connect with verified sellers",
+    description: "Tell us your requirement & let our experts find verified sellers for you",
+    buttonText: "Get Verified Sellers",
+  },
+  {
+    icon: Store,
+    title: "Sell on FarmMart for free",
+    description: "Reach out to more than 21+ crore buyers. Sell with us.",
+    buttonText: "Start Selling",
+  },
+  {
+    icon: Smartphone,
+    title: "Download our App",
+    description: "Get instant notifications on the go. Download our App Now",
+    buttonText: "Download Now",
+  },
+  {
+    icon: Calculator,
+    title: "Tally on Mobile",
+    description: "With Live Keeping, SME's can now connect their Tally offline data to mobile app",
+    buttonText: "Know More",
+  },
+]
+
+export const HEADING = { heading: "More for you" } as const;
+
+
+
 
 export const LANDING_TEXT = {
   HERO_TITLE: "Accounting Software",
@@ -141,6 +180,9 @@ export const ROLE_OPTIONS = [
   { label: "Vendor/Farmer", value: "vendor" },
   { label: "Consultant", value: "consultant" },
 ] as const;
+
+export const GO_BUTTON_TEXT = "Go";
+
 
 export const NAVBAR_TEXT = {
   searchPlaceholder: "Search for product or service",

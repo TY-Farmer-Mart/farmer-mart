@@ -1,13 +1,8 @@
+import { LucideIcon } from "lucide-react";
 import { ReactNode } from "react";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?:
-    | "primary"
-    | "secondary"
-    | "outline"
-    | "ghost"
-    | "social"
-    | "viewAll";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "social"|"viewAll";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
@@ -54,4 +49,17 @@ export interface CartItem {
   textTop?: string;
   textBottom?: string;
   Btn?: string;
+}
+
+export interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  buttonText: string;
+}
+
+
+export interface MoreForYouCardProps {
+  heading: string;
+  services: Service[];
 }
