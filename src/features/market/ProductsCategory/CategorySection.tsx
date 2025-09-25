@@ -10,7 +10,7 @@ type Props = {
 
 export default function CategorySection({ leftCard, categories }: Props) {
   return (
-    <div className="border border-t-4 border-t-blue-900 mt-5 bg-gray-50">
+    <div className="border border-t-4 border-t-blue-900 mt-5 bg-gray-100">
       <h1 className="font-bold text-black-500 hover:text-blue-900 md:text-[28px] text-[20px] pt-5 text-left pl-5 hover:underline decoration-blue-900">
         {leftCard.title}
       </h1>
