@@ -1,52 +1,40 @@
 import React, { useState } from "react";
 import { Check } from "lucide-react";
-import { APP_NAME, LANDING_TEXT } from "@/constants/textConstants";
+import { LANDING_TEXT } from "@/constants/textConstants";
 import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
 import accounting from "../../../assets/images/accounting.jpg";
 import farmermartapp from "../../../assets/images/farmermartapp.jpg";
+import logo from "@/assets/images/FarmerMartLogo.png";
 
 const FarmerMartLanding: React.FC = () => {
   const [mobileNumber, setMobileNumber] = useState("");
 
   const handleSendLink = () => {
-    if (mobileNumber) {
+    if (mobileNumber.length === 10) {
       alert(`${LANDING_TEXT.ALERT_PREFIX} ${mobileNumber}`);
+    } else {
+      alert("Please enter a valid 10-digit mobile number.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="bg-transparent ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xl mr-2">
-              {LANDING_TEXT.COMPANY_BADGE.BUSY_LABEL}
-            </div>
-
-            <div className="text-sm">
-              <div className="text-red-500 font-semibold">
-                {LANDING_TEXT.COMPANY_BADGE.BUSINESS}
-              </div>
-              <div className="text-red-500 font-semibold">
-                {LANDING_TEXT.COMPANY_BADGE.ACCOUNTING}
-              </div>
-              <div className="text-blue-600 font-semibold">
-                {LANDING_TEXT.COMPANY_BADGE.SOFTWARE}
-              </div>
-            </div>
-
-            <div className="ml-4 text-sm text-gray-600">
-              an <span className="text-red-500 font-bold">{APP_NAME}</span>{" "}
-              {LANDING_TEXT.COMPANY_BADGE.COMPANY_SUFFIX}
-            </div>
+            <img
+              src={logo}
+              alt="FarmerMart Logo"
+              className="h-12 w-auto object-contain"
+            />
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="">
             <div>
               <h1 className="text-5xl font-bold text-gray-900 mb-4">
                 {LANDING_TEXT.HERO_TITLE}
@@ -70,21 +58,21 @@ const FarmerMartLanding: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end ">
             <img
               src={accounting}
               alt="Accounting illustration"
-              className="max-w-full h-auto rounded-xl"
+              className="w-80 lg:w-96 h-auto rounded-xl mr-[3rem]"
             />
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center">
+        <div className="grid lg:grid-cols-2  items-center">
+          <div className="flex justify-start">
             <img
               src={farmermartapp}
               alt="Mobile App Screenshot"
-              className="max-w-full max-h-full rounded-[1.5rem]"
+              className="w-64 lg:w-80 h-auto rounded-[1.5rem]"
             />
           </div>
 
@@ -103,11 +91,17 @@ const FarmerMartLanding: React.FC = () => {
                 type="tel"
                 placeholder={LANDING_TEXT.PLACEHOLDERS.MOBILE_NUMBER}
                 value={mobileNumber}
-                onChange={(e) => setMobileNumber(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  // Allow only numbers and limit to 10 digits
+                  if (/^\d*$/.test(value) && value.length <= 10) {
+                    setMobileNumber(value);
+                  }
+                }}
                 leftIcon={
                   <span className="text-gray-600 font-semibold">+91</span>
                 }
-                className="flex-1 h-14 rounded-xl border-gray-300 focus:ring-teal-500"
+                className="flex-1 h-14 rounded-xl border-gray-300 focus:ring-teal-500 "
               />
 
               <Button
