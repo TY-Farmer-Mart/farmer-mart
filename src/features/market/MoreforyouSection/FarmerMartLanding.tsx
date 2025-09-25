@@ -68,7 +68,7 @@ const FarmerMartLanding: React.FC = () => {
         </div>
 
         <div className="grid lg:grid-cols-2  items-center">
-          <div className="flex justify-center">
+          <div className="flex justify-start">
             <img
               src={farmermartapp}
               alt="Mobile App Screenshot"
