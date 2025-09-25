@@ -27,10 +27,10 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center px-6 py-3 rounded-s-3xl text-blue-700 hover:bg-blue-200 transition-colors
+                  `flex items-center mt-1 px-6 py-3 rounded-s-3xl text-blue-700 hover:bg-blue-200 transition-colors
                   ${
                     isActive
-                      ? "bg-blue-100 font-semibold text-blue-600 rounded-s-3xl"
+                      ? "bg-blue-200 font-semibold text-blue-600 rounded-s-3xl"
                       : ""
                   }`
                 }
