@@ -1,11 +1,6 @@
-import { Product } from "@/types/productTypes";
+import { Product, ProductsState } from "@/types/productTypes";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
-interface ProductsState {
-  items: Product[];
-  loading: boolean;
-  error: string | null;
-}
 
 const initialState: ProductsState = {
   items: [],

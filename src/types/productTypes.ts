@@ -35,3 +35,9 @@ export interface ApiProduct {
   imageUrl?: string;
   products?: Product[];
 }
+export interface ProductsState {
+  items: Product[];
+  loading: boolean;
+  error: string | null;
+}
+
