@@ -19,6 +19,7 @@ export default {
         black: {
           500: "#323232",
         },
+
         green: {
           300: "#007a6e",
         },

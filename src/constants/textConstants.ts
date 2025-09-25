@@ -27,7 +27,7 @@ export const MORE_FOR_YOU_TEXT = {
       BUTTON: "Get Verified Sellers",
     },
     {
-      TITLE: "Sell on IndiaMART for free",
+      TITLE: "Sell on FarmerMART for free",
       DESCRIPTION: "Reach out to more than 21+ crore buyers. Sell with us.",
       BUTTON: "Start Selling",
     },
