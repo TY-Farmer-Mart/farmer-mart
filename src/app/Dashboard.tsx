@@ -1,9 +1,8 @@
 import CommonCarousel from "@/components/common/CommonCarousel";
 import { products } from "../utils/json_util";
-import { DASHBOARD_TEXT, HEADING, SERVICES } from "@constants/textConstants";
+import { DASHBOARD_TEXT } from "@constants/textConstants";
 import { SlideItem } from "@/types/carouselTypes";
 import Testimonials from "@/components/common/Testimonials";
-import MoreForYouCard from "@/components/common/MoreForYouCard";
 function Dashboard() {
   return (
     <>
@@ -19,10 +18,6 @@ function Dashboard() {
       <div className="w-full px-2 sm:px-4 md:px-6 py-4">
         {/* Testimonials Section */}
         <Testimonials />
-      </div>
-
-      <div>
-       <MoreForYouCard heading={HEADING.heading} services={SERVICES} />
       </div>
     </>
   );

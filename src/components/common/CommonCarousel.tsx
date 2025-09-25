@@ -25,11 +25,10 @@ export default function CommonCarousel({
         </h2>
       )}
 
-      <div className="block md:hidden  relative">
+      <div className="block md:hidden">
         <Carousel
           showThumbs={false}
           showStatus={false}
-          showIndicators={false}
           infiniteLoop
           autoPlay={autoPlay}
           interval={interval}
@@ -50,11 +49,10 @@ export default function CommonCarousel({
         </Carousel>
       </div>
 
-      <div className="hidden md:block lg:hidden relative">
+      <div className="hidden md:block lg:hidden">
         <Carousel
           showThumbs={false}
           showStatus={false}
-          showIndicators={false}
           infiniteLoop
           autoPlay={autoPlay}
           interval={interval}
@@ -77,11 +75,10 @@ export default function CommonCarousel({
         </Carousel>
       </div>
 
-      <div className="hidden lg:block relative ">
+      <div className="hidden lg:block">
         <Carousel
           showThumbs={false}
           showStatus={false}
-          showIndicators={false}
           infiniteLoop
           autoPlay={autoPlay}
           interval={interval}
@@ -89,7 +86,7 @@ export default function CommonCarousel({
           emulateTouch
           centerMode
           centerSlidePercentage={centerSlidePercentage}
-          className="w-full h-80 rounded-lg  bg-white"
+          className="w-full h-80 rounded-lg bg-white"
         >
           {slides.map((p) => (
             <Card
@@ -115,20 +112,20 @@ function Card({
   onButtonClick?: (d: SlideItem) => void;
 }) {
   return (
-    <div className=" px-3 py-3  mb-18 bg-gray-200 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 mx-2 ">
+    <div className=" px-3 py-3 bg-gray-200 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 mx-2">
       <img
         src={data.image}
         alt={data.name}
         className="h-48 w-full object-cover"
       />
       <div className="p-4 text-center">
-        <h3 className="text-lg md:text-sm font-semibold">{data.name}</h3>
+        <h3 className="text-lg font-semibold">{data.name}</h3>
         {buttonText && (
           <Button
             type="button"
             variant="primary"
             size="sm"
-            className="bg-[#007A6E] text-white !text-sm hover:bg-white hover:text-black-900 px-6 py-1 mt-2"
+            className="bg-[#007A6E] text-white hover:bg-white hover:text-black px-4 py-2 mt-2"
             onClick={() => onButtonClick?.(data)}
           >
             {buttonText}

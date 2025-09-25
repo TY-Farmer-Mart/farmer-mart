@@ -24,23 +24,23 @@ const HomeLayout: React.FC = () => {
     { name: "Logout", icon: <LogOut size={20} />, path: "/" },
   ];
   return (
-    <div className="h-[80vh] sm:h-screen">
+    <div className="h-screen">
       <div className="flex relative">
         <button
-          className="sm:hidden fixed top-2 left-2 z-30"
+          className="sm:hidden absolute top-2 left-2 z-20"
           onClick={() => dispatch(toggleSideBar())}
         >
           {toggle ? <X /> : <TextAlignJustify />}
         </button>
 
         <div
-          className={`fixed top-0 left-0 sm:relative transition-all duration-500 ease-in-out
-              ${
-                toggle
-                  ? "translate-x-0 opacity-100 z-20"
-                  : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
-              }
-            `}
+          className={`absolute sm:relative transition-all duration-500 ease-in-out
+            ${
+              toggle
+                ? "translate-x-0 opacity-100 z-10"
+                : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
+            }
+          `}
         >
           <Sidebar
             name="Jabagond Umashankar Muragyappa"
@@ -51,19 +51,18 @@ const HomeLayout: React.FC = () => {
             imageIcon="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           />
         </div>
-
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-green-100 h-screen">
+        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-gray-200">
           <div className="p-6">
             <Outlet />
           </div>
         </main>
       </div>
-      {!toggle && (
+      {
         <div className="pb-4">
           <Footer />
         </div>
-      )}
+      }
     </div>
   );
 };
