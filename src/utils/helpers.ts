@@ -12,3 +12,10 @@ export const currencyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
 });
+
+export const formatCurrency = (value?: number | string) => {
+  if (value == null) return "--";
+  const n = Number(value);
+  if (!Number.isFinite(n)) return "--";
+  return currencyFormatter.format(n);
+};

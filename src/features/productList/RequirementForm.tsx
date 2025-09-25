@@ -12,35 +12,32 @@ const RequirementForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 border border-gray-300 rounded-lg shadow-sm bg-white">
-      <h2 className="text-xl md:text-2xl font-medium text-center text-indigo-900 mb-4">
+    <div className="max-w-xl mx-auto p-4 border border-gray-300 rounded-lg shadow-sm bg-white">
+      <h2 className="text-lg md:text-xl font-medium text-center text-indigo-900 mb-3">
         {REQUIREMENTFORM_TEXT.TITLE1}
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="flex items-center gap-3">
-          <label
-            htmlFor="requirement"
-            className="whitespace-nowrap text-base font-medium text-gray-700"
-          >
-            {REQUIREMENTFORM_TEXT.TITLE2}
-            <span className="text-red-500">*</span>
-          </label>
-          <Input
-            type="text"
-            id="requirement"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter product name"
-            className="w-full border px-4 py-2 rounded-none"
-          />
-        </div>
+      <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <label
+          htmlFor="requirement"
+          className="whitespace-nowrap text-sm md:text-base font-medium text-gray-700"
+        >
+          {REQUIREMENTFORM_TEXT.TITLE2}
+          <span className="text-red-500">*</span>
+        </label>
 
-        <div className="flex justify-center">
-          <Button type="submit" variant="primary" size="md">
-            {REQUIREMENTFORM_TEXT.BUTTON_TEXT}
-          </Button>
-        </div>
+        <Input
+          type="text"
+          id="requirement"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Enter product name"
+          className="flex-1 border px-3 py-2 rounded-none"
+        />
+
+        <Button type="submit" variant="primary" size="md">
+          {REQUIREMENTFORM_TEXT.BUTTON_TEXT}
+        </Button>
       </form>
     </div>
   );

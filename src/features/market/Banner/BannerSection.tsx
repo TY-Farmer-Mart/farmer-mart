@@ -1,6 +1,6 @@
 import { MARKET_TEXT } from "@/constants/textConstants";
 import { CircleStar, MessageSquareText, ShieldCheck } from "lucide-react";
-import img from '@/assets/images/ss_money.jpg'
+import img from '@/assets/images/farmer_ad.jpg'
 import img1 from '@/assets/images/home-banner-4.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -23,30 +23,30 @@ const validationSchema = Yup.object({
 
 const BannerSection = () => {
   return (
-    <div className="p-2 bg-white lg:flex">
+    <div className="p-2 bg-gray-100 lg:flex">
       <div className="lg:w-[25%] md:[100%] md:flex flex-col justify-center gap-6 p-4">
         <div>
           <p className="font-extrabold text-3xl mb-2">{MARKET_TEXT.HERO_TEXT}</p>
-          <p className="text-lg text-gray-600">{MARKET_TEXT.HERO_SUB}</p>
+          <p className="text-lg">{MARKET_TEXT.HERO_SUB}</p>
         </div>
         <div className="flex gap-4 mt-4 justify-center">
           <div className="flex flex-col items-center text-center gap-1">
             <span className="bg-red-100 p-2 rounded-full mb-1">
               <CircleStar className="text-red-500" size={28} />
             </span>
-            <p className="text-sm font-medium text-gray-700">{MARKET_TEXT.TITLE_ICON1}</p>
+            <p className="text-sm font-medium">{MARKET_TEXT.TITLE_ICON1}</p>
           </div>
           <div className="flex flex-col items-center text-center gap-1">
             <span className="bg-green-100 p-2 rounded-full mb-1">
               <ShieldCheck className="text-green-500" size={28} />
             </span>
-            <p className="text-sm font-medium text-gray-700">{MARKET_TEXT.TITLE_ICON2}</p>
+            <p className="text-sm font-medium">{MARKET_TEXT.TITLE_ICON2}</p>
           </div>
           <div className="flex flex-col items-center text-center gap-1">
             <span className="bg-blue-100 p-2 rounded-full mb-1">
               <MessageSquareText className="text-blue-500" size={28} />
             </span>
-            <p className="text-sm font-medium text-gray-700">{MARKET_TEXT.TITLE_ICON3}</p>
+            <p className="text-sm font-medium">{MARKET_TEXT.TITLE_ICON3}</p>
           </div>
         </div>
       </div>

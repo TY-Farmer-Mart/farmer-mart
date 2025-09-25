@@ -5,8 +5,8 @@ import BannerSection from './BannerSection';
 const Hero = () => {
   return (
     <div>
-        <img src={heroImag} alt="heroImag" className='object-fit w-full p-2 rounded-md' />
-        <BannerSection/>
+      <img src={heroImag} alt="heroImag" className='object-fit w-full py-2 rounded-md' />
+      <BannerSection />
     </div>
   )
 }

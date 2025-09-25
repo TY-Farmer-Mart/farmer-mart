@@ -6,6 +6,7 @@ import { Formik, Form } from "formik";
 import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { AiOutlineApple } from "react-icons/ai";
 import Googleimg from "@assets/images/google.svg"
+import { ROUTES } from "@/constants/routeConstants";
 
 const Login = () => {
   const text = AUTH_TEXT;
@@ -110,7 +111,9 @@ const Login = () => {
           </div>
           <p className="text-center text-sm text-gray-600 mt-6">
             {text.FOOTER}
-            <a href="#" className="text-green-600 hover:underline">
+            <a onClick={()=>{
+              navigate(`${ROUTES.AUTH}${ROUTES.REGISTER}`)
+            }} className="text-green-600 hover:underline">
               {text.FOOTER_LINK}
             </a>
           </p>
