@@ -35,8 +35,3 @@ export interface ApiProduct {
   imageUrl?: string;
   products?: Product[];
 }
-
-export interface Product {
-  
- 
-}
