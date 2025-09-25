@@ -7,7 +7,12 @@ export interface ButtonProps
     | "outline"
     | "ghost"
     | "social"
-    | "viewAll";
+    | "viewAll"
+    | "pillScroll"
+    | "activeCity"
+    | "inactiveCity"
+    | "cityPill";
+
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
