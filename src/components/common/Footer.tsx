@@ -22,25 +22,25 @@ const Footer = () => {
     termsUse,
   } = footer_data;
   return (
-    <div className="w-[100%] mt-4">
-      <div className="flex justify-between flex-col sm:flex-row bg-gray-200 px-10 py-2 items-center">
-        <span className="text-xl text-blue-900">{footerHeaderText}</span>
+    <div className="w-[100%] mt-4 bg-blue-900 pb-2 text-white">
+      <div className="flex justify-between flex-col sm:flex-row  px-10 py-2 items-center">
+        <span className="text-xl text-white">{footerHeaderText}</span>
         <div className="flex gap-1 sm:gap-4 text-sm flex-col sm:flex-row">
           <div className="flex gap-2 items-center">
             <span>{goMobile}</span>
-            <div className="flex">
-              <span className="h-8 w-8 flex items-center justify-center  rounded-full cursor-pointer">
-                <Apple color="black" size={22} />
+            <div className="flex text-white">
+              <span className="text-white h-8 w-8 flex items-center justify-center  rounded-full cursor-pointer">
+                <Apple color="white" size={22} />
               </span>
               <span className="h-8 w-8 flex items-center justify-center  rounded-full cursor-pointer">
-                <Github color="black" size={22} />
+                <Github color="white" size={22} />
               </span>
               <span className="h-8 w-8 flex items-center justify-center  rounded-full cursor-pointer">
-                <Smartphone color="black" size={22} />
+                <Smartphone color="white" size={22} />
               </span>
             </div>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center text-white">
             <span>{followUsOn}</span>
             <div className="flex gap-2">
               <span className="h-8 w-8 flex items-center justify-center bg-blue-950 rounded-full cursor-pointer">
@@ -56,11 +56,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between flex-col gap-4 sm:gap-0 sm:flex-row px-10 py-2 text-gray-700 text-sm text-left border-b-2">
+      <div className="flex justify-between flex-col gap-4 sm:gap-0 sm:flex-row px-10 py-2 text-white text-sm text-left border-b-2">
         <div className="">
           {aboutUs.map((val, ind) => (
             <div>
-              <p key={ind} className="cursor-pointer">
+              <p key={ind} className="cursor-pointer text-white">
                 {val}
               </p>
             </div>
@@ -69,7 +69,7 @@ const Footer = () => {
         <div>
           {jobCareers.map((val, ind) => (
             <div>
-              <p key={ind} className="cursor-pointer">
+              <p key={ind} className="cursor-pointer text-white">
                 {val}
               </p>
             </div>
@@ -82,7 +82,7 @@ const Footer = () => {
                 key={ind}
                 className={
                   ind === 0
-                    ? "text-xl text-black cursor-pointer"
+                    ? "text-xl text-black cursor-pointer text-white"
                     : "text-sm cursor-pointer"
                 }
               >
@@ -98,7 +98,7 @@ const Footer = () => {
                 key={ind}
                 className={
                   ind === 0
-                    ? "text-xl text-black cursor-pointer"
+                    ? "text-xl text-black cursor-pointer text-white"
                     : "text-sm cursor-pointer"
                 }
               >
@@ -114,8 +114,8 @@ const Footer = () => {
                 key={ind}
                 className={
                   ind === 0
-                    ? "text-xl text-black cursor-pointer"
-                    : "text-sm cursor-pointer"
+                    ? "text-xl text-black cursor-pointer text-white"
+                    : "text-sm cursor-pointer text-white"
                 }
               >
                 {val}
@@ -124,9 +124,9 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-between flex-col sm:flex-row gap-4 sm:gap-0 text-gray-700 text-sm pt-2">
+      <div className="text-white flex justify-between flex-col sm:flex-row gap-4 sm:gap-0 text-gray-700 text-sm pt-2 px-8">
         <p>{copyRight}</p>
-        <p className="pointer cursor-pointer">{termsUse}</p>
+        <p className="pointer cursor-pointer text-white">{termsUse}</p>
       </div>
     </div>
   );

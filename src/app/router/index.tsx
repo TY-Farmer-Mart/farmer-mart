@@ -3,12 +3,12 @@ import LandingPage from "../LandingPage";
 import { useRoleRoutes } from "./useRoleRoutes";
 import ProtectedRoute from "./ProtectedRoute";
 import PageNotFound from "../../components/common/PageNotFound";
-import { authRoutes } from "@/app/router/authRoutes";
 import { ROUTES } from "@/constants/routeConstants";
 import PublicLayout from "../layouts/PublicLayout";
+import { authRoutes } from "./authRoutes";
 
 export const useAppRouter = () => {
-  const roleRoutes = useRoleRoutes();
+    const roleRoutes = useRoleRoutes();
 
   return createBrowserRouter([
     { index: true, element: <LandingPage /> },

@@ -1,7 +1,6 @@
 import React from "react";
 import { cn } from "@utils/helpers";
 import { ButtonProps } from "@/types/authTypes";
-
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -29,6 +28,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         "border-2 border-coral-500 text-coral-500 hover:bg-coral-50 focus:ring-coral-500",
       ghost: "text-gray-600 hover:bg-gray-100 focus:ring-gray-500",
       social: "bg-white  hover:bg-gray-50 text-gray-700 focus:ring-gray-500",
+      viewAll:
+        "mt-4 bg-green-300 text-white px-8 ml-6 py-2 rounded hover:underline transition text-sm md:text-base",
+  
     };
 
     const sizes = {
@@ -36,7 +38,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       md: "text-base ",
       lg: "text-lg ",
     };
-
     return (
       <button
         className={cn(
