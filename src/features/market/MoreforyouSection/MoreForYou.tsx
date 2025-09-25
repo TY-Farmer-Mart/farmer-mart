@@ -8,8 +8,8 @@ const MoreForYou: React.FC = () => {
   const iconComponents = [Star, Store, Smartphone, Calculator];
 
   return (
-    <div className="py-12 px-0">
-      <div className="max-w-full mx-auto">
+    <div className="mt-2 bg-gray-100">
+      <div className="max-w-full mx-auto p-8 rounded-md shadow-sm">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">
           {MORE_FOR_YOU_TEXT.HEADING}
         </h2>
@@ -22,11 +22,10 @@ const MoreForYou: React.FC = () => {
                 key={service.TITLE}
                 className={`
                   bg-white p-6 text-center flex flex-col items-center h-full
-                  ${index === 3 ? "border-b md:border-b-0 " : ""}
-                  ${
-                    index === 0
-                      ? "md:border-r md:border-b lg:border-b-0 lg:border-r"
-                      : ""
+                  ${index === 3 ? "border-b md:border-b-0 rounded-r-lg " : ""}
+                  ${index === 0
+                    ? "md:border-r md:border-b lg:border-b-0 lg:border-r rounded-l-lg"
+                    : ""
                   }
                   ${index === 1 ? "md:border-b lg:border-r lg:border-b-0" : ""}
                   ${index === 2 ? "md:border-r lg:border-r" : ""}
@@ -51,7 +50,7 @@ const MoreForYou: React.FC = () => {
                   variant="outline"
                   size="sm"
                   className="
-                    !rounded-lg           
+                    !rounded-lg
                     border-blue-600 text-blue-600
                     px-6 py-2 font-medium
                     hover:bg-blue-800 hover:text-white hover:border-blue-800

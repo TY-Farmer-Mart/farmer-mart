@@ -1,8 +1,10 @@
 export type CategoryItem = {
   title: string;
   image: string;
-  items: string[];
+  items: ProductName[];
 };
+
+export type ProductName = string;
 
 export type LeftCard = {
   title: string;

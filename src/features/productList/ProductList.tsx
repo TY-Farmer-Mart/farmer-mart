@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import data from "./agri_products.json";
+import  { useEffect, useState } from "react";
+import { Supplier, ApiProduct } from "@/types/productTypes";
 import {
   MapPin,
   CheckCircle,
@@ -9,49 +9,57 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { currencyFormatter } from "@/utils/helpers";
-import { ParsedQuantity, Supplier, SupplierStats } from "@/types/productTypes";
 
 function ProductList() {
-  const suppliers: Supplier[] = useMemo(
-    () => (Array.isArray(data) ? (data as Supplier[]) : []),
-    []
-  );
+  const [suppliers, setSuppliers] = useState<Supplier[]>([]);
+  const [activeBySupplier, setActiveBySupplier] = useState<number[]>([]);
 
-  const [activeBySupplier, setActiveBySupplier] = useState<number[]>(() =>
-    suppliers.map(() => 0)
-  );
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:7000/products");
+        if (!response.ok) throw new Error("Failed to fetch products");
 
-  const supplierStats: SupplierStats[] = useMemo(
-    () =>
-      suppliers.map((supplier) => ({
-        roundedRating: supplier?.rating
-          ? Math.round(Number(supplier.rating))
-          : 0,
-        reviewCount: Math.floor(Math.random() * 100) + 20,
-      })),
-    [suppliers]
-  );
+        const payload: Record<string, { list?: ApiProduct[] }> =
+          await response.json();
 
-  const parseQuantity = (quantityRaw?: string): ParsedQuantity => {
-    if (!quantityRaw || typeof quantityRaw !== "string") {
-      return { amount: null, unit: null, label: "" };
-    }
-    const trimmed = quantityRaw.trim();
-    const match = trimmed.match(/^(\d+(?:\.\d+)?)\s*(\w+)/i);
-    if (!match) {
-      return { amount: null, unit: null, label: trimmed };
-    }
-    const amount = Number(match[1]);
-    const unit = match[2].toLowerCase();
-    return { amount: isNaN(amount) ? null : amount, unit, label: trimmed };
-  };
+        const allItems: ApiProduct[] = Object.values(payload ?? {}).flatMap(
+          (category) => (Array.isArray(category?.list) ? category.list : [])
+        );
+
+        const normalizedSuppliers: Supplier[] = allItems.map((item, i) => ({
+          sellerName: item.sellerName || `Supplier ${i + 1}`,
+          location: item.location || "N/A",
+          rating: item.rating,
+          verified: item.verified,
+          memberYears: item.memberYears,
+          responseRate: item.responseRate,
+          products: [
+            {
+              itemName: item.itemName || "Unnamed product",
+              price: item.price,
+              quantity: item.quantity,
+              imageUrl: item.imageUrl || "",
+            },
+          ],
+        }));
+
+        setSuppliers(normalizedSuppliers);
+        setActiveBySupplier(normalizedSuppliers.map(() => 0));
+      } catch (err) {
+        console.error(err);
+        setSuppliers([]);
+        setActiveBySupplier([]);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const setActive = (supplierIndex: number, nextIndex: number) => {
     setActiveBySupplier((prev) => {
       const copy = [...prev];
-      const total = Array.isArray(suppliers[supplierIndex]?.products)
-        ? suppliers[supplierIndex].products!.length
-        : 0;
+      const total = suppliers[supplierIndex]?.products?.length ?? 0;
       if (total === 0) return prev;
       const normalized = ((nextIndex % total) + total) % total;
       copy[supplierIndex] = normalized;
@@ -59,177 +67,152 @@ function ProductList() {
     });
   };
 
+  const getRoundedRating = (rating?: number | string) =>
+    rating ? Math.round(Number(rating)) : 0;
+
   return (
     <div className="h-full overflow-y-auto p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {suppliers.map((supplier, supplierIndex) => {
-          const products = Array.isArray(supplier.products)
-            ? supplier.products
-            : [];
-          const activeIndex = activeBySupplier[supplierIndex] ?? 0;
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        style={{ gridAutoRows: "1fr" }}
+      >
+        {suppliers.map((supplier, index) => {
+          const products = supplier.products ?? [];
+          const activeIndex = activeBySupplier[index] ?? 0;
           const product = products[activeIndex];
+          const priceNumber =
+            product?.price != null && !Number.isNaN(Number(product.price))
+              ? Number(product.price)
+              : null;
 
           return (
             <div
-              key={`${supplier.sellerName}-${supplierIndex}`}
-              className="bg-white shadow rounded-lg overflow-hidden border border-gray-200"
+              key={`${supplier.sellerName}-${index}`}
+              className="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex flex-col h-full"
             >
-              <div className="relative">
-                {product && (
+              <div className="relative h-44 md:h-48 w-full bg-gray-100 flex-shrink-0">
+                {product?.imageUrl ? (
                   <img
-                    className="w-full h-48 object-cover"
                     src={product.imageUrl}
                     alt={product.itemName}
+                    className="w-full h-full object-cover"
                   />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    No image
+                  </div>
                 )}
 
                 {products.length > 1 && (
                   <>
                     <button
-                      className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/60 hover:bg-black/75 text-white p-2 rounded-full shadow-md backdrop-blur border border-white/30"
-                      onClick={() => setActive(supplierIndex, activeIndex - 1)}
+                      className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/60 hover:bg-black/75 text-white p-2 rounded-full shadow-md"
+                      onClick={() => setActive(index, activeIndex - 1)}
                       aria-label="Previous"
                     >
                       <ChevronLeft size={18} />
                     </button>
                     <button
-                      className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/60 hover:bg-black/75 text-white p-2 rounded-full shadow-md backdrop-blur border border-white/30"
-                      onClick={() => setActive(supplierIndex, activeIndex + 1)}
+                      className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/60 hover:bg-black/75 text-white p-2 rounded-full shadow-md"
+                      onClick={() => setActive(index, activeIndex + 1)}
                       aria-label="Next"
                     >
                       <ChevronRight size={18} />
                     </button>
                   </>
                 )}
+              </div>
 
-                {products.length > 0 && (
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1.5">
-                    {products.map((_, i) => (
-                      <button
-                        key={i}
-                        aria-label={`Go to slide ${i + 1}`}
-                        className={`w-2.5 h-2.5 rounded-full ring-1 ring-white/50 transition-colors ${
-                          i === activeIndex
-                            ? "bg-white"
-                            : "bg-white/60 hover:bg-white/80"
-                        }`}
-                        onClick={() => setActive(supplierIndex, i)}
-                      />
-                    ))}
-                  </div>
+              <div className="flex-1 flex flex-col px-4 pt-3 pb-2">
+                {product && (
+                  <>
+                    <div
+                      className="text-[20px] leading-6 font-medium text-gray-900 h-12 overflow-hidden"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
+                      {product.itemName}
+                    </div>
+
+                    <div className="mt-1 mb-2">
+                      <div className="text-gray-900 text-[20px] font-semibold tracking-tight">
+                        {priceNumber != null
+                          ? currencyFormatter.format(priceNumber)
+                          : "--"}
+                        <span className="text-sm font-medium text-gray-600 ml-1">
+                          {product.quantity ? `/${product.quantity}` : ""}
+                        </span>
+                      </div>
+                    </div>
+
+                    <button className="w-full bg-teal-700 hover:bg-teal-800 text-white font-semibold py-2.5 rounded-md shadow-sm mt-auto">
+                      Contact Supplier
+                    </button>
+                  </>
                 )}
               </div>
 
-              {product && (
-                <div className="px-4 pt-4 pb-2 text-[22px] leading-6 font-medium text-gray-900">
-                  {product.itemName}
-                </div>
-              )}
-
-              <div className="px-4 pb-2">
-                {(() => {
-                  const price = product?.price ? Number(product.price) : null;
-                  const { amount, unit, label } = parseQuantity(
-                    product?.quantity
-                  );
-                  const normalizedUnit =
-                    unit === "kg" ||
-                    unit === "l" ||
-                    unit === "unit" ||
-                    unit === "units"
-                      ? unit
-                      : null;
-                  const perUnitSuffix = normalizedUnit
-                    ? `/${normalizedUnit === "units" ? "unit" : normalizedUnit}`
-                    : "";
-                  const total =
-                    price != null && amount != null ? price * amount : null;
-
-                  return (
-                    <>
-                      <div className="text-gray-900 text-[22px] font-semibold tracking-tight">
-                        {price != null
-                          ? currencyFormatter.format(Math.round(price))
-                          : "--"}
-                        <span className="text-base font-medium text-gray-600 ml-1">
-                          {perUnitSuffix || (label ? `/${label}` : "")}
-                        </span>
-                      </div>
-                      {total != null && (
-                        <div className="text-sm text-gray-600 mt-1">
-                          for {label} ={" "}
-                          <span className="font-semibold text-gray-900">
-                            {currencyFormatter.format(Math.round(total))}
-                          </span>
-                        </div>
-                      )}
-                    </>
-                  );
-                })()}
-
-                <button className="mt-3 w-full bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 rounded-md shadow-sm">
-                  Contact Supplier
-                </button>
-              </div>
-
-              <div className="border-t my-2" />
-
-              <div className="px-4 text-[18px] font-semibold text-gray-900">
-                {supplier.sellerName}
-              </div>
-              <div className="px-4 flex items-center text-gray-700 text-[15px] mt-1">
-                <MapPin size={16} className="mr-1" />
-                <span>{supplier.location}</span>
-              </div>
-
-              {supplier.verified && (
-                <div className="px-4 mt-3 flex items-center gap-3 text-[13px]">
-                  <span className="inline-flex items-center text-green-700">
-                    <CheckCircle size={16} className="mr-1 text-green-600" />
-                    <span className="font-medium">TrustSEAL Verified</span>
-                  </span>
-                  <span className="inline-flex items-center text-gray-700">
-                    <span className="mr-1">•</span>
-                    <span>Member: {supplier.memberYears || "13 yrs"}</span>
-                  </span>
-                </div>
-              )}
-
-              {supplier.rating && (
-                <div className="px-4 mt-2 flex items-center gap-2">
-                  <div className="flex">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={16}
-                        className={
-                          i < (supplierStats[supplierIndex]?.roundedRating ?? 0)
-                            ? "text-yellow-500 fill-yellow-500"
-                            : "text-gray-300"
-                        }
-                      />
-                    ))}
+              <div className="border-t" />
+              <div className="px-4 py-3 flex items-center justify-between min-h-[64px]">
+                <div className="min-w-0">
+                  <div className="text-[16px] font-semibold text-gray-900 truncate">
+                    {supplier.sellerName}
                   </div>
-                  <div className="text-[18px] font-semibold text-gray-900">
-                    {Number(supplier.rating).toFixed(1)}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    ({supplierStats[supplierIndex]?.reviewCount ?? 0})
-                  </div>
-                </div>
-              )}
-
-              <div className="px-4 py-3">
-                <div className="w-full flex items-center justify-between text-[18px]">
-                  <span className="flex items-center text-green-700 font-semibold">
-                    <Phone size={18} className="mr-2 text-green-700" />
-                    View Mobile Number
-                  </span>
-                  {supplier.responseRate && (
-                    <span className="text-gray-600 text-sm">
-                      ({supplier.responseRate} Response Rate)
+                  <div className="flex items-center text-gray-700 text-[13px] mt-0.5">
+                    <MapPin size={14} className="mr-1 flex-shrink-0" />
+                    <span className="truncate">
+                      {supplier.location || "N/A"}
                     </span>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 flex items-center gap-2">
+                    {supplier.verified ? (
+                      <span className="inline-flex items-center text-green-700">
+                        <CheckCircle
+                          size={12}
+                          className="mr-1 text-green-600"
+                        />
+                        Verified
+                      </span>
+                    ) : (
+                      <span className="text-gray-400">Not Verified</span>
+                    )}
+                    <span>
+                      {supplier.memberYears ? `• ${supplier.memberYears}` : ""}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-end justify-center ml-3">
+                  {supplier.rating ? (
+                    <div className="flex items-center gap-2">
+                      <div className="flex">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            className={
+                              i < getRoundedRating(supplier.rating)
+                                ? "text-yellow-500 fill-yellow-500"
+                                : "text-gray-300"
+                            }
+                          />
+                        ))}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900">
+                        {Number(supplier.rating).toFixed(1)}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-sm text-gray-400">No Rating</div>
                   )}
+
+                  <div className="flex items-center text-green-700 text-sm mt-2">
+                    <Phone size={14} className="mr-1" />
+                    <span className="font-semibold">View Number</span>
+                  </div>
                 </div>
               </div>
             </div>

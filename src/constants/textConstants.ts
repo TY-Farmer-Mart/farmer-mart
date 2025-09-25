@@ -59,7 +59,7 @@ export const MORE_FOR_YOU_TEXT = {
       BUTTON: "Get Verified Sellers",
     },
     {
-      TITLE: "Sell on IndiaMART for free",
+      TITLE: "Sell on FarmMart for free",
       DESCRIPTION: "Reach out to more than 21+ crore buyers. Sell with us.",
       BUTTON: "Start Selling",
     },
@@ -76,8 +76,6 @@ export const MORE_FOR_YOU_TEXT = {
     },
   ],
 } as const;
-
-
 
 export const LANDING_TEXT = {
   HERO_TITLE: "Accounting Software",
@@ -125,11 +123,12 @@ export const MARKET_TEXT = {
   EMPOWERING_TAG: "Empowering Farmers to Sell Their Products Online 🚜",
   HERO_TEXT: "We connect Buyers & Sellers",
   HERO_SUB:
-    "IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+    "FarmMART is India's largest online B2B marketplace, connecting buyers with suppliers",
   TITLE_ICON1: "Trusted Platform",
   TITLE_ICON2: "Safe & Secure",
   TITLE_ICON3: "Quick Assistance",
-    SUBMIT_BUTTON: "Submit Your Requirement"};
+  SUBMIT_BUTTON: "Submit Your Requirement",
+};
 
 export const REQUIREMENTFORM_TEXT = {
   TITLE1: "Tell us what you need, and we'll help you get quotes",
@@ -143,6 +142,7 @@ export const ROLE_OPTIONS = [
   { label: "Consultant", value: "consultant" },
 ] as const;
 
+export const GO_BUTTON_TEXT = "Go";
 
 
 export const NAVBAR_TEXT = {
@@ -157,4 +157,3 @@ export const NAVBAR_TEXT = {
     { label: "Help", value: "help" },
   ] as const,
 } as const;
-
