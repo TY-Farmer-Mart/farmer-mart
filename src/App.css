@@ -43,8 +43,7 @@
 .read-the-docs {
   color: #888;
 }
-
-.search {
-  outline: 2px solid transparent !important;
-  border-radius: 8px;
+.search{
+    outline: 2px solid transparent !important;
+    border-radius: 8px;
 }

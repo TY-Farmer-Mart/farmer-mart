@@ -142,6 +142,9 @@ export const ROLE_OPTIONS = [
   { label: "Consultant", value: "consultant" },
 ] as const;
 
+export const GO_BUTTON_TEXT = "Go";
+
+
 export const NAVBAR_TEXT = {
   searchPlaceholder: "Search for product or service",
   defaultLocation: "Bengaluru",
