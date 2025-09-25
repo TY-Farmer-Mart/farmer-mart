@@ -29,6 +29,7 @@ const HomeLayout: React.FC = () => {
         <button
           className="sm:hidden absolute top-2 left-2 z-20"
           onClick={() => dispatch(toggleSideBar())}
+          onBlur={() => dispatch(toggleSideBar())}
         >
           {toggle ? <X /> : <TextAlignJustify />}
         </button>
@@ -52,7 +53,7 @@ const HomeLayout: React.FC = () => {
           />
         </div>
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-gray-200">
+        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-green-100 h-screen">
           <div className="p-6">
             <Outlet />
           </div>
