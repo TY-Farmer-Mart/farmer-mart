@@ -1,8 +1,10 @@
 export type CategoryItem = {
   title: string;
   image: string;
-  items: string[];
+  items: ProductName[];
 };
+
+export type ProductName = string;
 
 export type LeftCard = {
   title: string;
@@ -19,3 +21,16 @@ export type CategorySectionType = {
 export type CategoryData = {
   categories: CategorySectionType[];
 };
+
+export interface Option {
+  value: string;
+  label: string;
+}
+
+export interface CustomSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: Option[];
+  placeholder?: string;
+  className?: string; // optional extra classes
+}

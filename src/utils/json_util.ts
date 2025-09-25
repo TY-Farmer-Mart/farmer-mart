@@ -1,3 +1,4 @@
+import { Product } from "@/types/authTypes";
 import { FooterData } from "@/types/footerType";
 import { CategoryData } from "@/types/marketTypes";
 import FlowerSeed from "@/assets/images/FlowerSeed.jpg";
@@ -15,14 +16,68 @@ import CropRaw from "@/assets/images/Crop&Raw.jpg";
 import AgriProducts from "@/assets/images/AgriProducts.jpg";
 import AgriServices from "@/assets/images/AgriServices.jpg";
 import SeedPlanting from "@/assets/images/SeedPlanting.jpg";
-
+import FruitVegetables from '@assets/images/Fruits&Vegetables.jpg'
+import FruitPreserved from '@assets/images/Fruits&Preserved.jpg'
+import DryFruits from '@assets/images/DryFruits.jpg'
+import FreshVegetables from '@assets/images/FreshVegetables.webp'
+import ExoticVegetables from '@assets/images/ExoticVegetables.webp'
+import ExoticFruits from '@assets/images/ExoticFruit.webp'
+import LeafyGreen from '@assets/images/LeafyGreen.webp'
+import FertilizerKit from '@assets/images/FertilizerKit.webp'
+import ChemicalFertilizer from '@assets/images/ChemicalFertilizer.webp'
+import OrganicFertilizer from '@assets/images/OraganicFertlizer.webp'
+import PlantGrowth from '@assets/images/PlantGrowth.webp'
+import MicroNutrients from '@assets/images/Micronutrients.webp'
+import SoilConditioners from '@assets/images/SoilConditioners.webp'
+import Herbicides from '@assets/images/Herbicides.webp'
+import Fungicides from '@assets/images/Fungicides.webp'
+import WeedControl from '@assets/images/WeedControl.webp'
+import Rodenticides from '@assets/images/Rodenticides.webp'
+import BioPesticides from '@assets/images/Biopesticides.webp'
+import Insecticides from '@assets/images/Insecticidies.webp'
+import FarmAccessories from '@assets/images/FarmAccessories.webp'
+import Tractor from '@assets/images/Tractors.webp'
+import Sprayers from '@assets/images/Sprayers.webp'
+import Harvestors from '@assets/images/Harvesters.webp'
+import PowerTiller from '@assets/images/PowerTriller.webp'
+import IrrigationTools from '@assets/images/IrrigationTools.webp'
+import irrigation from '@assets/images/Irrigation.jpg'
+import sprinklar from '@assets/images/sprinklar.jpg'
+import pumps from '@assets/images/pumps.jpg'
+import waterstorage from '@assets/images/waterstorage.jpg'
+import pipesandfittings from '@assets/images/pipesandfittings.jpg'
+import waterfilter from '@assets/images/waterfilter.jpg'
+import cattlefeed from '@assets/images/cattlefeed.jpg'
+import poultryfood from '@assets/images/poultryfood.jpg'
+import vetenarymedichine from '@assets/images/vetenarymedichine.jpg'
+import dairyequipment from '@assets/images/dairyequipment.jpg'
+import fencing from '@assets/images/Fencing.jpg'
+import healthkit from '@assets/images/healthkit.jpg'
+import Nursery from '@assets/images/Nursery.jpg'
+import GardenTool from '@assets/images/Garden-Tool.jpg'
+import pottery from '@assets/images/Pottery.jpg'
+import landscape from '@assets/images/landscape.jpg'
+import plantcare from '@assets/images/plantcare.jpg'
+import Decor from '@assets/images/Decor.jpg'
+import soiltesting from '@assets/images/soil-testing.jpg'
+import drone from '@assets/images/drone.jpg'
+import consultancy from '@assets/images/consultancy.jpg'
+import training from '@assets/images/training.jpg'
+import rental from '@assets/images/rental.jpg'
+import insurance from '@assets/images/insurance.jpg'
+import fruits from '@assets/images/fruits.jpg'
+import spices from '@assets/images/spices.jpg'
+import processedfood from '@assets/images/processed-food.jpg'
+import Vegetable1 from '@assets/images/vegetables1.webp'
+import Flowers from '@assets/images/Flowers.webp'
+import Grains from '@assets/images/grains.webp'
 export const footer_data: FooterData = {
   footerHeaderText: "We are here to help you!",
   goMobile: "Go Mobile:",
   followUsOn: "Follow us on:",
   aboutUs: [
     "About Us",
-    "IndiaMART Export",
+    "FarmMART Export",
     "join Sales",
     "Success Stories",
     "Press Section",
@@ -38,7 +93,7 @@ export const footer_data: FooterData = {
   ],
   buyToolkit: [
     "Supplier Tool Kit",
-    "Sell on IndiaMART",
+    "Sell on FarmMart",
     "Latest BuyLead",
     "Learning Centre",
   ],
@@ -51,12 +106,104 @@ export const footer_data: FooterData = {
   ],
   supplierToolkit: ["Accounting Software", "Tally On Mobile", "GST e-Invoice"],
   copyRight:
-    "Copyright © 1996-2025 IndiaMART InterMESH Ltd. All rights reserved.",
+    "Copyright © 1996-2025 FarmMart InterMESH Ltd. All rights reserved.",
   termsUse: "Terms of Use-Privacy Policy Link to Us",
 };
+export const products: Product[] = [
+  {
+    id: 1,
+    name: "Organic Grain",
+    image: "/src/assets/card_images/wheat.jpg",
+    price: "$18.00 / 10kg",
+  },
+  {
+    id: 2,
+    name: "Paddy ",
+    image: "/src/assets/card_images/paddy.jpg",
+    price: "$6.50",
+  },
+  {
+    id: 3,
+    name: "Fresh Cow Milk ",
+    image: "/src/assets/card_images/milk.jpg",
+    price: "$3.25",
+  },
+  {
+    id: 4,
+    name: "Honey ",
+    image: "/src/assets/card_images/honey.jpg",
+    price: "$12.00 / 500g",
+  },
+  {
+    id: 5,
+    name: "Seasonal veggies",
+    image: "/src/assets/card_images/veggies.jpg",
+    price: "$25.00 / box",
+  },
+  {
+    id: 6,
+    name: "Farm-Raised ",
+    image: "/src/assets/card_images/sunflower.jpg",
+    price: "$15.00 / kg",
+  },
+  {
+    id: 7,
+    name: "Organic Fertilizer",
+    image: "/src/assets/card_images/tractor.jpg",
+    price: "$10.00 / bag",
+  },
+  {
+    id: 8,
+    name: "Fertilizer",
+    image: "/src/assets/card_images/fertilizer.jpg",
+    price: "$7.00 / bale",
+  },
+];
 
 export const Market_Category_data: CategoryData = {
   categories: [
+
+      {
+  leftCard: {
+    title: "Fruits & Vegetables",
+    description: "Fresh and high-quality fruits and vegetables for everyday needs.",
+    image: FruitVegetables,
+  },
+  categories: [
+    {
+      title: "Fresh, Dried & Preserved Fruits",
+      image: FruitPreserved,
+      items: ["Apple", "Banana", "Mango"],
+    },
+    {
+      title: "Dry Fruits & Nuts",
+      image: DryFruits,
+      items: ["Almonds", "Cashew Nuts", "Walnuts"],
+    },
+    {
+      title: "Leafy Greens",
+      image: LeafyGreen,
+      items: ["Spinach", "Lettuce", "Kale"],
+    },
+    {
+      title: "Exotic Fruits",
+      image: ExoticFruits,
+      items: ["Dragon Fruit", "Kiwi", "Avocado"],
+    },
+    {
+      title: "Exotic Vegetables",
+      image: ExoticVegetables,
+      items: ["Broccoli", "Zucchini", "Bell Peppers"],
+    },
+    {
+      title: "Fresh Vegetables",
+      image: FreshVegetables,
+      items: ["Tomato", "Carrot", "Cucumber"],
+    },
+  ],
+},
+
+
     {
       leftCard: {
         title: "Seeds & Planting",
@@ -108,32 +255,32 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Chemical Fertilizers",
-          image: VegetableSeed,
+          image: ChemicalFertilizer,
           items: ["Urea", "DAP", "Potash"],
         },
         {
           title: "Organic Fertilizers",
-          image: FruitSeed,
+          image: OrganicFertilizer,
           items: ["Compost", "Vermicompost", "Manure"],
         },
         {
           title: "Plant Growth Promoters",
-          image: HybridSeed,
+          image: PlantGrowth,
           items: ["Hormones", "Bio-stimulants", "Foliar Sprays"],
         },
         {
           title: "Micronutrients",
-          image: HerbSeed,
+          image: MicroNutrients,
           items: ["Iron", "Zinc", "Manganese"],
         },
         {
           title: "Soil Conditioners",
-          image: FlowerSeed,
+          image: SoilConditioners,
           items: ["Gypsum", "Lime", "Humic Acid"],
         },
         {
           title: "Fertilizer Kits",
-          image: GrassSeed,
+          image: FertilizerKit,
           items: ["Starter Kit", "Grow Kit", "Flowering Kit"],
         },
       ],
@@ -148,32 +295,32 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Insecticides",
-          image: VegetableSeed,
+          image: Insecticides,
           items: ["Neem Oil", "Chlorpyrifos", "Imidacloprid"],
         },
         {
           title: "Fungicides",
-          image: FruitSeed,
+          image: Fungicides,
           items: ["Sulphur", "Mancozeb", "Tricyclazole"],
         },
         {
           title: "Herbicides",
-          image: HybridSeed,
+          image: Herbicides,
           items: ["Glyphosate", "Paraquat", "Atrazine"],
         },
         {
           title: "Biopesticides",
-          image: HerbSeed,
+          image: BioPesticides,
           items: ["Bt", "Trichoderma", "Pseudomonas"],
         },
         {
           title: "Rodenticides",
-          image: FlowerSeed,
+          image: Rodenticides,
           items: ["Zinc Phosphide", "Bromadiolone", "Coumatetralyl"],
         },
         {
           title: "Weed Control Kits",
-          image: GrassSeed,
+          image: WeedControl,
           items: ["Weeder Spray Kit", "Herbicide Pack", "Knapsack Kit"],
         },
       ],
@@ -189,38 +336,38 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Tractors",
-          image: VegetableSeed,
+          image: Tractor,
           items: ["Mini Tractor", "Utility Tractor", "Heavy Tractor"],
         },
         {
           title: "Power Tillers",
-          image: FruitSeed,
+          image: PowerTiller,
           items: ["2-Wheel Tiller", "Rotary Tiller", "Cultivator"],
         },
         {
           title: "Irrigation Tools",
-          image: HybridSeed,
+          image: IrrigationTools,
           items: ["Sprinklers", "Drip Irrigation", "Pipes"],
         },
         {
           title: "Harvesters",
-          image: HerbSeed,
+          image: Harvestors,
           items: ["Combine Harvester", "Reaper", "Thresher"],
         },
         {
           title: "Sprayers",
-          image: FlowerSeed,
+          image: Sprayers,
           items: ["Hand Sprayer", "Knapsack Sprayer", "Power Sprayer"],
         },
         {
           title: "Farm Accessories",
-          image: GrassSeed,
+          image: FarmAccessories,
           items: ["Plough", "Seed Drill", "Weeders"],
         },
       ],
     },
 
-    {
+  {
       leftCard: {
         title: "Irrigation & Water Management",
         description: "Save water and ensure efficient irrigation solutions.",
@@ -229,37 +376,37 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Drip Irrigation",
-          image: VegetableSeed,
+          image: irrigation,
           items: ["Drip Kits", "Emitters", "Pipes"],
         },
         {
           title: "Sprinkler Systems",
-          image: FruitSeed,
+          image: sprinklar,
           items: ["Mini Sprinklers", "Impact Sprinklers", "Rain Guns"],
         },
         {
           title: "Pumps",
-          image: HybridSeed,
+          image: pumps,
           items: ["Centrifugal Pump", "Submersible Pump", "Solar Pump"],
         },
         {
           title: "Water Storage",
-          image: HerbSeed,
+          image: waterstorage,
           items: ["Tanks", "Ponds", "Reservoirs"],
         },
         {
           title: "Pipes & Fittings",
-          image: FlowerSeed,
+          image: pipesandfittings,
           items: ["PVC Pipes", "HDPE Pipes", "Couplers"],
         },
         {
           title: "Water Filters",
-          image: GrassSeed,
+          image: waterfilter,
           items: ["Sand Filter", "Screen Filter", "Disc Filter"],
         },
       ],
     },
-
+ 
     {
       leftCard: {
         title: "Animal Husbandry",
@@ -269,37 +416,37 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Cattle Feed",
-          image: VegetableSeed,
+          image: cattlefeed,
           items: ["Dairy Feed", "Calf Starter", "Mineral Mixture"],
         },
         {
           title: "Poultry Feed",
-          image: FruitSeed,
+          image: poultryfood,
           items: ["Broiler Feed", "Layer Feed", "Chick Starter"],
         },
         {
           title: "Veterinary Medicines",
-          image: HybridSeed,
+          image: vetenarymedichine,
           items: ["Dewormers", "Antibiotics", "Supplements"],
         },
         {
           title: "Dairy Equipment",
-          image: HerbSeed,
+          image: dairyequipment,
           items: ["Milking Machine", "Chilling Unit", "Milk Can"],
         },
         {
           title: "Housing & Fencing",
-          image: FlowerSeed,
+          image: fencing,
           items: ["Barbed Wire", "Electric Fencing", "Netting"],
         },
         {
           title: "Health Care Kits",
-          image: GrassSeed,
+          image: healthkit,
           items: ["First Aid Kit", "Vaccination Kit", "Cleaning Kit"],
         },
       ],
     },
-
+ 
     {
       leftCard: {
         title: "Horticulture",
@@ -309,37 +456,37 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Nursery Plants",
-          image: VegetableSeed,
+          image: Nursery,
           items: ["Fruit Saplings", "Ornamental Plants", "Medicinal Plants"],
         },
         {
           title: "Garden Tools",
-          image: FruitSeed,
+          image: GardenTool,
           items: ["Pruners", "Shovels", "Rakes"],
         },
         {
           title: "Pottery & Grow Bags",
-          image: HybridSeed,
+          image: pottery,
           items: ["Clay Pots", "Plastic Pots", "Grow Bags"],
         },
         {
           title: "Landscaping",
-          image: HerbSeed,
+          image: landscape,
           items: ["Grass Rolls", "Pebbles", "Artificial Turf"],
         },
         {
           title: "Plant Care Products",
-          image: FlowerSeed,
+          image: plantcare,
           items: ["Fertilizer Sticks", "Neem Oil Spray", "Growth Boosters"],
         },
         {
           title: "Decor Items",
-          image: GrassSeed,
+          image: Decor,
           items: ["Garden Lights", "Statues", "Fountains"],
         },
       ],
     },
-
+ 
     {
       leftCard: {
         title: "Agri Services",
@@ -349,12 +496,12 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Soil Testing",
-          image: VegetableSeed,
+          image: soiltesting,
           items: ["pH Testing", "NPK Testing", "Micro Nutrient Testing"],
         },
         {
           title: "Drone Spraying",
-          image: FruitSeed,
+          image: drone,
           items: [
             "Crop Monitoring",
             "Pesticide Spraying",
@@ -363,7 +510,7 @@ export const Market_Category_data: CategoryData = {
         },
         {
           title: "Farm Consultancy",
-          image: HybridSeed,
+          image: consultancy,
           items: [
             "Organic Farming",
             "Precision Farming",
@@ -372,17 +519,17 @@ export const Market_Category_data: CategoryData = {
         },
         {
           title: "Machinery Rental",
-          image: HerbSeed,
+          image: rental,
           items: ["Tractor Rental", "Harvester Rental", "Sprayer Rental"],
         },
         {
           title: "Training Programs",
-          image: FlowerSeed,
+          image: training,
           items: ["Soil Health", "Crop Protection", "Organic Farming"],
         },
         {
           title: "Insurance Services",
-          image: GrassSeed,
+          image: insurance,
           items: [
             "Crop Insurance",
             "Livestock Insurance",
@@ -391,7 +538,7 @@ export const Market_Category_data: CategoryData = {
         },
       ],
     },
-
+ 
     {
       leftCard: {
         title: "Agri Marketplace",
@@ -401,35 +548,37 @@ export const Market_Category_data: CategoryData = {
       categories: [
         {
           title: "Grains",
-          image: VegetableSeed,
+          image: Grains,
           items: ["Rice", "Wheat", "Maize"],
         },
         {
           title: "Fruits",
-          image: FruitSeed,
+          image: fruits,
           items: ["Banana", "Mango", "Papaya"],
         },
         {
           title: "Vegetables",
-          image: HybridSeed,
+          image: Vegetable1,
           items: ["Tomato", "Onion", "Potato"],
         },
         {
           title: "Spices",
-          image: HerbSeed,
+          image: spices,
           items: ["Turmeric", "Chilli", "Coriander"],
         },
         {
           title: "Flowers",
-          image: FlowerSeed,
+          image: Flowers,
           items: ["Rose", "Jasmine", "Marigold"],
         },
         {
           title: "Processed Foods",
-          image: GrassSeed,
+          image: processedfood,
           items: ["Pickles", "Jams", "Flours"],
         },
       ],
     },
   ],
 };
+
+

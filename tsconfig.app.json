@@ -36,8 +36,8 @@
       "@utils/*": ["utils/*"],
       "@api/*": ["api/*"],
       "@pages/*": ["pages/*"],
-      "@store/*": ["store/*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@store/*": ["store/*"]
     }
   },
   "include": ["src"]

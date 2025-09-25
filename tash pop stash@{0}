@@ -1,0 +1,194 @@
+[1mdiff --git a/src/components/common/FilterSection.tsx b/src/components/common/FilterSection.tsx[m
+[1mindex 63c32d4..07d97ee 100644[m
+[1m--- a/src/components/common/FilterSection.tsx[m
+[1m+++ b/src/components/common/FilterSection.tsx[m
+[36m@@ -1,10 +1,5 @@[m
+ import React, { useState } from "react";[m
+[31m-[m
+[31m-interface FilterSectionProps {[m
+[31m-  title: string;[m
+[31m-  options: string[];[m
+[31m-  limit?: number;[m
+[31m-}[m
+[32m+[m[32mimport { FilterSectionProps } from "@/types/sidebarTypes";[m
+ [m
+ const FilterSection: React.FC<FilterSectionProps> = ({[m
+   title,[m
+[36m@@ -30,7 +25,9 @@[m [mconst FilterSection: React.FC<FilterSectionProps> = ({[m
+ [m
+   return ([m
+     <div className="border border-gray-200 rounded mb-4 m-2 rounded-tl-[6px] rounded-tr-[6px]">[m
+[31m-      <div className="px-4 py-2 bg-gray-100 font-medium bg-[rgb(238,236,236)] rounded-tl-[6px] rounded-tr-[6px]">[m
+[32m+[m[32m      <div[m[41m [m
+[32m+[m[32mclassName="w-full flex justify-between border border-gray-300 rounded-tl-[6px] rounded-tr-[6px] items-center px-4 py-2 bg-gray-200"[m
+[32m+[m[32m      >[m
+         {title}[m
+       </div>[m
+ [m
+[1mdiff --git a/src/components/common/TextDropdown.tsx b/src/components/common/TextDropdown.tsx[m
+[1mindex 93b980c..d868028 100644[m
+[1m--- a/src/components/common/TextDropdown.tsx[m
+[1m+++ b/src/components/common/TextDropdown.tsx[m
+[36m@@ -1,24 +1,17 @@[m
+ import React, { useState } from "react";[m
+ import { Input } from "@/components/common/ui/Input"; [m
+ import { Button } from "./ui/Button";[m
+[32m+[m[32mimport { TextDropdownProps } from "@/types/sidebarTypes";[m
+ [m
+[31m-interface TextDropdownProps {[m
+[31m-  title: string;[m
+[31m-  options: string[];[m
+[31m-  onSelect?: (value: string) => void;[m
+[31m-  limit?: number;[m
+[31m-  showRange?: boolean; [m
+[31m-}[m
+ [m
+ const TextDropdown: React.FC<TextDropdownProps> = ({[m
+   title,[m
+   options,[m
+   onSelect,[m
+[31m-  limit,[m
+   showRange,[m
+ }) => {[m
+   const [isOpen, setIsOpen] = useState(false);[m
+[31m-  const [showAll] = useState(false);[m
+[32m+[m[41m  [m
+   const [min, setMin] = useState("");[m
+   const [max, setMax] = useState("");[m
+ [m
+[36m@@ -26,15 +19,15 @@[m [mconst TextDropdown: React.FC<TextDropdownProps> = ({[m
+     console.log("Custom Range:", { min, max });[m
+   };[m
+ [m
+[31m-  const visibleOptions = showAll ? options : limit ? options.slice(0, limit) : options;[m
+[32m+[m[32m  const visibleOptions =  options;[m
+ [m
+     const isGoEnabled = min.trim() !== "" && max.trim() !== "";[m
+ [m
+   return ([m
+[31m-<div className="border border-gray-200 bg-white rounded-tl-[6px] rounded-tr-[6px]  m-2">[m
+[32m+[m[32m    <div className="border border-gray-200 bg-white rounded-tl-[6px] rounded-tr-[6px]  m-2">[m
+       <button[m
+         onClick={() => setIsOpen((o) => !o)}[m
+[31m-        className="w-full flex justify-between border border-grey-300 rounded-tl-[6px] rounded-tr-[6px] items-center px-4 py-2 bg-[rgb(238,236,236)]"[m
+[32m+[m[32m        className="w-full flex justify-between border border-gray-300 rounded-tl-[6px] rounded-tr-[6px] items-center px-4 py-2 bg-gray-200"[m
+       >[m
+         <span className="font-medium">{title}</span>[m
+         <svg[m
+[36m@@ -56,27 +49,40 @@[m [mconst TextDropdown: React.FC<TextDropdownProps> = ({[m
+ [m
+       {isOpen && ([m
+         <div className="px-4 py-2 space-y-2 max-h-60 overflow-y-auto">[m
+[31m-          {visibleOptions.map((opt) => ([m
+[32m+[m[32m         {visibleOptions.map((opt, idx) => {[m
+[32m+[m[32m          const isObject = typeof opt === "object" && opt !== null;[m
+[32m+[m[32m          const label = isObject ? opt.label : opt;[m
+[32m+[m[32m          const image = isObject ? opt.image : null;[m
+[32m+[m[32m          return ([m
+             <button[m
+[31m-              key={opt}[m
+[31m-              onClick={() => onSelect?.(opt)}[m
+[31m-              className="w-full text-left hover:underline text-sm"[m
+[32m+[m[32m              key={idx}[m
+[32m+[m[32m              onClick={() => onSelect?.(label)}[m
+[32m+[m[32m              className="w-full flex items-center gap-2 text-left hover:underline text-sm"[m
+             >[m
+[31m-              {opt}[m
+[32m+[m[32m              {image && ([m
+[32m+[m[32m                <img[m
+[32m+[m[32m                  src={image}[m
+[32m+[m[32m                  alt={label}[m
+[32m+[m[32m                  className="w-14 h-14 object-cover rounded"[m
+[32m+[m[32m                />[m
+[32m+[m[32m              )}[m
+[32m+[m[32m              {label}[m
+             </button>[m
+[31m-          ))}[m
+[32m+[m[32m          );[m
+[32m+[m[32m        })}[m
+[32m+[m
+ [m
+           {showRange && ([m
+             <div className="flex items-center space-x-2 pt-2">[m
+               <Input[m
+[31m-                type="text"[m
+[32m+[m[32m                type="number"[m
+                 placeholder="₹ min"[m
+                 value={min}[m
+                 onChange={(e) => setMin(e.target.value)}[m
+[31m-                className="w-20 px-4"[m
+[32m+[m[32m                className="w-22 px-2"[m
+               />[m
+               <Input[m
+[31m-                type="text"[m
+[32m+[m[32m                type="number"[m
+                 placeholder="₹ max"[m
+                 value={max}[m
+                 onChange={(e) => setMax(e.target.value)}[m
+[36m@@ -86,14 +92,14 @@[m [mconst TextDropdown: React.FC<TextDropdownProps> = ({[m
+                 size="sm"[m
+                 disabled={!isGoEnabled}[m
+                 onClick={handleGo}[m
+[31m-                className={`px-3 py-1 rounded text-white  ${[m
+[31m-                    isGoEnabled[m
+[31m-                    ? "bg-[#2AA699] hover:bg-[#249381]"[m
+[31m-                    : "bg-gray-300  hover:bg-[#909191]"[m
+[31m-                }`}[m
+[31m-                >[m
+[31m-                Go[m
+[31m-                </Button>[m
+[32m+[m[32m               className={`px-3 py-1 rounded text-white ${[m
+[32m+[m[32m                isGoEnabled[m
+[32m+[m[32m                  ? "bg-primary hover:bg-primary-hover"[m
+[32m+[m[32m                  : "bg-gray-300 hover:bg-gray-400"[m
+[32m+[m[32m              }`}>[m
+[32m+[m
+[32m+[m[32m              Go[m
+[32m+[m[32m              </Button>[m
+ [m
+             </div>[m
+           )}[m
+[1mdiff --git a/src/features/productlist/FilterSlideBar.tsx b/src/features/productlist/FilterSlideBar.tsx[m
+[1mindex bfdf62e..d478a76 100644[m
+[1m--- a/src/features/productlist/FilterSlideBar.tsx[m
+[1m+++ b/src/features/productlist/FilterSlideBar.tsx[m
+[36m@@ -1,16 +1,18 @@[m
+[31m-import React from "react";[m
+[32m+[m[32mimport React, { useState } from "react";[m
+[32m+[m[32mimport { motion, AnimatePresence } from "framer-motion";[m
+[32m+[m[32mimport { Menu, X } from "lucide-react";[m[41m [m
+ import FilterDropdown from "@/components/common/FilterSection";[m
+ import TextDropdown from "@/components/common/TextDropdown";[m
+[31m-[m
+[31m-const sidebarData = [[m
+[32m+[m[32mimport { SidebarSection } from "@/types/sidebarTypes";[m
+[32m+[m[32mconst sidebarData: SidebarSection[] = [[m
+   {[m
+[31m-    type: "text", [m
+[32m+[m[32m    type: "text",[m
+     title: "Price",[m
+     options: [[m
+       "₹2,000 and Below",[m
+       "₹2,001-₹9,000",[m
+       "₹9,001-₹50,000",[m
+[31m-      "₹50,001 and Above"[m
+[32m+[m[32m      "₹50,001 and Above",[m
+     ],[m
+     showRange: true,[m
+   },[m
+[36m@@ -29,19 +31,39 @@[m [mconst sidebarData = [[m
+     title: "Business Type",[m
+     options: ["Manufacturer", "Exporter", "Wholesaler", "Retailer"],[m
+   },[m
+[31m-[m
+[31m-[m
+   {[m
+     type: "text",[m
+     title: "Related Category",[m
+     options: [[m
+[31m-      "Agriculture Production Services",[m
+[31m-      "Agricultural Pesticides",[m
+[31m-      "Organic Fertilizers and Manure",[m
+[31m-      "Bio Fertilizers",[m
+[31m-      "Vesicular Arbuscular Mycorrhiza",[m
+[31m- 
