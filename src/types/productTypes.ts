@@ -1,8 +1,15 @@
 export interface Product {
+  id: number;
   itemName: string;
   price?: number | string;
   quantity?: string;
   imageUrl: string;
+  sellerName?: string;
+  location?: string;
+  verified?: boolean;
+  memberYears?: string;
+  rating?: number;
+  responseRate?: string;
 }
 
 export interface Supplier {
@@ -28,3 +35,9 @@ export interface ApiProduct {
   imageUrl?: string;
   products?: Product[];
 }
+export interface ProductsState {
+  items: Product[];
+  loading: boolean;
+  error: string | null;
+}
+

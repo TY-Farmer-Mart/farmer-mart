@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
 import { LOCATION_SEARCH } from "@/constants/textConstants";
+import { Input } from "@/components/common/ui/Input";
+import { Button } from "@/components/common/ui/Button";
+import { cn } from "@/utils/helpers";
+import CityPillsBtn from "@/components/common/ui/CityPillsBtn";
 
 const cities = [
   "Salem",
@@ -61,34 +64,39 @@ const LocationSearch: React.FC = () => {
     }
 
     navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
+      async ({ coords: { latitude, longitude } }) => {
         try {
-          const res = await fetch(
+          const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
           );
-          const data = await res.json();
+          const { address = {} } = await response.json();
+
           const city =
-            data.address.city ||
-            data.address.town ||
-            data.address.village ||
-            data.address.county ||
+            address.city ||
+            address.town ||
+            address.village ||
+            address.county ||
             "Unknown location";
 
           setActiveCity(city);
           setSearchTerm(city);
-          setShowDropdown(false);
-        } catch (err) {
-          console.error("Reverse geocoding failed:", err);
+        } catch (error) {
+          console.error("Reverse geocoding failed:", error);
           setSearchTerm(
             `Lat: ${latitude.toFixed(2)}, Lon: ${longitude.toFixed(2)}`
           );
+        } finally {
           setShowDropdown(false);
         }
       },
       (error) => {
         alert("Unable to retrieve your location");
         console.error(error);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
       }
     );
   };
@@ -145,8 +153,8 @@ const LocationSearch: React.FC = () => {
       </h2>
 
       <div className="flex justify-between items-center mb-2 flex-wrap gap-4">
-        <div className="relative flex items-center flex-grow max-w-md">
-          <input
+        <div className="relative flex items-center flex-grow max-w-md gap-2">
+          <Input
             ref={inputRef}
             type="text"
             placeholder="Select City to find sellers near you"
@@ -156,7 +164,7 @@ const LocationSearch: React.FC = () => {
               setShowDropdown(true);
             }}
             onFocus={() => setShowDropdown(true)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none"
+            className="w-full px-20 py-2 border border-gray-300 rounded-md outline-none"
           />
           {showDropdown && filteredNearby.length > 0 && (
             <ul className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-b-md max-h-40 overflow-auto z-10">
@@ -170,29 +178,31 @@ const LocationSearch: React.FC = () => {
                 </li>
               ))}
             </ul>
-          )}
+          )}{" "}
+          <Button
+            type="button"
+            onClick={handleNearbyBtnClick}
+            variant="ghost"
+            size="sm"
+            className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-200 text-sm"
+          >
+            {LOCATION_SEARCH.NEARME}
+          </Button>
         </div>
 
-        <button
-          type="button"
-          onClick={handleNearbyBtnClick}
-          className="px-4 py-2 border  border-gray-300 rounded-md hover:bg-gray-200 text-sm"
-        >
-          {LOCATION_SEARCH.NEARME}
-        </button>
-
         <div className="flex items-center gap-2 flex-wrap">
-          <button
+          <Button
             onClick={handlePrevPills}
             disabled={!canScrollLeft}
-            className={`px-4 py-2 rounded-full text-3xl transition text-center ${
+            variant="pillScroll"
+            className={cn(
               canScrollLeft
                 ? "border-gray-300 visible"
                 : "border-gray-200 text-gray-400 cursor-not-allowed invisible pointer-events-none"
-            }`}
+            )}
           >
             «
-          </button>
+          </Button>
 
           <div
             ref={pillContainerRef}
@@ -200,34 +210,26 @@ const LocationSearch: React.FC = () => {
             style={{ scrollBehavior: "smooth" }}
           >
             {cities.map((city) => (
-              <button
+              <CityPillsBtn
                 key={city}
+                label={city}
+                isActive={activeCity === city}
                 onClick={() => setActiveCity(city)}
-                className={`flex items-center gap-1 px-4 py-1 rounded-full border text-sm whitespace-nowrap transition ${
-                  activeCity === city
-                    ? "bg-white border-red-500 text-red-600"
-                    : "bg-white hover:bg-gray-100 border-gray-300 text-gray-700"
-                }`}
-              >
-                {activeCity === city && (
-                  <FaMapMarkerAlt className="text-red-500" />
-                )}
-                {city}
-              </button>
+              />
             ))}
           </div>
-
-          <button
+          <Button
             onClick={handleNextPills}
             disabled={!canScrollRight}
-            className={`px-4 py-2  rounded-full text-3xl transition ${
+            variant="pillScroll"
+            className={cn(
               canScrollRight
                 ? "border-gray-300 visible"
                 : "border-gray-200 text-gray-400 cursor-not-allowed invisible pointer-events-none"
-            }`}
+            )}
           >
             »
-          </button>
+          </Button>
         </div>
       </div>
     </div>
