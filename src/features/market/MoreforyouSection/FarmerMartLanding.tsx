@@ -3,8 +3,8 @@ import { Check } from "lucide-react";
 import { LANDING_TEXT } from "@/constants/textConstants";
 import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
-import accounting from "../../../assets/images/accounting.jpg";
-import farmermartapp from "../../../assets/images/farmermartapp.jpg";
+import accounting from "@assets/images/accounting.jpg";
+import farmermartapp from "@assets/images/farmermartapp.jpg";
 import logo from "@/assets/images/FarmerMartLogo.png";
 
 const FarmerMartLanding: React.FC = () => {
@@ -19,14 +19,14 @@ const FarmerMartLanding: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-100 mt-2">
       <div className="bg-transparent ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 pt-6 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <img
               src={logo}
               alt="FarmerMart Logo"
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </div>
         </div>
@@ -34,19 +34,17 @@ const FarmerMartLanding: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="">
-            <div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-4">
-                {LANDING_TEXT.HERO_TITLE}
-              </h1>
-              <p className="text-xl text-gray-600">
-                {LANDING_TEXT.COMPANY_BADGE.TRUSTED_BY}{" "}
-                <span className="text-red-500 font-bold">
-                  {LANDING_TEXT.COMPANY_BADGE.COUNT}
-                </span>{" "}
-                {LANDING_TEXT.COMPANY_BADGE.SMALL_BUSINESS}
-              </p>
-            </div>
+          <div className="text-start">
+            <h1 className="text-5xl font-bold text-gray-900 mb-4">
+              {LANDING_TEXT.HERO_TITLE}
+            </h1>
+            <p className="text-xl text-gray-600">
+              {LANDING_TEXT.COMPANY_BADGE.TRUSTED_BY}{" "}
+              <span className="text-red-500 font-bold">
+                {LANDING_TEXT.COMPANY_BADGE.COUNT}
+              </span>{" "}
+              {LANDING_TEXT.COMPANY_BADGE.SMALL_BUSINESS}
+            </p>
 
             <div className="space-y-4">
               {LANDING_TEXT.FEATURES.map((feature) => (
