@@ -5,6 +5,12 @@ import { SidebarSection } from "@/types/sidebarTypes";
 import React, { useRef, useState, useEffect } from "react";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import { fetchProducts } from "@/redux/productSlice";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import type { RootState, AppDispatch } from "@/redux/store";
+
+const useAppDispatch = () => useDispatch<AppDispatch>();
+const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 const sidebarData: SidebarSection[] = [
   {
@@ -76,6 +82,9 @@ const sidebarData: SidebarSection[] = [
 ];
 
 const SearchLayout: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { items, loading, error } = useAppSelector((state) => state.products);
+
   const [showForm, setShowForm] = useState(false);
   const productListEndRef = useRef<HTMLDivElement | null>(null);
   const mainRef = useRef<HTMLDivElement | null>(null);
@@ -98,6 +107,10 @@ const SearchLayout: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <div>
       <Navbar />
@@ -111,14 +124,23 @@ const SearchLayout: React.FC = () => {
         </nav>
 
         <div className="flex-[8] flex w-full overflow-hidden">
+
+          <aside className="w-1/5 border-2 p-4">
+            <FilterSlideBar />
+
           <aside className="w-1/5 border-2 p-1">
             <FilterSlideBar sidebarData={sidebarData} />
+
           </aside>
           <main
             ref={mainRef}
             className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
           >
+
+            <ProductList products={items} loading={loading} error={error} />
+
             <ProductList />
+
 
 
             <div ref={productListEndRef} className="h-4" />
@@ -127,9 +149,7 @@ const SearchLayout: React.FC = () => {
           </main>
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
