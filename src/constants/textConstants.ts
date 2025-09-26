@@ -143,7 +143,7 @@ export const ROLE_OPTIONS = [
 ] as const;
 
 export const NAVBAR_TEXT = {
-  searchPlaceholder: "Enter product / service",
+  searchPlaceholder: "Search for product or service",
   defaultLocation: "Bengaluru",
   getBestPrice: "Get Best Price",
   signIn: "Sign In",

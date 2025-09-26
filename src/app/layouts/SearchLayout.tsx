@@ -4,17 +4,8 @@ import RequirementForm from "@/features/productList/RequirementForm";
 import Footer from "@/components/common/Footer";
 import FilterSlideBar from "@/features/productList/FilterSlideBar";
 import Navbar from "@/components/common/Navbar";
-import { fetchProducts } from "@/redux/productSlice";
-import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-import type { RootState, AppDispatch } from "@/redux/store";
-
-const useAppDispatch = () => useDispatch<AppDispatch>();
-const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 const SearchLayout: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const { items, loading, error } = useAppSelector((state) => state.products);
-
   const [showForm, setShowForm] = useState(false);
   const productListEndRef = useRef<HTMLDivElement | null>(null);
   const mainRef = useRef<HTMLDivElement | null>(null);
@@ -37,10 +28,6 @@ const SearchLayout: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
   return (
     <div>
       <Navbar />
@@ -53,15 +40,16 @@ const SearchLayout: React.FC = () => {
           📍 Location: Bangalore, India
         </nav>
 
-        <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="w-1/5 border-2 p-4">
-            <FilterSlideBar />
-          </aside>
-          <main
-            ref={mainRef}
-            className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
-          >
-            <ProductList products={items} loading={loading} error={error} />
+      <div className="flex-[8] flex w-full overflow-hidden">
+        <aside className="w-1/5 border-2 p-4">
+           <FilterSlideBar />
+        </aside>
+        <main
+          ref={mainRef}
+          className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
+        >
+          <ProductList />
+
 
             <div ref={productListEndRef} className="h-4" />
 
@@ -69,7 +57,9 @@ const SearchLayout: React.FC = () => {
           </main>
         </div>
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "@/redux/dashBoardSlice";
 
 const HomeLayout: React.FC = () => {
-  const toggle = useSelector(state => state);
+  const toggle = useSelector((state) => state);
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
@@ -24,8 +24,8 @@ const HomeLayout: React.FC = () => {
     { name: "Logout", icon: <LogOut size={20} />, path: "/" },
   ];
   return (
-    <div className="h-screen">
-      <div className="flex relative">
+    <div className="">
+      <div className="flex relative h-screen">
         <button
           className="sm:hidden absolute top-2 left-2 z-20"
           onClick={() => dispatch(toggleSideBar())}
@@ -52,17 +52,17 @@ const HomeLayout: React.FC = () => {
           />
         </div>
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 bg-gray-200">
+        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-gray-200">
           <div className="p-6">
             <Outlet />
           </div>
         </main>
       </div>
-      {
+      {/* {
         <div className="pb-4">
           <Footer />
         </div>
-      }
+      } */}
     </div>
   );
 };
