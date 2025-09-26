@@ -154,3 +154,19 @@ export const NAVBAR_TEXT = {
     { label: "Help", value: "help" },
   ] as const,
 } as const;
+
+export const TOP_CITIES = {
+  HEADING: "Find Suppliers from Top Cities",
+  LIST: [
+    "Delhi",
+    "Bengaluru",
+    "Chennai",
+    "Mumbai",
+    "Ahmedabad",
+    "Kolkata",
+    "Pune",
+    "Surat",
+    "Jaipur",
+    "Hyderabad",
+  ],
+} as const;
