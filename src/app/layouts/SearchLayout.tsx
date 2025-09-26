@@ -45,12 +45,13 @@ const sidebarData: SidebarSection[] = [
       {
         label: "Vermicompost",
         image:
-          "	https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg",
+          " https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg",
       },
       {
         label: "Organic Fertilizers and Manure",
         image:
-          "https://3.imimg.com/data3/CS/YS/GLADMIN-156355/vesicular-arbuscular-mycorrhiza-125x125.jpg",
+          "https://3.imimg.com/data3/CS/YS/GLADMIN-156355/vesicular-arbuscular-mycorrhiza-125x125.jpg"
+
       },
       {
         label: "Agricultural Pesticides",

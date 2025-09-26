@@ -9,8 +9,8 @@ const Testimonials: React.FC = () => {
       <h2 className="text-lg sm:text-xl  md:text-2xl font-bold text-black-700 mb-4 text-center md:text-left">
         {DASHBOARD_TEXT.DASHBOARD_CART}
       </h2>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-        {CART.map(item => (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 ">
+        {CART.map((item) => (
           <TestimonialCard
             key={item.id}
             textTop={item.textTop}

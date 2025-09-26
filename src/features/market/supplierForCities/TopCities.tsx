@@ -27,7 +27,7 @@ const IMAGES: Record<string, string> = {
 const TopCities: React.FC = () => {
   return (
     <section className="w-full px-4 py-8 bg-gray-100 mt-4">
-      <h2 className="text-left text-2xl md:text-3xl font-semibold text-gray-900 mb-8">
+      <h2 className="text-left text-2xl md:text-3xl font-semibold text-black-500 mb-8">
         {TOP_CITIES.HEADING}
       </h2>
 
