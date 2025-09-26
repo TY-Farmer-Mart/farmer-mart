@@ -8,6 +8,7 @@ export const AUTH_TEXT = {
   LOGIN_TITLE: "Login to your account",
   REGISTER_TITLE: "Create your account",
   TITLE: "Login",
+  ALREADY_HAVE_ACCOUNT: "Already have an account?",
   SUBTITLE: "Log in to continue to your dashboard",
   EMAIL: "Email",
   PASSWORD: "Password",
