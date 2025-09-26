@@ -112,8 +112,8 @@ const Navbar: FC<NavbarProps> = ({
       <div className="flex items-center justify-between w-full flex-wrap lg:flex-nowrap">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img src={logo} alt="logo" className="hidden lg:block w-40 h-16 sm:w-48 sm:h-15" />
-          <img src={logosmalldevice} alt="small logo" className="block lg:hidden w-10 h-10" />
+          <img src={logo} alt="logo" className="hidden mr-2 lg:block w-40 h-16 sm:w-48 sm:h-15" />
+          <img src={logosmalldevice} alt="small logo" className="block mr-2 lg:hidden w-10 h-10" />
         </div>
 
         {/* Desktop Navbar (lg+) */}
