@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import ProductList from "@/features/productList/ProductList";
-import RequirementForm from "@/features/productList/RequirementForm";
+import ProductList from "@/features/productlist/ProductList";
+import RequirementForm from "@/features/productlist/RequirementForm";
 import Footer from "@/components/common/Footer";
-import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import FilterSlideBar from "@/features/productlist/FilterSlideBar";
 import Navbar from "@/components/common/Navbar";
 import { SidebarSection } from "@/types/sidebarTypes";
 
@@ -50,7 +50,7 @@ const sidebarData: SidebarSection[] = [
       {
         label: "Organic Fertilizers and Manure",
         image:
-          "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg"
+          "https://5.imimg.com/data5/GLADMIN/Default/2022/6/XM/YY/PN/92368/organic-fertilizers-and-manure-125x125.jpg",
       },
       {
         label: "Agricultural Pesticides",
@@ -64,7 +64,7 @@ const sidebarData: SidebarSection[] = [
       },
       {
         label: "Green Manure",
-        image:"https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg",
+        image: "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg",
       },
     ],
   },
