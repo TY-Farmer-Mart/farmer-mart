@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
+    "axios": "^1.12.2",
     "clsx": "^2.1.1",
     "flowbite": "^3.1.2",
     "country-state-city": "^3.2.1",
