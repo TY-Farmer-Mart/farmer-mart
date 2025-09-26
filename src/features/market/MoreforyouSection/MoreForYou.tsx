@@ -49,7 +49,17 @@ const MoreForYou: React.FC = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="!rounded-lg border-blue-600 text-blue-600 px-6 py-2 font-medium hover:bg-blue-800 hover:text-white hover:border-blue-800 transition-all duration-300"
+                  className="
+<<<<<<< Updated upstream
+                    !rounded-lg
+=======
+                    !rounded-lg           
+>>>>>>> Stashed changes
+                    border-blue-600 text-blue-600
+                    px-6 py-2 font-medium
+                    hover:bg-blue-800 hover:text-white hover:border-blue-800
+                    transition-all duration-300
+  "
                 >
                   {service.BUTTON}
                 </Button>
