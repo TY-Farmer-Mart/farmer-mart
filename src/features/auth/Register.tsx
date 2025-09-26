@@ -6,7 +6,8 @@ import { SelectInput } from "@/components/common/ui/SelectInput";
 import { Textarea } from "@/components/common/ui/Textarea";
 import registerSchema from "@/schemas/registerSchema";
 import { AUTH_TEXT, ROLE_OPTIONS } from "@/constants/textConstants";
-
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/constants/routeConstants";
 const Register: React.FC = () => {
   const initialValues = {
     name: "",
@@ -18,6 +19,7 @@ const Register: React.FC = () => {
     confirmPassword: "",
     about: "",
   };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -36,7 +38,7 @@ const Register: React.FC = () => {
           handleBlur,
           submitCount,
         }) => (
-          <Form className="space-y-4">
+          <Form className="space-y-4 ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
                 label={AUTH_TEXT.NAME_LABEL}
@@ -171,6 +173,16 @@ const Register: React.FC = () => {
             <Button type="submit" variant="primary" className="w-full">
               {AUTH_TEXT.SIGNUP_BUTTON}
             </Button>
+            <p className="text-center text-sm text-gray-600 mt-4">
+              {AUTH_TEXT.ALREADY_HAVE_ACCOUNT}
+              <button
+                type="button"
+                onClick={() =>  navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
+                className="text-green-600 font-semibold hover:underline"
+              >
+                {AUTH_TEXT.TITLE}
+              </button>
+            </p>
           </Form>
         )}
       </Formik>
