@@ -111,7 +111,7 @@ const SearchLayout: React.FC = () => {
         </nav>
 
         <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="w-1/5 border-2 p-1">
+          <aside className="w-1/5 p-1">
             <FilterSlideBar sidebarData={sidebarData} />
           </aside>
           <main
@@ -119,7 +119,6 @@ const SearchLayout: React.FC = () => {
             className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
           >
             <ProductList />
-
 
             <div ref={productListEndRef} className="h-4" />
 

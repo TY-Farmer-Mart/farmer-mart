@@ -14,7 +14,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
 
   return (
     <>
-      <div className="sm:hidden p-2">
+      <div className="lg:hidden p-2">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 border rounded-md bg-white shadow"
@@ -23,7 +23,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
         </button>
       </div>
 
-      <div className="hidden sm:flex w-60 bg-white  rounded-md w-full border-gray-200 flex-col h-full max-h-full overflow-y-auto m-auto">
+      <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
         {sidebarData.map((section) =>
           section.type === "text" ? (
             <TextDropdown
@@ -44,47 +44,38 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
 
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 p-4 overflow-y-auto"
+          >
+            <button
               onClick={() => setIsOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
-            <motion.aside
-              className="fixed top-0 left-0 w-full min-h-full bg-white border-r border-gray-200 z-50 flex flex-col p-4 overflow-y-auto"
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
+              className="mb-4 flex items-center space-x-2"
             >
-              <button
-                onClick={() => setIsOpen(false)}
-                className="mb-4 self-end p-2 border rounded-md bg-gray-100"
-              >
-                <X size={20} />
-              </button>
+              <X className="w-6 h-6" />
+              <span>Close</span>
+            </button>
 
-              {sidebarData.map((section) =>
-                section.type === "text" ? (
-                  <TextDropdown
-                    key={section.title}
-                    title={section.title}
-                    options={section.options}
-                    showRange={section.showRange}
-                  />
-                ) : (
-                  <FilterDropdown
-                    key={section.title}
-                    title={section.title}
-                    options={section.options}
-                  />
-                )
-              )}
-            </motion.aside>
-          </>
+            {sidebarData.map((section) =>
+              section.type === "text" ? (
+                <TextDropdown
+                  key={section.title}
+                  title={section.title}
+                  options={section.options}
+                  showRange={section.showRange}
+                />
+              ) : (
+                <FilterDropdown
+                  key={section.title}
+                  title={section.title}
+                  options={section.options}
+                />
+              )
+            )}
+          </motion.div>
         )}
       </AnimatePresence>
     </>
