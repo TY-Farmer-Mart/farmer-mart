@@ -23,14 +23,25 @@ const MoreForYou: React.FC = () => {
           {t("MORE_FOR_YOU_TEXT.HEADING")}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => {
-            const Icon = iconComponents[index] || Star; // fallback icon
+            const Icon = iconComponents[index] || Star;
 
             return (
               <div
                 key={service.TITLE}
-                className="bg-white p-6 text-center flex flex-col items-center h-full border border-gray-200 rounded-lg"
+                className={`
+                  bg-white p-6 text-center flex flex-col items-center h-full
+                  ${index === 3 ? "border-b md:border-b-0 rounded-r-lg " : ""}
+                  ${
+                    index === 0
+                      ? "md:border-r md:border-b lg:border-b-0 lg:border-r rounded-l-lg"
+                      : ""
+                  }
+                  ${index === 1 ? "md:border-b lg:border-r lg:border-b-0" : ""}
+                  ${index === 2 ? "md:border-r lg:border-r" : ""}
+                  border-gray-200
+                `}
               >
                 <div className="mb-4">
                   <div className="w-14 h-14 border-2 border-blue-200 rounded-full flex items-center justify-center bg-blue-50">
@@ -42,7 +53,7 @@ const MoreForYou: React.FC = () => {
                   {service.TITLE}
                 </h3>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 max-w-xs text-center">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 max-w-xs flex-grow flex items-center">
                   {service.DESCRIPTION}
                 </p>
 
@@ -50,11 +61,7 @@ const MoreForYou: React.FC = () => {
                   variant="outline"
                   size="sm"
                   className="
-<<<<<<< Updated upstream
                     !rounded-lg
-=======
-                    !rounded-lg           
->>>>>>> Stashed changes
                     border-blue-600 text-blue-600
                     px-6 py-2 font-medium
                     hover:bg-blue-800 hover:text-white hover:border-blue-800

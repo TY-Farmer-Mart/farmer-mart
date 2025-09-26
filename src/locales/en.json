@@ -130,5 +130,86 @@
       "SEND_LINK": "Send me the link"
     },
     "ALERT_PREFIX": "Link will be sent to +91"
+  },
+  "MARKET_TEXT": {
+    "LOGO": "FarmerMart",
+    "REGISTERBTN": "Register",
+    "LOGINBTN": "Login",
+    "EMPOWERING_TAG": "Empowering Farmers to Sell Their Products Online 🚜",
+    "HERO_TEXT": "We connect Buyers & Sellers",
+    "HERO_SUB": "FarmMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+    "TITLE_ICON1": "Trusted Platform",
+    "TITLE_ICON2": "Safe & Secure",
+    "TITLE_ICON3": "Quick Assistance",
+    "SUBMIT_BUTTON": "Submit Your Requirement"
+  },
+  "MARKET_CATEGORY_PRODUCT": {
+    "VIEWALL_BUTTON": "View All"
+  },
+  "DASHBOARD_TEXT": {
+    "DASHBOARD_CAROUSEL": "Categories You May Like",
+    "CAROUSEL_BUTTON": "Get Quotes",
+    "DASHBOARD_CART": "Buyer Testimonials"
+  },
+  "REQUIREMENTFORM_TEXT": {
+    "TITLE1": "Tell us what you need, and we'll help you get quotes",
+    "TITLE2": "I want quotes for",
+    "BUTTON_TEXT": "Submit Requirement"
+  },
+  "FOOTER": {
+    "footerHeaderText": "We are here to help you!",
+    "goMobile": "Go Mobile:",
+    "followUsOn": "Follow us on:",
+    "aboutUs": [
+      "About Us",
+      "FarmMART Export",
+      "join Sales",
+      "Success Stories",
+      "Press Section",
+      "Advertise with us"
+    ],
+    "jobCareers": [
+      "Job & Careers",
+      "Help",
+      "Feedback",
+      "Complaints",
+      "Customer Care",
+      "Contact us"
+    ],
+    "buyToolkit": [
+      "Supplier Tool Kit",
+      "Sell on FarmMart",
+      "Latest BuyLead",
+      "Learning Centre"
+    ],
+    "accountingSolutions": [
+      "Buyer Tool Kit",
+      "Post Your Requirement",
+      "join Sales",
+      "Products You Buy",
+      "Search Products & Supplier"
+    ],
+    "supplierToolkit": [
+      "Accounting Software",
+      "Tally On Mobile",
+      "GST e-Invoice"
+    ],
+    "copyRight": "Copyright © 1996-2025 FarmMart InterMESH Ltd. All rights reserved.",
+    "termsUse": "Terms of Use-Privacy Policy Link to Us"
+  },
+  "TOP_CITIES": {
+    "HEADING": "Find Suppliers from Top Cities",
+    "LIST": [
+      "Delhi",
+      "Bengaluru",
+      "Chennai",
+      "Mumbai",
+      "Ahmedabad",
+      "Kolkata",
+      "Pune",
+      "Surat",
+      "Jaipur",
+      "Hyderabad"
+    ]
   }
 }

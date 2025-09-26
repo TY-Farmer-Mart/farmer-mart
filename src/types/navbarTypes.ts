@@ -1,4 +1,3 @@
-
 // Type for each state/location option
 export interface StateOption {
   value: string;
@@ -11,6 +10,11 @@ export interface NavOption {
   label: string;
 }
 
+export interface TranslationNavOption {
+  LABEL: string;
+  VALUE: NavOption["value"];
+}
+
 // Props for individual nav icon buttons
 export interface NavIconButtonProps {
   icon: React.ReactNode;
@@ -20,7 +24,7 @@ export interface NavIconButtonProps {
 }
 
 export interface NavbarProps {
-  state?: string;                  // make optional
+  state?: string; // make optional
   setStatets?: (value: string) => void; // make optional
-  stateOptions?: StateOption[];    // already optional
+  stateOptions?: StateOption[]; // already optional
 }

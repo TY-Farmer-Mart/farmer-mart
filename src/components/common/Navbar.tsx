@@ -19,6 +19,7 @@ import {
   NavIconButtonProps,
   StateOption,
   NavOption,
+  TranslationNavOption,
 } from "@/types/navbarTypes";
 import { useTranslation } from "react-i18next";
 
@@ -39,10 +40,9 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   </button>
 );
 
-// Navbar component
 const Navbar: FC<NavbarProps> = ({
   state = NAVBAR_TEXT.defaultLocation,
-  setStatets, // optional
+  setStatets,
   stateOptions = [
     { value: "blr", label: "Bengaluru" },
     { value: "del", label: "Delhi" },
@@ -52,6 +52,14 @@ const Navbar: FC<NavbarProps> = ({
 }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const navOptions: NavOption[] = (
+    t("NAVBAR.NAV_OPTIONS", { returnObjects: true }) as TranslationNavOption[]
+  ).map((opt) => ({
+    label: opt.LABEL,
+    value: opt.VALUE,
+  }));
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [signinOpen, setSigninOpen] = useState(false);
@@ -59,7 +67,6 @@ const Navbar: FC<NavbarProps> = ({
 
   const signinRef = useRef<HTMLDivElement>(null);
 
-  // Close Sign In dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -97,14 +104,12 @@ const Navbar: FC<NavbarProps> = ({
   return (
     <nav className="w-full shadow border border-1 bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
       <div className="flex w-full items-center justify-between">
-        {/* LEFT SIDE */}
         <div className="flex flex-[3] items-center space-x-4">
           <div className="flex-shrink-0">
             <img src={logo} alt="logo" className="w-40 h-16 sm:w-48 sm:h-15" />
           </div>
 
           <div className="hidden sm:flex flex-1 items-center space-x-4">
-            {/* Location Dropdown */}
             <div className="relative">
               <button
                 type="button"
@@ -135,8 +140,6 @@ const Navbar: FC<NavbarProps> = ({
                 </ul>
               )}
             </div>
-
-            {/* Search Input */}
             <div className="flex-1 relative">
               <input
                 type="text"
@@ -148,16 +151,14 @@ const Navbar: FC<NavbarProps> = ({
               <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
             </div>
 
-            {/* Get Best Price Button */}
             <Button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full">
               {t("NAVBAR.GET_BEST_PRICE")}
             </Button>
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="hidden sm:flex flex-[2] justify-end items-center space-x-4">
-          {NAVBAR_TEXT.navOptions.map((option: NavOption) => (
+          {navOptions.map((option) => (
             <NavIconButton
               key={option.value}
               icon={getNavIcon(option.value)}
@@ -165,7 +166,6 @@ const Navbar: FC<NavbarProps> = ({
             />
           ))}
 
-          {/* Sign In Dropdown */}
           <div
             ref={signinRef}
             className="relative"
@@ -195,7 +195,6 @@ const Navbar: FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="sm:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -206,10 +205,9 @@ const Navbar: FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="sm:hidden mt-2 flex flex-col space-y-2">
-          {NAVBAR_TEXT.navOptions.map((option: NavOption) => (
+          {navOptions.map((option) => (
             <NavIconButton
               key={option.value}
               icon={getNavIcon(option.value)}
@@ -217,7 +215,6 @@ const Navbar: FC<NavbarProps> = ({
             />
           ))}
 
-          {/* Sign In Dropdown (Mobile behaves on click) */}
           <div className="relative">
             <button
               onClick={() => setSigninOpen(!signinOpen)}
