@@ -150,7 +150,7 @@ const Navbar: FC<NavbarProps> = ({
                   setSearchText(""); // start fresh when opening
                   setNotFoundMessage("");
                 }}
-                className="flex items-center px-3 py-2 bg-white hover:bg-gray-50 border border-gray-300 rounded-full min-w-[120px] sm:min-w-[150px] md:min-w-[180px] overflow-hidden"
+                className="flex items-center px-3 py-2 bg-white hover:bg-gray-50 border border-gray-300 rounded-full w-[200px] min-w-[120px] sm:min-w-[150px] md:min-w-[180px] overflow-hidden"
               >
                 <FaMapMarkerAlt className="text-gray-600 flex-shrink-0" />
                 <span className="flex-1 text-center text-sm sm:text-base md:text-base mx-2 truncate">
@@ -181,7 +181,7 @@ const Navbar: FC<NavbarProps> = ({
 
               {/* Desktop dropdown */}
               {dropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[220px] sm:w-[200px] md:w-[220px] bg-white border rounded-md shadow-lg z-10 p-2">
+                <div className="absolute top-full left-0 mt-1 w-[200px] sm:w-[200px] md:w-[198px] bg-white border rounded-md shadow-lg z-10 p-2">
                   <div className="flex items-center space-x-2">
                     <Input
                       type="text"
