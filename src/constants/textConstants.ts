@@ -170,3 +170,12 @@ export const TOP_CITIES = {
     "Hyderabad",
   ],
 } as const;
+
+export const DASHBOARD_NAV_TXT ={
+  LOCATION: "All India",
+  SEARCH_PLACEHOLDER: "Enter product / service",
+  BTN_TEXT: "Search",
+  POPOVER_TEXT:"Enter city"
+  
+
+}
