@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
-import ProductList from "@/features/productList/ProductList";
-import RequirementForm from "@/features/productList/RequirementForm";
+import ProductList from "@/features/productlist/ProductList";
+import RequirementForm from "@/features/productlist/RequirementForm";
 import Footer from "@/components/common/Footer";
-import FilterSlideBar from "@/features/productList/FilterSlideBar";
 import Navbar from "@/components/common/Navbar";
 import { SidebarSection } from "@/types/sidebarTypes";
+import FilterSlideBar from "@/features/productlist/filterSlideBar";
 
 const sidebarData: SidebarSection[] = [
   {
@@ -50,8 +50,7 @@ const sidebarData: SidebarSection[] = [
       {
         label: "Organic Fertilizers and Manure",
         image:
-          "https://3.imimg.com/data3/CS/YS/GLADMIN-156355/vesicular-arbuscular-mycorrhiza-125x125.jpg"
-
+          "https://3.imimg.com/data3/CS/YS/GLADMIN-156355/vesicular-arbuscular-mycorrhiza-125x125.jpg",
       },
       {
         label: "Agricultural Pesticides",
@@ -112,12 +111,12 @@ const SearchLayout: React.FC = () => {
         </nav>
 
         <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="w-1/5 p-1">
+          <aside className="lg:w-1/5 lg:p-1 relative">
             <FilterSlideBar sidebarData={sidebarData} />
           </aside>
           <main
             ref={mainRef}
-            className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
+            className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"
           >
             <ProductList />
 
