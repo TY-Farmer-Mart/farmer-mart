@@ -149,7 +149,7 @@ const Register: React.FC = () => {
                 onBlur={handleBlur}
                 error={
                   (touched.confirmPassword || submitCount > 0) &&
-                  errors.confirmPassword
+                    errors.confirmPassword
                     ? errors.confirmPassword
                     : ""
                 }
@@ -173,11 +173,11 @@ const Register: React.FC = () => {
             <Button type="submit" variant="primary" className="w-full">
               {AUTH_TEXT.SIGNUP_BUTTON}
             </Button>
-            <p className="text-center text-sm text-gray-600 mt-4">
+            <p className="text-center text-sm text-gray-600 m-0 py-2">
               {AUTH_TEXT.ALREADY_HAVE_ACCOUNT}
               <button
                 type="button"
-                onClick={() =>  navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
+                onClick={() => navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
                 className="text-green-600 font-semibold hover:underline"
               >
                 {AUTH_TEXT.TITLE}

@@ -78,13 +78,13 @@ const DashboardCarousel = () => {
         {DASHBOARD_TEXT.DASHBOARD_CAROUSEL}
       </h2>
 
-      <Sliders {...settings}>
+      <Slider {...settings}>
         {products.map((p) => (
           <div key={p.id} className="px-2">
             <Card data={p} buttonText={DASHBOARD_TEXT.CAROUSEL_BUTTON} />
           </div>
         ))}
-      </Sliders>
+      </Slider>
     </div>
   );
 };
