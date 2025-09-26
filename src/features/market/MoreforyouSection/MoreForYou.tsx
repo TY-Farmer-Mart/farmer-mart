@@ -50,7 +50,11 @@ const MoreForYou: React.FC = () => {
                   variant="outline"
                   size="sm"
                   className="
+<<<<<<< Updated upstream
                     !rounded-lg
+=======
+                    !rounded-lg           
+>>>>>>> Stashed changes
                     border-blue-600 text-blue-600
                     px-6 py-2 font-medium
                     hover:bg-blue-800 hover:text-white hover:border-blue-800
