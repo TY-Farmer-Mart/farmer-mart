@@ -44,6 +44,7 @@ const signIn = async (req, res) => {
         email: user.email,
         name: user.name,
         password: user.password,
+        role: user.role,
       },
     });
   } catch (error) {

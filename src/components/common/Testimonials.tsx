@@ -12,6 +12,8 @@ const Testimonials: React.FC = () => {
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {CART.map((item) => (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 ">
+        {CART.map((item) => (
           <TestimonialCard
             key={item.id}
             textTop={item.textTop}
