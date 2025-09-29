@@ -1,7 +1,6 @@
 import { Service } from "@/types/authTypes";
 import { Star, Store, Smartphone, Calculator } from "lucide-react";
 
-
 export const APP_NAME = "FarmerMart";
 
 export const AUTH_TEXT = {
@@ -86,7 +85,8 @@ export const SERVICES: Service[] = [
   {
     icon: Star,
     title: "Connect with verified sellers",
-    description: "Tell us your requirement & let our experts find verified sellers for you",
+    description:
+      "Tell us your requirement & let our experts find verified sellers for you",
     buttonText: "Get Verified Sellers",
   },
   {
@@ -104,10 +104,11 @@ export const SERVICES: Service[] = [
   {
     icon: Calculator,
     title: "Tally on Mobile",
-    description: "With Live Keeping, SME's can now connect their Tally offline data to mobile app",
+    description:
+      "With Live Keeping, SME's can now connect their Tally offline data to mobile app",
     buttonText: "Know More",
   },
-]
+];
 
 export const HEADING = { heading: "More for you" } as const;
 
@@ -205,11 +206,14 @@ export const TOP_CITIES = {
   ],
 } as const;
 
-export const DASHBOARD_NAV_TXT ={
+export const DASHBOARD_NAV_TXT = {
   LOCATION: "All India",
   SEARCH_PLACEHOLDER: "Enter product / service",
   BTN_TEXT: "Search",
-  POPOVER_TEXT:"Enter city"
-  
+  POPOVER_TEXT: "Enter city",
+};
 
-}
+export const LOCATION_SEARCH = {
+  TITLE: "Farm near",
+  NEARME: "Near Me",
+};
