@@ -15,8 +15,8 @@ export const useRoleRoutes = (): RouteObject[] => {
                 children: UserRoutes,
             },
             {
-                element:<SearchLayout />,
-                path:ROUTES.SEARCH_PAGE,            
+                element: <SearchLayout />,
+                path: ROUTES.SEARCH_PAGE,
             },
         ];
     }
