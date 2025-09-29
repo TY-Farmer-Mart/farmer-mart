@@ -1,10 +1,7 @@
-import React from "react";
-import {ProductCategoryProps } from "@/types/dashboardType";
+import { ProductCategoryProps } from "@/types/dashboardType";
 import { Button } from "./Button";
-import { MARKET_CATEGORY_PRODUCT } from "@/constants/textConstants";
 import { truncateText } from "@/utils/helpers";
-
-
+import { useTranslation } from "react-i18next";
 
 const ProductCategory: React.FC<ProductCategoryProps> = ({
   title,
@@ -12,6 +9,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
   image,
   categories,
 }) => {
+  const { t } = useTranslation();
   return (
     <section className="w-full py-8 mt-6 border-t-4 border-t-blue-900 bg-green-50">
       <div className="max-w-screen-xl mx-auto px-4 space-y-6">
@@ -33,7 +31,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
                 {description}
               </p>
               <Button variant="viewAll" className="mt-2">
-                {MARKET_CATEGORY_PRODUCT.VIEWALL_BUTTON}
+                {t("MARKET_CATEGORY_PRODUCT.VIEWALL_BUTTON")}
               </Button>
             </div>
           </div>

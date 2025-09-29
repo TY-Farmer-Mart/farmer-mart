@@ -16,99 +16,62 @@ import CropRaw from "@/assets/images/Crop&Raw.jpg";
 import AgriProducts from "@/assets/images/AgriProducts.jpg";
 import AgriServices from "@/assets/images/AgriServices.jpg";
 import SeedPlanting from "@/assets/images/SeedPlanting.jpg";
-import FruitVegetables from '@assets/images/Fruits&Vegetables.jpg'
-import FruitPreserved from '@assets/images/Fruits&Preserved.jpg'
-import DryFruits from '@assets/images/DryFruits.jpg'
-import FreshVegetables from '@assets/images/FreshVegetables.webp'
-import ExoticVegetables from '@assets/images/ExoticVegetables.webp'
-import ExoticFruits from '@assets/images/ExoticFruit.webp'
-import LeafyGreen from '@assets/images/LeafyGreen.webp'
-import FertilizerKit from '@assets/images/FertilizerKit.webp'
-import ChemicalFertilizer from '@assets/images/ChemicalFertilizer.webp'
-import OrganicFertilizer from '@assets/images/OraganicFertlizer.webp'
-import PlantGrowth from '@assets/images/PlantGrowth.webp'
-import MicroNutrients from '@assets/images/Micronutrients.webp'
-import SoilConditioners from '@assets/images/SoilConditioners.webp'
-import Herbicides from '@assets/images/Herbicides.webp'
-import Fungicides from '@assets/images/Fungicides.webp'
-import WeedControl from '@assets/images/WeedControl.webp'
-import Rodenticides from '@assets/images/Rodenticides.webp'
-import BioPesticides from '@assets/images/Biopesticides.webp'
-import Insecticides from '@assets/images/Insecticidies.webp'
-import FarmAccessories from '@assets/images/FarmAccessories.webp'
-import Tractor from '@assets/images/Tractors.webp'
-import Sprayers from '@assets/images/Sprayers.webp'
-import Harvestors from '@assets/images/Harvesters.webp'
-import PowerTiller from '@assets/images/PowerTriller.webp'
-import IrrigationTools from '@assets/images/IrrigationTools.webp'
-import irrigation from '@assets/images/Irrigation.jpg'
-import sprinklar from '@assets/images/sprinklar.jpg'
-import pumps from '@assets/images/pumps.jpg'
-import waterstorage from '@assets/images/waterstorage.jpg'
-import pipesandfittings from '@assets/images/pipesandfittings.jpg'
-import waterfilter from '@assets/images/waterfilter.jpg'
-import cattlefeed from '@assets/images/cattlefeed.jpg'
-import poultryfood from '@assets/images/poultryfood.jpg'
-import vetenarymedichine from '@assets/images/vetenarymedichine.jpg'
-import dairyequipment from '@assets/images/dairyequipment.jpg'
-import fencing from '@assets/images/Fencing.jpg'
-import healthkit from '@assets/images/healthkit.jpg'
-import Nursery from '@assets/images/Nursery.jpg'
-import GardenTool from '@assets/images/Garden-Tool.jpg'
-import pottery from '@assets/images/Pottery.jpg'
-import landscape from '@assets/images/landscape.jpg'
-import plantcare from '@assets/images/plantcare.jpg'
-import Decor from '@assets/images/Decor.jpg'
-import soiltesting from '@assets/images/soil-testing.jpg'
-import drone from '@assets/images/drone.jpg'
-import consultancy from '@assets/images/consultancy.jpg'
-import training from '@assets/images/training.jpg'
-import rental from '@assets/images/rental.jpg'
-import insurance from '@assets/images/insurance.jpg'
-import fruits from '@assets/images/fruits.jpg'
-import spices from '@assets/images/spices.jpg'
-import processedfood from '@assets/images/processed-food.jpg'
-import Vegetable1 from '@assets/images/vegetables1.webp'
-import Flowers from '@assets/images/Flowers.webp'
-import Grains from '@assets/images/grains.webp'
-export const footer_data: FooterData = {
-  footerHeaderText: "We are here to help you!",
-  goMobile: "Go Mobile:",
-  followUsOn: "Follow us on:",
-  aboutUs: [
-    "About Us",
-    "FarmMART Export",
-    "join Sales",
-    "Success Stories",
-    "Press Section",
-    "Advertise with us",
-  ],
-  jobCareers: [
-    "Job & Careers",
-    "Help",
-    "Feedback",
-    "Complaints",
-    "Customer Care",
-    "Contact us",
-  ],
-  buyToolkit: [
-    "Supplier Tool Kit",
-    "Sell on FarmMart",
-    "Latest BuyLead",
-    "Learning Centre",
-  ],
-  accountingSolutions: [
-    "Buyer Tool Kit",
-    "Post Your Requirement",
-    "join Sales",
-    "Products You Buy",
-    "Search Products & Supplier",
-  ],
-  supplierToolkit: ["Accounting Software", "Tally On Mobile", "GST e-Invoice"],
-  copyRight:
-    "Copyright © 1996-2025 FarmMart InterMESH Ltd. All rights reserved.",
-  termsUse: "Terms of Use-Privacy Policy Link to Us",
-};
+import FruitVegetables from "@assets/images/Fruits&Vegetables.jpg";
+import FruitPreserved from "@assets/images/Fruits&Preserved.jpg";
+import DryFruits from "@assets/images/DryFruits.jpg";
+import FreshVegetables from "@assets/images/FreshVegetables.webp";
+import ExoticVegetables from "@assets/images/ExoticVegetables.webp";
+import ExoticFruits from "@assets/images/ExoticFruit.webp";
+import LeafyGreen from "@assets/images/LeafyGreen.webp";
+import FertilizerKit from "@assets/images/FertilizerKit.webp";
+import ChemicalFertilizer from "@assets/images/ChemicalFertilizer.webp";
+import OrganicFertilizer from "@assets/images/OraganicFertlizer.webp";
+import PlantGrowth from "@assets/images/PlantGrowth.webp";
+import MicroNutrients from "@assets/images/Micronutrients.webp";
+import SoilConditioners from "@assets/images/SoilConditioners.webp";
+import Herbicides from "@assets/images/Herbicides.webp";
+import Fungicides from "@assets/images/Fungicides.webp";
+import WeedControl from "@assets/images/WeedControl.webp";
+import Rodenticides from "@assets/images/Rodenticides.webp";
+import BioPesticides from "@assets/images/Biopesticides.webp";
+import Insecticides from "@assets/images/Insecticidies.webp";
+import FarmAccessories from "@assets/images/FarmAccessories.webp";
+import Tractor from "@assets/images/Tractors.webp";
+import Sprayers from "@assets/images/Sprayers.webp";
+import Harvestors from "@assets/images/Harvesters.webp";
+import PowerTiller from "@assets/images/PowerTriller.webp";
+import IrrigationTools from "@assets/images/IrrigationTools.webp";
+import irrigation from "@assets/images/Irrigation.jpg";
+import sprinklar from "@assets/images/sprinklar.jpg";
+import pumps from "@assets/images/pumps.jpg";
+import waterstorage from "@assets/images/waterstorage.jpg";
+import pipesandfittings from "@assets/images/pipesandfittings.jpg";
+import waterfilter from "@assets/images/waterfilter.jpg";
+import cattlefeed from "@assets/images/cattlefeed.jpg";
+import poultryfood from "@assets/images/poultryfood.jpg";
+import vetenarymedichine from "@assets/images/vetenarymedichine.jpg";
+import dairyequipment from "@assets/images/dairyequipment.jpg";
+import fencing from "@assets/images/Fencing.jpg";
+import healthkit from "@assets/images/healthkit.jpg";
+import Nursery from "@assets/images/Nursery.jpg";
+import GardenTool from "@assets/images/Garden-Tool.jpg";
+import pottery from "@assets/images/Pottery.jpg";
+import landscape from "@assets/images/landscape.jpg";
+import plantcare from "@assets/images/plantcare.jpg";
+import Decor from "@assets/images/Decor.jpg";
+import soiltesting from "@assets/images/soil-testing.jpg";
+import drone from "@assets/images/drone.jpg";
+import consultancy from "@assets/images/consultancy.jpg";
+import training from "@assets/images/training.jpg";
+import rental from "@assets/images/rental.jpg";
+import insurance from "@assets/images/insurance.jpg";
+import fruits from "@assets/images/fruits.jpg";
+import spices from "@assets/images/spices.jpg";
+import processedfood from "@assets/images/processed-food.jpg";
+import Vegetable1 from "@assets/images/vegetables1.webp";
+import Flowers from "@assets/images/Flowers.webp";
+import Grains from "@assets/images/grains.webp";
+
 export const products: Product[] = [
   {
     id: 1,
@@ -162,47 +125,46 @@ export const products: Product[] = [
 
 export const Market_Category_data: CategoryData = {
   categories: [
-
-      {
-  leftCard: {
-    title: "Fruits & Vegetables",
-    description: "Fresh and high-quality fruits and vegetables for everyday needs.",
-    image: FruitVegetables,
-  },
-  categories: [
     {
-      title: "Fresh, Dried & Preserved Fruits",
-      image: FruitPreserved,
-      items: ["Apple", "Banana", "Mango"],
+      leftCard: {
+        title: "Fruits & Vegetables",
+        description:
+          "Fresh and high-quality fruits and vegetables for everyday needs.",
+        image: FruitVegetables,
+      },
+      categories: [
+        {
+          title: "Fresh, Dried & Preserved Fruits",
+          image: FruitPreserved,
+          items: ["Apple", "Banana", "Mango"],
+        },
+        {
+          title: "Dry Fruits & Nuts",
+          image: DryFruits,
+          items: ["Almonds", "Cashew Nuts", "Walnuts"],
+        },
+        {
+          title: "Leafy Greens",
+          image: LeafyGreen,
+          items: ["Spinach", "Lettuce", "Kale"],
+        },
+        {
+          title: "Exotic Fruits",
+          image: ExoticFruits,
+          items: ["Dragon Fruit", "Kiwi", "Avocado"],
+        },
+        {
+          title: "Exotic Vegetables",
+          image: ExoticVegetables,
+          items: ["Broccoli", "Zucchini", "Bell Peppers"],
+        },
+        {
+          title: "Fresh Vegetables",
+          image: FreshVegetables,
+          items: ["Tomato", "Carrot", "Cucumber"],
+        },
+      ],
     },
-    {
-      title: "Dry Fruits & Nuts",
-      image: DryFruits,
-      items: ["Almonds", "Cashew Nuts", "Walnuts"],
-    },
-    {
-      title: "Leafy Greens",
-      image: LeafyGreen,
-      items: ["Spinach", "Lettuce", "Kale"],
-    },
-    {
-      title: "Exotic Fruits",
-      image: ExoticFruits,
-      items: ["Dragon Fruit", "Kiwi", "Avocado"],
-    },
-    {
-      title: "Exotic Vegetables",
-      image: ExoticVegetables,
-      items: ["Broccoli", "Zucchini", "Bell Peppers"],
-    },
-    {
-      title: "Fresh Vegetables",
-      image: FreshVegetables,
-      items: ["Tomato", "Carrot", "Cucumber"],
-    },
-  ],
-},
-
 
     {
       leftCard: {
@@ -367,7 +329,7 @@ export const Market_Category_data: CategoryData = {
       ],
     },
 
-  {
+    {
       leftCard: {
         title: "Irrigation & Water Management",
         description: "Save water and ensure efficient irrigation solutions.",
@@ -406,7 +368,7 @@ export const Market_Category_data: CategoryData = {
         },
       ],
     },
- 
+
     {
       leftCard: {
         title: "Animal Husbandry",
@@ -446,7 +408,7 @@ export const Market_Category_data: CategoryData = {
         },
       ],
     },
- 
+
     {
       leftCard: {
         title: "Horticulture",
@@ -486,7 +448,7 @@ export const Market_Category_data: CategoryData = {
         },
       ],
     },
- 
+
     {
       leftCard: {
         title: "Agri Services",
@@ -538,7 +500,7 @@ export const Market_Category_data: CategoryData = {
         },
       ],
     },
- 
+
     {
       leftCard: {
         title: "Agri Marketplace",
@@ -580,5 +542,3 @@ export const Market_Category_data: CategoryData = {
     },
   ],
 };
-
-
