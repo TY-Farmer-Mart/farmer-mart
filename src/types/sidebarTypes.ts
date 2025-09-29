@@ -37,5 +37,5 @@ export interface TextDropdownProps {
 export interface FilterSectionProps {
   title: string;
   options: string[];
-  limit?: number;
+  
 }

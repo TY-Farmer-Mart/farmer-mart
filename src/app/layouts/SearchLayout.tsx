@@ -1,6 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import ProductList from "@/features/productList/ProductList";
-import RequirementForm from "@/features/productList/RequirementForm";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import { fetchProducts } from "@/redux/productSlice";
@@ -8,6 +6,8 @@ import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "@/redux/store";
 import FilterSlideBar from "@/features/productList/FilterSlideBar";
 import LocationSearch from "@/features/productList/LocationSearch";
+import ProductList from "@/features/productList/ProductList";
+import RequirementForm from "@/features/productList/RequirementForm";
 
 const useAppDispatch = () => useDispatch<AppDispatch>();
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -49,12 +49,12 @@ const SearchLayout: React.FC = () => {
         <LocationSearch />
 
         <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="w-1/5 border-2 p-4">
-            <FilterSlideBar />
+          <aside className="lg:w-1/5 lg:p-1 relative">
+            <FilterSlideBar sidebarData={sidebarData} />
           </aside>
           <main
             ref={mainRef}
-            className="w-4/5 border-2 h-full overflow-y-auto flex flex-col"
+            className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"
           >
             <ProductList products={items} loading={loading} error={error} />
 

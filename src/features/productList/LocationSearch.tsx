@@ -28,25 +28,20 @@ const LocationSearch: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: RootState) => state.products.items);
 
-  // State
   const [activeCity, setActiveCity] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // Refs
   const inputRef = useRef<HTMLInputElement>(null);
   const pillContainerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll state
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  // Fetch products on mount
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  // Extract unique sorted cities from products
   const cities = useMemo(() => {
     if (!products.length) return [];
     const set = new Set<string>();
@@ -56,7 +51,6 @@ const LocationSearch: React.FC = () => {
     return Array.from(set).sort();
   }, [products]);
 
-  // Sync active city & search term when cities load
   useEffect(() => {
     if (cities.length) {
       setActiveCity(cities[0]);
@@ -64,7 +58,6 @@ const LocationSearch: React.FC = () => {
     }
   }, [cities]);
 
-  // Filter nearby locations based on search term
   const filteredNearby = useMemo(
     () =>
       nearbyLocations.filter((loc) =>
@@ -74,7 +67,6 @@ const LocationSearch: React.FC = () => {
     [searchTerm]
   );
 
-  // Close dropdown on outside click
   useEffect(() => {
     const onClickOutside = (e: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
@@ -85,7 +77,6 @@ const LocationSearch: React.FC = () => {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
-  // Scroll controls
   const checkScroll = useCallback(() => {
     const el = pillContainerRef.current;
     if (!el) return;
@@ -115,7 +106,6 @@ const LocationSearch: React.FC = () => {
     });
   };
 
-  // Geolocation handler simplified
   const handleNearbyBtnClick = () => {
     if (!navigator.geolocation) {
       alert("Geolocation is not supported by your browser");
@@ -151,7 +141,6 @@ const LocationSearch: React.FC = () => {
     );
   };
 
-  // Dropdown select handler
   const handleSelectNearby = (location: string) => {
     setActiveCity(location);
     setSearchTerm(location);

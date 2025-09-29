@@ -1,13 +1,13 @@
-import React from 'react'
-import { AuthWrapper } from './Authwrapper'
+
+import { AuthWrapper } from './AuthWrapper'
 import Login from './Login'
 
-const Loginpage = () => {
+const LoginPage = () => {
   return (
     <AuthWrapper title='Login'>
-        <Login/>
+      <Login />
     </AuthWrapper>
   )
 }
 
-export default Loginpage
+export default LoginPage

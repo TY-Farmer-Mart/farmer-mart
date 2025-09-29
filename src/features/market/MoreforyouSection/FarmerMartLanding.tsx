@@ -6,6 +6,7 @@ import { Button } from "@/components/common/ui/Button";
 import accounting from "@assets/images/accounting.jpg";
 import farmermartapp from "@assets/images/farmermartapp.jpg";
 import logo from "@/assets/images/FarmerMartLogo.png";
+import farmerlogo from "@/assets/images/image.png";
 
 const FarmerMartLanding: React.FC = () => {
   const [mobileNumber, setMobileNumber] = useState("");
@@ -26,7 +27,12 @@ const FarmerMartLanding: React.FC = () => {
             <img
               src={logo}
               alt="FarmerMart Logo"
-              className="h-16 w-auto object-contain"
+              className="h-16 w-auto object-contain hidden md:block"
+            />
+            <img
+              src={farmerlogo}
+              alt="Farmer Logo Small"
+              className="h-14 w-auto object-contain block md:hidden"
             />
           </div>
         </div>
