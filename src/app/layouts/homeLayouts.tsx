@@ -1,12 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
-import Footer from "@/components/common/Footer";
 import {
   Home,
   User,
   Settings,
-  LogOut,
   TextAlignJustify,
   X,
 } from "lucide-react";
@@ -21,8 +19,8 @@ const HomeLayout: React.FC = () => {
     { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
     { name: "Profile", icon: <User size={20} />, path: "/profile" },
     { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
-    { name: "Logout", icon: <LogOut size={20} />, path: "/" },
   ];
+
   return (
     <div className="">
       <div className="flex relative h-screen">
@@ -35,10 +33,9 @@ const HomeLayout: React.FC = () => {
 
         <div
           className={`absolute sm:relative transition-all duration-500 ease-in-out
-            ${
-              toggle
-                ? "translate-x-0 opacity-100 z-10"
-                : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
+            ${toggle
+              ? "translate-x-0 opacity-100 z-10"
+              : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
             }
           `}
         >
@@ -58,11 +55,6 @@ const HomeLayout: React.FC = () => {
           </div>
         </main>
       </div>
-      {/* {
-        <div className="pb-4">
-          <Footer />
-        </div>
-      } */}
     </div>
   );
 };

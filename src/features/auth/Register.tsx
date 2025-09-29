@@ -19,17 +19,19 @@ const Register: React.FC = () => {
     confirmPassword: "",
     about: "",
   };
+
   const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)
+  }
 
   return (
     <>
       <Formik
         initialValues={initialValues}
         validationSchema={registerSchema}
-        onSubmit={() => {
-          alert("Register Successfully!");
-        }}
-      >
+        onSubmit={handleSubmit}>
         {({
           values,
           errors,
@@ -185,7 +187,7 @@ const Register: React.FC = () => {
             </p>
           </Form>
         )}
-      </Formik>
+      </Formik >
     </>
   );
 };

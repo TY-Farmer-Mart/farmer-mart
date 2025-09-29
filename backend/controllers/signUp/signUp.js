@@ -1,23 +1,46 @@
-const User = require("../../models/users/users.js");
+const bcrypt = require("bcryptjs");
+const users = require("../../models/auth/auth.js");
+
 const signUp = async (req, res) => {
-  const { id, email, password } = req.body;
-  console.log("reqData", email, password);
+  const { name, email, contact, role, password, confirmPassword, about } =
+    req.body;
+
+  // 1. Basic validation
+  if (!name || !email || !contact || !password || !role) {
+    return res
+      .status(400)
+      .json({ message: "All required fields must be filled" });
+  }
 
   try {
-    const isUserExist = await User.findOne({ email });
-    console.log("isUserExist", isUserExist);
-    if (isUserExist) {
-      res.send({ status: 200, message: "User has already existed" });
-    } else {
-      await User.insertOne({ id, email, password });
-      res.send("sign up successful");
+    // 2. Check if user already exists
+    const existingUser = await users.findOne({ email });
+    if (existingUser) {
+      return res.status(409).json({ message: "User already exists" });
     }
-  } catch (err) {
-    res.send({
-      status: 400,
-      message: err,
+
+    // 3. Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // 4. Create new user
+    const newUser = new users({
+      name,
+      email,
+      contact,
+      role,
+      password: hashedPassword,
+      about,
     });
-    console.log("error in signup", err);
+
+    await newUser.save();
+
+    // 5. Send success response
+    res
+      .status(201)
+      .json({ message: "Sign up successful", userId: newUser._id });
+  } catch (err) {
+    console.error("Error in signup:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 };
 

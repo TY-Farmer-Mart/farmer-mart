@@ -1,10 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { SidebarData } from "@/types/sideBar";
+import { Button } from "./ui/Button";
 
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
+
   ({ name, mobile, address, menuItem, help, imageIcon, ...props }, ref) => {
     const firstLatterOfName = name?.split("")[0];
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+      localStorage.removeItem("user");
+      navigate('/')
+    }
 
     return (
       <aside
@@ -30,7 +39,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
                   `flex items-center px-6 py-3 mt-2 rounded-s-3xl text-gray-700 hover:bg-green-400 transition-colors
                   ${
                     isActive
-                      ? "bg-green-500 font-semibold text-blue-600 rounded-s-3xl text-white"
+                      ? "bg-green-500 font-semibold rounded-s-3xl text-white"
                       : ""
                   }`
                 }
@@ -42,15 +51,18 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
           ))}
         </ul>
 
-        <div className="p-4 border-t border-gray-200 text-sm flex items-center justify-between">
-          <span>{help}</span>
-          <a
-            href={`https://wa.me/91${mobile}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={imageIcon} alt="WhatsApp" className="w-6 h-6" />
-          </a>
+        <div className="p-4 border-t border-gray-200 text-sm items-center justify-between">
+          <Button className="w-full" onClick={handleLogout}>Logout</Button>
+          <div className="flex gap-4 mt-2">
+            <span>{help}</span>
+            <a
+              href={`https://wa.me/91${mobile}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={imageIcon} alt="WhatsApp" className="w-6 h-6" />
+            </a>
+          </div>
         </div>
       </aside>
     );

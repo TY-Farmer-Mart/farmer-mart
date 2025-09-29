@@ -7,6 +7,7 @@ import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { AiOutlineApple } from "react-icons/ai";
 import Googleimg from "@assets/images/google.svg"
 import { ROUTES } from "@/constants/routeConstants";
+import { loginUser } from "../../services/auth";
 
 const Login = () => {
   const text = AUTH_TEXT;
@@ -17,9 +18,18 @@ const Login = () => {
     password: "",
   };
 
-  const handleSubmit = (values: LoginFormValues) => {
+  const handleSubmit = async (values: LoginFormValues) => {
     console.log("Form submitted:", values);
-    navigate("/dashboard");
+
+    // loginUser
+    try {
+      const data = await loginUser(values);
+      console.log("User data:", data);
+      navigate('/dashboard')
+      // Now localStorage has user data, ready for protected routes
+    } catch (err) {
+      console.log("error while logging in", err)
+    }
   };
 
   return (
