@@ -10,7 +10,7 @@ import { RootState } from "@/store";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useDispatch();
-  const { filteredProducts, loading, error } = useSelector(
+  const {  filteredProducts, loading, error } = useSelector(
     (state: RootState) => state.products
   );
 
@@ -34,6 +34,8 @@ const SearchLayout: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  console.log(filteredProducts);
+
   return (
     <div>
       <Navbar />
@@ -48,14 +50,22 @@ const SearchLayout: React.FC = () => {
 
         <div className="flex-[8] flex w-full overflow-hidden">
           <aside className="lg:w-1/5 lg:p-1 relative">
-            <FilterSlideBar products={filteredProducts} loading={loading} error={error} />
+            <FilterSlideBar
+              products={filteredProducts}
+              loading={loading}
+              error={error}
+            />
           </aside>
 
           <main
             ref={mainRef}
             className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"
           >
-            <ProductList products={filteredProducts} loading={loading} error={error} />
+            <ProductList
+              products={filteredProducts}
+              loading={loading}
+              error={error}
+            />
             <div ref={productListEndRef} className="h-4" />
             {showForm && <RequirementForm />}
           </main>
