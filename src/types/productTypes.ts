@@ -1,14 +1,14 @@
 export interface Product {
-  id: number;
+  id?: string | number;
   itemName: string;
   price?: number | string;
   quantity?: string;
-  imageUrl: string;
+  imageUrl?: string;
   sellerName?: string;
   location?: string;
+  rating?: number | string;
   verified?: boolean;
   memberYears?: string;
-  rating?: number;
   responseRate?: string;
 }
 
@@ -23,21 +23,28 @@ export interface Supplier {
 }
 
 export interface ApiProduct {
-  sellerName?: string;
-  location?: string;
-  verified?: boolean;
-  memberYears?: string;
-  rating?: number | string;
-  responseRate?: string;
+  id?: string | number;
   itemName?: string;
   price?: number | string;
   quantity?: string;
   imageUrl?: string;
+  sellerName?: string;
+  location?: string;
+  rating?: number | string;
+  verified?: boolean;
+  memberYears?: string;
+  responseRate?: string;
   products?: Product[];
 }
+
 export interface ProductsState {
   items: Product[];
   loading: boolean;
   error: string | null;
 }
 
+export interface ProductListProps {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
+}

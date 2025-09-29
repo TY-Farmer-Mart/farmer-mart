@@ -1,3 +1,4 @@
+import { LucideIcon } from "lucide-react";
 import { ReactNode } from "react";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,7 +12,6 @@ export interface ButtonProps
     | "pillScroll"
     | "activeCity"
     | "inactiveCity"
-    | "cityPill";
 
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
@@ -59,4 +59,17 @@ export interface CartItem {
   textTop?: string;
   textBottom?: string;
   Btn?: string;
+}
+
+export interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  buttonText: string;
+}
+
+
+export interface MoreForYouCardProps {
+  heading: string;
+  services: Service[];
 }

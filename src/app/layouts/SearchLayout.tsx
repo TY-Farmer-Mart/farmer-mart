@@ -2,15 +2,15 @@ import React, { useRef, useState, useEffect } from "react";
 import ProductList from "@/features/productList/ProductList";
 import RequirementForm from "@/features/productList/RequirementForm";
 import Footer from "@/components/common/Footer";
-import FilterSlideBar from "@/features/productList/FilterSlideBar";
 import Navbar from "@/components/common/Navbar";
 import { fetchProducts } from "@/redux/productSlice";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "@/redux/store";
+import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import LocationSearch from "@/features/productList/LocationSearch";
 
 const useAppDispatch = () => useDispatch<AppDispatch>();
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-import LocationSearch from "@/features/productList/LocationSearch";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -46,10 +46,6 @@ const SearchLayout: React.FC = () => {
     <div>
       <Navbar />
       <div className="h-screen flex flex-col">
-        {/* <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
-          Farmer Mart
-        </header> */}
-
         <LocationSearch />
 
         <div className="flex-[8] flex w-full overflow-hidden">

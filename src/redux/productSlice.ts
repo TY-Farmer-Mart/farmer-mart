@@ -1,7 +1,6 @@
 import { Product, ProductsState } from "@/types/productTypes";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
-
 const initialState: ProductsState = {
   items: [],
   loading: false,
@@ -11,12 +10,17 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk<Product[]>(
   "products/fetchProducts",
   async () => {
-    const response = await fetch("http://localhost:7000/products"); // Replace with your API
+    const response = await fetch("http://localhost:7000/products");
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
     const data = await response.json();
-    return data as Product[];
+
+    const allProducts: Product[] = Object.values(data).flatMap(
+      (categoryData: any) => categoryData.list ?? []
+    );
+
+    return allProducts;
   }
 );
 

@@ -33,8 +33,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       pillScroll: "px-4 py-2  text-xl transition text-center ",
       activeCity: "bg-white border-red-500 text-red-600",
       inactiveCity: "bg-white hover:bg-gray-100 border-gray-300 text-gray-700",
-      cityPill:
-        "flex items-center gap-1 px-4 py-1 rounded-full border text-sm whitespace-nowrap transition",
     };
 
     const sizes = {
@@ -44,15 +42,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
     return (
       <button
-          className={cn(
-            baseStyles,
-            variants[variant],
-            variant !== "pillScroll" && sizes[size],
-            variant !== "pillScroll" &&
-              "focus:outline-none focus:ring-2 focus:ring-offset-2",
-            isLoading && "cursor-wait",
-            className
-          )}
+        className={cn(
+          baseStyles,
+          variants[variant],
+          variant !== "pillScroll" && sizes[size],
+
+          isLoading && "cursor-wait",
+          className
+        )}
         disabled={disabled || isLoading}
         ref={ref}
         {...props}
