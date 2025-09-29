@@ -1,0 +1,214 @@
+{
+  "AUTH": {
+    "LOGIN_TITLE": "Login to your account ",
+    "TITLE": "Login",
+    "SUBTITLE": "Log in to continue to your dashboard",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "CONTINUE_WITH_GOOGLE": "Continue with Google",
+    "CONTINUE_WITH_APPLE": "Continue with Apple",
+    "SOCIAL": "OR Login with",
+    "FOOTER": "Don’t have an account?",
+    "FOOTER_LINK": "Sign up",
+    "REGISTER_TITLE": "Create your account",
+    "SIGNUP_BUTTON": "Sign Up",
+    "NAME_LABEL": "Full Name",
+    "NAME_PLACEHOLDER": "Enter your full name",
+    "PHONE_LABEL": "Phone Number",
+    "PHONE_PLACEHOLDER": "Enter your phone number",
+    "EMAIL_LABEL": "Email Address",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "ROLE_LABEL": "Select Role",
+    "ROLE_PLACEHOLDER": "Select your role",
+    "GST_LABEL": "GST Number",
+    "GST_PLACEHOLDER": "Enter your GST number",
+    "PASSWORD_LABEL": "Password",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Re-enter your password",
+    "ABOUT_LABEL": "About",
+    "ABOUT_PLACEHOLDER": "Tell us about yourself...",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account? ",
+    "LOGIN_BUTTON": "Login",
+    "AUTH_HEADER": "Empower Your Farm With",
+    "AUTH_SUBHEADING": "Essential Supplies",
+    "AUTH_ENDING": " Management.",
+    "AUTH_FOOTER": "Find everything you need \nseeds, fertilizers, tools, and more – \nto grow a successful harvest.",
+    "FARMER_BG_ALT": "Farmer Background",
+    "LOGO_ALT": "Farmer Mart Logo",
+    "BRAND_NAME": "Farmer Mart"
+  },
+  "ROLES": {
+    "ADMIN": "Admin",
+    "USER": "User",
+    "VENDOR": "Vendor/Farmer",
+    "CONSULTANT": "Consultant"
+  },
+  "NAVBAR": {
+    "SEARCH_PLACEHOLDER": "Search for product or service",
+    "DEFAULT_LOCATION": "Bengaluru",
+    "GET_BEST_PRICE": "Get Best Price",
+    "SIGN_IN": "Sign In",
+    "LOGIN": "Login",
+    "NAV_OPTIONS": [
+      { "label": "Export", "value": "export" },
+      { "label": "Sell", "value": "sell" },
+      { "label": "Help", "value": "help" }
+    ]
+  },
+  "MORE_FOR_YOU_TEXT": {
+    "HEADING": "More for You",
+    "SERVICES": [
+      {
+        "TITLE": "Connect with verified sellers",
+        "DESCRIPTION": "Tell us your requirement & let our experts find verified sellers for you",
+        "BUTTON": "Get Verified Sellers"
+      },
+      {
+        "TITLE": "Sell on FarmMart for free",
+        "DESCRIPTION": "Reach out to more than 21+ crore buyers. Sell with us.",
+        "BUTTON": "Start Selling"
+      },
+      {
+        "TITLE": "Download our App",
+        "DESCRIPTION": "Get instant notifications on the go. Download our App Now",
+        "BUTTON": "Download Now"
+      },
+      {
+        "TITLE": "Tally on Mobile",
+        "DESCRIPTION": "With Live Keeping, SME's can now connect their Tally offline data to mobile app",
+        "BUTTON": "Know More"
+      }
+    ]
+  },
+  "LANDING_TEXT": {
+    "HERO_TITLE": "Accounting Software",
+    "HERO_SUBTITLE": "Trusted by 3,60,000+ Small Businesses across different domains",
+    "FEATURES": [
+      "GST Accounting Software",
+      "e-Invoice Software",
+      "Inventory Management Software",
+      "e-Way Billing Software"
+    ],
+    "GET_APP_TITLE": "Get FarmerMART App",
+    "GET_APP_SUBTITLE": "Search for products/services and connect with verified sellers on the go!",
+    "DOWNLOAD_INFO": "We will send you a link, open it on your phone to download the App",
+    "COMPANY_BADGE": {
+      "BUSY_LABEL": "Busy",
+      "BUSINESS": "BUSINESS",
+      "ACCOUNTING": "ACCOUNTING",
+      "SOFTWARE": "SOFTWARE",
+      "COMPANY_SUFFIX": "company",
+      "TRUSTED_BY": "Trusted by",
+      "COUNT": "3,60,000+",
+      "SMALL_BUSINESS": "Small Businesses across different domains"
+    },
+    "STORE_LABELS": {
+      "APP_STORE_TOP": "Download on the",
+      "APP_STORE_BOTTOM": "App Store",
+      "PLAY_STORE_TOP": "GET IT ON",
+      "PLAY_STORE_BOTTOM": "Google Play"
+    },
+    "PLACEHOLDERS": {
+      "MOBILE_NUMBER": "Enter Mobile Number"
+    },
+    "BUTTONS": {
+      "SEND_LINK": "Send me the link"
+    },
+    "ALERT_PREFIX": "Link will be sent to +91"
+  },
+  "MARKET_TEXT": {
+    "LOGO": "FarmerMart",
+    "REGISTERBTN": "Register",
+    "LOGINBTN": "Login",
+    "EMPOWERING_TAG": "Empowering Farmers to Sell Their Products Online 🚜",
+    "HERO_TEXT": "We connect Buyers & Sellers",
+    "HERO_SUB": "FarmMART is India's largest online B2B marketplace, connecting buyers with suppliers",
+    "TITLE_ICON1": "Trusted Platform",
+    "TITLE_ICON2": "Safe & Secure",
+    "TITLE_ICON3": "Quick Assistance",
+    "SUBMIT_BUTTON": "Submit Your Requirement"
+  },
+  "MARKET_CATEGORY_PRODUCT": {
+    "VIEWALL_BUTTON": "View All"
+  },
+  "DASHBOARD_TEXT": {
+    "DASHBOARD_CAROUSEL": "Categories You May Like",
+    "CAROUSEL_BUTTON": "Get Quotes",
+    "DASHBOARD_CART": "Buyer Testimonials"
+  },
+  "REQUIREMENTFORM_TEXT": {
+    "TITLE1": "Tell us what you need, and we'll help you get quotes",
+    "TITLE2": "I want quotes for",
+    "BUTTON_TEXT": "Submit Requirement"
+  },
+  "FOOTER": {
+    "footerHeaderText": "We are here to help you!",
+    "goMobile": "Go Mobile:",
+    "followUsOn": "Follow us on:",
+    "aboutUs": [
+      "About Us",
+      "FarmMART Export",
+      "join Sales",
+      "Success Stories",
+      "Press Section",
+      "Advertise with us"
+    ],
+    "jobCareers": [
+      "Job & Careers",
+      "Help",
+      "Feedback",
+      "Complaints",
+      "Customer Care",
+      "Contact us"
+    ],
+    "buyToolkit": [
+      "Supplier Tool Kit",
+      "Sell on FarmMart",
+      "Latest BuyLead",
+      "Learning Centre"
+    ],
+    "accountingSolutions": [
+      "Buyer Tool Kit",
+      "Post Your Requirement",
+      "join Sales",
+      "Products You Buy",
+      "Search Products & Supplier"
+    ],
+    "supplierToolkit": [
+      "Accounting Software",
+      "Tally On Mobile",
+      "GST e-Invoice"
+    ],
+    "copyRight": "Copyright © 1996-2025 FarmMart InterMESH Ltd. All rights reserved.",
+    "termsUse": "Terms of Use-Privacy Policy Link to Us"
+  },
+  "TOP_CITIES": {
+    "HEADING": "Find Suppliers from Top Cities",
+    "LIST": [
+      "Delhi",
+      "Bengaluru",
+      "Chennai",
+      "Mumbai",
+      "Ahmedabad",
+      "Kolkata",
+      "Pune",
+      "Surat",
+      "Jaipur",
+      "Hyderabad"
+    ]
+  },
+  "HEADING": { "heading": "More for you" },
+  "DASHBOARD_NAV_TXT": {
+    "LOCATION": "All India",
+    "SEARCH_PLACEHOLDER": "Enter product / service",
+    "BTN_TEXT": "Search",
+    "POPOVER_TEXT": "Enter city"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "LOGOUT": "Logout"
+}

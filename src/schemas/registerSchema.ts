@@ -1,22 +1,23 @@
 import * as Yup from "yup";
+import { AUTH_VALIDATION } from "@/constants/textConstants";
 
 const registerSchema = Yup.object().shape({
-  name: Yup.string().required("Full name is required"),
+  name: Yup.string().required(AUTH_VALIDATION.NAME_REQUIRED),
 
   phone: Yup.string()
-    .matches(/^[0-9]{10}$/, "Phone number must be 10 digits")
-    .required("Phone number is required"),
+    .matches(/^[0-9]{10}$/, AUTH_VALIDATION.PHONE_INVALID)
+    .required(AUTH_VALIDATION.PHONE_REQUIRED),
 
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email(AUTH_VALIDATION.EMAIL_INVALID)
+    .required(AUTH_VALIDATION.EMAIL_REQUIRED),
 
-  role: Yup.string().required("Role is required"),
+  role: Yup.string().required(AUTH_VALIDATION.ROLE_REQUIRED),
 
   gstNumber: Yup.string().when("role", {
     is: (role: string) => role === "vendor",
     then: (schema) =>
-      schema.matches(/^[0-9]{15}$/, "GST number must be 15 digits"),
+      schema.matches(/^[0-9]{15}$/, AUTH_VALIDATION.GST_INVALID),
     otherwise: (schema) => schema.notRequired(),
   }),
 
@@ -28,12 +29,10 @@ const registerSchema = Yup.object().shape({
     .matches(/[!@#$%^&*(),.?":{}|<>]/, "Must contain at least one special character"),
 
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "Passwords must match")
-    .required("Confirm Password is required"),
+    .oneOf([Yup.ref("password")], AUTH_VALIDATION.PASSWORD_MATCH)
+    .required(AUTH_VALIDATION.CONFIRM_PASSWORD_REQUIRED),
 
-  about: Yup.string()
-    .max(300, "About section must not exceed 300 characters")
-    .notRequired(),
+  about: Yup.string().max(300, AUTH_VALIDATION.ABOUT_MAX),
 });
 
 export default registerSchema;

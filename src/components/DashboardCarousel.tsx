@@ -1,11 +1,10 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
-import { DASHBOARD_TEXT } from "@constants/textConstants";
+import { CustomArrowProps } from "react-slick";
 import { products } from "../utils/json_util";
-
 import { Button } from "@/components/common/ui/Button";
+import { useTranslation } from "react-i18next";
 function Card({
   data,
   buttonText,
@@ -59,6 +58,28 @@ function Card({
   );
 }
 
+const SampleNextArrow: React.FC<CustomArrowProps> = ({
+  className,
+
+  onClick,
+}) => (
+  <div
+    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-10  !p-4`}
+    onClick={onClick}
+  />
+);
+
+const SamplePrevArrow: React.FC<CustomArrowProps> = ({
+  className,
+
+  onClick,
+}) => (
+  <div
+    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-10 !p-4`}
+    onClick={onClick}
+  />
+);
+
 const DashboardCarousel = () => {
   const settings = {
     dots: true,
@@ -66,22 +87,25 @@ const DashboardCarousel = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 3,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       { breakpoint: 1280, settings: { slidesToShow: 3, slidesToScroll: 2 } },
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
+  const { t } = useTranslation();
   return (
     <div className="slider-container max-w-7xl mx-auto p-2 bg-white rounded-xl shadow-md py-6 ">
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4 pb-3 text-center md:text-left px-3">
-        {DASHBOARD_TEXT.DASHBOARD_CAROUSEL}
+        {t("DASHBOARD_TEXT.DASHBOARD_CAROUSEL")}
       </h2>
 
       <Slider {...settings}>
         {products.map((p) => (
           <div key={p.id} className="px-2">
-            <Card data={p} buttonText={DASHBOARD_TEXT.CAROUSEL_BUTTON} />
+            <Card data={p} buttonText={t("DASHBOARD_TEXT.CAROUSEL_BUTTON")} />
           </div>
         ))}
       </Slider>

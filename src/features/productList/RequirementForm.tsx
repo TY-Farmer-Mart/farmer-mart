@@ -1,20 +1,21 @@
 import React from "react";
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
-import { REQUIREMENTFORM_TEXT } from "@/constants/textConstants";
+import { useTranslation } from "react-i18next";
 
 const RequirementForm: React.FC = () => {
   const [query, setQuery] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Requirement submitted:", query);
   };
+
+  const { t } = useTranslation();
 
   return (
     <div className="max-w-xl mx-auto p-4 border border-gray-300 rounded-lg shadow-sm bg-white">
       <h2 className="text-lg md:text-xl font-medium text-center text-indigo-900 mb-3">
-        {REQUIREMENTFORM_TEXT.TITLE1}
+        {t("REQUIREMENTFORM_TEXT.TITLE1")}
       </h2>
 
       <form onSubmit={handleSubmit} className="flex items-center gap-3">
@@ -22,7 +23,7 @@ const RequirementForm: React.FC = () => {
           htmlFor="requirement"
           className="whitespace-nowrap text-sm md:text-base font-medium text-gray-700"
         >
-          {REQUIREMENTFORM_TEXT.TITLE2}
+          {t("REQUIREMENTFORM_TEXT.TITLE2")}
           <span className="text-red-500">*</span>
         </label>
 
@@ -36,7 +37,7 @@ const RequirementForm: React.FC = () => {
         />
 
         <Button type="submit" variant="primary" size="md">
-          {REQUIREMENTFORM_TEXT.BUTTON_TEXT}
+          {t("REQUIREMENTFORM_TEXT.BUTTON_TEXT")}
         </Button>
       </form>
     </div>

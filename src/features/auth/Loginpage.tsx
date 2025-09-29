@@ -1,13 +1,14 @@
+import { AuthWrapper } from "./Authwrapper";
+import Login from "./Login";
+import { useTranslation } from "react-i18next";
 
-import { AuthWrapper } from './AuthWrapper'
-import Login from './Login'
-
-const LoginPage = () => {
+const Loginpage = () => {
+  const { t } = useTranslation();
   return (
-    <AuthWrapper title='Login'>
+    <AuthWrapper title={t("AUTH.TITLE")}>
       <Login />
     </AuthWrapper>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default Loginpage;

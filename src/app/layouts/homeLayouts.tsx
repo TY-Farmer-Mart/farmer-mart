@@ -1,24 +1,24 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
-import {
-  Home,
-  User,
-  Settings,
-  TextAlignJustify,
-  X,
-} from "lucide-react";
+import { Home, User, Settings, TextAlignJustify, X } from "lucide-react";
 import { menuItem } from "@/types/sideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "@/redux/dashBoardSlice";
+import { useTranslation } from "react-i18next";
 
 const HomeLayout: React.FC = () => {
   const toggle = useSelector((state) => state);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [
-    { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
-    { name: "Profile", icon: <User size={20} />, path: "/profile" },
-    { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
+    { name: t("menu.dashboard"), icon: <Home size={20} />, path: "/dashboard" },
+    { name: t("menu.profile"), icon: <User size={20} />, path: "/profile" },
+    {
+      name: t("menu.settings"),
+      icon: <Settings size={20} />,
+      path: "/settings",
+    },
   ];
 
   return (
@@ -33,9 +33,10 @@ const HomeLayout: React.FC = () => {
 
         <div
           className={`absolute sm:relative transition-all duration-500 ease-in-out
-            ${toggle
-              ? "translate-x-0 opacity-100 z-10"
-              : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
+            ${
+              toggle
+                ? "translate-x-0 opacity-100 z-10"
+                : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
             }
           `}
         >
