@@ -4,7 +4,7 @@ import RequirementForm from "@/features/productlist/RequirementForm";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import { SidebarSection } from "@/types/sidebarTypes";
-import FilterSlideBar from "@/features/productlist/filterSlideBar";
+import FilterSlideBar from "@/features/productlist/FilterSlideBar";
 
 const sidebarData: SidebarSection[] = [
   {
@@ -101,8 +101,8 @@ const SearchLayout: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <div className="h-screen flex flex-col">
-        <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
+      <div className="h-screen flex flex-col ">
+        <header className="flex-[1]   border-2 text-black flex items-center px-6 font-bold text-lg">
           Farmer Mart
         </header>
 
@@ -111,7 +111,7 @@ const SearchLayout: React.FC = () => {
         </nav>
 
         <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="lg:w-1/5 lg:p-1 relative">
+          <aside className="lg:w-1/5 lg:p-1 ">
             <FilterSlideBar sidebarData={sidebarData} />
           </aside>
           <main

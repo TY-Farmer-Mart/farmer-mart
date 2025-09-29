@@ -26,10 +26,10 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
       {" "}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden absolute top-84 left-3 z-50 p-1 border rounded-md bg-white shadow"
+        className="lg:hidden absolute  top-20 left-80 p-2 border rounded-md bg-white shadow"
       >
         {" "}
-        <FunnelPlus size={18} />{" "}
+        <FunnelPlus size={24} />{" "}
       </button>{" "}
       <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
         {" "}
