@@ -2,10 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { CustomArrowProps } from "react-slick";
-
-import { DASHBOARD_TEXT } from "@constants/textConstants";
 import { products } from "../utils/json_util";
-
 import { Button } from "@/components/common/ui/Button";
 import { useTranslation } from "react-i18next";
 function Card({

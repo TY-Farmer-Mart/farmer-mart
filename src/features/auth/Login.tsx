@@ -1,6 +1,6 @@
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { AiOutlineApple } from "react-icons/ai";
@@ -131,14 +131,16 @@ const Login = () => {
       </div>
       <p className="text-center text-sm text-gray-600 my-2">
         {t("AUTH.FOOTER")}
-        <a
-          onClick={() => {
+        <Link
+          to="#"
+          onClick={(e) => {
+            e.preventDefault();
             navigate(`${ROUTES.AUTH}${ROUTES.REGISTER}`);
           }}
           className="text-green-600 hover:underline"
         >
           {t("AUTH.FOOTER_LINK")}
-        </a>
+        </Link>
       </p>
     </>
   );

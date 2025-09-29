@@ -59,7 +59,7 @@ export const AUTH_VALIDATION = {
   ROLE_REQUIRED: "Role is required",
   GST_INVALID: "GST number must be 15 digits",
   PASSWORD_REQUIRED: "Password is required",
-  PASSWORD_MIN: "Password must be at least 6 characters",
+  PASSWORD_MIN: "Password must be at least 4 characters",
   CONFIRM_PASSWORD_REQUIRED: "Confirm Password is required",
   PASSWORD_MATCH: "Passwords must match",
   ABOUT_MAX: "About section must not exceed 300 characters",

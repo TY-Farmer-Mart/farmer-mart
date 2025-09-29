@@ -1,6 +1,6 @@
 {
   "AUTH": {
-    "LOGIN_TITLE": "Login to your account",
+    "LOGIN_TITLE": "Login to your account ",
     "TITLE": "Login",
     "SUBTITLE": "Log in to continue to your dashboard",
     "REMEMBER_ME": "Remember me",
@@ -28,7 +28,7 @@
     "CONFIRM_PASSWORD_PLACEHOLDER": "Re-enter your password",
     "ABOUT_LABEL": "About",
     "ABOUT_PLACEHOLDER": "Tell us about yourself...",
-    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account? ",
     "LOGIN_BUTTON": "Login",
     "AUTH_HEADER": "Empower Your Farm With",
     "AUTH_SUBHEADING": "Essential Supplies",

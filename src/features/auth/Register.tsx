@@ -5,7 +5,7 @@ import { Button } from "@/components/common/ui/Button";
 import { SelectInput } from "@/components/common/ui/SelectInput";
 import { Textarea } from "@/components/common/ui/Textarea";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/constants/routeConstants";
 import { ROLE_OPTIONS } from "@/constants/textConstants";
 import registerSchema from "@/schemas/registerSchema";
@@ -173,14 +173,13 @@ const Register: React.FC = () => {
 
           <p className="text-center text-sm text-gray-600 m-0 py-2">
             {t("AUTH.ALREADY_HAVE_ACCOUNT")}
-            <Link to={`${ROUTES.AUTH}${ROUTES.LOGIN}`}>
-              <Button
-                type="button"
-                className="text-green-600 font-semibold hover:underline bg-transparent px-1 py-0"
-              >
-                {t("AUTH.TITLE")}
-              </Button>
-            </Link>
+
+            <span
+              className="text-green-600 hover:underline"
+              onClick={() => navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
+            >
+              {t("AUTH.TITLE")}
+            </span>
           </p>
         </Form>
       )}
