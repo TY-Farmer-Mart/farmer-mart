@@ -44,7 +44,6 @@ export const SelectInput = React.forwardRef<HTMLSelectElement, SelectProps>(
             onBlur={onBlur}
             className={cn(
               "w-full border border-gray-200 md:border-gray-400 rounded-xl shadow-md md:shadow-none text-sm",
-              "disabled:bg-gray-50 disabled:cursor-not-allowed",
               value ? "text-black" : "text-gray-400",
               "focus:text-black",
               error ? "border-red-500" : "border-gray-200 md:border-gray-400",
@@ -52,8 +51,8 @@ export const SelectInput = React.forwardRef<HTMLSelectElement, SelectProps>(
             )}
             {...props}
           >
-            <option value="" disabled>
-              Select {label}
+            <option value="" hidden>
+              {label}
             </option>
             {options.map((opt) => (
               <option key={opt.value} value={opt.value}>

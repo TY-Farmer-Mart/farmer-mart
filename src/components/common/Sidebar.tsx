@@ -2,18 +2,20 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { SidebarData } from "@/types/sideBar";
 import { Button } from "./ui/Button";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
-
   ({ name, mobile, address, menuItem, help, imageIcon, ...props }, ref) => {
     const firstLatterOfName = name?.split("")[0];
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     const handleLogout = () => {
       localStorage.removeItem("user");
-      navigate('/')
-    }
+      navigate("/");
+    };
 
     return (
       <aside
@@ -31,7 +33,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
         </div>
 
         <ul className="flex-1 mt-4">
-          {menuItem.map(item => (
+          {menuItem.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={item.path}
@@ -52,7 +54,9 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
         </ul>
 
         <div className="p-4 border-t border-gray-200 text-sm items-center justify-between">
-          <Button className="w-full" onClick={handleLogout}>Logout</Button>
+          <Button className="w-full" onClick={handleLogout}>
+            {t("LOGOUT")}
+          </Button>
           <div className="flex gap-4 mt-2">
             <span>{help}</span>
             <a
