@@ -10,7 +10,7 @@ import { RootState } from "@/redux/store";
 
 const HomeLayout: React.FC = () => {
  const toggle = useSelector((state: RootState) => state.toggle);
-  console.log(toggle)
+ 
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [
