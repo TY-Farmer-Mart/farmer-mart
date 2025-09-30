@@ -8,7 +8,11 @@ export interface ButtonProps
     | "outline"
     | "ghost"
     | "social"
-    | "viewAll";
+    | "viewAll"
+    | "pillScroll"
+    | "activeCity"
+    | "inactiveCity";
+
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
@@ -63,7 +67,6 @@ export interface Service {
   description: string;
   buttonText: string;
 }
-
 
 export interface MoreForYouCardProps {
   heading: string;

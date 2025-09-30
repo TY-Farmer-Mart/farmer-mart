@@ -7,6 +7,14 @@ import { Textarea } from "@/components/common/ui/Textarea";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/constants/routeConstants";
+import { registerUser } from "@/services/auth";
+import {
+  showLoading,
+  dismissToast,
+  showSuccess,
+  showError,
+} from "@/components/common/Toast/toast";
+import { Toaster } from "react-hot-toast";
 import { ROLE_OPTIONS } from "@/constants/textConstants";
 import registerSchema from "@/schemas/registerSchema";
 
@@ -25,18 +33,101 @@ const Register: React.FC = () => {
     about: "",
   };
 
-  const handleSubmit = () => {
-    navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`);
+  const handleSubmit = async (
+    values: typeof initialValues,
+    { setSubmitting, setErrors }: any
+  ) => {
+    // Show loading toast with infinite duration
+    const toastId = showLoading("Registering your account...", {
+      duration: Infinity,
+    });
+
+    try {
+      // Map phone → contact and remove confirmPassword
+      const { phone, ...rest } = values;
+      const payload = { ...rest, contact: phone };
+      console.log("Payload to backend:", payload);
+
+      // Call backend API
+      await registerUser(payload);
+
+      // Dismiss loading toast
+      dismissToast(toastId);
+
+      // Show success toast
+      showSuccess("Account created successfully! Please login.");
+
+      // Delay navigation so toast is visible
+      setTimeout(() => {
+        navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`);
+      }, 1500); // 1.5 seconds delay
+    } catch (err: any) {
+      // Dismiss loading toast
+      dismissToast(toastId);
+
+      // Show error toast
+      showError(err.message || "Something went wrong.");
+
+      // Set form errors if any
+      if (err.errors) setErrors(err.errors);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={registerSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ values, errors, touched, handleChange, handleBlur, submitCount }) => (
-        <Form className="space-y-4">
+    <>
+      {/* Toast notifications */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            borderRadius: "12px",
+            padding: "12px 16px",
+            fontSize: "14px",
+          },
+          success: {
+            style: {
+              background: "#ecfdf5",
+              color: "#065f46",
+              border: "1px solid #10b981",
+            },
+            iconTheme: { primary: "#10b981", secondary: "#ecfdf5" },
+          },
+          error: {
+            style: {
+              background: "#fef2f2",
+              color: "#991b1b",
+              border: "1px solid #ef4444",
+            },
+            iconTheme: { primary: "#ef4444", secondary: "#fef2f2" },
+          },
+          loading: {
+            style: {
+              background: "#f3f4f6",
+              color: "#111827",
+              border: "1px solid #9ca3af",
+            },
+          },
+        }}
+      />
+
+      <Formik
+        initialValues={initialValues}
+        validationSchema={registerSchema}
+        onSubmit={handleSubmit}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          submitCount,
+        
+        }) => (
+          
+           <Form className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               label={t("AUTH.NAME_LABEL")}
@@ -182,8 +273,9 @@ const Register: React.FC = () => {
             </span>
           </p>
         </Form>
-      )}
-    </Formik>
+        )}
+      </Formik>
+    </>
   );
 };
 

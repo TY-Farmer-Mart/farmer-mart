@@ -3,6 +3,7 @@ import type { InternalAxiosRequestConfig } from "axios";
 // eslint-disable-next-line
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
+console.log("*****************")
 console.log("baseURL", baseURL)
 
 // Create Axios instance with base URL from env
