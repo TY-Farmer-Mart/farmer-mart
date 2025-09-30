@@ -1,5 +1,5 @@
 export interface Product {
-<<<<<<< Updated upstream
+
   itemName: string;
   price?: number | string;
   quantity?: string;
@@ -29,12 +29,12 @@ export interface ApiProduct {
   imageUrl?: string;
   products?: Product[];
 }
-=======
-    itemName: string;
-    price?: number | string;
-    quantity?: string;
-    imageUrl: string;
-  }
+
+  //   itemName: string;
+  //   price?: number | string;
+  //   quantity?: string;
+  //   imageUrl: string;
+  // }
   
   export interface Supplier {
     sellerName: string;
@@ -56,4 +56,4 @@ export interface ApiProduct {
     unit: string | null;
     label: string;
   }
->>>>>>> Stashed changes
+

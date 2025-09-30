@@ -3,14 +3,23 @@ import { Product } from "@/types/productTypes";
 
 interface ProductsState {
   allProducts: Product[];
+  filteredProducts: Product[];
   loading: boolean;
   error: string | null;
+  filters: {
+    priceRange?: string;
+    seller?: string;
+    location?: string;
+    category?: string;
+  };
 }
 
 const initialState: ProductsState = {
   allProducts: [],
+  filteredProducts: [],
   loading: false,
   error: null,
+  filters: {},
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -26,7 +35,53 @@ export const fetchProducts = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter: (
+      state,
+      action: PayloadAction<{ key: keyof ProductsState["filters"]; value: string }>
+    ) => {
+      const { key, value } = action.payload;
+
+      if (state.filters[key] === value) {
+        delete state.filters[key];
+      } else {
+        state.filters[key] = value;
+      }
+
+      state.filteredProducts = state.allProducts.filter((p) => {
+        if (state.filters.priceRange) {
+          const price = Number(p.price) || 0;
+          switch (state.filters.priceRange) {
+            case "₹50 and Below":
+              if (price > 50) return false;
+              break;
+            case "₹50 - ₹100":
+              if (price < 50 || price > 100) return false;
+              break;
+            case "₹100 - ₹500":
+              if (price < 100 || price > 500) return false;
+              break;
+            case "₹500 and Above":
+              if (price < 500) return false;
+              break;
+          }
+        }
+
+        if (state.filters.seller && p.sellerName !== state.filters.seller) return false;
+
+        if (state.filters.location && p.location !== state.filters.location) return false;
+
+        if (state.filters.category && p.itemName !== state.filters.category) return false;
+
+        return true;
+      });
+    },
+
+    clearFilters: (state) => {
+      state.filters = {};
+      state.filteredProducts = state.allProducts;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -36,6 +91,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
         state.loading = false;
         state.allProducts = action.payload;
+        state.filteredProducts = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
@@ -44,4 +100,5 @@ const productSlice = createSlice({
   },
 });
 
+export const { setFilter, clearFilters } = productSlice.actions;
 export default productSlice.reducer;

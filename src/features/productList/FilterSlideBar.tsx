@@ -1,55 +1,149 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import FilterDropdown from "@/components/common/FilterSection";
-import TextDropdown from "@/components/common/TextDropdown";
-import { SidebarSection } from "@/types/sidebarTypes";
 import { FunnelPlus, X } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter, clearFilters } from "@/redux/productSlice";
+import { RootState } from "@/redux/store";
+import { useSearchParams } from "react-router-dom";
+
 interface FilterSlideBarProps {
-  sidebarData: SidebarSection[];
+  loading: boolean;
+  error: string | null;
 }
-const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
+
+const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
+  const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const allProducts = useSelector((state: RootState) => state.products.allProducts);
+  const filters = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    ["priceRange", "seller", "location", "category"].forEach((key) => {
+      const value = searchParams.get(key);
+      if (value) dispatch(setFilter({ key: key as any, value }));
+    });
+  }, [dispatch]);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const sidebarSections = useMemo(() => {
+    if (!allProducts.length) return [];
+    return [
+      {
+        title: "Price",
+        options: ["₹50 and Below", "₹50 - ₹100", "₹100 - ₹500", "₹500 and Above"],
+        key: "priceRange",
+      },
+      {
+        title: "Sellers",
+        options: Array.from(new Set(allProducts.map((p) => p.sellerName).filter(Boolean))),
+        key: "seller",
+      },
+      {
+        title: "Location",
+        options: Array.from(new Set(allProducts.map((p) => p.location).filter(Boolean))),
+        key: "location",
+      },
+      {
+        title: "Categories",
+        options: Array.from(new Set(allProducts.map((p) => p.itemName).filter(Boolean))),
+        key: "category",
+      },
+    ];
+  }, [allProducts]);
+
+  const handleSelect = (key: string, value: string) => {
+    dispatch(setFilter({ key: key as any, value }));
+
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.set(key, value);
+    setSearchParams(newSearchParams);
+  };
+
+  const toggleDropdown = (key: string) => {
+    setOpenDropdowns((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
+
+  const renderSidebarContent = () => {
+    if (loading) return <p className="p-2">Loading filters...</p>;
+    if (error) return <p className="p-2 text-red-500">{error}</p>;
+
+    return (
+      <>
+        {sidebarSections.map((section) => (
+          <div key={section.title} className="mb-4">
+            <p
+              className="font-semibold mb-2 flex justify-between items-center cursor-pointer bg-slate-400 p-2"
+              onClick={() => toggleDropdown(section.key)}
+            >
+              {section.title}
+              <span
+                className={`transform transition-transform duration-200 ${
+                  openDropdowns.includes(section.key) ? "rotate-180" : ""
+                }`}
+              >
+                ▼
+              </span>
+            </p>
+
+            {openDropdowns.includes(section.key) && (
+              <ul className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
+                {section.options.map((option) => (
+                  <li
+                    key={option}
+                    className={`cursor-pointer px-3 py-2 text-sm rounded-md ${
+                      filters.filters[section.key] === option
+                        ? "bg-blue-500 text-white"
+                        : "hover:bg-gray-100"
+                    }`}
+                    onClick={() => handleSelect(section.key, option)}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+
+        {Object.values(filters.filters).some((val) => val) && (
+          <button
+            onClick={() => {
+              dispatch(clearFilters());
+              setSearchParams({});
+            }}
+            className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600"
+          >
+            Clear Filters
+          </button>
+        )}
+      </>
+    );
+  };
+
   return (
     <>
-      {" "}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden absolute top-84 left-3 z-50 p-1 border rounded-md bg-white shadow"
+        className="lg:hidden absolute top-20 left-3 z-50 p-1 border rounded-md bg-white shadow"
       >
-        {" "}
-        <FunnelPlus size={18} />{" "}
-      </button>{" "}
+        <FunnelPlus size={18} />
+      </button>
+
       <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
-        {" "}
-        {sidebarData.map((section) =>
-          section.type === "text" ? (
-            <TextDropdown
-              key={section.title}
-              title={section.title}
-              options={section.options}
-              showRange={section.showRange}
-            />
-          ) : (
-            <FilterDropdown
-              key={section.title}
-              title={section.title}
-              options={section.options}
-            />
-          )
-        )}{" "}
-      </div>{" "}
+        {renderSidebarContent()}
+      </div>
+
       <AnimatePresence>
         {isOpen && (
           <>
@@ -60,7 +154,6 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
             />
-
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -74,23 +167,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
               >
                 <X className="w-6 h-6" />
               </button>
-
-              {sidebarData.map((section) =>
-                section.type === "text" ? (
-                  <TextDropdown
-                    key={section.title}
-                    title={section.title}
-                    options={section.options}
-                    showRange={section.showRange}
-                  />
-                ) : (
-                  <FilterDropdown
-                    key={section.title}
-                    title={section.title}
-                    options={section.options}
-                  />
-                )
-              )}
+              {renderSidebarContent()}
             </motion.div>
           </>
         )}
@@ -98,4 +175,5 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ sidebarData }) => {
     </>
   );
 };
+
 export default FilterSlideBar;
