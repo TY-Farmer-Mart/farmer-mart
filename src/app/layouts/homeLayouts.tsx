@@ -6,9 +6,11 @@ import { menuItem } from "@/types/sideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "@/redux/dashBoardSlice";
 import { useTranslation } from "react-i18next";
+import { RootState } from "@/redux/store";
 
 const HomeLayout: React.FC = () => {
-  const toggle = useSelector((state) => state);
+ const toggle = useSelector((state: RootState) => state.toggle);
+ 
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [

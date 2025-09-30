@@ -18,7 +18,7 @@ import productReducer from "./productSlice";
  
 const store = configureStore({
   reducer: {
-    dashboard:dashBoardSlice,
+    toggle:dashBoardSlice,
     products: productReducer,
   },
 });

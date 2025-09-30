@@ -1,6 +1,9 @@
 import { ProductCategoryProps } from "@/types/dashboardType";
 import { Button } from "./Button";
 import { truncateText } from "@/utils/helpers";
+import { useNavigate } from "react-router-dom";
+
+
 import { useTranslation } from "react-i18next";
 
 const ProductCategory: React.FC<ProductCategoryProps> = ({
@@ -9,9 +12,10 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
   image,
   categories,
 }) => {
+    const navigate = useNavigate(); 
   const { t } = useTranslation();
   return (
-    <section className="w-full py-8 mt-6 border-t-4 border-t-blue-900 bg-green-50">
+    <section className="w-full py-8 mt-6 border-t-4 border-t-blue-900 bg-green-50 ]">
       <div className="max-w-screen-xl mx-auto px-4 space-y-6">
         <div className="text-left">
           <h2 className="text-xl md:text-3xl font-bold text-black-500 hover:text-blue-900 hover:underline decoration-blue-900 transition duration-200">
@@ -63,6 +67,13 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
                           typeof item === "string" ? item : item.toString()
                         }
                         className="px-2 py-0  text-gray-500 text-xs md:text-sm font-medium rounded-md hover:bg-blue-100 cursor-pointer truncate max-w-[120px]"
+                          onClick={() =>
+                          navigate(
+                            `/products?category=${encodeURIComponent(
+                              typeof item === "string" ? item : item.toString()
+                            )}`
+                          )
+                        }
                       >
                         {truncateText(
                           typeof item === "string" ? item : item.toString(),

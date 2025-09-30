@@ -64,7 +64,7 @@ const SampleNextArrow: React.FC<CustomArrowProps> = ({
   onClick,
 }) => (
   <div
-    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-10  !p-4`}
+    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-60  !p-4`}
     onClick={onClick}
   />
 );
@@ -75,7 +75,7 @@ const SamplePrevArrow: React.FC<CustomArrowProps> = ({
   onClick,
 }) => (
   <div
-    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-10 !p-4`}
+    className={`${className} !flex justify-center !items-center   !bg-green-300 !w-8 !h-8 rounded-2xl text-[40px] z-60 !p-4`}
     onClick={onClick}
   />
 );

@@ -17,7 +17,9 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const allProducts = useSelector((state: RootState) => state.products.allProducts);
+  const allProducts = useSelector(
+    (state: RootState) => state.products.allProducts
+  );
   const filters = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
@@ -39,22 +41,33 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
     return [
       {
         title: "Price",
-        options: ["₹50 and Below", "₹50 - ₹100", "₹100 - ₹500", "₹500 and Above"],
+        options: [
+          "₹50 and Below",
+          "₹50 - ₹100",
+          "₹100 - ₹500",
+          "₹500 and Above",
+        ],
         key: "priceRange",
       },
       {
         title: "Sellers",
-        options: Array.from(new Set(allProducts.map((p) => p.sellerName).filter(Boolean))),
+        options: Array.from(
+          new Set(allProducts.map((p) => p.sellerName).filter(Boolean))
+        ),
         key: "seller",
       },
       {
         title: "Location",
-        options: Array.from(new Set(allProducts.map((p) => p.location).filter(Boolean))),
+        options: Array.from(
+          new Set(allProducts.map((p) => p.location).filter(Boolean))
+        ),
         key: "location",
       },
       {
         title: "Categories",
-        options: Array.from(new Set(allProducts.map((p) => p.itemName).filter(Boolean))),
+        options: Array.from(
+          new Set(allProducts.map((p) => p.itemName).filter(Boolean))
+        ),
         key: "category",
       },
     ];
@@ -135,15 +148,14 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden absolute top-20 left-3 z-50 p-1 border rounded-md bg-white shadow"
+        className="lg:hidden absolute top-36 mt-4 left-72 p-2 border rounded-md bg-white shadow"
       >
-        <FunnelPlus size={18} />
-      </button>
-
+        {" "}
+        <FunnelPlus size={20} />{" "}
+      </button>{" "}
       <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
         {renderSidebarContent()}
       </div>
-
       <AnimatePresence>
         {isOpen && (
           <>

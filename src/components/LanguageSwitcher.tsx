@@ -11,12 +11,13 @@ const LanguageSwitcher: React.FC = () => {
     { value: "kn", label: "Kannada" },
   ];
 
-  const [selectedLang, setSelectedLang] = useState<string>("en");
+  const [selectedLang, setSelectedLang] = useState<string>(
+    localStorage.getItem("i18nextLng") || "en"
+  );
 
   useEffect(() => {
-    i18n.changeLanguage("en");
-    localStorage.setItem("i18nextLng", "en");
-  }, [i18n]);
+    i18n.changeLanguage(selectedLang);
+  }, [i18n, selectedLang]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lng = e.target.value;
@@ -31,7 +32,7 @@ const LanguageSwitcher: React.FC = () => {
         name="language"
         value={selectedLang}
         onChange={handleChange}
-        onBlur={() => {}}
+        onBlur={() => { }}
         options={languages}
         className="px-2 py-1 w-40"
         requiredIndicator={false}

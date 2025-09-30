@@ -64,3 +64,17 @@ export const AUTH_VALIDATION = {
   PASSWORD_MATCH: "Passwords must match",
   ABOUT_MAX: "About section must not exceed 300 characters",
 };
+
+export const DASHBOARD_NAV_TXT = {
+  LOCATION: "All India",
+  SEARCH_PLACEHOLDER: "Enter product / service",
+  BTN_TEXT: "Search",
+  POPOVER_TEXT: "Enter city",
+};
+
+export const LOCATION_SEARCH = {
+  TITLE: "Farm near",
+  NEARME: "Near Me",
+};
+
+
