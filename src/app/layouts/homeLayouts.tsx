@@ -1,28 +1,26 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
-import Footer from "@/components/common/Footer";
-import {
-  Home,
-  User,
-  Settings,
-  LogOut,
-  TextAlignJustify,
-  X,
-} from "lucide-react";
+import { Home, User, Settings, TextAlignJustify, X } from "lucide-react";
 import { menuItem } from "@/types/sideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "@/redux/dashBoardSlice";
+import { useTranslation } from "react-i18next";
 
 const HomeLayout: React.FC = () => {
   const toggle = useSelector((state) => state);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [
-    { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
-    { name: "Profile", icon: <User size={20} />, path: "/profile" },
-    { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
-    { name: "Logout", icon: <LogOut size={20} />, path: "/" },
+    { name: t("menu.dashboard"), icon: <Home size={20} />, path: "/dashboard" },
+    { name: t("menu.profile"), icon: <User size={20} />, path: "/profile" },
+    {
+      name: t("menu.settings"),
+      icon: <Settings size={20} />,
+      path: "/settings",
+    },
   ];
+
   return (
     <div className="">
       <div className="flex relative h-screen">
@@ -52,17 +50,12 @@ const HomeLayout: React.FC = () => {
           />
         </div>
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-gray-200">
+        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-green-100">
           <div className="p-6">
             <Outlet />
           </div>
         </main>
       </div>
-      {/* {
-        <div className="pb-4">
-          <Footer />
-        </div>
-      } */}
     </div>
   );
 };

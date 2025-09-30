@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Check } from "lucide-react";
-import { LANDING_TEXT } from "@/constants/textConstants";
+import { useTranslation } from "react-i18next";
+
 import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
 import accounting from "@assets/images/accounting.jpg";
@@ -9,11 +10,12 @@ import logo from "@/assets/images/FarmerMartLogo.png";
 import farmerlogo from "@/assets/images/image.png";
 
 const FarmerMartLanding: React.FC = () => {
+  const { t } = useTranslation();
   const [mobileNumber, setMobileNumber] = useState("");
 
   const handleSendLink = () => {
     if (mobileNumber.length === 10) {
-      alert(`${LANDING_TEXT.ALERT_PREFIX} ${mobileNumber}`);
+      alert(`${t("LANDING_TEXT.ALERT_PREFIX")} ${mobileNumber}`);
     } else {
       alert("Please enter a valid 10-digit mobile number.");
     }
@@ -42,23 +44,25 @@ const FarmerMartLanding: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-start">
             <h1 className="text-5xl font-bold text-gray-900 mb-4">
-              {LANDING_TEXT.HERO_TITLE}
+              {t("LANDING_TEXT.HERO_TITLE")}
             </h1>
             <p className="text-xl text-gray-600">
-              {LANDING_TEXT.COMPANY_BADGE.TRUSTED_BY}{" "}
+              {t("LANDING_TEXT.COMPANY_BADGE.TRUSTED_BY")}{" "}
               <span className="text-red-500 font-bold">
-                {LANDING_TEXT.COMPANY_BADGE.COUNT}
+                {t("LANDING_TEXT.COMPANY_BADGE.COUNT")}
               </span>{" "}
-              {LANDING_TEXT.COMPANY_BADGE.SMALL_BUSINESS}
+              {t("LANDING_TEXT.COMPANY_BADGE.SMALL_BUSINESS")}
             </p>
 
             <div className="space-y-4">
-              {LANDING_TEXT.FEATURES.map((feature) => (
-                <div key={feature} className="flex items-center space-x-3">
-                  <Check className="w-6 h-6 text-blue-600" />
-                  <span className="text-lg text-gray-700">{feature}</span>
-                </div>
-              ))}
+              {t("LANDING_TEXT.FEATURES", { returnObjects: true }).map(
+                (feature: string) => (
+                  <div key={feature} className="flex items-center space-x-3">
+                    <Check className="w-6 h-6 text-blue-600" />
+                    <span className="text-lg text-gray-700">{feature}</span>
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -83,21 +87,20 @@ const FarmerMartLanding: React.FC = () => {
           <div className="space-y-6">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                {LANDING_TEXT.GET_APP_TITLE}
+                {t("LANDING_TEXT.GET_APP_TITLE")}
               </h2>
               <p className="text-xl text-gray-600">
-                {LANDING_TEXT.GET_APP_SUBTITLE}
+                {t("LANDING_TEXT.GET_APP_SUBTITLE")}
               </p>
             </div>
 
             <div className="flex gap-3">
               <Input
                 type="tel"
-                placeholder={LANDING_TEXT.PLACEHOLDERS.MOBILE_NUMBER}
+                placeholder={t("LANDING_TEXT.PLACEHOLDERS.MOBILE_NUMBER")}
                 value={mobileNumber}
                 onChange={(e) => {
                   const value = e.target.value;
-                  // Allow only numbers and limit to 10 digits
                   if (/^\d*$/.test(value) && value.length <= 10) {
                     setMobileNumber(value);
                   }
@@ -113,21 +116,21 @@ const FarmerMartLanding: React.FC = () => {
                 variant="primary"
                 className="h-14 px-8 rounded-xl bg-teal-600 hover:bg-teal-700 focus:ring-teal-500"
               >
-                {LANDING_TEXT.BUTTONS.SEND_LINK}
+                {t("LANDING_TEXT.BUTTONS.SEND_LINK")}
               </Button>
             </div>
 
-            <p className="text-gray-600">{LANDING_TEXT.DOWNLOAD_INFO}</p>
+            <p className="text-gray-600">{t("LANDING_TEXT.DOWNLOAD_INFO")}</p>
 
             <div className="flex space-x-4">
               <div className="bg-black-500 text-white px-6 py-3 rounded-lg flex items-center space-x-3 cursor-pointer hover:bg-gray-800 transition-colors">
                 <div className="text-2xl">🍎</div>
                 <div>
                   <div className="text-xs">
-                    {LANDING_TEXT.STORE_LABELS.APP_STORE_TOP}
+                    {t("LANDING_TEXT.STORE_LABELS.APP_STORE_TOP")}
                   </div>
                   <div className="font-bold text-lg">
-                    {LANDING_TEXT.STORE_LABELS.APP_STORE_BOTTOM}
+                    {t("LANDING_TEXT.STORE_LABELS.APP_STORE_BOTTOM")}
                   </div>
                 </div>
               </div>
@@ -136,10 +139,10 @@ const FarmerMartLanding: React.FC = () => {
                 <div className="text-2xl">📱</div>
                 <div>
                   <div className="text-xs">
-                    {LANDING_TEXT.STORE_LABELS.PLAY_STORE_TOP}
+                    {t("LANDING_TEXT.STORE_LABELS.PLAY_STORE_TOP")}
                   </div>
                   <div className="font-bold text-lg">
-                    {LANDING_TEXT.STORE_LABELS.PLAY_STORE_BOTTOM}
+                    {t("LANDING_TEXT.STORE_LABELS.PLAY_STORE_BOTTOM")}
                   </div>
                 </div>
               </div>

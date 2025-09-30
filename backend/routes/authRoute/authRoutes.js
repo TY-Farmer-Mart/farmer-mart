@@ -1,7 +1,7 @@
 const express = require("express");
+const { signIn } = require("../../controllers/signIn/signIn");
+const { signUp } = require("../../controllers/signUp/signUp");
 // const verifyToken = require("../../authMiddleware");
-const { signIn } = require("../../controllers/signin/signIn");
-const { signUp } = require("../../controllers/signup/signUp");
 
 const router = express.Router();
 console.log("auth routes loaded");
