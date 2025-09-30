@@ -23,9 +23,7 @@ const SearchLayout: React.FC = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const { allProducts, loading, error } = useSelector(
-    (state: RootState) => state.products
-  );
+ 
 
   useEffect(() => {
     if (!mainRef.current || !productListEndRef.current) return;
