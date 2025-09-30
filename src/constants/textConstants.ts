@@ -76,3 +76,5 @@ export const LOCATION_SEARCH = {
   TITLE: "Farm near",
   NEARME: "Near Me",
 };
+
+
