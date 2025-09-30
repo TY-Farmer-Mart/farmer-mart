@@ -74,7 +74,7 @@ function DashboardNav() {
     <>
       <div
         className="
-         sticky top-4 z-50  m-0
+         sticky top-4 sm:z-10  m-0
         flex flex-col sm:flex-row sm:items-center sm:justify-between
         w-full bg-white p-4 mt-4 mb-4 mr-4 rounded-xl shadow
         gap-4 sm:gap-6
@@ -175,12 +175,13 @@ function DashboardNav() {
         </div>
 
         <Button
+        disabled={!product}
           leftIcon={<IoIosSearch className="w-5 h-5" />}
           onClick={handleClick}
           className="
           flex items-center gap-2
           bg-blue-800 text-white px-4 py-2
-          rounded hover:bg-[#00665c]
+          rounded hover:bg-green-300
           text-sm sm:text-xl
           w-full sm:w-auto
         "
