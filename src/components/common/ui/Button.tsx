@@ -17,7 +17,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium rounded-full  md:rounded-lg  transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed ";
+      "inline-flex items-center justify-center font-small rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants = {
       primary:
@@ -30,7 +30,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       social: "bg-white  hover:bg-gray-50 text-gray-700 focus:ring-gray-500",
       viewAll:
         "mt-4 bg-green-300 text-white px-8 ml-6 py-2 rounded hover:underline transition text-sm md:text-base",
-  
+      pillScroll: "px-4 py-2  text-xl transition text-center ",
+      activeCity: "bg-white border-red-500 text-red-600",
+      inactiveCity: "bg-white hover:bg-gray-100 border-gray-300 text-gray-700",
     };
 
     const sizes = {
@@ -43,7 +45,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           baseStyles,
           variants[variant],
-          sizes[size],
+          variant !== "pillScroll" && sizes[size],
+
           isLoading && "cursor-wait",
           className
         )}
