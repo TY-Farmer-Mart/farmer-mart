@@ -33,12 +33,6 @@ const SearchLayout: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (mainRef.current) {
-      mainRef.current.scrollTo({ top: 0, behavior: "auto" });
-    }
-  }, [filteredProducts]);
-
   return (
     <div>
       <Navbar />
