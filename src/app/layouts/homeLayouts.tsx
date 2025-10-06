@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 import { RootState } from "@/redux/store";
 
 const HomeLayout: React.FC = () => {
- const toggle = useSelector((state: RootState) => state.toggle);
- 
+  const toggle = useSelector((state: RootState) => state.toggle);
+
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const menuItems: menuItem[] = [
@@ -24,7 +24,7 @@ const HomeLayout: React.FC = () => {
   ];
 
   return (
-    <div className="">
+    <div>
       <div className="flex relative h-screen">
         <button
           className="sm:hidden absolute top-2 left-2 z-20"
@@ -52,7 +52,10 @@ const HomeLayout: React.FC = () => {
           />
         </div>
         {/* Main content */}
-        <main className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-green-100">
+        <main
+          className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-green-100"
+          onClick={() => dispatch(toggleSideBar())}
+        >
           <div className="p-6">
             <Outlet />
           </div>
