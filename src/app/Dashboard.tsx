@@ -12,12 +12,10 @@ function Dashboard() {
     <>
       <DashboardNav />
       <DashboardCarousel />
-      <div className="w-full px-2 sm:px-4 md:px-6 py-4">
-        <UseCategory />
+       <UseCategory />
         <Testimonials />
         <MoreForYouCard heading={t("HEADING.heading")} services={SERVICES} />
         <Footer />
-      </div>
     </>
   );
 }
