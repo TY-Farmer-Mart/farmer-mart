@@ -6,12 +6,10 @@ import { setFilter, clearFilters } from "@/redux/productSlice";
 import { RootState } from "@/redux/store";
 import { useSearchParams } from "react-router-dom";
 
-interface FilterSlideBarProps {
-  loading: boolean;
-  error: string | null;
-}
-
-const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
+const FilterSlideBar: React.FC<{ loading: boolean; error: string | null }> = ({
+  loading,
+  error,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
   const dispatch = useDispatch();
@@ -20,14 +18,23 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const allProducts = useSelector(
     (state: RootState) => state.products.allProducts
   );
-  const filters = useSelector((state: RootState) => state.products);
+  const filters = useSelector((state: RootState) => state.products.filters);
+
 
   useEffect(() => {
-    ["priceRange", "seller", "location", "category"].forEach((key) => {
+    if (!allProducts.length) return;
+    const urlKeys: (keyof typeof filters)[] = [
+      "priceRange",
+      "seller",
+      "location",
+      "category",
+      "product",
+    ];
+    urlKeys.forEach((key) => {
       const value = searchParams.get(key);
-      if (value) dispatch(setFilter({ key: key as any, value }));
+      if (value && filters[key] !== value) dispatch(setFilter({ key, value }));
     });
-  }, [dispatch]);
+  }, [allProducts, searchParams, dispatch, filters]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -75,7 +82,6 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
 
   const handleSelect = (key: string, value: string) => {
     dispatch(setFilter({ key: key as any, value }));
-
     const newSearchParams = new URLSearchParams(searchParams.toString());
     newSearchParams.set(key, value);
     setSearchParams(newSearchParams);
@@ -108,14 +114,13 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
                 ▼
               </span>
             </p>
-
             {openDropdowns.includes(section.key) && (
               <ul className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
                 {section.options.map((option) => (
                   <li
                     key={option}
                     className={`cursor-pointer px-3 py-2 text-sm rounded-md ${
-                      filters.filters[section.key] === option
+                      filters[section.key as keyof typeof filters] === option
                         ? "bg-blue-500 text-white"
                         : "hover:bg-gray-100"
                     }`}
@@ -128,8 +133,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
             )}
           </div>
         ))}
-
-        {Object.values(filters.filters).some((val) => val) && (
+        {Object.values(filters).some((val) => val) && (
           <button
             onClick={() => {
               dispatch(clearFilters());
@@ -150,12 +154,12 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
         onClick={() => setIsOpen(true)}
         className="lg:hidden absolute top-36 mt-4 left-72 p-2 border rounded-md bg-white shadow"
       >
-        {" "}
-        <FunnelPlus size={20} />{" "}
-      </button>{" "}
+        <FunnelPlus size={20} />
+      </button>
       <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
         {renderSidebarContent()}
       </div>
+
       <AnimatePresence>
         {isOpen && (
           <>

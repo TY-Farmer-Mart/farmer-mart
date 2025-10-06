@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ProductListProps, Product } from "@/types/productTypes";
 import { MapPin, Phone } from "lucide-react";
 import { formatCurrency } from "@/utils/helpers";
 
-const ProductList: React.FC<ProductListProps> = ({ products, loading, error }) => {
+const ProductList: React.FC<ProductListProps> = ({
+  products,
+  loading,
+  error,
+}) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [products]); 
+
   if (loading) return <div className="p-6">Loading products...</div>;
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
-  if (!products || products.length === 0) return <div className="p-6">No products found.</div>;
+  if (!products || products.length === 0)
+    return <div className="p-6">No products found.</div>;
 
   return (
     <div className="h-full overflow-y-auto p-6">
@@ -19,7 +28,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading, error }) =
 
           return (
             <div
-              key={`${product.itemName ?? "no-name"}-${product.sellerName ?? "no-seller"}`}
+              key={`${product.itemName ?? "no-name"}-${
+                product.sellerName ?? "no-seller"
+              }`}
               className="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex flex-col h-full"
             >
               <div className="relative h-44 md:h-48 w-full bg-gray-100 flex-shrink-0">
@@ -72,7 +83,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading, error }) =
                   </div>
                   <div className="flex items-center text-gray-700 text-[13px] mt-0.5">
                     <MapPin size={14} className="mr-1 flex-shrink-0" />
-                    <span className="truncate">{product.location ?? "Unknown Location"}</span>
+                    <span className="truncate">
+                      {product.location ?? "Unknown Location"}
+                    </span>
                   </div>
                 </div>
 
@@ -82,7 +95,11 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading, error }) =
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span
                           key={i}
-                          className={i < ratingNumber ? "text-yellow-500" : "text-gray-300"}
+                          className={
+                            i < ratingNumber
+                              ? "text-yellow-500"
+                              : "text-gray-300"
+                          }
                         >
                           ★
                         </span>

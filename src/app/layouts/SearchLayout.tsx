@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import ProductList from "@/features/productlist/ProductList";
-import RequirementForm from "@/features/productlist/RequirementForm";
-import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
-import FilterSlideBar from "@/features/productlist/filterSlideBar";
+import Footer from "@/components/common/Footer";
+import FilterSlideBar from "../../features/productList/FilterSlideBar";
+import ProductList from "../../features/productList/ProductList";
+import RequirementForm from "../../features/productList/RequirementForm";
+import LocationSearch from "../../features/productList/LocationSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/redux/productSlice";
-import { RootState } from "@/store";
-import LocationSearch from "@/features/productlist/LocationSearch";
+import { RootState } from "@/redux/store";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,14 +23,10 @@ const SearchLayout: React.FC = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
- 
-
   useEffect(() => {
     if (!mainRef.current || !productListEndRef.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowForm(entry.isIntersecting);
-      },
+      ([entry]) => setShowForm(entry.isIntersecting),
       { root: mainRef.current, threshold: 1 }
     );
     observer.observe(productListEndRef.current);
@@ -42,16 +38,10 @@ const SearchLayout: React.FC = () => {
       <Navbar />
       <div className="h-screen flex flex-col">
         <LocationSearch />
-
         <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="lg:w-1/5 lg:p-1 ">
-            <FilterSlideBar
-              products={filteredProducts}
-              loading={loading}
-              error={error}
-            />
+          <aside className="lg:w-1/5 lg:p-1">
+            <FilterSlideBar loading={loading} error={error} />
           </aside>
-
           <main
             ref={mainRef}
             className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"

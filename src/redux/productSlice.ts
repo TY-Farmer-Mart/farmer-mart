@@ -11,6 +11,7 @@ interface ProductsState {
     seller?: string;
     location?: string;
     category?: string;
+    product?: string;
   };
 }
 
@@ -32,51 +33,71 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+const categoryOfProduct = (itemName?: string) => {
+  if (!itemName) return "";
+  const vegetables = ["Onion", "Chilli", "Tomato"];
+  const fruits = ["Apple", "Banana"];
+  if (vegetables.includes(itemName)) return "vegetables";
+  if (fruits.includes(itemName)) return "fruits";
+  return "";
+};
+
+const applyFilters = (
+  products: Product[],
+  filters: ProductsState["filters"]
+) => {
+  return products.filter((p) => {
+    const f = filters;
+    const price = Number(p.price) || 0;
+
+    if (f.priceRange) {
+      switch (f.priceRange) {
+        case "₹50 and Below":
+          if (price > 50) return false;
+          break;
+        case "₹50 - ₹100":
+          if (price < 50 || price > 100) return false;
+          break;
+        case "₹100 - ₹500":
+          if (price < 100 || price > 500) return false;
+          break;
+        case "₹500 and Above":
+          if (price < 500) return false;
+          break;
+      }
+    }
+
+    if (f.seller && p.sellerName !== f.seller) return false;
+    if (f.location && p.location !== f.location) return false;
+    if (f.category && categoryOfProduct(p.itemName) !== f.category)
+      return false;
+    if (
+      f.product &&
+      !p.itemName?.toLowerCase().includes(f.product.toLowerCase())
+    )
+      return false;
+
+    return true;
+  });
+};
+
 const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
     setFilter: (
       state,
-      action: PayloadAction<{ key: keyof ProductsState["filters"]; value: string }>
+      action: PayloadAction<{
+        key: keyof ProductsState["filters"];
+        value: string;
+      }>
     ) => {
       const { key, value } = action.payload;
+      if (state.filters[key] === value) delete state.filters[key];
+      else state.filters[key] = value;
 
-      if (state.filters[key] === value) {
-        delete state.filters[key];
-      } else {
-        state.filters[key] = value;
-      }
-
-      state.filteredProducts = state.allProducts.filter((p) => {
-        if (state.filters.priceRange) {
-          const price = Number(p.price) || 0;
-          switch (state.filters.priceRange) {
-            case "₹50 and Below":
-              if (price > 50) return false;
-              break;
-            case "₹50 - ₹100":
-              if (price < 50 || price > 100) return false;
-              break;
-            case "₹100 - ₹500":
-              if (price < 100 || price > 500) return false;
-              break;
-            case "₹500 and Above":
-              if (price < 500) return false;
-              break;
-          }
-        }
-
-        if (state.filters.seller && p.sellerName !== state.filters.seller) return false;
-
-        if (state.filters.location && p.location !== state.filters.location) return false;
-
-        if (state.filters.category && p.itemName !== state.filters.category) return false;
-
-        return true;
-      });
+      state.filteredProducts = applyFilters(state.allProducts, state.filters);
     },
-
     clearFilters: (state) => {
       state.filters = {};
       state.filteredProducts = state.allProducts;
@@ -88,11 +109,17 @@ const productSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
-        state.loading = false;
-        state.allProducts = action.payload;
-        state.filteredProducts = action.payload;
-      })
+      .addCase(
+        fetchProducts.fulfilled,
+        (state, action: PayloadAction<Product[]>) => {
+          state.loading = false;
+          state.allProducts = action.payload;
+          state.filteredProducts = applyFilters(
+            state.allProducts,
+            state.filters
+          );
+        }
+      )
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Something went wrong";
