@@ -9,7 +9,7 @@ import CheckoutFlow from "../../features/checkout/CheckoutFlow";
 import ProtectedRoute from "./ProtectedRoute";
 
 export const useRoleRoutes = (): RouteObject[] => {
-  const role = "user"; // Ideally fetched from auth context
+  const role = "user";
 
   if (role === "user") {
     return [

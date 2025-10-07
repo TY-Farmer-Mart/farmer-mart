@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
-import { goToNextStep, goToStep } from "@/redux/checkoutSlice";
+import { goToNextStep, goToStep } from "../../redux/checkoutSlice";
 import LoginStep from "./Steps/LoginStep";
 import AddressStep from "./Steps/AddressStep";
 import OrderSummaryStep from "./Steps/OrderSummaryStep";
