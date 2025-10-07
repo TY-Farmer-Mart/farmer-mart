@@ -67,9 +67,9 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
                           typeof item === "string" ? item : item.toString()
                         }
                         className="px-2 py-0  text-gray-500 text-xs md:text-sm font-medium rounded-md hover:bg-blue-100 cursor-pointer truncate max-w-[120px]"
-                          onClick={() =>
+                        onClick={() =>
                           navigate(
-                            `/products?category=${encodeURIComponent(
+                            `/products?product=${encodeURIComponent(
                               typeof item === "string" ? item : item.toString()
                             )}`
                           )
