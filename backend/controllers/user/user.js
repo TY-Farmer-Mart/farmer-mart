@@ -3,14 +3,23 @@ const users = require("../../models/auth/auth.js");
 // Edit Profile
 const editProfile = async (req, res) => {
   try {
-    const { id, name, contact, altContact, altEmail, address, about } =
-      req.body;
+    const {
+      id,
+      name,
+      contact,
+      alternateContact,
+      alternateEmail,
+      address,
+      about,
+    } = req.body;
+
+    console.log("data from front end in req body", req.body);
 
     if (!id) return res.status(400).json({ message: "User id is required" });
 
     const updatedUser = await users.findByIdAndUpdate(
       id,
-      { name, contact, altContact, altEmail, address, about },
+      { name, contact, alternateContact, alternateEmail, address, about },
       { new: true }
     );
 
@@ -27,5 +36,3 @@ const editProfile = async (req, res) => {
 };
 
 module.exports = { editProfile };
-
-module.exports = { profileEdit };

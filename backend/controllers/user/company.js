@@ -1,4 +1,4 @@
-const Company = require("../../models/companyModel");
+const Company = require("../../models/company/companyModal");
 
 const updateCompanyInfo = async (req, res) => {
   try {

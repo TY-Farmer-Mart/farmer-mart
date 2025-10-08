@@ -1,35 +1,15 @@
-// const mongoose = require("mongoose");
-
-// const authSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//   },
-//   email: {
-//     type: String,
-//     unique: true, // email should be unique for login
-//   },
-//   contact: {
-//     type: String,
-//   },
-//   role: {
-//     type: String,
-//     default: "user",
-//   },
-// });
-
-// module.exports = mongoose.model("auth", authSchema, "auth");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true, // needed during register
+      required: true,
       trim: true,
     },
     email: {
       type: String,
-      required: true, // needed during register & login
+      required: true,
       unique: true,
       lowercase: true,
       trim: true,
@@ -72,13 +52,11 @@ const userSchema = new mongoose.Schema(
       default: "",
     },
 
-    // 🔮 Future fields (optional now, can be used later)
     address: { type: String },
     dob: { type: Date },
-    profilePic: { type: String }, // can store image URL
+    profilePic: { type: String },
   },
   { timestamps: true }
 );
 
 module.exports = mongoose.model("Users", userSchema, "users");
-// "users" = collection name in MongoDB

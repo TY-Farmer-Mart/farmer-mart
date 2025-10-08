@@ -4,11 +4,11 @@ const bankSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "users",
+      ref: "Users",
       required: true,
     },
     accountHolderName: { type: String, required: true },
-    accountNumber: { type: String, required: true },
+    accountNumber: { type: Number, required: true },
     ifscCode: { type: String, required: true },
     bankName: { type: String },
     branchName: { type: String },
@@ -16,4 +16,4 @@ const bankSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Bank", bankSchema);
+module.exports = mongoose.model("Bank", bankSchema, "banks");

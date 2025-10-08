@@ -5,8 +5,8 @@ const { updateBankDetails } = require("../../controllers/user/bank");
 
 const router = express.Router();
 
-router.put("/edit-profile/:id", editProfile);
-router.put("/company/:id", updateCompanyInfo);
-router.put("/bank/:id", updateBankDetails);
+router.put("/edit-profile", editProfile);
+router.put("/edit-company", updateCompanyInfo);
+router.put("/edit-bank", updateBankDetails);
 
 module.exports = router;
