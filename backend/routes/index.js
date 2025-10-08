@@ -1,9 +1,9 @@
 const express = require("express");
 const authRoutes = require("./authRoute/authRoutes.js");
+const userRoutes = require("./userRoute/userRoutes.js");
 
 const router = express.Router();
-console.log("routes/index.js loaded");
-
 router.use("/auth", authRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;

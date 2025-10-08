@@ -39,6 +39,21 @@ const userSchema = new mongoose.Schema(
       required: true, // needed during register
       trim: true,
     },
+    alternateEmail: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    alternateContact: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    address: {
+      type: String,
+      default: "",
+      trim: true,
+    },
     role: {
       type: String,
       enum: ["user", "admin", "vendor", "consultant"],
