@@ -1,6 +1,9 @@
 import { FC, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  FaHome,
+  FaClipboardList,
+  FaGlobe,
   FaBox,
   FaTags,
   FaQuestionCircle,
@@ -14,11 +17,7 @@ import {
 import logo from "@assets/images/logo_farmer_mart_final.png";
 import logosmalldevice from "@assets/images/image.jpg";
 import { Button } from "@components/common/ui/Button";
-import {
-  NavbarProps,
-  NavIconButtonProps,
-  NavOption,
-} from "@/types/navbarTypes";
+import { NavbarProps, NavIconButtonProps, NavOption } from "@/types/navbarTypes";
 import { Input } from "@components/common/ui/Input";
 import { useTranslation } from "react-i18next";
 
@@ -41,7 +40,7 @@ const Navbar: FC<NavbarProps> = ({
   state: controlledState,
   setStatets,
   stateOptions = [
-    { value: "bengalore", label: "Bengalore" },
+    { value: "bengaluru", label: "Bengaluru" },
     { value: "delhi", label: "Delhi" },
     { value: "mumbai", label: "Mumbai" },
     { value: "chennai", label: "Chennai" },
@@ -49,6 +48,8 @@ const Navbar: FC<NavbarProps> = ({
 }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const [user, setUser] = useState<{ name: string } | null>(null);
   const [selectedValue, setSelectedValue] = useState<string>(
     controlledState ?? stateOptions[0].value
   );
@@ -63,6 +64,11 @@ const Navbar: FC<NavbarProps> = ({
   const mobileDropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) setUser(JSON.parse(storedUser));
+  }, []);
+
+  useEffect(() => {
     if (controlledState !== undefined && controlledState !== selectedValue) {
       setSelectedValue(controlledState);
     }
@@ -71,9 +77,10 @@ const Navbar: FC<NavbarProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      const insideDesktop = desktopDropdownRef.current?.contains(target);
-      const insideMobile = mobileDropdownRef.current?.contains(target);
-      if (!insideDesktop && !insideMobile) {
+      if (
+        !desktopDropdownRef.current?.contains(target) &&
+        !mobileDropdownRef.current?.contains(target)
+      ) {
         setDropdownOpen(false);
         setNotFoundMessage("");
       }
@@ -84,13 +91,7 @@ const Navbar: FC<NavbarProps> = ({
 
   const handleSelect = (value: string) => {
     setSelectedValue(value);
-    if (setStatets) {
-      try {
-        setStatets(value);
-      } catch (err) {
-        return err;
-      }
-    }
+    setStatets?.(value);
     setDropdownOpen(false);
     setSearchText("");
     setNotFoundMessage("");
@@ -101,19 +102,18 @@ const Navbar: FC<NavbarProps> = ({
     const match = stateOptions.find(
       (opt) => opt.label.toLowerCase() === searchText.trim().toLowerCase()
     );
-    if (match) {
-      handleSelect(match.value);
-    } else {
-      setNotFoundMessage(`${searchText} not found`);
-    }
+    if (match) handleSelect(match.value);
+    else setNotFoundMessage(`${searchText} not found`);
   };
 
-  const handleClick = () => {
-    navigate(
-      `/products?product=${encodeURIComponent(
-        product
-      )}&location=${encodeURIComponent(selectedValue)}`
-    );
+  const handleProductSearch = () => {
+    if (product.trim()) {
+      navigate(
+        `/products?product=${encodeURIComponent(
+          product
+        )}&location=${encodeURIComponent(selectedValue)}`
+      );
+    }
   };
 
   const getNavIcon = (value: NavOption["value"]) => {
@@ -129,76 +129,114 @@ const Navbar: FC<NavbarProps> = ({
     }
   };
 
-  const rawNavOptions = t("NAVBAR.NAV_OPTIONS", {
-    returnObjects: true,
-  }) as { label: string; value: NavOption["value"] }[];
-
+  const rawNavOptions = t("NAVBAR.NAV_OPTIONS", { returnObjects: true }) as {
+    label: string;
+    value: NavOption["value"];
+  }[];
   const navOptions: NavOption[] = rawNavOptions.map((opt) => ({
     label: opt.label,
     value: opt.value,
   }));
+
   const selectedLabel =
     stateOptions.find((o) => o.value === selectedValue)?.label ?? selectedValue;
 
+  const signinOptions = user
+    ? [
+        { label: "Profile", onClick: () => navigate("/profile"), icon: <FaUser /> },
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        { label: "Get Quote", onClick: () => navigate("/get-quote"), icon: <FaClipboardList /> },
+        { label: "Why Trust IndiaMart", onClick: () => navigate("/why-trust"), icon: <FaQuestionCircle /> },
+        { label: "Top Export Countries", onClick: () => navigate("/top-export-countries"), icon: <FaGlobe /> },
+        {
+          label: "Logout",
+          onClick: () => {
+            localStorage.removeItem("user");
+            setUser(null);
+            navigate("/");
+          },
+          icon: <FaTimes />,
+        },
+      ]
+    : [
+        { label: "Login", onClick: () => navigate("/auth/login"), icon: <FaUser /> },
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        { label: "Get Quote", onClick: () => navigate("/get-quote"), icon: <FaClipboardList /> },
+        { label: "Why Trust IndiaMart", onClick: () => navigate("/why-trust"), icon: <FaQuestionCircle /> },
+        { label: "Top Export Countries", onClick: () => navigate("/top-export-countries"), icon: <FaGlobe /> },
+      ];
+
+  const renderSigninDropdown = () => (
+    <ul className="absolute right-0 mt-0 w-64 bg-white border rounded shadow-lg z-10">
+      <li
+        className="px-4 py-2 hover:bg-gray-100 cursor-pointer font-semibold text-center"
+        onClick={signinOptions[0].onClick}
+      >
+        {signinOptions[0].label}
+      </li>
+      <hr className="my-1 border-gray-300" />
+      {signinOptions.slice(1).map((opt, index) => (
+        <li
+          key={index}
+          className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
+          onClick={opt.onClick}
+        >
+          <span className="flex-shrink-0 w-5 text-blue-500">{opt.icon}</span>
+          <span className="text-left">{opt.label}</span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
-    <>
-      <nav className="w-full shadow border border-1 bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
-        <div className="flex items-center justify-between w-full flex-wrap lg:flex-nowrap">
-          <div className="flex-shrink-0">
-            <img
-              src={logo}
-              alt="logo"
-              className="hidden mr-2 lg:block w-40 h-16 sm:w-48 sm:h-15"
+    <nav className="w-full shadow border border-1 bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
+      <div className="flex flex-col lg:flex-col items-start lg:items-center justify-between w-full">
+        {/* ✅ MOBILE: logo + search + toggle icon on one line */}
+        <div className="flex w-full items-center justify-between lg:hidden mb-3">
+          <img src={logosmalldevice} alt="small logo" className="w-10 h-10" />
+
+          <div className="flex-1 mx-3 relative">
+            <Input
+              onChange={(e) => setProduct(e.target.value)}
+              value={product}
+              type="text"
+              placeholder={t("NAVBAR.SEARCH_PLACEHOLDER")}
+              className="w-full px-3 py-2 border border-gray-300 rounded-full outline-none text-sm"
             />
-            <img
-              src={logosmalldevice}
-              alt="small logo"
-              className="block mr-2 lg:hidden w-10 h-10"
-            />
+            <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
 
-          <div className="hidden lg:flex items-center space-x-6 flex-1 flex-wrap justify-between">
-            <div className="relative flex-shrink-0" ref={desktopDropdownRef}>
+          <button
+            onClick={() => setMobileMenuOpen((s) => !s)}
+            className="text-white text-2xl p-2"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
+        {/* ✅ DESKTOP (unchanged original layout) */}
+        <div className="hidden lg:flex items-center justify-between w-full">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img src={logo} alt="logo" className="w-40 h-16" />
+          </div>
+
+          {/* Search + Location + Buttons */}
+          <div className="flex items-center space-x-6 flex-1 justify-end">
+            {/* Location Dropdown */}
+            <div className="relative" ref={desktopDropdownRef}>
               <button
                 type="button"
-                onClick={() => {
-                  setDropdownOpen((s) => !s);
-                  setSearchText("");
-                  setNotFoundMessage("");
-                }}
-                className="flex items-center px-3 py-2 bg-white hover:bg-gray-50 border border-gray-300 rounded-full min-w-[120px] w-[180px] overflow-hidden"
+                onClick={() => setDropdownOpen((s) => !s)}
+                className="flex items-center px-3 py-2 bg-white hover:bg-gray-50 border border-gray-300 rounded-full w-[180px]"
               >
                 <FaMapMarkerAlt className="text-gray-600 flex-shrink-0" />
                 <span className="flex-1 text-center text-sm mx-2 truncate">
                   {selectedLabel}
                 </span>
-                <div className="flex items-center gap-2 flex-shrink-0 px-2">
-                  <svg
-                    className={`w-4 h-4 transform transition-transform duration-200 ${
-                      dropdownOpen ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                  <FaSearch
-                    className="text-gray-500 cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setDropdownOpen(true);
-                      setSearchText("");
-                      setNotFoundMessage("");
-                    }}
-                  />
-                </div>
+                <FaSearch className="text-gray-500 cursor-pointer" />
               </button>
+
               {dropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-[200px] bg-white border rounded-md shadow-lg z-10 p-2">
                   <div className="flex items-center space-x-2">
@@ -210,9 +248,7 @@ const Navbar: FC<NavbarProps> = ({
                         setSearchText(e.target.value);
                         setNotFoundMessage("");
                       }}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") handleSearch();
-                      }}
+                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                       className="w-full px-2 py-1 border border-gray-300 rounded outline-none text-sm"
                     />
                     <button
@@ -249,7 +285,8 @@ const Navbar: FC<NavbarProps> = ({
               )}
             </div>
 
-            <div className="relative flex-1 max-w-[400px]">
+            {/* Product Search */}
+            <div className="relative max-w-[400px] flex-1">
               <Input
                 onChange={(e) => setProduct(e.target.value)}
                 value={product}
@@ -262,124 +299,14 @@ const Navbar: FC<NavbarProps> = ({
 
             <Button
               disabled={product.length < 1}
-              onClick={handleClick}
+              onClick={handleProductSearch}
               className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full"
             >
               {t("NAVBAR.GET_BEST_PRICE")}
             </Button>
 
+            {/* Icons + Sign In */}
             <div className="flex items-center space-x-4 flex-shrink-0">
-              {navOptions.map((option: NavOption) => (
-                <NavIconButton
-                  key={option.value}
-                  icon={getNavIcon(option.value)}
-                  label={option.label}
-                />
-              ))}
-              <div
-                className="relative"
-                onMouseEnter={() => setSigninOpen(true)}
-                onMouseLeave={() => setSigninOpen(false)}
-              >
-                <button className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
-                  <div className="text-lg">
-                    <FaUser />
-                  </div>
-                  <span className="text-sm">{t("NAVBAR.SIGN_IN")}</span>
-                </button>
-                {signinOpen && (
-                  <ul className="absolute right-0 mt-0 w-32 bg-white border rounded shadow-lg z-10">
-                    <li
-                      key="login"
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => navigate("/auth/login")}
-                    >
-                      {t("NAVBAR.LOGIN")}
-                    </li>
-                  </ul>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-1 items-center justify-between lg:hidden">
-            <div className="flex-1 relative">
-              <Input
-                onChange={(e) => setProduct(e.target.value)}
-                value={product}
-                type="text"
-                placeholder={t("NAVBAR.SEARCH_PLACEHOLDER")}
-                className="w-full px-3 py-2 border border-gray-300 rounded-full outline-none text-sm"
-              />
-              <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
-            </div>
-            <button
-              onClick={() => setMobileMenuOpen((s) => !s)}
-              className="text-white text-xl p-2"
-            >
-              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
-        </div>
-
-        {mobileMenuOpen && (
-          <div className="sm:block md:block lg:hidden mt-2 px-4 space-y-2 bg-blue-900">
-            <div className="relative" ref={mobileDropdownRef}>
-              <Input
-                type="text"
-                placeholder="Select location..."
-                value={searchText || selectedLabel}
-                leftIcon={<FaMapMarkerAlt />}
-                onChange={(e) => {
-                  setSearchText(e.target.value);
-                  setDropdownOpen(true);
-                  setNotFoundMessage("");
-                }}
-                onClick={() => {
-                  setDropdownOpen((s) => !s);
-                  if (!dropdownOpen) setSearchText("");
-                }}
-                className="w-full px-5 h-10 py-1 border border-gray-300 rounded outline-none text-sm"
-              />
-              <svg
-                className={`w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none ${
-                  dropdownOpen ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-              {dropdownOpen && (
-                <ul className="absolute top-full left-0 mt-1 w-full bg-white border rounded-md shadow-lg z-10 max-h-44 overflow-y-auto">
-                  {stateOptions
-                    .filter((opt) =>
-                      opt.label.toLowerCase().includes(searchText.toLowerCase())
-                    )
-                    .map((opt) => (
-                      <li
-                        key={opt.value}
-                        className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => {
-                          handleSelect(opt.value);
-                          setDropdownOpen(false);
-                          setSearchText("");
-                        }}
-                      >
-                        {opt.label}
-                      </li>
-                    ))}
-                </ul>
-              )}
-            </div>
-
-            <div className="flex flex-row justify-around items-center space-x-4">
               {navOptions.map((option) => (
                 <NavIconButton
                   key={option.value}
@@ -387,44 +314,125 @@ const Navbar: FC<NavbarProps> = ({
                   label={option.label}
                 />
               ))}
+
+              <div
+                className="relative"
+                onMouseEnter={() => setSigninOpen(true)}
+                onMouseLeave={() => setSigninOpen(false)}
+              >
+                <button className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
+                  <FaUser className="text-lg" />
+                  <span className="text-sm">
+                    {user ? user.name : t("NAVBAR.SIGN_IN")}
+                  </span>
+                </button>
+                {signinOpen && renderSigninDropdown()}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ✅ MOBILE MENU CONTENT */}
+        {mobileMenuOpen && (
+          <div
+            className="w-full bg-blue-900 mt-2 p-3 space-y-3 rounded-lg lg:hidden"
+            ref={mobileDropdownRef}
+          >
+            {/* Location Dropdown */}
+            <div className="relative w-full">
+              <Input
+                type="text"
+                placeholder="Select location..."
+                value={searchText || selectedLabel}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                  setDropdownOpen(true);
+                  setNotFoundMessage("");
+                }}
+                onClick={() => setDropdownOpen((s) => !s)}
+                className="w-full px-4 py-2 border border-gray-300 rounded outline-none text-sm"
+              />
+
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-full bg-white border rounded-md shadow-lg z-20 p-3">
+                  <div className="flex items-center space-x-2 mt-2">
+                    <Input
+                      type="text"
+                      placeholder="Type location..."
+                      value={searchText}
+                      onChange={(e) => setSearchText(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                      className="w-full px-2 py-1 border border-gray-300 rounded outline-none text-sm"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleSearch}
+                      className="text-gray-500 hover:text-green-600"
+                    >
+                      <FaSearch />
+                    </button>
+                  </div>
+                  <ul className="mt-3 max-h-52 overflow-y-auto">
+                    {stateOptions
+                      .filter((opt) =>
+                        opt.label
+                          .toLowerCase()
+                          .includes(searchText.toLowerCase())
+                      )
+                      .map((opt) => (
+                        <li
+                          key={opt.value}
+                          className="px-3 py-2 hover:bg-gray-100 cursor-pointer rounded text-sm"
+                          onClick={() => handleSelect(opt.value)}
+                        >
+                          {opt.label}
+                        </li>
+                      ))}
+                  </ul>
+                  {notFoundMessage && (
+                    <div className="mt-2 text-red-500 text-sm">
+                      {notFoundMessage}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Icons + Sign-in */}
+            <div className="flex flex-wrap justify-around items-center gap-3 mt-3">
+              {navOptions.map((option) => (
+                <NavIconButton
+                  key={option.value}
+                  icon={getNavIcon(option.value)}
+                  label={option.label}
+                />
+              ))}
+
               <div className="relative">
                 <button
                   onClick={() => setSigninOpen((s) => !s)}
                   className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
                 >
-                  <div className="text-lg">
-                    <FaUser />
-                  </div>
-                  <span className="text-sm">{t("NAVBAR.SIGN_IN")}</span>
+                  <FaUser className="text-lg" />
+                  <span className="text-sm">
+                    {user ? user.name : t("NAVBAR.SIGN_IN")}
+                  </span>
                 </button>
-                {signinOpen && (
-                  <ul className="absolute right-0 mt-1 w-32 bg-white border rounded shadow-lg z-10">
-                    <li
-                      key="login-mobile"
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => {
-                        navigate("/auth/login");
-                        setSigninOpen(false);
-                        setMobileMenuOpen(false);
-                      }}
-                    >
-                      {t("NAVBAR.LOGIN")}
-                    </li>
-                  </ul>
-                )}
+                {signinOpen && <div className="mt-1">{renderSigninDropdown()}</div>}
               </div>
             </div>
+
             <Button
               disabled={product.length < 1}
-              onClick={handleClick}
+              onClick={handleProductSearch}
               className="w-full bg-green-500 hover:bg-green-600 text-white rounded-full"
             >
               {t("NAVBAR.GET_BEST_PRICE")}
             </Button>
           </div>
         )}
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 
