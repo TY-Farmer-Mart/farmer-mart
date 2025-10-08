@@ -5,6 +5,7 @@ import { IoIosSearch } from "react-icons/io";
 import { useState, useRef, useEffect } from "react";
 import { FaMapMarkerAlt, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function DashboardNav() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,6 +17,7 @@ function DashboardNav() {
   const desktopDropdownRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
   const [product, setProduct] = useState("");
+  const { t } = useTranslation();
 
   const stateOptions = [
     { value: "blr", label: "Bengaluru" },
@@ -172,17 +174,18 @@ function DashboardNav() {
         </div>
 
         <Button
-          leftIcon={<IoIosSearch className="w-5 h-5" />}
+        disabled={!product}
+          leftIcon={<IoIosSearch className="w-5 h-5 "  />}
           onClick={handleClick}
           className="
-          flex items-center gap-2
-          bg-blue-800 text-white px-4 py-2
-          rounded hover:bg-[#00665c]
-          text-sm sm:text-xl
+          flex items-center gap-1
+           text-white px-6 py-2
+          rounded-full hover:bg-green-300
+        
           w-full sm:w-auto
         "
         >
-          <span className="font-bold">{DASHBOARD_NAV_TXT.BTN_TEXT}</span>
+          <span className="p-1">{t("DASHBOARD_NAV_TXT.BTN_TEXT")}</span>
         </Button>
       </div>
     </>

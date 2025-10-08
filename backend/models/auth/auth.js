@@ -41,8 +41,12 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
+      enum: ["user", "admin", "vendor", "consultant"],
       default: "user",
+    },
+    gstNumber: {
+      type: String,
+      required: false,
     },
     password: {
       type: String,
