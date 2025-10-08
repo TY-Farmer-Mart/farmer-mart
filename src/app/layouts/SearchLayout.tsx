@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import FilterSlideBar from "../../features/productList/FilterSlideBar";
-import ProductList from "../../features/productList/ProductList";
-import RequirementForm from "../../features/productList/RequirementForm";
-import LocationSearch from "../../features/productList/LocationSearch";
+import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import ProductList from "@/features/productList/ProductList";
+import RequirementForm from "@/features/productList/RequirementForm";
+import LocationSearch from "@/features/productList/LocationSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/redux/productSlice";
-import { RootState } from "@/redux/store";
+import { RootState, AppDispatch } from "@/redux/store";
 
 const SearchLayout: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { filteredProducts, loading, error } = useSelector(
     (state: RootState) => state.products
   );
@@ -22,6 +22,12 @@ const SearchLayout: React.FC = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, []);
 
   useEffect(() => {
     if (!mainRef.current || !productListEndRef.current) return;

@@ -1,3 +1,23 @@
+export type FilterKeys =
+  | "priceRange"
+  | "seller"
+  | "location"
+  | "category"
+  | "product";
+
+export interface Filters {
+  priceRange?: string;
+  seller?: string;
+  location?: string;
+  category?: string;
+  product?: string;
+}
+
+export interface FilterSlideBarProps {
+  loading: boolean;
+  error: string | null;
+}
+
 export interface Product {
   id?: number | string;
   itemName: string;
@@ -12,12 +32,14 @@ export interface Product {
   responseRate?: string;
 }
  
+
 export interface ProductListProps {
   products: Product[];
   loading: boolean;
   error: string | null;
 }
  
+
 export interface Supplier {
   sellerName?: string;
   location?: string;
