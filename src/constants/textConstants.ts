@@ -77,4 +77,26 @@ export const LOCATION_SEARCH = {
   NEARME: "Near Me",
 };
 
-
+export const PROFILE_PAGE_TXT = {
+  EDIT_BTN: " Edit",
+  MEMBER: "Member since",
+  CONTACT_INFO: " Contact Information",
+  PRIMARY_MOB: " Primary Mobile:",
+  PRIMARY_MAIL: " Primary Email:",
+  ADDRESS: "Address",
+  ALT_MOB: " Alternative Mobile",
+  ALT_MAIL: " Alternative Email",
+  COMPANY_INFO: " Company Information",
+  COMPANY_NAME: "Company Name:",
+  GST: "GSTIN",
+  FB: "Facebook",
+  IG: "Instagram",
+  GL_BUSINESS: "Google Business",
+  WEBSITE: "Company Website",
+  PAN: "PAN",
+  BANK_ACC : "Bank Account Details",
+  IFSC: "IFSC Code",
+  BANK_NAME : "Bank Name",
+  ACC_NUM : "Account Number",
+  ACC_TYPE : "Account Type"
+};

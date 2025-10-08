@@ -3,8 +3,9 @@ import { IoNewspaperOutline, IoPersonCircleSharp } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { LuCalendarCheck, LuPanelTop } from "react-icons/lu";
 import { RiStarSmileLine } from "react-icons/ri";
-import { MdEdit, MdLanguage } from "react-icons/md";
+import { MdEdit, MdLanguage, MdOutlineAccountBox, MdSwitchAccount} from "react-icons/md";
 import { ProfileCardProps } from "@/types/profileTypes";
+import { PROFILE_PAGE_TXT } from "@constants/textConstants";
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
   name,
@@ -14,9 +15,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 }) => {
   return (
     <div className="relative flex flex-col md:flex-row flex-wrap  items-center md:items-center justify-center md:justify-between  bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8 gap-6 w-full text-center md:text-left">
-      <button className="absolute top-4 right-4 flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium">
-        <MdEdit /> Edit
-      </button>
+      <div className="absolute top-4 right-4 flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium">
+        <MdEdit />
+        {PROFILE_PAGE_TXT.EDIT_BTN}
+      </div>
+
       <div className="flex flex-col sm:flex-row items-center md:items-center justify-center md:justify-start text-center md:text-left gap-4">
         <IoPersonCircleSharp className="w-24 h-24 text-gray-500" />
         <div className="flex flex-col">
@@ -32,7 +35,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         <LuCalendarCheck className="w-8 h-8  text-green-300 bg-gray-200" />
         <div className="flex flex-col">
           <span className="text-sm font-semibold text-gray-700">
-            Member since
+            {PROFILE_PAGE_TXT.MEMBER}
           </span>
           <span className="text-left font-bold">{memberSince}</span>
         </div>
@@ -66,14 +69,14 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
     <div className="relative bg-white rounded-lg shadow-md  px-3 py-4 mt-4">
       <div className="flex justify-between items-center border-b pb-3 mb-4">
         <h2 className="text-lg font-semibold text-gray-800 p-2">
-          Contact Information
+          {PROFILE_PAGE_TXT.CONTACT_INFO}
         </h2>
-        <button
+        <div
           onClick={onEdit}
           className="flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium"
         >
-          <MdEdit /> Edit
-        </button>
+          <MdEdit /> {PROFILE_PAGE_TXT.EDIT_BTN}
+        </div>
       </div>
 
       <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-8 sm:gap-16 lg:gap-64">
@@ -85,7 +88,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-700">
-                Primary Mobile:
+                {PROFILE_PAGE_TXT.PRIMARY_MOB}
               </span>
               <span className="text-sm text-gray-600">{mobile}</span>
             </div>
@@ -98,7 +101,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-700">
-                Primary Email:
+                {PROFILE_PAGE_TXT.PRIMARY_MAIL}
               </span>
               <span className="text-sm text-gray-600">{email}</span>
             </div>
@@ -110,7 +113,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-700  text-left">
-                Address
+                {PROFILE_PAGE_TXT.ADDRESS}
               </span>
               <span className="text-sm text-gray-600">{address}</span>
             </div>
@@ -126,7 +129,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
               <div className="flex flex-col">
                 <span className="text-sm font-semibold text-gray-700">
-                  Alternative Mobile
+                  {PROFILE_PAGE_TXT.ALT_MOB}
                 </span>
                 <span className="text-sm text-gray-600">{mobile}</span>
               </div>
@@ -141,7 +144,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
               <div className="flex flex-col">
                 <span className="text-sm font-semibold text-gray-700">
-                  Alternative Email
+                  {PROFILE_PAGE_TXT.ALT_MAIL}
                 </span>
                 <span className="text-sm text-gray-600">{altEmail}</span>
               </div>
@@ -173,14 +176,15 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
     <div className="relative bg-white rounded-lg shadow-md px-3 py-4 mt-4">
       <div className="flex justify-between items-center border-b pb-3 mb-4">
         <h2 className="text-lg font-semibold text-gray-800 p-2  ">
-          Company Information
+          {PROFILE_PAGE_TXT.COMPANY_INFO}
         </h2>
-        <button
+        <div
           onClick={onEdit}
           className="flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium"
         >
-          <MdEdit /> Edit
-        </button>
+          <MdEdit />
+          {PROFILE_PAGE_TXT.EDIT_BTN}
+        </div>
       </div>
 
       <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-8 sm:gap-12 lg:gap-18">
@@ -191,7 +195,7 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
             </div>
             <div className="flex flex-col items-start">
               <span className="text-sm font-semibold text-gray-700">
-                Company Name:
+                {PROFILE_PAGE_TXT.COMPANY_NAME}
               </span>
               <span className="text-sm text-gray-600">{companyName}</span>
             </div>
@@ -202,7 +206,9 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
               <IoNewspaperOutline className="w-8 h-8 text-blue-400 bg-gray-200" />
             </div>
             <div className="flex flex-col items-start">
-              <span className="text-sm font-semibold text-gray-700">GSTIN</span>
+              <span className="text-sm font-semibold text-gray-700">
+                {PROFILE_PAGE_TXT.GST}
+              </span>
               <span className="text-sm text-gray-600">{gstNumber}</span>
             </div>
           </div>
@@ -217,18 +223,22 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 mt-2">
                   <div className="flex items-center gap-2">
                     <FaFacebook className="text-blue-950 w-5 h-5" />
-                    <span className="text-sm text-gray-600">Facebook</span>
+                    <span className="text-sm text-gray-600">
+                      {PROFILE_PAGE_TXT.FB}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <FaSquareInstagram className="text-pink-500 w-5 h-5 " />
-                    <span className="text-sm text-gray-600">Instagram</span>
+                    <span className="text-sm text-gray-600">
+                      {PROFILE_PAGE_TXT.IG}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <AiFillGoogleCircle className="text-blue-800  w-5 h-5" />
                     <span className="text-sm text-gray-600">
-                      Google Business
+                      {PROFILE_PAGE_TXT.GL_BUSINESS}
                     </span>
                   </div>
                 </div>
@@ -244,7 +254,7 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
             </div>
             <div className="flex flex-col items-start">
               <span className="text-sm font-semibold text-gray-700">
-                Company Website
+                {PROFILE_PAGE_TXT.WEBSITE}
               </span>
               <span className="text-sm text-gray-600">{companyAddress}</span>
             </div>
@@ -255,8 +265,97 @@ export const CompanyInformationCard: React.FC<CompanyInfoProps> = ({
               <LuPanelTop className="w-6 h-6 text-green-400 bg-gray-200" />
             </div>
             <div className="flex flex-col items-start">
-              <span className="text-sm font-semibold text-gray-700">PAN</span>
+              <span className="text-sm font-semibold text-gray-700">
+                {PROFILE_PAGE_TXT.PAN}
+              </span>
               <span className="text-sm text-gray-600">{ownerName}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+import { BsBank2 } from "react-icons/bs";
+
+import { BankAccountDetailsProps } from "@/types/profileTypes";
+import { VscCodeOss } from "react-icons/vsc";
+
+export const BankAccountDetailsCard: React.FC<BankAccountDetailsProps> = ({
+  bankName,
+  accountNumber,
+  ifscCode,
+  accountType,
+  onEdit,
+}) => {
+  return (
+    <div className="relative bg-white rounded-lg shadow-md px-3 py-4 mt-4">
+      <div className="flex justify-between items-center border-b pb-3 mb-4">
+        <h2 className="text-lg font-semibold text-gray-800 p-2">
+          {PROFILE_PAGE_TXT.BANK_ACC}
+        </h2>
+        <div
+          onClick={onEdit}
+          className="flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium cursor-pointer"
+        >
+          <MdEdit /> {PROFILE_PAGE_TXT.EDIT_BTN}
+        </div>
+      </div>
+
+      <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-8 sm:gap-16 lg:gap-64">
+        <div className="flex flex-col items-start space-y-10 p-5">
+          <div className="flex items-start gap-3">
+            <div className="w-8 flex justify-start">
+              <VscCodeOss className="w-8 h-8 text-green-400 bg-gray-200 rounded-md p-1" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-700 text-left">
+                {PROFILE_PAGE_TXT.IFSC}
+              </span>
+              <span className="text-sm text-gray-600">{ifscCode}</span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <div className="w-8 flex justify-start">
+              <BsBank2 className="w-8 h-8 text-blue-500 bg-gray-200 rounded-md p-1" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-700 text-left">
+                {PROFILE_PAGE_TXT.BANK_NAME}
+              </span>
+              <span className="text-sm text-gray-600">{bankName}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-start space-y-10 p-5">
+          <div className="flex items-start gap-3">
+            <div className="w-8 flex justify-start">
+              <MdOutlineAccountBox className="w-8 h-8 text-blue-500 bg-gray-200 rounded-md p-1" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-700">
+                {PROFILE_PAGE_TXT.ACC_NUM}
+              </span>
+              <span className="text-sm text-gray-600 text-left">
+                {accountNumber}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <div className="w-8 flex justify-start">
+              <MdSwitchAccount className="w-8 h-8 text-green-400 bg-gray-200 rounded-md p-1" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-700">
+                {PROFILE_PAGE_TXT.ACC_TYPE}
+              </span>
+              <span className="text-sm text-gray-600 text-left">
+                {accountType}
+              </span>
             </div>
           </div>
         </div>

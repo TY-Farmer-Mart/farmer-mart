@@ -1,5 +1,5 @@
 import Dashboard from "@/app/Dashboard";
-import ProfilePage from "@/app/ProfilePage";
+import ProfilePage from "@/features/dashboard/profile/ProfilePage";
 
 const UserRoutes = [
   { path: "/dashboard", element: <Dashboard/> },

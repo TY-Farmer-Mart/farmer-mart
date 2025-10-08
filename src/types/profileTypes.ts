@@ -22,3 +22,11 @@ export interface CompanyInfoProps {
   ownerName?: string;
   onEdit?: () => void;
 }
+
+ export type BankAccountDetailsProps = {
+  bankName: string;
+  accountNumber: string;
+  ifscCode: string;
+  accountType: string;
+  onEdit?: () => void;
+};
