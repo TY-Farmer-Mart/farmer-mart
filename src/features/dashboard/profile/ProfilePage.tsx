@@ -1,7 +1,7 @@
-import ProfileCard from "../../../components/ProfilePageCard";
-import { ContactInfoCard } from "../../../components/ProfilePageCard";
-import { CompanyInformationCard } from "../../../components/ProfilePageCard";
-import { BankAccountDetailsCard } from "../../../components/ProfilePageCard";
+import ProfileCard from "./ProfileCard"
+import { ContactInfoCard } from "./ContactInfoCard"
+import { CompanyInfoCard } from "./CompanyInfoCard"
+import { BankAccountDetailsCard } from "./BankAccountDetailsCard"
 import { profileData } from "../../../utils/profileData";
 
 const ProfilePage = () => {
@@ -9,7 +9,7 @@ const ProfilePage = () => {
     <div className="p-4">
       <ProfileCard {...profileData.profile} />
       <ContactInfoCard {...profileData.contact} />
-      <CompanyInformationCard {...profileData.company} />
+      <CompanyInfoCard {...profileData.company} />
       <BankAccountDetailsCard {...profileData.bank} />
     </div>
   );
