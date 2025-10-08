@@ -1,8 +1,9 @@
 import Dashboard from "@/app/Dashboard";
+import ProfilePage from "@/app/ProfilePage";
 
 const UserRoutes = [
   { path: "/dashboard", element: <Dashboard/> },
-  { path: "/profile", element: <h1>Profile Page</h1> },
+  { path: "/profile", element: <ProfilePage/> },
   { path: "/settings", element: <h1>Settings Page</h1> },
 ];
 
