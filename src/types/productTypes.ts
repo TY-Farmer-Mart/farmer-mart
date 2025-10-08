@@ -1,30 +1,23 @@
 export interface Product {
+  id?: number | string;
+  cartId?: string;
   itemName: string;
   price?: number | string;
-  quantity?: string;
-  imageUrl: string;
+  quantity?: number;
+  imageUrl?: string;
   location?: string;
-}
-
-export interface ApiProduct {
-  sellerName?: string;
-  location?: string;
+  sellerName: string;
   verified?: boolean;
   memberYears?: string;
   rating?: number | string;
   responseRate?: string;
-  itemName?: string;
-  price?: number | string;
-  quantity?: string;
-  imageUrl?: string;
-  products?: Product[];
 }
 
-//   itemName: string;
-//   price?: number | string;
-//   quantity?: string;
-//   imageUrl: string;
-// }
+export interface ProductListProps {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
+}
 
 export interface Supplier {
   sellerName?: string;

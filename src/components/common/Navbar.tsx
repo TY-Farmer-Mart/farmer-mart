@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   FaBox,
   FaTags,
-  FaQuestionCircle,
   FaUser,
   FaMapMarkerAlt,
   FaSearch,
@@ -21,6 +20,9 @@ import {
 } from "@/types/navbarTypes";
 import { Input } from "@components/common/ui/Input";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { ShoppingCart } from "lucide-react";
 
 const NavIconButton: FC<NavIconButtonProps> = ({
   icon,
@@ -116,14 +118,15 @@ const Navbar: FC<NavbarProps> = ({
     );
   };
 
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const cartCount = cartItems.length;
+
   const getNavIcon = (value: NavOption["value"]) => {
     switch (value) {
       case "export":
         return <FaBox />;
       case "sell":
         return <FaTags />;
-      case "help":
-        return <FaQuestionCircle />;
       default:
         return null;
     }
@@ -276,6 +279,22 @@ const Navbar: FC<NavbarProps> = ({
                   label={option.label}
                 />
               ))}
+
+              <div className="relative">
+                <button
+                  onClick={() => navigate("/addtocart")}
+                  className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
+                >
+                  <ShoppingCart className="text-lg" />
+                  <span className="text-sm"></span>
+                </button>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
+
               <div
                 className="relative"
                 onMouseEnter={() => setSigninOpen(true)}
@@ -387,6 +406,20 @@ const Navbar: FC<NavbarProps> = ({
                   label={option.label}
                 />
               ))}
+              <div className="relative">
+                <button
+                  onClick={() => navigate("/addtocart")}
+                  className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
+                >
+                  <ShoppingCart className="text-lg" />
+                  <span className="text-sm"></span>
+                </button>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
               <div className="relative">
                 <button
                   onClick={() => setSigninOpen((s) => !s)}
