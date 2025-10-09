@@ -1,18 +1,33 @@
-
 import React from "react";
 import { useDispatch } from "react-redux";
 import { goToNextStep } from "@/redux/checkoutSlice";
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikHelpers } from "formik";
 import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
 import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { loginUser } from "@/services/auth";
 
 interface Props {
-  isActive?: boolean; 
+  isActive?: boolean;
   onNext?: () => void;
 }
 
+interface StoredUser {
+  token?: string;
+  message?: string;
+  user?: {
+    email?: string;
+    [key: string]: unknown;
+  };
+  email?: string;
+}
+
+// Type for API response
+interface LoginResponse {
+  token?: string;
+  message?: string;
+  [key: string]: unknown;
+}
 
 const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
   const dispatch = useDispatch();
@@ -25,22 +40,25 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
     try {
       const userStr = localStorage.getItem("user");
       if (userStr) {
-        const parsed = JSON.parse(userStr);
-        if (parsed?.token && typeof parsed.token === "string") return parsed.token;
+        const parsed: StoredUser = JSON.parse(userStr);
+        if (parsed?.token) return parsed.token;
       }
-    } catch {}
-    const token = localStorage.getItem("token");
-    return token || undefined;
+    } catch (err) {
+      console.error("Failed to parse user from localStorage", err);
+    }
+    return localStorage.getItem("token") || undefined;
   };
 
   const getUserEmail = (): string => {
     try {
       const userStr = localStorage.getItem("user");
       if (userStr) {
-        const parsed = JSON.parse(userStr);
-        return parsed?.user?.email || parsed?.email || "";
+        const parsed: StoredUser = JSON.parse(userStr);
+        return parsed?.user?.email ?? parsed?.email ?? "";
       }
-    } catch {}
+    } catch (err) {
+      console.error("Failed to parse user email from localStorage", err);
+    }
     return "";
   };
 
@@ -52,6 +70,7 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
       <h2 className="text-base font-semibold mb-4 text-gray-700">
         Login / Signup
       </h2>
+
       {isAuthenticated ? (
         <>
           <div className="mb-4 p-3 bg-gray-50 rounded border">
@@ -73,78 +92,92 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
       )}
 
       {!isAuthenticated && (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={LoginSchema}
-        onSubmit={async (values, { setSubmitting, setStatus }) => {
-          setStatus(undefined);
-          try {
-            const res: any = await loginUser(values);
+        <Formik
+          initialValues={initialValues}
+          validationSchema={LoginSchema}
+          onSubmit={async (
+            values: LoginFormValues,
+            { setSubmitting, setStatus }: FormikHelpers<LoginFormValues>
+          ) => {
+            setStatus(undefined);
+            try {
+              const res: LoginResponse = await loginUser(values);
 
-            if (res?.token) {
-              try {
-                localStorage.setItem("user", JSON.stringify({ message: res.message || "Login successful", token: res.token }));
-              } catch {}
+              if (res?.token) {
+                try {
+                  const storedUser: StoredUser = {
+                    message: res.message ?? "Login successful",
+                    token: res.token,
+                  };
+                  localStorage.setItem("user", JSON.stringify(storedUser));
+                } catch (err) {
+                  console.error("Failed to save user to localStorage", err);
+                }
+              }
+
+              if (onNext) onNext();
+              else dispatch(goToNextStep());
+            } catch (err: unknown) {
+              const message =
+                err instanceof Error ? err.message : "Login failed";
+              setStatus(message);
+            } finally {
+              setSubmitting(false);
             }
-            if (onNext) onNext();
-            else dispatch(goToNextStep());
-          } catch (err: any) {
-            setStatus(err?.message || "Login failed");
-          } finally {
-            setSubmitting(false);
-          }
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          isSubmitting,
-          status,
-        }) => (
-          <Form className="space-y-4">
-            <Input
-              label="Email Address"
-              placeholder="Enter your email"
-              name="email"
-              type="email"
-              value={values.email}
-              className="px-4 py-2"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.email && errors.email ? errors.email : ""}
-            />
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            isSubmitting,
+            status,
+          }) => (
+            <Form className="space-y-4">
+              <Input
+                label="Email Address"
+                placeholder="Enter your email"
+                name="email"
+                type="email"
+                value={values.email}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.email && errors.email ? errors.email : ""}
+              />
 
-            <Input
-              label="Password"
-              placeholder="Enter your password"
-              name="password"
-              type="password"
-              value={values.password}
-              className="px-4 py-2"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.password && errors.password ? errors.password : ""}
-            />
+              <Input
+                label="Password"
+                placeholder="Enter your password"
+                name="password"
+                type="password"
+                value={values.password}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  touched.password && errors.password ? errors.password : ""
+                }
+              />
 
-            {status && (
-              <p className="text-sm text-red-600 text-left">{status}</p>
-            )}
+              {status && (
+                <p className="text-sm text-red-600 text-left">{status}</p>
+              )}
 
-            <Button
-              type="submit"
-              variant="primary"
-              size="md"
-              className="w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Logging in..." : "Login / Continue"}
-            </Button>
-          </Form>
-        )}
-      </Formik>
+              <Button
+                type="submit"
+                variant="primary"
+                size="md"
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Logging in..." : "Login / Continue"}
+              </Button>
+            </Form>
+          )}
+        </Formik>
       )}
     </div>
   );

@@ -26,7 +26,7 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const res = await fetch("http://localhost:7001/products");
+    const res = await fetch("http://localhost:7000/products");
     if (!res.ok) throw new Error("Failed to fetch products");
     const data: Record<string, { list?: Product[] }> = await res.json();
     return Object.values(data).flatMap((cat) => cat.list ?? []);

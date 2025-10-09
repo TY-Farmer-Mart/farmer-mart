@@ -4,7 +4,7 @@ import UserRoutes from "./user/userRoutes";
 import SearchLayout from "../layouts/SearchLayout";
 import { ROUTES } from "@/constants/routeConstants";
 import CartLayout from "../layouts/CartLayout";
-import CheckoutLayout from "../layouts/CheckoutLayout";
+import CheckoutLayout from "../../features/checkout/CheckoutLayout";
 import ProductDetailsLayout from "../layouts/ProductDetailsLayout";
 
 export const useRoleRoutes = (): RouteObject[] => {

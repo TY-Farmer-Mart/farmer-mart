@@ -5,11 +5,12 @@ import CheckoutFlow from "@/features/checkout/CheckoutFlow";
 
 const CheckoutLayout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-1 p-6">
-        <h1 className="text-2xl font-bold mb-6">Checkout</h1>
-        <CheckoutFlow />
+      <main className="flex-1 bg-[#f1f3f6]">
+        <div className="mx-auto max-w-[1280px] py-4">
+          <CheckoutFlow />
+        </div>
       </main>
       <Footer />
     </div>

@@ -21,10 +21,40 @@ interface CheckoutState {
   selectedAddressId?: string;
 }
 
+// Persist/rehydrate helpers
+const STORAGE_KEY = "checkout";
+function loadPersistedCheckout(): Partial<CheckoutState> {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return {
+      addresses: Array.isArray(parsed.addresses) ? parsed.addresses : [],
+      selectedAddressId: parsed.selectedAddressId || undefined,
+    } as Partial<CheckoutState>;
+  } catch {
+    return {};
+  }
+}
+
+function persistCheckout(state: CheckoutState) {
+  try {
+    const toPersist = {
+      addresses: state.addresses,
+      selectedAddressId: state.selectedAddressId,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toPersist));
+  } catch {
+    // ignore write errors
+  }
+}
+
+const persisted = loadPersistedCheckout();
+
 const initialState: CheckoutState = {
   currentStep: 1,
-  addresses: [],
-  selectedAddressId: undefined,
+  addresses: persisted.addresses || [],
+  selectedAddressId: persisted.selectedAddressId,
 };
 
 const checkoutSlice = createSlice({
@@ -48,9 +78,11 @@ const checkoutSlice = createSlice({
       } else {
         state.addresses.push(action.payload);
       }
+      persistCheckout(state);
     },
     selectAddress: (state, action: PayloadAction<string>) => {
       state.selectedAddressId = action.payload;
+      persistCheckout(state);
     },
   },
 });
