@@ -73,7 +73,7 @@ function DashboardNav() {
     <>
       <div
         className="
-         sticky top-4 z-50  m-0
+         sticky top-4  z-100 sm:z-50  m-0
         flex flex-col sm:flex-row sm:items-center sm:justify-between
         w-full bg-white p-4 mt-4 mb-4 mr-4 rounded-xl shadow
         gap-4 sm:gap-6
