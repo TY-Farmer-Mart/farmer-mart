@@ -1,4 +1,4 @@
-// module: LoginStep file scope (imports)
+
 import React from "react";
 import { useDispatch } from "react-redux";
 import { goToNextStep } from "@/redux/checkoutSlice";
@@ -9,11 +9,11 @@ import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { loginUser } from "@/services/auth";
 
 interface Props {
-  isActive?: boolean; // defaults to true when used as a standalone route
+  isActive?: boolean; 
   onNext?: () => void;
 }
 
-// component: LoginStep
+
 const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
   const dispatch = useDispatch();
 
@@ -80,7 +80,7 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
           setStatus(undefined);
           try {
             const res: any = await loginUser(values);
-            // Normalize and persist for downstream checks (e.g., ProtectedRoute)
+
             if (res?.token) {
               try {
                 localStorage.setItem("user", JSON.stringify({ message: res.message || "Login successful", token: res.token }));

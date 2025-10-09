@@ -3,7 +3,6 @@ import { Button } from "./Button";
 import { truncateText } from "@/utils/helpers";
 import { useNavigate } from "react-router-dom";
 
-
 import { useTranslation } from "react-i18next";
 
 const ProductCategory: React.FC<ProductCategoryProps> = ({
@@ -12,7 +11,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
   image,
   categories,
 }) => {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { t } = useTranslation();
   return (
     <section className="w-full py-8 mt-6 border-t-4 border-t-blue-900 bg-green-50 ]">

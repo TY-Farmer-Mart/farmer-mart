@@ -210,6 +210,7 @@
     "settings": "Settings"
   },
   "LOGOUT": "Logout",
+
   "PRODUCT_LIST_VIEW": {
     "NO_PRODUCT": "No product details found.",
     "ADD_TO_CART": "ADD TO CART",
@@ -249,7 +250,8 @@
     "platformFee": "Platform Fee",
     "totalAmount": "Total Amount",
     "youWillSave": "You will save ₹{{amount}} on this order",
-    "noSavings": "No savings available"
+    "noSavings": "No savings available",
+    "orderSummary": "Order Summary"
   },
   "DELIVERY": {
     "deliverTo": "Deliver to:",

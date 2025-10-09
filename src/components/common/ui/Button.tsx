@@ -30,6 +30,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       social: "bg-white  hover:bg-gray-50 text-gray-700 focus:ring-gray-500",
       viewAll:
         "mt-4 bg-green-300 text-white px-8 ml-6 py-2 rounded hover:underline transition text-sm md:text-base",
+      addToCart:
+        "flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-3 text-xs md:text-sm md:rounded rounded-md p-1  font-semibold flex items-center justify-center md:gap-2 gap-1",
+      buyNow:
+        "flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded font-semibold flex items-center text-xs md:text-sm md:rounded rounded-md p-1  justify-center gap-2",
+
       pillScroll: "px-4 py-2  text-xl transition text-center ",
       circle:
         "w-6 h-6 rounded-full flex items-center justify-center border border-gray-400 text-base",

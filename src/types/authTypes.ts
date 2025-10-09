@@ -9,6 +9,8 @@ export interface ButtonProps
     | "ghost"
     | "social"
     | "viewAll"
+    | "addToCart"
+    | "buyNow"
     | "pillScroll"
     | "activeCity"
     | "addToCart"

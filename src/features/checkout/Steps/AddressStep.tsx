@@ -53,7 +53,7 @@ const AddressStep: React.FC<Props> = ({ isActive = true, onNext }) => {
     addressType: Yup.mixed().oneOf(["home", "work"]).required(),
   });
 
-  // Prefill from user profile if present and not already in state
+
   useEffect(() => {
     const userStr = localStorage.getItem("user");
     const user = userStr ? JSON.parse(userStr) : null;
@@ -70,7 +70,7 @@ const AddressStep: React.FC<Props> = ({ isActive = true, onNext }) => {
     }
   }, [dispatch]);
 
-  // When an address is selected or available, prefill the form for editing
+
   useEffect(() => {
     if (selectedAddressId) {
       const selected = addresses.find((a) => a.id === selectedAddressId);
@@ -87,14 +87,14 @@ const AddressStep: React.FC<Props> = ({ isActive = true, onNext }) => {
           altPhone: selected.altPhone || "",
           addressType: (selected.addressType as "home" | "work") || "home",
         });
-        // also set iso code for the prefilled state so that city list loads
+ 
         const st = State.getStatesOfCountry(COUNTRY_CODE).find((s) => s.name === (selected.state || ""));
         setSelectedStateIso(st?.isoCode || "");
       }
     }
   }, [selectedAddressId, addresses]);
 
-  // Load states on mount
+ 
   useEffect(() => {
     try {
       const states = State.getStatesOfCountry(COUNTRY_CODE) || [];
@@ -102,7 +102,7 @@ const AddressStep: React.FC<Props> = ({ isActive = true, onNext }) => {
     } catch {}
   }, []);
 
-  // Update cities whenever selected state changes
+
   useEffect(() => {
     if (selectedStateIso) {
       try {
@@ -248,7 +248,7 @@ const AddressStep: React.FC<Props> = ({ isActive = true, onNext }) => {
         </div>
       )}
 
-      {/* Add / Edit address (Formik) */}
+
       {(showAddForm || addresses.length === 0) && (
       <Formik initialValues={form} validationSchema={AddressSchema} enableReinitialize onSubmit={handleSaveAndContinue}>
         {({ isValid, setFieldValue, values }) => (
