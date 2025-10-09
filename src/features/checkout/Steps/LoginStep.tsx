@@ -33,7 +33,19 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
     return token || undefined;
   };
 
+  const getUserEmail = (): string => {
+    try {
+      const userStr = localStorage.getItem("user");
+      if (userStr) {
+        const parsed = JSON.parse(userStr);
+        return parsed?.user?.email || parsed?.email || "";
+      }
+    } catch {}
+    return "";
+  };
+
   const isAuthenticated = Boolean(getStoredToken());
+  const userEmail = getUserEmail();
 
   return (
     <div className="p-6 bg-white rounded shadow border">
@@ -42,7 +54,10 @@ const LoginStep: React.FC<Props> = ({ isActive = true, onNext }) => {
       </h2>
       {isAuthenticated ? (
         <>
-          <p className="mb-4">You are already logged in.</p>
+          <div className="mb-4 p-3 bg-gray-50 rounded border">
+            <p className="text-sm text-gray-600 mb-1">Logged in as:</p>
+            <p className="font-medium text-gray-800">{userEmail}</p>
+          </div>
           <Button
             type="button"
             variant="primary"

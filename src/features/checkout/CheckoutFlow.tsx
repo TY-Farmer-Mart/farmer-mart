@@ -5,14 +5,12 @@ import { goToNextStep, goToStep } from "../../redux/checkoutSlice";
 import LoginStep from "./Steps/LoginStep";
 import AddressStep from "./Steps/AddressStep";
 import OrderSummaryStep from "./Steps/OrderSummaryStep";
-import PaymentStep from "./Steps/PaymentStep";
 import PriceDetails from "@/features/Cart/PriceDetails";
 
 const steps = [
   "Login / Signup",
   "Delivery Address",
   "Order Summary",
-  "Payment",
 ];
 
 const CheckoutFlow: React.FC = () => {
@@ -85,8 +83,7 @@ const CheckoutFlow: React.FC = () => {
       <div className="w-full md:col-span-6 flex flex-col gap-6 bg-white rounded-lg p-4 shadow-sm">
         {currentStep === 1 && <LoginStep isActive onNext={nextStep} />}
         {currentStep === 2 && <AddressStep isActive onNext={nextStep} />}
-        {currentStep === 3 && <OrderSummaryStep isActive onNext={nextStep} />}
-        {currentStep === 4 && <PaymentStep isActive />}
+        {currentStep === 3 && <OrderSummaryStep isActive />}
       </div>
 
       {/* Price details */}

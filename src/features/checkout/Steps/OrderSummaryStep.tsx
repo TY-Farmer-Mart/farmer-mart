@@ -5,10 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   isActive?: boolean; // defaults to true when used via route
-  onNext?: () => void;
 }
 
-const OrderSummaryStep: React.FC<Props> = ({ isActive = true, onNext }) => {
+const OrderSummaryStep: React.FC<Props> = ({ isActive = true }) => {
   const navigate = useNavigate();
   const reduxItems = useSelector((s: RootState) => s.cart?.items);
   const persistedItems = (() => {
@@ -26,8 +25,7 @@ const OrderSummaryStep: React.FC<Props> = ({ isActive = true, onNext }) => {
   if (!isActive) return null;
 
   const proceed = () => {
-    if (onNext) return onNext();
-    navigate("/checkout/payment");
+    navigate("/paymentpage");
   };
 
   return (

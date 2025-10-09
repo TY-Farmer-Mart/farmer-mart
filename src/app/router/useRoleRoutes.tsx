@@ -4,7 +4,6 @@ import UserRoutes from "./user/userRoutes";
 import SearchLayout from "../layouts/SearchLayout";
 import { ROUTES } from "@/constants/routeConstants";
 import CheckoutLayout from "../layouts/CheckoutLayout";
-import { CheckoutRoutes } from "./checkoutRoutes";
 import CheckoutFlow from "../../features/checkout/CheckoutFlow";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -29,7 +28,6 @@ export const useRoleRoutes = (): RouteObject[] => {
             path: ROUTES.CHECKOUT_PAGE,
             children: [
               { index: true, element: <CheckoutFlow /> },
-              ...CheckoutRoutes,
             ],
           },
         ],
