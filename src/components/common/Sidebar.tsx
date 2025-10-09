@@ -42,9 +42,10 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
                 to={item.path}
                 className={({ isActive }) =>
                   `flex items-center px-6 py-3 mt-2 rounded-s-3xl text-gray-700 hover:bg-green-400 transition-colors
-                  ${isActive
-                    ? "bg-green-500 font-semibold rounded-s-3xl text-white"
-                    : ""
+                  ${
+                    isActive
+                      ? "bg-green-500 font-semibold rounded-s-3xl text-white"
+                      : ""
                   }`
                 }
               >

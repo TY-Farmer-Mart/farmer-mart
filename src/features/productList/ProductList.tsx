@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
-import { ProductListProps, Product } from "@/types/productTypes";
 import { MapPin, Phone } from "lucide-react";
 import { formatCurrency } from "@/utils/helpers";
+import { useNavigate } from "react-router-dom";
+import type { ProductListProps, Product } from "@/types/productTypes";
 
 const ProductList: React.FC<ProductListProps> = ({
   products,
   loading,
   error,
 }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [products]); 
+  }, [products]);
 
   if (loading) return <div className="p-6">Loading products...</div>;
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
@@ -31,6 +33,11 @@ const ProductList: React.FC<ProductListProps> = ({
               key={`${product.itemName ?? "no-name"}-${
                 product.sellerName ?? "no-seller"
               }`}
+              onClick={() =>
+                navigate(`/product/${product.id}`, {
+                  state: { supplier: product },
+                })
+              }
               className="bg-white shadow rounded-lg overflow-hidden border border-gray-200 flex flex-col h-full"
             >
               <div className="relative h-44 md:h-48 w-full bg-gray-100 flex-shrink-0">

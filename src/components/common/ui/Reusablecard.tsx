@@ -3,7 +3,6 @@ import { Button } from "./Button";
 import { truncateText } from "@/utils/helpers";
 import { useNavigate } from "react-router-dom";
 
-
 import { useTranslation } from "react-i18next";
 
 const ProductCategory: React.FC<ProductCategoryProps> = ({
@@ -12,7 +11,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
   image,
   categories,
 }) => {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { t } = useTranslation();
   return (
     <section className="w-full py-8 mt-6 border-t-4 border-t-blue-900 bg-green-50 ]">
@@ -67,9 +66,9 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
                           typeof item === "string" ? item : item.toString()
                         }
                         className="px-2 py-0  text-gray-500 text-xs md:text-sm font-medium rounded-md hover:bg-blue-100 cursor-pointer truncate max-w-[120px]"
-                          onClick={() =>
+                        onClick={() =>
                           navigate(
-                            `/products?category=${encodeURIComponent(
+                            `/products?product=${encodeURIComponent(
                               typeof item === "string" ? item : item.toString()
                             )}`
                           )

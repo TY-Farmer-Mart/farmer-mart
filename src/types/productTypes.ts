@@ -1,30 +1,44 @@
-export interface Product {
-  itemName: string;
-  price?: number | string;
-  quantity?: string;
-  imageUrl: string;
+export type FilterKeys =
+  | "priceRange"
+  | "seller"
+  | "location"
+  | "category"
+  | "product";
+
+export interface Filters {
+  priceRange?: string;
+  seller?: string;
   location?: string;
+  category?: string;
+  product?: string;
 }
 
-export interface ApiProduct {
-  sellerName?: string;
+export interface FilterSlideBarProps {
+  loading: boolean;
+  error: string | null;
+}
+
+export interface Product {
+  id?: number | string;
+  itemName: string;
+  price?: number | string;
+  quantity?: number;
+  imageUrl?: string;
   location?: string;
+  sellerName?: string;
   verified?: boolean;
   memberYears?: string;
   rating?: number | string;
   responseRate?: string;
-  itemName?: string;
-  price?: number | string;
-  quantity?: string;
-  imageUrl?: string;
-  products?: Product[];
 }
+ 
 
-//   itemName: string;
-//   price?: number | string;
-//   quantity?: string;
-//   imageUrl: string;
-// }
+export interface ProductListProps {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
+}
+ 
 
 export interface Supplier {
   sellerName?: string;
@@ -35,14 +49,15 @@ export interface Supplier {
   responseRate?: string;
   products?: Product[];
 }
-
+ 
 export interface SupplierStats {
   roundedRating: number;
   reviewCount: number;
 }
-
+ 
 export interface ParsedQuantity {
   amount: number | null;
   unit: string | null;
   label: string;
 }
+ 
