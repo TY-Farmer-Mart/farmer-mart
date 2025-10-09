@@ -359,7 +359,7 @@ const Navbar: FC<NavbarProps> = ({
                   className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
                 >
                   <ShoppingCart className="text-lg" />
-                  <span className="text-sm"></span>
+                  <span className="text-sm">Cart</span>
                 </button>
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
