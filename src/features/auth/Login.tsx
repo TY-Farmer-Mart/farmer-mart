@@ -13,7 +13,6 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-
   const initialValues: LoginFormValues = {
     email: "",
     password: "",

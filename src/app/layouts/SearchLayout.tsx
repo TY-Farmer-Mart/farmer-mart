@@ -38,6 +38,9 @@ const SearchLayout: React.FC = () => {
     observer.observe(productListEndRef.current);
     return () => observer.disconnect();
   }, []);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div>

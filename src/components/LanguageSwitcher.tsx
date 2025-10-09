@@ -32,7 +32,7 @@ const LanguageSwitcher: React.FC = () => {
         name="language"
         value={selectedLang}
         onChange={handleChange}
-        onBlur={() => { }}
+        onBlur={() => {}}
         options={languages}
         className="px-2 py-1 w-40"
         requiredIndicator={false}

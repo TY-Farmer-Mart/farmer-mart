@@ -9,8 +9,17 @@ export interface ButtonProps
     | "ghost"
     | "social"
     | "viewAll"
+    | "addToCart"
+    | "buyNow"
     | "pillScroll"
     | "activeCity"
+    | "addToCart"
+    | "buyNow"
+    | "location"
+    | "submit"
+    | "textLink"
+    | "close"
+    | "circle"
     | "inactiveCity";
 
   size?: "sm" | "md" | "lg";

@@ -4,6 +4,9 @@ import UserRoutes from "./user/userRoutes";
 import SearchLayout from "../layouts/SearchLayout";
 import { ROUTES } from "@/constants/routeConstants";
 import Help from "@/features/help/Help";
+import CartLayout from "../layouts/CartLayout";
+import CheckoutLayout from "../layouts/CheckoutLayout";
+import ProductDetailsLayout from "../layouts/ProductDetailsLayout";
 
 export const useRoleRoutes = (): RouteObject[] => {
   const role = "user";
@@ -20,6 +23,18 @@ export const useRoleRoutes = (): RouteObject[] => {
       {
         element: <Help />,
         path: ROUTES.HELP_PAGE,
+      },
+      {
+        element: <ProductDetailsLayout />,
+        path: ROUTES.PRODUCT_DETAILS_PAGE,
+      },
+      {
+        element: <CartLayout />,
+        path: ROUTES.ADD_TO_CART,
+      },
+      {
+        element: <CheckoutLayout />,
+        path: ROUTES.CHECKOUT,
       },
     ];
   }
