@@ -16,11 +16,14 @@ import {
 } from "react-icons/fa";
 
 import logo from "@assets/images/logo_farmer_mart_final.png";
+import { RootState } from "@/redux/store";
+import { ShoppingCart } from "lucide-react";
 import logosmalldevice from "@assets/images/image.jpg";
 import { Button } from "@components/common/ui/Button";
 import { Input } from "@components/common/ui/Input";
 import { NavbarProps, NavIconButtonProps, NavOption } from "@/types/navbarTypes";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const NavIconButton: FC<NavIconButtonProps> = ({
   icon,
@@ -110,6 +113,8 @@ const Navbar: FC<NavbarProps> = ({
     else setNotFoundMessage(`${searchText} not found`);
   };
 
+
+
   const handleProductSearch = () => {
     if (product.trim()) {
       navigate(
@@ -119,6 +124,9 @@ const Navbar: FC<NavbarProps> = ({
       );
     }
   };
+
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const cartCount = cartItems.length;
 
   const getNavIcon = (value: NavOption["value"]) => {
     switch (value) {
@@ -146,60 +154,60 @@ const Navbar: FC<NavbarProps> = ({
 
   const signinOptions = user
     ? [
-        {
-          label: "Profile",
-          onClick: () => navigate("/profile"),
-          icon: <FaUser />,
+      {
+        label: "Profile",
+        onClick: () => navigate("/profile"),
+        icon: <FaUser />,
+      },
+      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+      {
+        label: "Get Quote",
+        onClick: () => navigate("/get-quote"),
+        icon: <FaClipboardList />,
+      },
+      {
+        label: "Why Trust FarmerMart",
+        onClick: () => navigate("/why-trust"),
+        icon: <FaQuestionCircle />,
+      },
+      {
+        label: "Top Export Countries",
+        onClick: () => navigate("/top-export-countries"),
+        icon: <FaGlobe />,
+      },
+      {
+        label: "Logout",
+        onClick: () => {
+          localStorage.removeItem("user");
+          setUser(null);
+          navigate("/");
         },
-        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-        {
-          label: "Get Quote",
-          onClick: () => navigate("/get-quote"),
-          icon: <FaClipboardList />,
-        },
-        {
-          label: "Why Trust FarmerMart",
-          onClick: () => navigate("/why-trust"),
-          icon: <FaQuestionCircle />,
-        },
-        {
-          label: "Top Export Countries",
-          onClick: () => navigate("/top-export-countries"),
-          icon: <FaGlobe />,
-        },
-        {
-          label: "Logout",
-          onClick: () => {
-            localStorage.removeItem("user");
-            setUser(null);
-            navigate("/");
-          },
-          icon: <FaTimes />,
-        },
-      ]
+        icon: <FaTimes />,
+      },
+    ]
     : [
-        {
-          label: "Login",
-          onClick: () => navigate("/auth/login"),
-          icon: <FaUser />,
-        },
-        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-        {
-          label: "Get Quote",
-          onClick: () => navigate("/get-quote"),
-          icon: <FaClipboardList />,
-        },
-        {
-          label: "Why Trust FarmerMart",
-          onClick: () => navigate("/why-trust"),
-          icon: <FaQuestionCircle />,
-        },
-        {
-          label: "Top Export Countries",
-          onClick: () => navigate("/top-export-countries"),
-          icon: <FaGlobe />,
-        },
-      ];
+      {
+        label: "Login",
+        onClick: () => navigate("/auth/login"),
+        icon: <FaUser />,
+      },
+      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+      {
+        label: "Get Quote",
+        onClick: () => navigate("/get-quote"),
+        icon: <FaClipboardList />,
+      },
+      {
+        label: "Why Trust FarmerMart",
+        onClick: () => navigate("/why-trust"),
+        icon: <FaQuestionCircle />,
+      },
+      {
+        label: "Top Export Countries",
+        onClick: () => navigate("/top-export-countries"),
+        icon: <FaGlobe />,
+      },
+    ];
 
   const renderSigninDropdown = () => (
     <ul className="absolute right-0 mt-0 w-64 bg-white border rounded shadow-lg z-10">
@@ -345,6 +353,20 @@ const Navbar: FC<NavbarProps> = ({
                   label={option.label}
                 />
               ))}
+              <div className="relative">
+                <button
+                  onClick={() => navigate("/addtocart")}
+                  className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
+                >
+                  <ShoppingCart className="text-lg" />
+                  <span className="text-sm"></span>
+                </button>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
               <div
                 className="relative"
                 onMouseEnter={() => setSigninOpen(true)}
@@ -385,9 +407,8 @@ const Navbar: FC<NavbarProps> = ({
                   className="w-full px-3 py-2 border border-gray-300 rounded text-sm text-black pr-8"
                 />
                 <FaChevronDown
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${
-                    mobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${mobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   onClick={() =>
                     setMobileDropdownOpen((s) => !s)
                   }

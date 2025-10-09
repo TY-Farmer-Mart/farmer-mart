@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import {
   Heart,
@@ -10,16 +10,28 @@ import {
 } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Button } from "@/components/common/ui/Button";
 import productText from "@/locales/en.json";
 import Pointer from "@/assets/images/Pointer.webp";
+
+
+import { Button } from "@/components/common/ui/Button";
+
+import { addToCart } from "@/redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { CardProduct } from "@/types/cartType";
+import { RootState } from "@/redux/store";
 const ProductListView: React.FC = () => {
+
   const { state } = useLocation();
   const supplier = state?.supplier;
-
   const [isFavorite, setIsFavorite] = useState(false);
   const [showAllOffers, setShowAllOffers] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const sliderRef = useRef<Slider>(null);
+
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   if (!supplier) {
     return (
@@ -30,6 +42,28 @@ const ProductListView: React.FC = () => {
   const product = supplier;
   const TEXT = productText.PRODUCT_LIST_VIEW;
   const visibleOffers = showAllOffers ? TEXT.OFFERS : TEXT.OFFERS.slice(0, 3);
+  const isInCart = cartItems.some(
+    (item) => item.id === product.id && item.sellerName === supplier.sellerName
+  );
+
+  const handleAddToCart = (product: CardProduct) => {
+    const productToAdd = {
+      ...product,
+      sellerName: supplier.sellerName,
+      location: supplier.location,
+      quantity: 1,
+    };
+
+    dispatch(addToCart(productToAdd));
+    navigate("/addtocart");
+  };
+
+  if (!supplier) {
+    return (
+      <div className="p-6">{productText.PRODUCT_LIST_VIEW.NO_PRODUCT}</div>
+    );
+  }
+
 
   const sliderSettings = {
     dots: true,
@@ -94,8 +128,13 @@ const ProductListView: React.FC = () => {
           </div>
 
           <div className="mt-6 flex gap-4">
-            <Button variant="addToCart" leftIcon={<ShoppingCart size={20} />}>
-              {TEXT.ADD_TO_CART}
+            <Button
+              onClick={() => handleAddToCart(product)}
+              variant="addToCart"
+              leftIcon={<ShoppingCart size={20} />}
+              disabled={isInCart}
+            >
+              {isInCart ? "Added to Cart" : TEXT.ADD_TO_CART}
             </Button>
             <Button variant="buyNow" leftIcon={<Zap size={20} />}>
               {TEXT.BUY_NOW}
