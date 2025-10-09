@@ -11,6 +11,13 @@ export interface ButtonProps
     | "viewAll"
     | "pillScroll"
     | "activeCity"
+    | "addToCart"
+    | "buyNow"
+    | "location"
+    | "submit"
+    | "textLink"
+    | "close"
+    | "circle"
     | "inactiveCity";
 
   size?: "sm" | "md" | "lg";

@@ -52,8 +52,7 @@
     "LOGIN": "Login",
     "NAV_OPTIONS": [
       { "label": "Export", "value": "export" },
-      { "label": "Sell", "value": "sell" },
-      { "label": "Help", "value": "help" }
+      { "label": "Sell", "value": "sell" }
     ]
   },
   "MORE_FOR_YOU_TEXT": {
@@ -210,5 +209,58 @@
     "profile": "Profile",
     "settings": "Settings"
   },
-  "LOGOUT": "Logout"
+  "LOGOUT": "Logout",
+  "PRODUCT_LIST_VIEW": {
+    "NO_PRODUCT": "No product details found.",
+    "ADD_TO_CART": "ADD TO CART",
+    "BUY_NOW": "BUY NOW",
+    "VERIFIED": "Verified:",
+    "YES": "Yes",
+    "NO": "No",
+    "SECURE_DELIVERY": "100% Secure delivery guaranteed.",
+    "PAY_EXTRA": "Pay extra ₹100 for express delivery.",
+    "AVAILABLE_OFFERS": "Available Offers",
+
+    "SHOW_LESS": "Show less",
+    "OFFERS": [
+      "10% off on Bank of Baroda Credit Card, up to ₹750 on orders above ₹2,000",
+      "5% Cashback on Flipkart Axis Bank Card",
+      "₹100 Off on first order above ₹500",
+      "Buy 2 items, get 5% off",
+      "Special PriceGet extra 20% off (price inclusive of cashback/coupon)",
+      "No Cost EMI available on select cards",
+      "Exchange offer available — get up to ₹500 off"
+    ]
+  },
+  "CART": {
+    "cartItems": "Cart Items",
+    "back": "Back",
+    "placeOrder": "Place Order",
+    "yourCartIsEmpty": "Your cart is empty",
+    "seller": "Seller",
+    "deliveryBy": "Delivery by Sun Oct 12",
+    "saveForLater": "Save for Later",
+    "remove": "Remove",
+    "priceDetails": "PRICE DETAILS",
+    "price": "Price",
+    "items": "items",
+    "discount": "Discount",
+    "couponsForYou": "Coupons for you",
+    "platformFee": "Platform Fee",
+    "totalAmount": "Total Amount",
+    "youWillSave": "You will save ₹{{amount}} on this order",
+    "noSavings": "No savings available"
+  },
+  "DELIVERY": {
+    "deliverTo": "Deliver to:",
+    "selectDeliveryAddress": "Change Delivery Address",
+    "usePincode": "Add New Address using Pincode",
+    "enterPincode": "Enter pincode",
+    "submit": "Submit",
+    "useCurrentLocation": "Use my current location",
+    "invalidPincode": "Please enter a valid 6-digit pincode",
+    "unableFetch": "Unable to fetch location",
+    "locationAccessDenied": "Location access denied!",
+    "geolocationNotSupported": "Geolocation not supported in this browser"
+  }
 }

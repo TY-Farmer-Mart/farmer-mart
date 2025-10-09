@@ -253,7 +253,7 @@ const Navbar: FC<NavbarProps> = ({
             <img src={logo} alt="logo" className="w-40 h-16" />
           </div>
 
-          <div className="flex items-center space-x-6 flex-1 justify-between ml-5">
+          <div className="flex items-center space-x-6 flex-1 justify-between ml-4">
             {/* Desktop Location Dropdown */}
             <div className="relative" ref={desktopDropdownRef}>
               <button

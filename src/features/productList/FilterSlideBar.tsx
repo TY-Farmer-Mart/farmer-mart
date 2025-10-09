@@ -3,27 +3,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FunnelPlus, X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter, clearFilters } from "@/redux/productSlice";
-import { RootState } from "@/redux/store";
+import type { RootState, AppDispatch } from "@/redux/store";
 import { useSearchParams } from "react-router-dom";
+import type { Filters, FilterKeys, FilterSlideBarProps } from "@/types/productTypes";
 
-const FilterSlideBar: React.FC<{ loading: boolean; error: string | null }> = ({
-  loading,
-  error,
-}) => {
+const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const allProducts = useSelector(
     (state: RootState) => state.products.allProducts
   );
-  const filters = useSelector((state: RootState) => state.products.filters);
-
+  const filters = useSelector(
+    (state: RootState) => state.products.filters
+  ) as Filters;
 
   useEffect(() => {
     if (!allProducts.length) return;
-    const urlKeys: (keyof typeof filters)[] = [
+
+    const urlKeys: FilterKeys[] = [
       "priceRange",
       "seller",
       "location",
@@ -43,8 +43,15 @@ const FilterSlideBar: React.FC<{ loading: boolean; error: string | null }> = ({
     };
   }, [isOpen]);
 
-  const sidebarSections = useMemo(() => {
+  type Section = {
+    title: string;
+    options: string[];
+    key: FilterKeys;
+  };
+
+  const sidebarSections: Section[] = useMemo(() => {
     if (!allProducts.length) return [];
+
     return [
       {
         title: "Price",
@@ -59,35 +66,41 @@ const FilterSlideBar: React.FC<{ loading: boolean; error: string | null }> = ({
       {
         title: "Sellers",
         options: Array.from(
-          new Set(allProducts.map((p) => p.sellerName).filter(Boolean))
+          new Set(
+            allProducts.map((p) => p.sellerName).filter((v): v is string => !!v)
+          )
         ),
         key: "seller",
       },
       {
         title: "Location",
         options: Array.from(
-          new Set(allProducts.map((p) => p.location).filter(Boolean))
+          new Set(
+            allProducts.map((p) => p.location).filter((v): v is string => !!v)
+          )
         ),
         key: "location",
       },
       {
         title: "Categories",
         options: Array.from(
-          new Set(allProducts.map((p) => p.itemName).filter(Boolean))
+          new Set(
+            allProducts.map((p) => p.itemName).filter((v): v is string => !!v)
+          )
         ),
         key: "category",
       },
     ];
   }, [allProducts]);
 
-  const handleSelect = (key: string, value: string) => {
-    dispatch(setFilter({ key: key as any, value }));
+  const handleSelect = (key: FilterKeys, value: string) => {
+    dispatch(setFilter({ key, value }));
     const newSearchParams = new URLSearchParams(searchParams.toString());
     newSearchParams.set(key, value);
     setSearchParams(newSearchParams);
   };
 
-  const toggleDropdown = (key: string) => {
+  const toggleDropdown = (key: FilterKeys) => {
     setOpenDropdowns((prev) =>
       prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
     );
@@ -120,7 +133,7 @@ const FilterSlideBar: React.FC<{ loading: boolean; error: string | null }> = ({
                   <li
                     key={option}
                     className={`cursor-pointer px-3 py-2 text-sm rounded-md ${
-                      filters[section.key as keyof typeof filters] === option
+                      filters[section.key] === option
                         ? "bg-blue-500 text-white"
                         : "hover:bg-gray-100"
                     }`}
