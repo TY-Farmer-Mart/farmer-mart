@@ -7,6 +7,8 @@ import Modal from "@/components/common/modal/Modal";
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
 import { PROFILE_PAGE_TXT } from "@constants/textConstants";
+import { getProfile } from "@/services/auth";
+
 
 export const BankAccountDetailsCard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,11 +27,10 @@ export const BankAccountDetailsCard: React.FC = () => {
     const fetchBankDetails = async () => {
       try {
         setLoading(true);
+        // const payload="68d93b4dcacc850a1caa1371"
       
-        const response = await axios.get("https://localhost:3001/user/get-banks", {
-          withCredentials: true,
-        });
-        console.log(response)
+        const response = await getProfile({id:"68d93b4dcacc850a1caa1371"})
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.",response)
 
         
         
@@ -43,7 +44,7 @@ export const BankAccountDetailsCard: React.FC = () => {
         // };
 
         const bank = response.data;
-        console.log(bank)
+        console.log(bank,"testing data")
 
         setFormData({
           bankName: bank.bankName || "",

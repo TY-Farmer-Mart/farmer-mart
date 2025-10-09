@@ -31,3 +31,21 @@ export const registerUser = async (userData: any) => {
     throw err.response ? err.response.data : { message: err.message };
   }
 };
+
+
+export const getProfile = async ({ id }: any) => {
+  console.log("passed id in the function",id)
+  try {
+    const response = await API.get("/user/get-profile", {
+      id
+    });
+    console.log("asdfasdfasdf asdf",response)
+    // Save user data in localStorage
+    // localStorage.setItem("user", JSON.stringify(response.data));
+
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};
