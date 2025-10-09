@@ -1,9 +1,9 @@
 import { IoPersonCircleSharp } from "react-icons/io5";
 
 import { CiLocationOn } from "react-icons/ci";
-import { LuCalendarCheck,} from "react-icons/lu";
+import { LuCalendarCheck, } from "react-icons/lu";
 import { RiStarSmileLine } from "react-icons/ri";
-import { MdEdit} from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 import { ProfileCardProps } from "@/types/profileTypes";
 import { PROFILE_PAGE_TXT } from "@constants/textConstants";
 
@@ -21,20 +21,20 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       </div>
 
       <div className="flex flex-col sm:flex-row items-center md:items-center justify-center md:justify-start text-center md:text-left gap-4">
-        <IoPersonCircleSharp className="w-24 h-24 text-gray-500" />
+        <IoPersonCircleSharp className="w-24 h-24 text-black" />
         <div className="flex flex-col">
           <p className="text-lg font-semibold text-black">{name}</p>
-          <div className="flex items-center justify-center md:justify-start gap-2 text-gray-600 mt-1">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-black mt-1">
             <CiLocationOn className="w-7 h-6" />
-            <span className="font-medium text-gray-500  ">{location}</span>
+            <span className="font-medium text-black  ">{location}</span>
           </div>
         </div>
       </div>
 
       <div className="flex items-center gap-3 flex-wrap">
-        <LuCalendarCheck className="w-8 h-8  text-green-300 bg-gray-200" />
+        <LuCalendarCheck className="w-8 h-8 text-green-300" />
         <div className="flex flex-col">
-          <span className="text-sm font-semibold text-gray-700">
+          <span className="text-sm font-semibold text-black">
             {PROFILE_PAGE_TXT.MEMBER}
           </span>
           <span className="text-left font-bold">{memberSince}</span>
@@ -43,7 +43,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
       <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left gap-4 md:mr-10">
         <div className="flex items-center gap-2 flex-wrap">
-          <RiStarSmileLine className="w-6 h-8 text-blue-300 bg-gray-200" />
+          <RiStarSmileLine className="w-8 h-8 text-blue-300" />
           <span>{rating}</span>
         </div>
       </div>

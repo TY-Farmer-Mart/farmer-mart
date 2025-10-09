@@ -57,7 +57,7 @@ const HomeLayout: React.FC = () => {
           </div>
           {/* Main content */}
           <main
-            className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-green-100"
+            className="flex-1 overflow-y-auto rounded-bl-2xl mb-4 h-screen bg-gray-100"
             onClick={() => dispatch(toggleSideBar())}
           >
             <div className="p-6">
