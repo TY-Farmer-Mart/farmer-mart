@@ -43,6 +43,7 @@ const signIn = async (req, res) => {
         name: user.name,
         password: user.password,
         role: user.role,
+        contact: user.contact,
       },
     });
   } catch (error) {

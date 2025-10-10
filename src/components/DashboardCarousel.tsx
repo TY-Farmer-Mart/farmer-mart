@@ -102,7 +102,7 @@ const DashboardCarousel = () => {
   };
 
   return (
-    <div className="slider-container max-w-7xl mx-auto p-2 bg-white rounded-xl shadow-md py-6 ">
+    <div className="slider-container max-w-7xl mx-auto p-2 bg-green-50 rounded-xl shadow-md py-6 ">
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4 pb-3 text-center md:text-left px-3">
         {t("DASHBOARD_TEXT.DASHBOARD_CAROUSEL")}
       </h2>

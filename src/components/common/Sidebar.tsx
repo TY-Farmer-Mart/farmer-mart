@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
-  ({ name, mobile, address, menuItem, help, imageIcon, ...props }, ref) => {
+  ({ name, mobile, menuItem, help, imageIcon, ...props }, ref) => {
     const firstLatterOfName = name?.split("")[0];
 
     const navigate = useNavigate();
@@ -26,13 +26,12 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
         className="w-74 sm:w-64 bg-blue-900 flex flex-col h-full"
         {...props}
       >
-        <div className="p-6 flex flex-col items-center border-b border-gray-200">
+        <div className="p-2 flex flex-col items-center border-b border-gray-200">
           <div className="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center text-white text-xl">
             {firstLatterOfName}
           </div>
-          <h2 className="mt-2 font-semibold text-center">{name}</h2>
-          <p className="text-sm text-gray-500">{mobile}</p>
-          <p className="text-sm text-gray-400">{address}</p>
+          <h2 className="mt-2 font-semibold text-white text-center">{name}</h2>
+          <p className="text-sm text-gray-300">{mobile}</p>
         </div>
 
         <ul className="flex-1 mt-4">
@@ -55,7 +54,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
           ))}
         </ul>
 
-        <div className="p-4 border-t border-gray-200 text-sm items-center justify-between">
+        <div className="p-4 border-t border-gray-200 text-sm items-center justify-between text-white">
           <Button className="!bg-blue-900 w-full" onClick={handleLogout}>
             {t("LOGOUT")}
           </Button>

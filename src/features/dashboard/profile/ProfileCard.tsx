@@ -60,7 +60,7 @@ const ProfileCard: React.FC<Partial<ProfileCardProps>> = () => {
   const memberSince = new Date(createdAt).toLocaleDateString();
 
   return (
-    <div className="relative flex flex-col md:flex-row flex-wrap items-center md:items-center justify-center md:justify-between bg-gray-1000 border rounded-lg shadow-md p-4 sm:p-6 md:p-8 gap-6 w-full text-center md:text-left">
+    <div className="relative flex flex-col md:flex-row flex-wrap items-center md:items-center justify-center md:justify-between bg-green-50 border rounded-lg shadow-md p-4 sm:p-6 md:p-8 gap-6 w-full text-center md:text-left">
       <div className="flex flex-col sm:flex-row items-center md:items-center justify-center md:justify-start text-center md:text-left gap-4">
         <IoPersonCircleSharp className="w-24 h-24 text-black" />
         <div className="flex flex-col">

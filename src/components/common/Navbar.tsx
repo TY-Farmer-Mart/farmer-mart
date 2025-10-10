@@ -34,7 +34,7 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   label,
   onClick,
   className,
-  
+
 }) => (
   <button
     onClick={onClick}
@@ -92,7 +92,7 @@ const Navbar: FC<NavbarProps> = ({
       if (persisted && persisted !== selectedValue) {
         setSelectedValue(persisted);
       }
-    } catch {}
+    } catch { }
   }, []);
 
   // Sync controlled state
@@ -119,7 +119,7 @@ const Navbar: FC<NavbarProps> = ({
     // Persist globally so it reflects on all pages
     try {
       localStorage.setItem("selectedLocation", value);
-    } catch {}
+    } catch { }
     setStatets?.(value);
     setDropdownOpen(false);
     setMobileDropdownOpen(false);
@@ -164,71 +164,71 @@ const Navbar: FC<NavbarProps> = ({
 
   const rawNavOptions = t("NAVBAR.NAV_OPTIONS", {
     returnObjects: true,
-  }) as { label: string; value: NavOption["value"]; path:string }[];
+  }) as { label: string; value: NavOption["value"]; path: string }[];
   const navOptions: NavOption[] = rawNavOptions.map((opt) => ({
     label: opt.label,
     value: opt.value,
-    path:  opt.path,
+    path: opt.path,
   }));
   const selectedLabel =
     stateOptions.find((o) => o.value === selectedValue)?.label ?? selectedValue;
 
   const signinOptions = user
     ? [
-        {
-          label: "Profile",
-          onClick: () => navigate("/profile"),
-          icon: <FaUser />,
+      {
+        label: "Profile",
+        onClick: () => navigate("/profile"),
+        icon: <FaUser />,
+      },
+      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+      {
+        label: "Get Quote",
+        onClick: () => navigate("/get-quote"),
+        icon: <FaClipboardList />,
+      },
+      {
+        label: "Why Trust FarmerMart",
+        onClick: () => navigate("/why-trust"),
+        icon: <FaQuestionCircle />,
+      },
+      {
+        label: "Top Export Countries",
+        onClick: () => navigate("/top-export-countries"),
+        icon: <FaGlobe />,
+      },
+      {
+        label: "Logout",
+        onClick: () => {
+          localStorage.removeItem("user");
+          setUser(null);
+          navigate("/");
         },
-        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-        {
-          label: "Get Quote",
-          onClick: () => navigate("/get-quote"),
-          icon: <FaClipboardList />,
-        },
-        {
-          label: "Why Trust FarmerMart",
-          onClick: () => navigate("/why-trust"),
-          icon: <FaQuestionCircle />,
-        },
-        {
-          label: "Top Export Countries",
-          onClick: () => navigate("/top-export-countries"),
-          icon: <FaGlobe />,
-        },
-        {
-          label: "Logout",
-          onClick: () => {
-            localStorage.removeItem("user");
-            setUser(null);
-            navigate("/");
-          },
-          icon: <FaTimes />,
-        },
-      ]
+        icon: <FaTimes />,
+      },
+    ]
     : [
-        {
-          label: "Login",
-          onClick: () => navigate("/auth/login"),
-          icon: <FaUser />,
-        },
-        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-        {
-          label: "Get Quote",
-          onClick: () => navigate("/get-quote"),
-          icon: <FaClipboardList />,
-        },
-        {
-          label: "Why Trust FarmerMart",
-          onClick: () => navigate("/why-trust"),
-          icon: <FaQuestionCircle />,
-        },
-        {
-          label: "Top Export Countries",
-          onClick: () => navigate("/top-export-countries"),
-          icon: <FaGlobe />,
-        },
-      ];
+      {
+        label: "Login",
+        onClick: () => navigate("/auth/login"),
+        icon: <FaUser />,
+      },
+      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+      {
+        label: "Get Quote",
+        onClick: () => navigate("/get-quote"),
+        icon: <FaClipboardList />,
+      },
+      {
+        label: "Why Trust FarmerMart",
+        onClick: () => navigate("/why-trust"),
+        icon: <FaQuestionCircle />,
+      },
+      {
+        label: "Top Export Countries",
+        onClick: () => navigate("/top-export-countries"),
+        icon: <FaGlobe />,
+      },
+    ];
 
   const renderSigninDropdown = () => (
     <ul className="absolute right-0 mt-0 w-64 bg-white border rounded shadow-lg z-10">
@@ -253,7 +253,7 @@ const Navbar: FC<NavbarProps> = ({
   );
 
   return (
-    <nav className="w-full shadow border border-1 bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
+    <nav className="w-full shadow border-b bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
       <div className="flex flex-col lg:flex-col items-start lg:items-center justify-between w-full">
         {/* MOBILE HEADER */}
         <div className="flex w-full items-center justify-between lg:hidden mb-3">
@@ -375,16 +375,16 @@ const Navbar: FC<NavbarProps> = ({
             </Button>
 
             <div className="flex items-center space-x-4 flex-shrink-0">
-            <button className=" flex rounded-[50%]" >
+              <button className=" flex rounded-[50%]" >
                 {navOptions.map((option) => (
-                <NavIconButton 
-                  key={option.value}
-                  icon={getNavIcon(option.value)}
-                  label={option.label}
-                  onClick={()=>navigate(option?.path)}
-                />
-              ))}
-            </button>
+                  <NavIconButton
+                    key={option.value}
+                    icon={getNavIcon(option.value)}
+                    label={option.label}
+                    onClick={() => navigate(option?.path)}
+                  />
+                ))}
+              </button>
               <div className="relative">
                 <button
                   onClick={() => navigate("/addtocart")}
@@ -439,9 +439,8 @@ const Navbar: FC<NavbarProps> = ({
                   className="w-full px-3 py-2 border border-gray-300 rounded text-sm text-black pr-8"
                 />
                 <FaChevronDown
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${
-                    mobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${mobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   onClick={() => setMobileDropdownOpen((s) => !s)}
                 />
 

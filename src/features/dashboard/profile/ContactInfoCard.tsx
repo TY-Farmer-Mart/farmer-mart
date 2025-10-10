@@ -102,7 +102,7 @@ export const ContactInfoCard: React.FC = () => {
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
-    <div className="relative bg-gray-1000 rounded-lg shadow-md px-5 py-6 mt-4">
+    <div className="relative bg-green-50 rounded-lg shadow-md px-5 py-6 mt-4">
       <div className="flex justify-between items-center border-b pb-3 mb-5">
         <h2 className="text-lg font-semibold text-black p-2 ">
           {t("PROFILE.CONTACT_INFO")}

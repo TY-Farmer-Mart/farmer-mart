@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, JSX } from "react";
 import { BsBank2 } from "react-icons/bs";
 import { VscCodeOss } from "react-icons/vsc";
 import { MdEdit, MdOutlineAccountBox, MdSwitchAccount } from "react-icons/md";
@@ -152,7 +152,7 @@ export const BankAccountDetailsCard: React.FC = () => {
   ];
 
   return (
-    <div className="relative border bg-gray-1000 rounded-lg shadow-md px-3 py-4 mt-4">
+    <div className="relative border bg-green-50 rounded-lg shadow-md px-3 py-4 mt-4">
       {/* HEADER */}
       <div className="flex justify-between items-center border-b pb-3 mb-4">
         <h2 className="text-lg font-semibold text-black p-2">{PROFILE_PAGE_TXT.BANK_ACC}</h2>
