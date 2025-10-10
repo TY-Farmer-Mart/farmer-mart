@@ -1,43 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/components/common/ui/Button";
 import { PLATFORM_FEE, DISCOUNT, COUPONS } from "@/constants/priceConstant";
 import type { PriceDetails, StepProps } from "@/types/checkoutTypes";
-import { goToPreviousStep } from "@/redux/checkoutSlice";
-import type { AppDispatch, RootState } from "@/redux/store";
 import { getCartData } from "@/utils/cartUtils";
 
 const OrderSummaryStep: React.FC<StepProps> = ({ isActive = true }) => {
   const navigate = useNavigate();
-  const dispatch: AppDispatch = useDispatch();
   const { t } = useTranslation();
+  const { items, itemsTotal } = getCartData();
 
-  const selectedItems = useSelector(
-    (state: RootState) => state.checkout.selectedItems
-  );
-
-  const fullCartData = getCartData();
-
-  const cartData =
-    selectedItems.length > 0
-      ? {
-          items: selectedItems,
-          itemsTotal: selectedItems.reduce(
-            (sum, item) => sum + (item.price || 0) * (item.quantity || 0),
-            0
-          ),
-        }
-      : fullCartData;
-
-  const { items, itemsTotal } = cartData;
 
   const totalAmount = itemsTotal - DISCOUNT - COUPONS + PLATFORM_FEE;
 
   if (!isActive) return null;
 
-  const goBack = () => dispatch(goToPreviousStep());
+  const goBack = () => navigate(-1);
 
   const proceed = () => {
     const priceDetails: PriceDetails = {
@@ -52,11 +31,10 @@ const OrderSummaryStep: React.FC<StepProps> = ({ isActive = true }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow border">
-      <div className="p-6">
-        <h2 className="text-xl font-semibold mb-6 text-gray-800">
-          {t("CART.orderSummary")}
-        </h2>
+    <div className="p-6 bg-white rounded-lg shadow border">
+      <h2 className="text-xl font-semibold mb-6 text-gray-800">
+        {t("CART.orderSummary")}
+      </h2>
 
         <div className="mb-6">
           <h3 className="text-lg font-medium mb-4 text-gray-700">
@@ -147,25 +125,24 @@ const OrderSummaryStep: React.FC<StepProps> = ({ isActive = true }) => {
           </p>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between gap-4">
-          <Button
-            variant="addToCart"
-            size="lg"
-            className="w-36 py-3 px-6 rounded-lg font-semibold text-white bg-amber-500 hover:bg-amber-600 transition-colors duration-200 shadow-sm hover:shadow-md"
-            onClick={goBack}
-          >
-            {t("CART.back")}
-          </Button>
+      <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between gap-4">
+        <Button
+          variant="addToCart"
+          size="lg"
+          className="w-36 py-3 px-6 rounded-lg font-semibold text-white bg-amber-500 hover:bg-amber-600 transition-colors duration-200 shadow-sm hover:shadow-md"
+          onClick={goBack}
+        >
+          {t("CART.back")}
+        </Button>
 
-          <Button
-            variant="buyNow"
-            size="lg"
-            className="w-36 py-3 px-6 rounded-lg font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-sm hover:shadow-md"
-            onClick={proceed}
-          >
-            {t("CART.placeOrder")}
-          </Button>
-        </div>
+        <Button
+          variant="buyNow"
+          size="lg"
+          className="w-36 py-3 px-6 rounded-lg font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-sm hover:shadow-md"
+          onClick={proceed}
+        >
+          {t("CART.placeOrder")}
+        </Button>
       </div>
     </div>
   );

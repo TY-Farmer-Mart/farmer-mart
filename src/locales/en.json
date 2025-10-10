@@ -51,8 +51,8 @@
     "SIGN_IN": "Sign In",
     "LOGIN": "Login",
     "NAV_OPTIONS": [
-      { "label": "Export", "value": "export" },
-      { "label": "Sell", "value": "sell" }
+      { "label": "Export", "value": "export", "path":"" },
+      { "label": "Sell", "value": "sell", "path":"/seller" }
     ]
   },
   "MORE_FOR_YOU_TEXT": {
@@ -256,6 +256,7 @@
   "DELIVERY": {
     "deliverTo": "Deliver to:",
     "selectDeliveryAddress": "Change Delivery Address",
+    "defaultLocationName":"Bengaluru 540004",
     "usePincode": "Add New Address using Pincode",
     "enterPincode": "Enter pincode",
     "submit": "Submit",
@@ -264,5 +265,32 @@
     "unableFetch": "Unable to fetch location",
     "locationAccessDenied": "Location access denied!",
     "geolocationNotSupported": "Geolocation not supported in this browser"
+  },
+  "PROFILE": {
+    "EDIT_BTN": " Edit",
+    "MEMBER": "Member since",
+    "CONTACT_INFO": " Contact Information",
+    "PRIMARY_MOB": " Primary Mobile:",
+    "PRIMARY_MAIL": " Primary Email:",
+    "ADDRESS": "Address",
+    "ALT_MOB": " Alternative Mobile",
+    "ALT_MAIL": " Alternative Email",
+    "COMPANY_INFO": " Company Information",
+    "COMPANY_NAME": "Company Name",
+    "GST": "GSTIN",
+    "FB": "Facebook",
+    "IG": "Instagram",
+    "GL_BUSINESS": "Google Business",
+    "WEBSITE": "Company Website",
+    "PAN": "PAN",
+    "BANK_ACC": "Bank Account Details",
+    "IFSC": "IFSC Code",
+    "BANK_NAME": "Bank Name",
+    "ACC_NUM": "Account Number",
+    "ACC_TYPE": "Account Type"
+  },
+  "COMMON": {
+    "CANCEL": "Cancel",
+    "UPDATE": "Update"
   }
 }

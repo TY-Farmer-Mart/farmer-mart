@@ -13,15 +13,17 @@ import "slick-carousel/slick/slick-theme.css";
 import productText from "@/locales/en.json";
 import Pointer from "@/assets/images/Pointer.webp";
 
-
 import { Button } from "@/components/common/ui/Button";
 
 import { addToCart } from "@/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { CardProduct } from "@/types/cartType";
 import { RootState } from "@/redux/store";
-const ProductListView: React.FC = () => {
 
+import SimilarProducts from "./SimilarProducts";
+import type { Product } from "@/types/productTypes";
+
+const ProductListView: React.FC = () => {
   const { state } = useLocation();
   const supplier = state?.supplier;
   const [isFavorite, setIsFavorite] = useState(false);
@@ -33,11 +35,19 @@ const ProductListView: React.FC = () => {
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
+  const allProducts: Product[] = useSelector(
+    (state: RootState) => state.products.allProducts
+  );
+
   if (!supplier) {
     return (
       <div className="p-6">{productText.PRODUCT_LIST_VIEW.NO_PRODUCT}</div>
     );
   }
+
+  const similarProducts = allProducts.filter(
+    (p) => p.category === supplier.category && p.id !== supplier.id
+  );
 
   const product = supplier;
   const TEXT = productText.PRODUCT_LIST_VIEW;
@@ -57,13 +67,6 @@ const ProductListView: React.FC = () => {
     dispatch(addToCart(productToAdd));
     navigate("/addtocart");
   };
-
-  if (!supplier) {
-    return (
-      <div className="p-6">{productText.PRODUCT_LIST_VIEW.NO_PRODUCT}</div>
-    );
-  }
-
 
   const sliderSettings = {
     dots: true,
@@ -188,11 +191,16 @@ const ProductListView: React.FC = () => {
             >
               {showAllOffers
                 ? TEXT.SHOW_LESS
-                : `View ${TEXT.OFFERS.length - 3} more offers`}
+                : `Show More (${TEXT.OFFERS.length - 3})`}
             </button>
           </div>
         </div>
       </div>
+
+      <SimilarProducts
+        products={similarProducts}
+        currentProductName={product.itemName}
+      />
     </div>
   );
 };

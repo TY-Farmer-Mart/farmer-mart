@@ -8,9 +8,9 @@ import Footer from "@/components/common/Footer";
 const ProfilePage = () => {
   return (
     <div className="p-4">
-      <ProfileCard {...profileData.profile} />
+      <ProfileCard  />
       <ContactInfoCard {...profileData.contact} />
-      <CompanyInfoCard {...profileData.company} />
+      <CompanyInfoCard />
       <BankAccountDetailsCard {...profileData.bank} />
       <Footer/>
     </div>

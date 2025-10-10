@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilter, clearFilters } from "@/redux/productSlice";
 import type { RootState, AppDispatch } from "@/redux/store";
 import { useSearchParams } from "react-router-dom";
-import type { Filters, FilterKeys, FilterSlideBarProps } from "@/types/productTypes";
+import type {
+  Filters,
+  FilterKeys,
+  FilterSlideBarProps,
+} from "@/types/productTypes";
 
 const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +34,27 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       "category",
       "product",
     ];
+    // Build list of full location options from products for normalization
+    const locationOptions = Array.from(
+      new Set(
+        allProducts.map((p) => p.location).filter((v): v is string => !!v)
+      )
+    );
+
     urlKeys.forEach((key) => {
-      const value = searchParams.get(key);
-      if (value && filters[key] !== value) dispatch(setFilter({ key, value }));
+      const raw = searchParams.get(key);
+      if (!raw) return;
+
+      let value = raw;
+      if (key === "location") {
+        // If URL provides only city (e.g., "Hyderabad"), normalize to a full option like "Hyderabad - Abids"
+        if (!raw.includes(" - ")) {
+          const matched = locationOptions.find((opt) => opt.startsWith(raw));
+          if (matched) value = matched;
+        }
+      }
+
+      if (filters[key] !== value) dispatch(setFilter({ key, value }));
     });
   }, [allProducts, searchParams, dispatch, filters]);
 
@@ -52,7 +74,9 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const sidebarSections: Section[] = useMemo(() => {
     if (!allProducts.length) return [];
 
-    return [
+    const hasAnyParams = Array.from(searchParams.keys()).length > 0;
+
+    const sections: Section[] = [
       {
         title: "Price",
         options: [
@@ -81,7 +105,11 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
         ),
         key: "location",
       },
-      {
+    ];
+
+    // Show Categories only when on base /products (no query params)
+    if (!hasAnyParams) {
+      sections.push({
         title: "Categories",
         options: Array.from(
           new Set(
@@ -89,9 +117,11 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
           )
         ),
         key: "category",
-      },
-    ];
-  }, [allProducts]);
+      });
+    }
+
+    return sections;
+  }, [allProducts, searchParams]);
 
   const handleSelect = (key: FilterKeys, value: string) => {
     dispatch(setFilter({ key, value }));
@@ -113,7 +143,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
     return (
       <>
         {sidebarSections.map((section) => (
-          <div key={section.title} className="mb-4">
+          <div key={section.title} className="mb-4  pt-5 pl-2">
             <p
               className="font-semibold mb-2 flex justify-between items-center cursor-pointer bg-slate-400 p-2"
               onClick={() => toggleDropdown(section.key)}
@@ -128,7 +158,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
               </span>
             </p>
             {openDropdowns.includes(section.key) && (
-              <ul className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
+              <ul className="  rounded-md overflow-hidden shadow-sm">
                 {section.options.map((option) => (
                   <li
                     key={option}
@@ -165,11 +195,11 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden absolute top-36 mt-4 left-72 p-2 border rounded-md bg-white shadow"
+        className="lg:hidden absolute top-36 mt-4 left-72 p-2  rounded-md bg-gray-50 shadow"
       >
         <FunnelPlus size={20} />
       </button>
-      <div className="hidden lg:block w-60 bg-white border border-gray-200 rounded-md flex-col h-full max-h-full overflow-y-auto">
+      <div className="hidden lg:block w-60 bg-gray-50   rounded-md flex-col h-full max-h-full overflow-y-auto">
         {renderSidebarContent()}
       </div>
 

@@ -44,6 +44,7 @@ const updateCompanyInfo = async (req, res) => {
       state,
       country,
       pinCode,
+      pan
     } = req.body;
 
     if (!id) return res.status(400).json({ message: "User id is required" });
@@ -59,6 +60,7 @@ const updateCompanyInfo = async (req, res) => {
         state,
         country,
         pinCode,
+        pan
       },
       { upsert: true, new: true }
     );
@@ -73,3 +75,4 @@ const updateCompanyInfo = async (req, res) => {
 };
 
 module.exports = { updateCompanyInfo, getCompanyDetails };
+
