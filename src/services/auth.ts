@@ -32,25 +32,3 @@ export const registerUser = async (userData: any) => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getProfile = async (payload: any) => {
-  console.log("passed id in the function", payload)
-  try {
-    const response = await API.post("/user/get-profile", payload);
-    return response.data;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err: any) {
-    throw err.response ? err.response.data : { message: err.message };
-  }
-};
-
-export const getCompanies = async (payload: any) => {
-  console.log("passed id in the function", payload)
-  try {
-    const response = await API.post("/user/get-companies", payload);
-    return response.data;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err: any) {
-    throw err.response ? err.response.data : { message: err.message };
-  }
-};
