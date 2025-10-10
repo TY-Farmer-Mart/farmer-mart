@@ -256,6 +256,7 @@
   "DELIVERY": {
     "deliverTo": "Deliver to:",
     "selectDeliveryAddress": "Change Delivery Address",
+    "defaultLocationName":"Bengaluru 540004",
     "usePincode": "Add New Address using Pincode",
     "enterPincode": "Enter pincode",
     "submit": "Submit",

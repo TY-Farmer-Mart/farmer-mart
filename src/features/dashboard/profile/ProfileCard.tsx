@@ -1,20 +1,53 @@
+import { useEffect, useState } from "react";
 import { IoPersonCircleSharp } from "react-icons/io5";
-
 import { CiLocationOn } from "react-icons/ci";
-import { LuCalendarCheck, } from "react-icons/lu";
+import { LuCalendarCheck } from "react-icons/lu";
 import { RiStarSmileLine } from "react-icons/ri";
 import { MdEdit } from "react-icons/md";
 import { ProfileCardProps } from "@/types/profileTypes";
 import { PROFILE_PAGE_TXT } from "@constants/textConstants";
+import { getProfile } from "@/services/auth";
 
-const ProfileCard: React.FC<ProfileCardProps> = ({
-  name,
-  location,
-  memberSince,
-  rating,
-}) => {
+const ProfileCard: React.FC<Partial<ProfileCardProps>> = (props) => {
+  const [profile, setProfile] = useState<ProfileCardProps | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+        const userId = storedUser?.user?.id;
+
+        if (!userId) {
+          setError("User id is required");
+          setLoading(false);
+          return;
+        }
+
+        const data = await getProfile({ userId });
+        setProfile(data);
+      } catch (err: any) {
+        setError(
+          err.response?.data?.message ||
+            err.message ||
+            "Failed to fetch profile"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (loading) return <p>Loading profile...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const { name, location, memberSince, rating } = profile || props;
+
   return (
-    <div className="relative flex flex-col md:flex-row flex-wrap  items-center md:items-center justify-center md:justify-between  bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8 gap-6 w-full text-center md:text-left">
+    <div className="relative flex flex-col md:flex-row flex-wrap items-center md:items-center justify-center md:justify-between bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8 gap-6 w-full text-center md:text-left">
       <div className="absolute top-4 right-4 flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm font-medium">
         <MdEdit />
         {PROFILE_PAGE_TXT.EDIT_BTN}
@@ -26,7 +59,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           <p className="text-lg font-semibold text-black">{name}</p>
           <div className="flex items-center justify-center md:justify-start gap-2 text-black mt-1">
             <CiLocationOn className="w-7 h-6" />
-            <span className="font-medium text-black  ">{location}</span>
+            <span className="font-medium text-black">{location}</span>
           </div>
         </div>
       </div>
