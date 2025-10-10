@@ -5,6 +5,7 @@ import { CustomArrowProps } from "react-slick";
 import { products } from "../utils/json_util";
 import { Button } from "@/components/common/ui/Button";
 import { useTranslation } from "react-i18next";
+
 function Card({
   data,
   buttonText,
@@ -81,11 +82,15 @@ const SamplePrevArrow: React.FC<CustomArrowProps> = ({
 );
 
 const DashboardCarousel = () => {
+  const { t } = useTranslation();
+
+  const isMobile = window.innerWidth <= 768;
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: isMobile ? 1 : 4,
     slidesToScroll: 3,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -95,7 +100,7 @@ const DashboardCarousel = () => {
       { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
-  const { t } = useTranslation();
+
   return (
     <div className="slider-container max-w-7xl mx-auto p-2 bg-white rounded-xl shadow-md py-6 ">
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4 pb-3 text-center md:text-left px-3">

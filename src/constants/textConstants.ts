@@ -100,3 +100,22 @@ export const PROFILE_PAGE_TXT = {
   ACC_NUM : "Account Number",
   ACC_TYPE : "Account Type"
 };
+
+
+export const SELLER_PAGE_TXT ={
+  ICON1_TITLE:" Grow your Business",
+  ICON1_DES: " Sell to buyers anytime, anywhere",
+  ICON2_TITLE: "Zero Cost",
+  ICON2_DES: "No commission or transaction fee",
+  ICON3_TITLE:" Manage your Business Better",
+  ICON3_DES: "Lead Management System & other features",
+  ICON4_TITLE: " Create Account",
+  ICON4_DES: " Add your name and phone number to get started",
+  ICON5_TITLE:"Add Business",
+  ICON5_DES: " Add name, address & e-mail of your company, store/ business.",
+  ICON6_TITLE: "Add Products/ Services",
+  ICON6_DES:"Minimum 3 products/ services needed    for your free listing page.",
+  HEADING1_TXT: "Sell on IndiaMART",
+  HEADING2_TXT:"Get a free listing in 3 simple steps:"
+
+}

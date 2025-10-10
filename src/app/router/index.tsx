@@ -7,6 +7,7 @@ import { ROUTES } from "@/constants/routeConstants";
 import PublicLayout from "../layouts/PublicLayout";
 import { authRoutes } from "./authRoutes";
 
+
 export const useAppRouter = () => {
   const roleRoutes = useRoleRoutes();
 
@@ -25,5 +26,6 @@ export const useAppRouter = () => {
       path: "*",
       element: <PageNotFound />,
     },
+   
   ]);
 };
