@@ -54,3 +54,15 @@ export const getCompanies = async (payload: any) => {
     throw err.response ? err.response.data : { message: err.message };
   }
 };
+
+
+export const getBanks = async (payload: any) => {
+  console.log("passed id in the function", payload)
+  try {
+    const response = await API.post("/user/get-banks", payload);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};

@@ -6,7 +6,7 @@ import Modal from "@/components/common/modal/Modal";
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
 import { PROFILE_PAGE_TXT } from "@constants/textConstants";
-import { getProfile } from "@/services/auth";
+import { getBanks, getProfile } from "@/services/auth";
 
 
 export const BankAccountDetailsCard: React.FC = () => {
@@ -28,17 +28,16 @@ export const BankAccountDetailsCard: React.FC = () => {
         setLoading(true);
         const payload = { id: "68d93b4dcacc850a1caa1371" }
 
-        // const response = await getProfile(payload)
-        // const companiesResponse = await getCompanies(payload)
-
-        const response = {
-          data: {
-            bankName: "HDFC Bank",
-            accountNumber: "1234567890",
-            ifscCode: "HDFC0001234",
-            accountType: "Savings",
-          },
-        };
+        const response = await getBanks(payload)
+    
+        // const response = {
+        //   data: {
+        //     bankName: "HDFC Bank",
+        //     accountNumber: "1234567890",
+        //     ifscCode: "HDFC0001234",
+        //     accountType: "Savings",
+        //   },
+        // };
 
         const bank = response.data;
         console.log(bank, "testing data")
