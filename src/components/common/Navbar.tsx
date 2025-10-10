@@ -236,7 +236,7 @@ const Navbar: FC<NavbarProps> = ({
       <div className="flex flex-col lg:flex-col items-start lg:items-center justify-between w-full">
         {/* MOBILE HEADER */}
         <div className="flex w-full items-center justify-between lg:hidden mb-3">
-          <img src={logosmalldevice} alt="small logo" className="w-10 h-10" />
+          <img src={logosmalldevice} alt="small logo" className="w-10 h-10 cursor-pointer" onClick={() => navigate('/')} />
           <div className="flex-1 mx-3 relative">
             <Input
               onChange={(e) => setProduct(e.target.value)}
@@ -258,7 +258,7 @@ const Navbar: FC<NavbarProps> = ({
         {/* DESKTOP HEADER */}
         <div className="hidden lg:flex items-center justify-between w-full">
           <div className="flex-shrink-0">
-            <img src={logo} alt="logo" className="w-40 h-16" />
+            <img src={logo} alt="logo" className="w-40 h-16 cursor-pointer" onClick={() => navigate('/')} />
           </div>
 
           <div className="flex items-center space-x-6 flex-1 justify-between ml-4">
@@ -359,7 +359,7 @@ const Navbar: FC<NavbarProps> = ({
                   className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
                 >
                   <ShoppingCart className="text-lg" />
-                  <span className="text-sm"></span>
+                  <span className="text-sm">Cart</span>
                 </button>
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -372,10 +372,10 @@ const Navbar: FC<NavbarProps> = ({
                 onMouseEnter={() => setSigninOpen(true)}
                 onMouseLeave={() => setSigninOpen(false)}
               >
-                <button className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
+                <button className="flex flex-col items-center justify-center space-y-1 px-3 pt-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
                   <FaUser className="text-lg" />
-                  <span className="text-sm">
-                    {user ? user.name : t("NAVBAR.SIGN_IN")}
+                  <span className="text-sm ">
+                    {user ? "Profile" : t("NAVBAR.SIGN_IN")}
                   </span>
                 </button>
                 {signinOpen && renderSigninDropdown()}

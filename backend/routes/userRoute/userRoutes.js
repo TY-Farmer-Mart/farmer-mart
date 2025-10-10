@@ -14,8 +14,8 @@ const router = express.Router();
 router.put("/edit-profile", editProfile);
 router.put("/edit-company", updateCompanyInfo);
 router.put("/edit-bank", updateBankDetails);
-router.get("/get-profile", getProfile);
-router.get("/get-companies", getCompanyDetails);
-router.get("/get-banks", getBankDetails);
+router.post("/get-profile", getProfile);
+router.post("/get-companies", getCompanyDetails);
+router.post("/get-banks", getBankDetails);
 
 module.exports = router;

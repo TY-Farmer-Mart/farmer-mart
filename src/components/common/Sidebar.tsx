@@ -23,7 +23,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
     return (
       <aside
         ref={ref}
-        className="w-74 sm:w-64 bg-green-200 border rounded-lg border-green-200 flex flex-col h-screen"
+        className="w-74 sm:w-64 bg-[#D0E9E9] flex flex-col h-full"
         {...props}
       >
         <div className="p-6 flex flex-col items-center border-b border-gray-200">
@@ -41,11 +41,10 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center px-6 py-3 mt-2 rounded-s-3xl text-gray-700 hover:bg-green-400 transition-colors
-                  ${
-                    isActive
-                      ? "bg-green-500 font-semibold rounded-s-3xl text-white"
-                      : ""
+                  `flex items-center px-6 py-3 mt-2 rounded-s-3xl text-black-900 hover:bg-gray-100 transition-colors
+                  ${isActive
+                    ? "bg-gray-100 font-bold rounded-s-3xl text-white"
+                    : ""
                   }`
                 }
               >
@@ -57,7 +56,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarData>(
         </ul>
 
         <div className="p-4 border-t border-gray-200 text-sm items-center justify-between">
-          <Button className="w-full" onClick={handleLogout}>
+          <Button className="!bg-blue-900 w-full" onClick={handleLogout}>
             {t("LOGOUT")}
           </Button>
           <div className="flex gap-4 mt-2">

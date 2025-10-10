@@ -410,7 +410,7 @@ export const CompanyInfoCard = () => {
           <div className="flex items-start gap-3">
             <MdBusiness className="w-8 h-8 text-green-500 bg-gray-200" />
             <div className="flex flex-col items-start">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-black">
                 {PROFILE_PAGE_TXT.COMPANY_NAME}
               </span>
               <span className="text-sm text-gray-600">
@@ -436,7 +436,7 @@ export const CompanyInfoCard = () => {
           <div className="flex items-start gap-3">
             <MdLanguage className="w-7 h-8 text-blue-500 bg-gray-200" />
             <div className="flex flex-col items-start">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-black">
                 {PROFILE_PAGE_TXT.WEBSITE}
               </span>
               <span className="text-sm text-gray-600">
@@ -448,7 +448,7 @@ export const CompanyInfoCard = () => {
           <div className="flex items-start gap-3">
             <LuPanelTop className="w-6 h-6 text-green-400 bg-gray-200" />
             <div className="flex flex-col items-start">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-black">
                 {PROFILE_PAGE_TXT.PAN}
               </span>
               <span className="text-sm text-gray-600">

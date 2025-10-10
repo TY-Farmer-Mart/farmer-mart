@@ -1,9 +1,6 @@
 import React from "react";
-
 import { truncateText } from "@/utils/helpers";
 import { ProductCardProps } from "@/types/dashboardType";
-
-
 
 const ProductCard: React.FC<ProductCardProps> = ({
   productId,

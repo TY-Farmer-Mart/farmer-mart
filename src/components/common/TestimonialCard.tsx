@@ -4,7 +4,7 @@ import { Button } from "@/components/common/ui/Button";
 
 const TestimonialCard: React.FC<CartItem> = ({ textTop, textBottom, Btn }) => {
   return (
-    <div className="w-full   bg-white shadow-lg rounded-md p-4 flex flex-col gap-5  justify-between">
+    <div className="w-full bg-white shadow-lg rounded-md p-4 flex flex-col gap-5  justify-between">
       <p className="text-gray-700  sm:text-sm md:text-base lg:text-md leading-relaxed text-black">
         {textTop}
       </p>

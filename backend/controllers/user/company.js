@@ -13,7 +13,10 @@ const getCompanyDetails = async (req, res) => {
     const company = await Company.findOne({ userId: id });
 
     if (!company) {
-      return res.status(404).json({ message: "Company details not found" });
+      return res.status(200).json({
+        message: "No company details found",
+        company: {},
+      });
     }
 
     res.status(200).json({

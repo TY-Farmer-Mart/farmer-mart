@@ -2,8 +2,9 @@ const users = require("../../models/auth/auth.js");
 
 // Get Profile Details
 const getProfile = async (req, res) => {
-  console.log("passed id for profile from fe", req);
+  console.log("passed id for profile from fe", req.body);
   try {
+    console.log("testing>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...", req)
     const { id } = req.body;
 
     if (!id) {

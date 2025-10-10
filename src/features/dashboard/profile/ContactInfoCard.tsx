@@ -16,7 +16,7 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
   return (
     <div className="relative bg-white rounded-lg shadow-md  px-3 py-4 mt-4">
       <div className="flex justify-between items-center border-b pb-3 mb-4">
-        <h2 className="text-lg font-semibold text-gray-800 p-2">
+        <h2 className="text-lg font-semibold text-black p-2">
           {PROFILE_PAGE_TXT.CONTACT_INFO}
         </h2>
         <div
@@ -31,39 +31,39 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
         <div className="flex flex-col  items-start space-y-10 p-5">
           <div className="flex items-start gap-3">
             <div className="w-8 flex justify-start">
-              <TbDeviceMobileStar className="w-16 h-10 bg-gray-200 text-green-400" />
+              <TbDeviceMobileStar className="w-16 h-10 text-green-400" />
             </div>
 
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-black">
                 {PROFILE_PAGE_TXT.PRIMARY_MOB}
               </span>
-              <span className="text-sm text-gray-600">{mobile}</span>
+              <span className="text-sm text-black">{mobile}</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
             {/* Icon */}
             <div className="w-8 flex justify-start">
-              <RiMailStarLine className="w-14 h-10 text-blue-300 bg-gray-200 " />
+              <RiMailStarLine className="w-8 h-8 text-blue-300" />
             </div>
 
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-black">
                 {PROFILE_PAGE_TXT.PRIMARY_MAIL}
               </span>
-              <span className="text-sm text-gray-600">{email}</span>
+              <span className="text-sm text-black">{email}</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <div className="w-8 flex justify-start">
-              <CiLocationOn className="w-7 h-8 bg-gray-200 text-green-400 " />
+              <CiLocationOn className="w-8 h-8  text-green-400 " />
             </div>
 
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-700  text-left">
+              <span className="text-sm font-semibold text-black  text-left">
                 {PROFILE_PAGE_TXT.ADDRESS}
               </span>
-              <span className="text-sm text-gray-600">{address}</span>
+              <span className="text-sm text-black">{address}</span>
             </div>
           </div>
         </div>
@@ -72,14 +72,14 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
           {altMobile && (
             <div className="flex items-start gap-3">
               <div className="w-8 flex justify-center">
-                <TbDeviceMobileStar className="w-16 h-11  text-blue-300 bg-gray-200" />
+                <TbDeviceMobileStar className="w-16 h-11 text-blue-300" />
               </div>
 
               <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
+                <span className="text-sm font-semibold text-black">
                   {PROFILE_PAGE_TXT.ALT_MOB}
                 </span>
-                <span className="text-sm text-gray-600">{mobile}</span>
+                <span className="text-sm text-black">{mobile}</span>
               </div>
             </div>
           )}
@@ -87,14 +87,14 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
             <div className="flex items-start gap-3">
               {/* Icon */}
               <div className="w-8 flex justify-center">
-                <RiMailStarLine className="w-14 h-10 bg-gray-200 text-green-400 " />
+                <RiMailStarLine className="w-8 h-8 text-green-400 " />
               </div>
 
               <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
+                <span className="text-sm font-semibold text-black">
                   {PROFILE_PAGE_TXT.ALT_MAIL}
                 </span>
-                <span className="text-sm text-gray-600">{altEmail}</span>
+                <span className="text-sm text-black">{altEmail}</span>
               </div>
             </div>
           )}

@@ -250,7 +250,8 @@
     "platformFee": "Platform Fee",
     "totalAmount": "Total Amount",
     "youWillSave": "You will save ₹{{amount}} on this order",
-    "noSavings": "No savings available"
+    "noSavings": "No savings available",
+    "orderSummary": "Order Summary"
   },
   "DELIVERY": {
     "deliverTo": "Deliver to:",
