@@ -1,28 +1,8 @@
-// src/redux/checkoutSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { Address, CartItem } from "@/types/checkoutTypes";
 
-interface Address {
-  id: string;
-  name: string;
-  phone: string;
-  address: string;
-  pincode: string;
-  locality?: string;
-  city?: string;
-  state?: string;
-  landmark?: string;
-  altPhone?: string;
-  addressType?: "home" | "work";
-}
-
-interface CheckoutState {
-  currentStep: number; // 1=Login, 2=Address, 3=Summary, 4=Payment
-  addresses: Address[];
-  selectedAddressId?: string;
-}
-
-// Persist/rehydrate helpers
 const STORAGE_KEY = "checkout";
+
 function loadPersistedCheckout(): Partial<CheckoutState> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -30,7 +10,10 @@ function loadPersistedCheckout(): Partial<CheckoutState> {
     const parsed = JSON.parse(raw);
     return {
       addresses: Array.isArray(parsed.addresses) ? parsed.addresses : [],
-      selectedAddressId: parsed.selectedAddressId || undefined,
+      selectedAddressId:
+        typeof parsed.selectedAddressId === "string"
+          ? parsed.selectedAddressId
+          : undefined,
     } as Partial<CheckoutState>;
   } catch {
     return {};
@@ -49,14 +32,25 @@ function persistCheckout(state: CheckoutState) {
   }
 }
 
+
+export interface CheckoutState {
+  currentStep: number;
+  addresses: Address[];
+  selectedAddressId?: string;
+  selectedItems: CartItem[];
+}
+
+// --- Initial State ---
 const persisted = loadPersistedCheckout();
 
 const initialState: CheckoutState = {
   currentStep: 1,
   addresses: persisted.addresses || [],
   selectedAddressId: persisted.selectedAddressId,
+  selectedItems: [],
 };
 
+// --- Slice ---
 const checkoutSlice = createSlice({
   name: "checkout",
   initialState,
@@ -72,9 +66,14 @@ const checkoutSlice = createSlice({
         state.currentStep = action.payload;
     },
     addAddress: (state, action: PayloadAction<Address>) => {
-      const index = state.addresses.findIndex((a) => a.id === action.payload.id);
+      const index = state.addresses.findIndex(
+        (a) => a.id === action.payload.id
+      );
       if (index >= 0) {
-        state.addresses[index] = { ...state.addresses[index], ...action.payload };
+        state.addresses[index] = {
+          ...state.addresses[index],
+          ...action.payload,
+        };
       } else {
         state.addresses.push(action.payload);
       }
@@ -83,6 +82,14 @@ const checkoutSlice = createSlice({
     selectAddress: (state, action: PayloadAction<string>) => {
       state.selectedAddressId = action.payload;
       persistCheckout(state);
+    },
+    resetCheckout: (state) => {
+      state.currentStep = 1;
+      state.selectedAddressId = undefined;
+      state.selectedItems = [];
+    },
+    setSelectedItems: (state, action: PayloadAction<CartItem[]>) => {
+      state.selectedItems = action.payload;
     },
   },
 });
@@ -93,6 +100,8 @@ export const {
   goToStep,
   addAddress,
   selectAddress,
+  resetCheckout,
+  setSelectedItems,
 } = checkoutSlice.actions;
 
 export default checkoutSlice.reducer;
