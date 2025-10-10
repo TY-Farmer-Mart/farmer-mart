@@ -156,7 +156,7 @@ const LocationSearch: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-4 pt-2 pb-4 border-b">
+    <div className="w-full px-4 pt-2 pb-4 ">
       <h2 className="text-xl sm:text-2xl font-poppins text-left">
         {LOCATION_SEARCH.TITLE} {activeCity}
       </h2>

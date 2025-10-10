@@ -4,7 +4,7 @@ import Sidebar from "../../components/common/Sidebar";
 import { Home, User, Settings, TextAlignJustify, X, ShoppingCart } from "lucide-react";
 import { menuItem } from "@/types/sideBar";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSideBar } from "@/redux/dashBoardSlice";
+import { toggleSideBarOpen, toggleSideBarClose } from "@/redux/dashBoardSlice";
 import { useTranslation } from "react-i18next";
 import { RootState } from "@/redux/store";
 import Navbar from "@/components/common/Navbar";
@@ -33,7 +33,7 @@ const HomeLayout: React.FC = () => {
         <Navbar />
         <button
           className="sm:hidden absolute top-20 left-2 z-20"
-          onClick={() => dispatch(toggleSideBar())}
+          onClick={() => dispatch(toggleSideBarOpen())}
         >
           {toggle ? <X /> : <TextAlignJustify />}
         </button>
@@ -57,8 +57,8 @@ const HomeLayout: React.FC = () => {
           </div>
           {/* Main content */}
           <main
-            className="flex-1 overflow-y-scroll scrollbar-none rounded-bl-2xl mb-4 h-screen border-r"
-            onClick={() => dispatch(toggleSideBar())}
+            className="flex-1 overflow-y-scroll scrollbar-none rounded-bl-2xl mb-4 h-screen bg-gray-100"
+            onClick={() => dispatch(toggleSideBarClose())}
           >
             <div className="p-6">
               <Outlet />
@@ -67,7 +67,7 @@ const HomeLayout: React.FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default HomeLayout;

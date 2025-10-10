@@ -16,6 +16,7 @@ const SearchLayout: React.FC = () => {
   );
 
   const [showForm, setShowForm] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const productListEndRef = useRef<HTMLDivElement | null>(null);
   const mainRef = useRef<HTMLDivElement | null>(null);
 
@@ -38,33 +39,54 @@ const SearchLayout: React.FC = () => {
     observer.observe(productListEndRef.current);
     return () => observer.disconnect();
   }, []);
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="h-screen flex flex-col">
-        <LocationSearch />
-        <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="lg:w-1/5 lg:p-1">
+
+      <div className="flex-1 flex flex-col bg-gray-50 border border-gray-300">
+        <div className="border-b bg-gray-50 p-2 md:p-4">
+          <LocationSearch />
+        </div>
+
+        <div className="flex justify-end md:hidden p-2">
+          <button
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            className="bg-blue-600 text-white text-sm px-3 py-2 rounded-md shadow-md"
+          >
+            {isFilterOpen ? "Hide Filters" : "Show Filters"}
+          </button>
+        </div>
+
+        <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
+          <aside
+            className={`${
+              isFilterOpen ? "block" : "hidden"
+            } md:block md:w-1/4 lg:w-1/5 p-3 md:p-4  border-gray-200 bg-gray-50 md:relative absolute z-20 w-full `}
+          >
             <FilterSlideBar loading={loading} error={error} />
           </aside>
+
           <main
             ref={mainRef}
-            className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"
+            className="flex-1 h-full overflow-y-auto flex flex-col px-2 sm:px-4"
           >
             <ProductList
               products={filteredProducts}
               loading={loading}
               error={error}
             />
+
             <div ref={productListEndRef} className="h-4" />
-            {showForm && <RequirementForm />}
+            {showForm && (
+              <div className="p-2 sm:p-4">
+                <RequirementForm />
+              </div>
+            )}
           </main>
         </div>
       </div>
+
       <Footer />
     </div>
   );

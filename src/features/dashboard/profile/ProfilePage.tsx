@@ -10,7 +10,7 @@ const ProfilePage = () => {
     <div className="p-4">
       <ProfileCard {...profileData.profile} />
       <ContactInfoCard {...profileData.contact} />
-      <CompanyInfoCard {...profileData.company} />
+      <CompanyInfoCard />
       <BankAccountDetailsCard {...profileData.bank} />
       <Footer/>
     </div>
