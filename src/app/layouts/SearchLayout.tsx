@@ -20,19 +20,16 @@ const SearchLayout: React.FC = () => {
   const productListEndRef = useRef<HTMLDivElement | null>(null);
   const mainRef = useRef<HTMLDivElement | null>(null);
 
-  // Fetch products initially
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  // Scroll to top on mount
   useEffect(() => {
     if (mainRef.current) {
       mainRef.current.scrollTo({ top: 0, behavior: "auto" });
     }
   }, []);
 
-  // Observe bottom to toggle form
   useEffect(() => {
     if (!mainRef.current || !productListEndRef.current) return;
     const observer = new IntersectionObserver(
@@ -45,17 +42,13 @@ const SearchLayout: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Main Layout */}
       <div className="flex-1 flex flex-col bg-gray-50 border border-gray-300">
-        {/* Location Search */}
         <div className="border-b bg-gray-50 p-2 md:p-4">
           <LocationSearch />
         </div>
 
-        {/* Filter toggle for small screens */}
         <div className="flex justify-end md:hidden p-2">
           <button
             onClick={() => setIsFilterOpen(!isFilterOpen)}
@@ -65,9 +58,7 @@ const SearchLayout: React.FC = () => {
           </button>
         </div>
 
-        {/* Main Content */}
         <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
-          {/* Sidebar (hidden on small screens unless opened) */}
           <aside
             className={`${
               isFilterOpen ? "block" : "hidden"
@@ -76,7 +67,6 @@ const SearchLayout: React.FC = () => {
             <FilterSlideBar loading={loading} error={error} />
           </aside>
 
-          {/* Product List */}
           <main
             ref={mainRef}
             className="flex-1 h-full overflow-y-auto flex flex-col px-2 sm:px-4"
@@ -97,7 +87,6 @@ const SearchLayout: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
