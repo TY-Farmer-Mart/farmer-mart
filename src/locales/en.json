@@ -51,8 +51,8 @@
     "SIGN_IN": "Sign In",
     "LOGIN": "Login",
     "NAV_OPTIONS": [
-      { "label": "Export", "value": "export" },
-      { "label": "Sell", "value": "sell" }
+      { "label": "Export", "value": "export", "path":"" },
+      { "label": "Sell", "value": "sell", "path":"/seller" }
     ]
   },
   "MORE_FOR_YOU_TEXT": {

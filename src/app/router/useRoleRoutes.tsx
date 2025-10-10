@@ -8,6 +8,7 @@ import CheckoutLayout from "../../features/checkout/CheckoutLayout";
 import ProductDetailsLayout from "../layouts/ProductDetailsLayout";
 import PaymentLayout from "@/features/paymentpage/Mainpage";
 // import PaymentLayout from "../../features/paymentpage/PaymentOptions";
+import SellerLanding from "../pages/SellerLanding";
 
 export const useRoleRoutes = (): RouteObject[] => {
   const role = "user";
@@ -33,6 +34,10 @@ export const useRoleRoutes = (): RouteObject[] => {
         element: <CheckoutLayout />,
         path: ROUTES.CHECKOUT,
       },
+            {
+                element: <SellerLanding />,
+                path: ROUTES.SELLER_PAGE,
+            },
       {
         element: <PaymentLayout />,
         path: ROUTES.PAYMENT_PAGE,
