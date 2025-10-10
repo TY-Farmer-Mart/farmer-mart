@@ -12,17 +12,17 @@ interface UpdateCompanyPayload {
   pinCode?: string;
 }
 
-// Fetch company details by userId
+// ✅ Fetch company details by userId (GET call)
 export const getCompanies = async (userId: string) => {
   try {
-    const response = await API.post("/user/get-companies", { id: userId });
-    return response.data;
+    const response = await API.get(`/user/get-companies/${userId}`);
+    return response.data; // { message, company }
   } catch (err: any) {
     throw err.response ? err.response.data : { message: err.message };
   }
 };
 
-// Update company info
+// ✅ Update company info (PUT call)
 export const updateCompany = async (data: UpdateCompanyPayload) => {
   try {
     const response = await API.put("/user/update-company", data);
@@ -31,5 +31,6 @@ export const updateCompany = async (data: UpdateCompanyPayload) => {
     throw err.response ? err.response.data : { message: err.message };
   }
 };
+
 
 
