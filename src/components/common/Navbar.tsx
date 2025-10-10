@@ -49,14 +49,14 @@ const Navbar: FC<NavbarProps> = ({
   state: controlledState,
   setStatets,
   stateOptions = [
-    { value: "Hyderabad", label: "Hyderabad - Abids" },
-    { value: "Bengaluru", label: "Bengaluru - Basavanagudi" },
-    { value: "Mumbai", label: "Mumbai - Andheri" },
-    { value: "Kolkata", label: "Kolkata - Park Street" },
-    { value: "Pune", label: "Pune - Shivajinagar" },
-    { value: "Ahmedabad", label: "Ahmedabad - Navrangpura" },
+    { value: "Hyderabad - Abids", label: "Hyderabad-Abids" },
+    { value: "Bengaluru - Basavanagudi", label: "Bengaluru-Basavanagudi" },
+    { value: "Mumbai - Andheri", label: "Mumbai-Andheri" },
+    { value: "Kolkata - Park Street", label: "Kolkata-Park Street" },
+    { value: "Pune - Shivajinagar", label: "Pune-Shivajinagar" },
+    { value: "Ahmedabad - Navrangpura", label: "Ahmedabad-Navrangpura" },
     { value: "Ratnagiri", label: "Ratnagiri" },
-    { value: "Delhi", label: "Delhi - Karol Bagh" },
+    { value: "Delhi - Karol Bagh", label: "Delhi-Karol Bagh" },
     { value: "Kerala", label: "Kerala" },
     { value: "Nagpur", label: "Nagpur" },
   ],
@@ -85,6 +85,16 @@ const Navbar: FC<NavbarProps> = ({
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
+  // Load persisted selected location globally
+  useEffect(() => {
+    try {
+      const persisted = localStorage.getItem("selectedLocation");
+      if (persisted && persisted !== selectedValue) {
+        setSelectedValue(persisted);
+      }
+    } catch {}
+  }, []);
+
   // Sync controlled state
   useEffect(() => {
     if (controlledState !== undefined && controlledState !== selectedValue) {
@@ -106,6 +116,10 @@ const Navbar: FC<NavbarProps> = ({
 
   const handleSelect = (value: string) => {
     setSelectedValue(value);
+    // Persist globally so it reflects on all pages
+    try {
+      localStorage.setItem("selectedLocation", value);
+    } catch {}
     setStatets?.(value);
     setDropdownOpen(false);
     setMobileDropdownOpen(false);

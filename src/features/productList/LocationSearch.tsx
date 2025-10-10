@@ -5,9 +5,11 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { LocateFixed } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { LOCATION_SEARCH } from "@/constants/textConstants";
-import { Input } from "@/components/common/ui/Input";
+// import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
 import { cn } from "@/utils/helpers";
 import Chip from "@/components/common/ui/Chip";
@@ -26,6 +28,8 @@ const nearbyLocations = [
 
 const LocationSearch: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const routeLocation = useLocation();
+  const navigate = useNavigate();
 
   // ✅ Updated state selectors
   const products = useSelector(
@@ -40,6 +44,7 @@ const LocationSearch: React.FC = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const pillContainerRef = useRef<HTMLDivElement>(null);
+  const initializedFromParamRef = useRef(false);
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -58,11 +63,37 @@ const LocationSearch: React.FC = () => {
   }, [products]);
 
   useEffect(() => {
-    if (cities.length) {
+    if (cities.length && !initializedFromParamRef.current && !activeCity) {
       setActiveCity(cities[0]);
       setSearchTerm(cities[0]);
     }
-  }, [cities]);
+  }, [cities, activeCity]);
+
+  // Initialize from/clear based on query param: ?location=Hyderabad+-+Abids
+  useEffect(() => {
+    const search = routeLocation.search;
+    const params = new URLSearchParams(search);
+    const locParam = params.get("location");
+
+    if (locParam) {
+      // Replace + with spaces, then decode in case of encoded characters
+      const decoded = decodeURIComponent(locParam.replace(/\+/g, " "));
+      const cityFromParam = decoded.split("-")[0].trim();
+      if (cityFromParam) {
+        setActiveCity(cityFromParam);
+        setSearchTerm(cityFromParam);
+        initializedFromParamRef.current = true;
+      }
+} else {
+  // No location param → clear selection and remove from localStorage
+  setActiveCity("");
+  setSearchTerm("");
+  initializedFromParamRef.current = false;
+  try {
+    localStorage.removeItem("selectedLocation");
+  } catch {}
+}
+  }, [routeLocation.search]);
 
   const filteredNearby = useMemo(
     () =>
@@ -135,6 +166,8 @@ const LocationSearch: React.FC = () => {
           setActiveCity(city);
           setSearchTerm(city);
           setShowDropdown(false);
+          // update URL param
+          setUrlLocationParam(city);
         } catch {
           setSearchTerm(
             `Lat: ${latitude.toFixed(2)}, Lon: ${longitude.toFixed(2)}`
@@ -153,6 +186,23 @@ const LocationSearch: React.FC = () => {
     setActiveCity(location);
     setSearchTerm(location);
     setShowDropdown(false);
+    // update URL param
+    setUrlLocationParam(location);
+  };
+
+  // Helper: update the 'location' query param in URL
+  const setUrlLocationParam = (city: string) => {
+    const params = new URLSearchParams(routeLocation.search);
+    // Encode spaces as + to match existing style
+    const encoded = encodeURIComponent(city).replace(/%20/g, "+");
+    params.set("location", encoded);
+    navigate({ pathname: routeLocation.pathname, search: `?${params.toString()}` }, { replace: true });
+    // Persist for Navbar to pick globally
+    try {
+      localStorage.setItem("selectedLocation", city);
+    } catch {
+      //
+    }
   };
 
   return (
@@ -161,66 +211,26 @@ const LocationSearch: React.FC = () => {
         {LOCATION_SEARCH.TITLE} {activeCity}
       </h2>
 
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="flex flex-col sm:flex-row sm:items-center w-full max-w-md gap-2 sm:gap-3">
-          <div className="relative flex-grow">
-            <Input
-              ref={inputRef}
-              type="text"
-              placeholder="Select City to find sellers near you"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setShowDropdown(true);
-              }}
-              onFocus={() => setShowDropdown(true)}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-full outline-none text-sm"
-            />
-
-            {showDropdown && filteredNearby.length > 0 && (
-              <ul className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md max-h-40 overflow-auto z-10 shadow-md">
-                {filteredNearby.map((loc) => (
-                  <li
-                    key={loc}
-                    onClick={() => handleSelectNearby(loc)}
-                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                  >
-                    {loc}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
+      <div className="flex flex-col gap-4">
+        {/* Single row: Near Me on the left, pins to the right */}
+        <div className="w-full flex items-center justify-between gap-2">
           <Button
             type="button"
             onClick={handleNearbyBtnClick}
             variant="ghost"
-            size="sm"
-            className="w-[70%] sm:w-auto mt-1 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 text-sm"
+            size="md"
+            className="px-5 py-2.5 rounded-full text-base bg-blue-600 hover:bg-blue-700 text-white border border-blue-600"
           >
-            {LOCATION_SEARCH.NEARME}
-          </Button>
-        </div>
-
-        <div className="flex items-center gap-2 w-full overflow-x-auto sm:overflow-visible">
-          <Button
-            onClick={() => scrollPills("left")}
-            disabled={!canScrollLeft}
-            variant="pillScroll"
-            className={cn(
-              canScrollLeft
-                ? "border-gray-300 visible"
-                : "border-gray-200 text-gray-400 cursor-not-allowed invisible pointer-events-none"
-            )}
-          >
-            «
+            <span className="inline-flex items-center gap-2">
+              <LocateFixed className="w-5 h-5 sm:w-5 sm:h-5" />
+              {LOCATION_SEARCH.NEARME}
+            </span>
           </Button>
 
+          {/* Chips container - no scroll, show all */}
           <div
             ref={pillContainerRef}
-            className="flex gap-2 overflow-x-auto max-w-full sm:max-w-3xl no-scrollbar"
-            style={{ scrollBehavior: "smooth" }}
+            className="flex flex-wrap gap-2 justify-end"
           >
             {loading ? (
               <div className="text-gray-400 px-4 py-2">Loading cities...</div>
@@ -232,25 +242,51 @@ const LocationSearch: React.FC = () => {
                   key={city}
                   label={city}
                   isActive={activeCity === city}
-                  onClick={() => setActiveCity(city)}
+                  onClick={() => {
+                    setActiveCity(city);
+                    setSearchTerm(city);
+                    setShowDropdown(false);
+                    setUrlLocationParam(city);
+                  }}
                 />
               ))
             )}
           </div>
-
-          <Button
-            onClick={() => scrollPills("right")}
-            disabled={!canScrollRight}
-            variant="pillScroll"
-            className={cn(
-              canScrollRight
-                ? "border-gray-300 visible"
-                : "border-gray-200 text-gray-400 cursor-not-allowed invisible pointer-events-none"
-            )}
-          >
-            »
-          </Button>
         </div>
+
+        {/* Input kept commented intentionally */}
+        <div className="flex flex-col sm:flex-row sm:items-center w-full max-w-md gap-2 sm:gap-3">
+          <div className="relative flex-grow">
+            {/* <Input
+              ref={inputRef}
+              type="text"
+              placeholder="Select City to find sellers near you"
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setShowDropdown(true);
+              }}
+              onFocus={() => setShowDropdown(true)}
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-full outline-none text-sm"
+            /> */}
+
+            {/* {showDropdown && filteredNearby.length > 0 && (
+              <ul className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md max-h-40 overflow-auto z-10 shadow-md">
+                {filteredNearby.map((loc) => (
+                  <li
+                    key={loc}
+                    onClick={() => handleSelectNearby(loc)}
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                  >
+                    {loc}
+                  </li>
+                ))}
+              </ul>
+            )} */}
+          </div>
+        </div>
+
+        {/* (Chips row moved to be right of Near Me) */}
       </div>
     </div>
   );
