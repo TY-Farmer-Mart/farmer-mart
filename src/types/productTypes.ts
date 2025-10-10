@@ -30,15 +30,14 @@ export interface Product {
   memberYears?: string;
   rating?: number | string;
   responseRate?: string;
+  category: string;
 }
- 
 
 export interface ProductListProps {
   products: Product[];
   loading: boolean;
   error: string | null;
 }
- 
 
 export interface Supplier {
   sellerName?: string;
@@ -49,15 +48,14 @@ export interface Supplier {
   responseRate?: string;
   products?: Product[];
 }
- 
+
 export interface SupplierStats {
   roundedRating: number;
   reviewCount: number;
 }
- 
+
 export interface ParsedQuantity {
   amount: number | null;
   unit: string | null;
   label: string;
 }
- 

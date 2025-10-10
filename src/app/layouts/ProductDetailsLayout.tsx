@@ -1,16 +1,15 @@
-import Footer from "@/components/common/Footer"
-import Navbar from "@/components/common/Navbar"
-import ProductListView from "@/features/productDetails/ProductListView"
-
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/Navbar";
+import ProductListView from "@/features/productDetails/ProductListView";
 
 function ProductDetailsLayout() {
   return (
     <div>
-       <Navbar/>
-      <ProductListView/>
-      <Footer/>
+      <Navbar />
+      <ProductListView />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default ProductDetailsLayout
+export default ProductDetailsLayout;
