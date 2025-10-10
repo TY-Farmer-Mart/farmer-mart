@@ -6,8 +6,7 @@ import Modal from "@/components/common/modal/Modal";
 import { Button } from "@/components/common/ui/Button";
 import { Input } from "@/components/common/ui/Input";
 import { PROFILE_PAGE_TXT } from "@constants/textConstants";
-import { getProfile } from "@/services/auth";
-
+import { getBank, editBank } from "@/services/auth"; // ✅ import both
 
 export const BankAccountDetailsCard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,48 +17,47 @@ export const BankAccountDetailsCard: React.FC = () => {
     bankName: "",
     accountNumber: "",
     ifscCode: "",
-    accountType: "",
+    accountHolderName: "",
   });
 
+  const fallback = (value: string | undefined) => value || "-";
+
+  // ✅ Fetch bank details
+  const fetchBankDetails = async () => {
+    try {
+      setLoading(true);
+
+      const loginStr = localStorage.getItem("user");
+      if (!loginStr) throw new Error("Login response not found in localStorage");
+
+      const loginObj = JSON.parse(loginStr);
+      const userId = loginObj.user?.id;
+      if (!userId) throw new Error("User ID not found");
+
+      const payload = { id: userId };
+      const response = await getBank(payload);
+      const bank = response.bank;
+
+      setFormData({
+        bankName: fallback(bank?.bankName),
+        accountNumber: fallback(bank?.accountNumber),
+        ifscCode: fallback(bank?.ifscCode),
+        accountHolderName: fallback(bank?.accountHolderName),
+      });
+      setError(null);
+    } catch (err: any) {
+      console.error("Error fetching bank details:", err);
+      setError(err.response?.data?.message || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchBankDetails = async () => {
-      try {
-        setLoading(true);
-        const payload = { id: "68d93b4dcacc850a1caa1371" }
-
-        // const response = await getProfile(payload)
-        // const companiesResponse = await getCompanies(payload)
-
-        const response = {
-          data: {
-            bankName: "HDFC Bank",
-            accountNumber: "1234567890",
-            ifscCode: "HDFC0001234",
-            accountType: "Savings",
-          },
-        };
-
-        const bank = response.data;
-        console.log(bank, "testing data")
-
-        setFormData({
-          bankName: bank.bankName || "",
-          accountNumber: bank.accountNumber || "",
-          ifscCode: bank.ifscCode || "",
-          accountType: bank.accountType || "",
-        });
-      } catch (err: any) {
-        console.error("Error fetching bank details:", err);
-        setError(err.response?.data?.message || err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchBankDetails();
   }, []);
 
+  // ✅ Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -67,21 +65,39 @@ export const BankAccountDetailsCard: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ✅ Update bank details (API URL to be added later)
+  // ✅ Handle update
   const handleUpdate = async () => {
     try {
-      console.log("Updating bank info:", formData);
+      setLoading(true);
+      const loginStr = localStorage.getItem("user");
+      if (!loginStr) throw new Error("Login response not found in localStorage");
 
-      // await axios.put("<YOUR_UPDATE_API_URL>", formData, {
-      //   withCredentials: true,
-      // });
+      const loginObj = JSON.parse(loginStr);
+      const userId = loginObj.user?.id;
+      if (!userId) throw new Error("User ID not found");
+
+      const payload = {
+        id: userId,
+        bankName: formData.bankName,
+        accountNumber: formData.accountNumber,
+        ifscCode: formData.ifscCode,
+        accountHolderName: formData.accountHolderName,
+      };
+
+      await editBank(payload);
+
+      alert("✅ Bank details updated successfully!");
       setIsOpen(false);
+      await fetchBankDetails(); // refresh data
     } catch (err: any) {
       console.error("Error updating bank info:", err);
-      alert(err.response?.data?.message || "Failed to update bank info");
+      alert(err.message || "Failed to update bank info");
+    } finally {
+      setLoading(false);
     }
   };
 
+  // ✅ Render loading or error
   if (loading)
     return (
       <div className="p-6 bg-white rounded-lg shadow-md mt-4">
@@ -122,7 +138,9 @@ export const BankAccountDetailsCard: React.FC = () => {
               <span className="text-sm font-semibold text-black text-left">
                 {PROFILE_PAGE_TXT.IFSC}
               </span>
-              <span className="text-sm text-black">{formData.ifscCode}</span>
+              <span className="text-sm text-black text-left">
+                {formData.ifscCode}
+              </span>
             </div>
           </div>
 
@@ -134,7 +152,9 @@ export const BankAccountDetailsCard: React.FC = () => {
               <span className="text-sm font-semibold text-black text-left">
                 {PROFILE_PAGE_TXT.BANK_NAME}
               </span>
-              <span className="text-sm text-black">{formData.bankName}</span>
+              <span className="text-sm text-black text-left">
+                {formData.bankName}
+              </span>
             </div>
           </div>
         </div>
@@ -145,7 +165,7 @@ export const BankAccountDetailsCard: React.FC = () => {
               <MdOutlineAccountBox className="w-8 h-8 text-blue-500 rounded-md p-1" />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-black">
+              <span className="text-sm font-semibold text-black text-left">
                 {PROFILE_PAGE_TXT.ACC_NUM}
               </span>
               <span className="text-sm text-black text-left">
@@ -159,18 +179,18 @@ export const BankAccountDetailsCard: React.FC = () => {
               <MdSwitchAccount className="w-8 h-8 text-green-400 rounded-md p-1" />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-black">
-                {PROFILE_PAGE_TXT.ACC_TYPE}
+              <span className="text-sm font-semibold text-black text-left">
+                Account Holder Name
               </span>
               <span className="text-sm text-black text-left">
-                {formData.accountType}
+                {formData.accountHolderName}
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ✅ MODAL FOR EDITING */}
+      {/* EDIT MODAL */}
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
@@ -199,7 +219,6 @@ export const BankAccountDetailsCard: React.FC = () => {
             onChange={handleChange}
             className="px-4 py-2"
           />
-
           <Input
             label="Account Number"
             name="accountNumber"
@@ -207,7 +226,6 @@ export const BankAccountDetailsCard: React.FC = () => {
             onChange={handleChange}
             className="px-4 py-2"
           />
-
           <Input
             label="IFSC Code"
             name="ifscCode"
@@ -215,23 +233,18 @@ export const BankAccountDetailsCard: React.FC = () => {
             onChange={handleChange}
             className="px-4 py-2"
           />
-
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-black mb-1">
-              Account Type
-            </label>
-            <select
-              name="accountType"
-              value={formData.accountType}
-              onChange={handleChange}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-            >
-              <option value="Savings">Savings</option>
-              <option value="Current">Current</option>
-            </select>
-          </div>
+          <Input
+            label="Account Holder Name"
+            name="accountHolderName"
+            value={formData.accountHolderName}
+            onChange={handleChange}
+            className="px-4 py-2"
+          />
         </div>
       </Modal>
     </div>
   );
 };
+
+
+

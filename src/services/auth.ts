@@ -1,3 +1,4 @@
+import { getBanks } from './auth';
 // Login function
 import API from "./index";
 
@@ -48,6 +49,29 @@ export const getCompanies = async (payload: any) => {
   console.log("passed id in the function", payload)
   try {
     const response = await API.post("/user/get-companies", payload);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};
+
+
+export const getBank = async (payload: any) => {
+  console.log("passed id in the function", payload)
+  try {
+    const response = await API.post("/user/get-banks", payload);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};
+
+export const editBank = async (payload: any) => {
+  console.log("passed id in the function", payload)
+  try {
+    const response = await API.put("/user/edit-bank", payload);
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
