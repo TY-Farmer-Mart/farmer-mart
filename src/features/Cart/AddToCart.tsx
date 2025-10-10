@@ -6,6 +6,7 @@ import {
   decrementQuantity,
   removeFromCart,
 } from "../../redux/cartSlice";
+import { resetCheckout } from "../../redux/checkoutSlice";
 import { Button } from "@/components/common/ui/Button";
 import { useNavigate } from "react-router-dom";
 import CartItemList from "@/features/Cart/CartItemList";
@@ -34,6 +35,11 @@ export default function AddToCartPage() {
       prev.filter((id) => cartItems.some((c) => c.cartId === id))
     );
   }, [cartItems]);
+
+  // Reset checkout state when user navigates to cart page
+  useEffect(() => {
+    dispatch(resetCheckout());
+  }, [dispatch]);
 
   const checkedCartItems = cartItems.filter((item) =>
     checkedItems.includes(item.cartId!)
@@ -76,8 +82,14 @@ export default function AddToCartPage() {
               <Button
                 variant="buyNow"
                 size="lg"
-                className="flex-1 max-w-[180px]"
-                onClick={() => navigate("/checkout")}
+                className={`flex-1 max-w-[180px] ${totalPrice === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={() => navigate("/checkout", { 
+                  state: { 
+                    selectedItems: checkedCartItems,
+                    fromCart: true 
+                  } 
+                })}
+                disabled={totalPrice === 0}
               >
                 {t("CART.placeOrder")}
               </Button>

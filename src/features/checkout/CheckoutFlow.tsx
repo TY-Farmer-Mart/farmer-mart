@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { RootState, AppDispatch } from "@/redux/store";
-import { goToNextStep, goToStep } from "@/redux/checkoutSlice";
+import { goToNextStep, goToStep, setSelectedItems, resetCheckout } from "@/redux/checkoutSlice";
 import LoginStep from "./Steps/LoginStep";
 import AddressStep from "./Steps/AddressStep";
 import OrderSummaryStep from "./Steps/OrderSummaryStep";
@@ -13,11 +14,36 @@ const steps = ["Login / Signup", "Delivery Address", "Order Summary"];
 
 const CheckoutFlow: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
+  const location = useLocation();
   const currentStep = useSelector(
     (state: RootState) => state.checkout.currentStep
   );
+  const selectedItems = useSelector(
+    (state: RootState) => state.checkout.selectedItems
+  );
 
-  const { itemCount, itemsTotal } = getCartData();
+  // Always call getCartData to avoid conditional hook usage
+  const fullCartData = getCartData();
+
+  // Handle navigation state from cart
+  useEffect(() => {
+    if (location.state?.fromCart && location.state?.selectedItems) {
+      // Clear previous checkout data and set new selected items
+      dispatch(resetCheckout());
+      dispatch(setSelectedItems(location.state.selectedItems));
+    }
+  }, [location.state, dispatch]);
+
+  // Use selected items if available, otherwise fall back to cart data
+  const cartData = selectedItems.length > 0 
+    ? {
+        items: selectedItems,
+        itemCount: selectedItems.reduce((sum, item) => sum + (item.quantity || 0), 0),
+        itemsTotal: selectedItems.reduce((sum, item) => sum + (item.price || 0) * (item.quantity || 0), 0)
+      }
+    : fullCartData;
+
+  const { itemCount, itemsTotal } = cartData;
 
   const nextStep = () => dispatch(goToNextStep());
   const navigateToStep = (stepNum: number) => {
@@ -57,10 +83,12 @@ const CheckoutFlow: React.FC = () => {
         })}
       </div>
 
-      <div className="w-full md:col-span-6 flex flex-col gap-6 bg-white rounded-lg p-4 shadow-sm">
-        {currentStep === 1 && <LoginStep isActive onNext={nextStep} />}
-        {currentStep === 2 && <AddressStep isActive onNext={nextStep} />}
-        {currentStep === 3 && <OrderSummaryStep isActive />}
+      <div className="w-full md:col-span-6 flex flex-col gap-6 bg-white rounded-lg p-4 shadow-sm min-h-[600px] overflow-hidden">
+        <div className="flex-1 w-full">
+          {currentStep === 1 && <LoginStep isActive onNext={nextStep} />}
+          {currentStep === 2 && <AddressStep isActive onNext={nextStep} />}
+          {currentStep === 3 && <OrderSummaryStep isActive />}
+        </div>
       </div>
 
       <aside className="md:col-span-3">

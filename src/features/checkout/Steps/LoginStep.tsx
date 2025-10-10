@@ -45,10 +45,11 @@ const LoginStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
   const userEmail = getUserEmail();
 
   return (
-    <div className="p-6 bg-white rounded shadow border">
-      <h2 className="text-base font-semibold mb-4 text-gray-700">
-        Login / Signup
-      </h2>
+    <div className="bg-white rounded shadow border">
+      <div className="p-6">
+        <h2 className="text-base font-semibold mb-4 text-gray-700">
+          Login / Signup
+        </h2>
 
       {isAuthenticated ? (
         <>
@@ -158,6 +159,7 @@ const LoginStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
           )}
         </Formik>
       )}
+      </div>
     </div>
   );
 };
