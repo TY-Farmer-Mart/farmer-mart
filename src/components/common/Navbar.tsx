@@ -34,6 +34,7 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   label,
   onClick,
   className,
+  
 }) => (
   <button
     onClick={onClick}
@@ -149,10 +150,11 @@ const Navbar: FC<NavbarProps> = ({
 
   const rawNavOptions = t("NAVBAR.NAV_OPTIONS", {
     returnObjects: true,
-  }) as { label: string; value: NavOption["value"] }[];
+  }) as { label: string; value: NavOption["value"]; path:string }[];
   const navOptions: NavOption[] = rawNavOptions.map((opt) => ({
     label: opt.label,
     value: opt.value,
+    path:  opt.path,
   }));
   const selectedLabel =
     stateOptions.find((o) => o.value === selectedValue)?.label ?? selectedValue;
@@ -359,13 +361,16 @@ const Navbar: FC<NavbarProps> = ({
             </Button>
 
             <div className="flex items-center space-x-4 flex-shrink-0">
-              {navOptions.map((option) => (
-                <NavIconButton
+            <button className=" flex rounded-[50%]" >
+                {navOptions.map((option) => (
+                <NavIconButton 
                   key={option.value}
                   icon={getNavIcon(option.value)}
                   label={option.label}
+                  onClick={()=>navigate(option?.path)}
                 />
               ))}
+            </button>
               <div className="relative">
                 <button
                   onClick={() => navigate("/addtocart")}

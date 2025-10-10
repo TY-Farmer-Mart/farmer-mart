@@ -1,4 +1,4 @@
-import { Service } from "@/types/authTypes";
+import { Country, Service } from "@/types/authTypes";
 import { Star, Store, Smartphone, Calculator } from "lucide-react";
 
 export const SERVICES: Service[] = [
@@ -100,3 +100,31 @@ export const PROFILE_PAGE_TXT = {
   ACC_NUM : "Account Number",
   ACC_TYPE : "Account Type"
 };
+
+
+export const countries: Country[] = [
+  { code: "+91", name: "India", flag: "https://flagcdn.com/w20/in.png"},
+  { code: "+1", name: "USA", flag: "https://flagcdn.com/us.svg" },
+  { code: "+44", name: "UK", flag: "https://flagcdn.com/gb.svg" },
+  { code: "+61", name: "Australia", flag: "https://flagcdn.com/au.svg" },
+  { code: "+81", name: "Japan", flag: "https://flagcdn.com/jp.svg" },
+  
+];
+
+export const SELLER_REGIST_ICON_TXT ={
+  ICON1_TITLE:" Grow your Business",
+  ICON1_DES: " Sell to buyers anytime, anywhere",
+  ICON2_TITLE: "Zero Cost",
+  ICON2_DES1: "No commission",
+  ICON2_DES2:"transaction fee",
+  ICON3_TITLE:" Manage Business Easily",
+  ICON3_DES: "Lead Management System & other features",
+}
+ 
+ export const SELLER_REGISTER_TXT = {
+ SELLER_HEADIND1 :"Sell for free",
+  SELLER_HEADING2:"on India’s largest ",
+  SELLER_TEXT3:"online B2B marketplace",
+ SELLER_REGISTER_TITLE:"Free Registration / Sign In",
+  SELLER_LOGIN_BTN:"Login"
+ }

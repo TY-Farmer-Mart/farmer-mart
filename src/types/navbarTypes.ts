@@ -6,6 +6,7 @@ export interface StateOption {
 export interface NavOption {
   value: "export" | "sell" ;
   label: string;
+  path: string;
 }
 
 export interface NavIconButtonProps {
