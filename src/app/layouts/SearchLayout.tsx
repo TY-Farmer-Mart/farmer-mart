@@ -62,7 +62,7 @@ const SearchLayout: React.FC = () => {
           <aside
             className={`${
               isFilterOpen ? "block" : "hidden"
-            } md:block md:w-1/4 lg:w-1/5 p-3 md:p-4 border-r border-gray-200 bg-gray-50 md:relative absolute z-20 w-full `}
+            } md:block md:w-1/4 lg:w-1/5 p-3 md:p-4  border-gray-200 bg-gray-50 md:relative absolute z-20 w-full `}
           >
             <FilterSlideBar loading={loading} error={error} />
           </aside>
