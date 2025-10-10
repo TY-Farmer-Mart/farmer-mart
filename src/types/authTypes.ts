@@ -82,3 +82,10 @@ export interface MoreForYouCardProps {
   heading: string;
   services: Service[];
 }
+
+
+export interface Country {
+  code: string;
+  name: string;
+  flag: string;
+}

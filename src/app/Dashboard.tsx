@@ -4,13 +4,13 @@ import UseCategory from "@/features/dashboard/productCategory/UseCategory";
 import Footer from "@/components/common/Footer";
 import MoreForYouCard from "@/components/common/MoreForYouCard";
 import DashboardCarousel from "@/components/DashboardCarousel";
-import DashboardNav from "@/components/DashboardNav";
+// import DashboardNav from "@/components/DashboardNav";
 import { useTranslation } from "react-i18next";
 function Dashboard() {
   const { t } = useTranslation();
   return (
     <>
-      <DashboardNav />
+      {/* <DashboardNav /> */}
       <DashboardCarousel />
       <UseCategory />
       <Testimonials />

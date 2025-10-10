@@ -11,4 +11,6 @@ export const ROUTES = {
   PRODUCT_DETAILS_PAGE: "/product/:id",
   ADD_TO_CART: "/addtocart",
   CHECKOUT: "/checkout",
+  PAYMENT_PAGE:"/paymentpage",
+  SELLER_PAGE:"/seller",
 } as const;

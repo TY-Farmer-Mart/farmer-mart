@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         cartId: `${action.payload.id}-${action.payload.sellerName.replace(
           /\s+/g,
           "-"
-        )}-${Date.now()}`, 
+        )}-${Date.now()}`,
       });
 
       saveCart(state.items);
@@ -44,6 +44,10 @@ const cartSlice = createSlice({
       }
       saveCart(state.items);
     },
+    clearCart: (state) => {
+      state.items = [];
+      saveCart(state.items);
+    },
   },
 });
 
@@ -52,6 +56,7 @@ export const {
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
+  clearCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

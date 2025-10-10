@@ -21,7 +21,11 @@ import { ShoppingCart } from "lucide-react";
 import logosmalldevice from "@assets/images/image.jpg";
 import { Button } from "@components/common/ui/Button";
 import { Input } from "@components/common/ui/Input";
-import { NavbarProps, NavIconButtonProps, NavOption } from "@/types/navbarTypes";
+import {
+  NavbarProps,
+  NavIconButtonProps,
+  NavOption,
+} from "@/types/navbarTypes";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
@@ -30,6 +34,7 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   label,
   onClick,
   className,
+  
 }) => (
   <button
     onClick={onClick}
@@ -44,10 +49,16 @@ const Navbar: FC<NavbarProps> = ({
   state: controlledState,
   setStatets,
   stateOptions = [
-    { value: "bengaluru", label: "Bengaluru" },
-    { value: "delhi", label: "Delhi" },
-    { value: "mumbai", label: "Mumbai" },
-    { value: "chennai", label: "Chennai" },
+    { value: "Hyderabad - Abids", label: "Hyderabad-Abids" },
+    { value: "Bengaluru - Basavanagudi", label: "Bengaluru-Basavanagudi" },
+    { value: "Mumbai - Andheri", label: "Mumbai-Andheri" },
+    { value: "Kolkata - Park Street", label: "Kolkata-Park Street" },
+    { value: "Pune - Shivajinagar", label: "Pune-Shivajinagar" },
+    { value: "Ahmedabad - Navrangpura", label: "Ahmedabad-Navrangpura" },
+    { value: "Ratnagiri", label: "Ratnagiri" },
+    { value: "Delhi - Karol Bagh", label: "Delhi-Karol Bagh" },
+    { value: "Kerala", label: "Kerala" },
+    { value: "Nagpur", label: "Nagpur" },
   ],
 }) => {
   const navigate = useNavigate();
@@ -74,6 +85,16 @@ const Navbar: FC<NavbarProps> = ({
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
+  // Load persisted selected location globally
+  useEffect(() => {
+    try {
+      const persisted = localStorage.getItem("selectedLocation");
+      if (persisted && persisted !== selectedValue) {
+        setSelectedValue(persisted);
+      }
+    } catch {}
+  }, []);
+
   // Sync controlled state
   useEffect(() => {
     if (controlledState !== undefined && controlledState !== selectedValue) {
@@ -85,8 +106,7 @@ const Navbar: FC<NavbarProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      if (!desktopDropdownRef.current?.contains(target))
-        setDropdownOpen(false);
+      if (!desktopDropdownRef.current?.contains(target)) setDropdownOpen(false);
       if (!mobileDropdownRef.current?.contains(target))
         setMobileDropdownOpen(false);
     };
@@ -96,6 +116,10 @@ const Navbar: FC<NavbarProps> = ({
 
   const handleSelect = (value: string) => {
     setSelectedValue(value);
+    // Persist globally so it reflects on all pages
+    try {
+      localStorage.setItem("selectedLocation", value);
+    } catch {}
     setStatets?.(value);
     setDropdownOpen(false);
     setMobileDropdownOpen(false);
@@ -106,14 +130,11 @@ const Navbar: FC<NavbarProps> = ({
   const handleSearch = () => {
     if (!searchText.trim()) return;
     const match = stateOptions.find(
-      (opt) =>
-        opt.label.toLowerCase() === searchText.trim().toLowerCase()
+      (opt) => opt.label.toLowerCase() === searchText.trim().toLowerCase()
     );
     if (match) handleSelect(match.value);
     else setNotFoundMessage(`${searchText} not found`);
   };
-
-
 
   const handleProductSearch = () => {
     if (product.trim()) {
@@ -143,71 +164,71 @@ const Navbar: FC<NavbarProps> = ({
 
   const rawNavOptions = t("NAVBAR.NAV_OPTIONS", {
     returnObjects: true,
-  }) as { label: string; value: NavOption["value"] }[];
+  }) as { label: string; value: NavOption["value"]; path:string }[];
   const navOptions: NavOption[] = rawNavOptions.map((opt) => ({
     label: opt.label,
     value: opt.value,
+    path:  opt.path,
   }));
   const selectedLabel =
-    stateOptions.find((o) => o.value === selectedValue)?.label ??
-    selectedValue;
+    stateOptions.find((o) => o.value === selectedValue)?.label ?? selectedValue;
 
   const signinOptions = user
     ? [
-      {
-        label: "Profile",
-        onClick: () => navigate("/profile"),
-        icon: <FaUser />,
-      },
-      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-      {
-        label: "Get Quote",
-        onClick: () => navigate("/get-quote"),
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Why Trust FarmerMart",
-        onClick: () => navigate("/why-trust"),
-        icon: <FaQuestionCircle />,
-      },
-      {
-        label: "Top Export Countries",
-        onClick: () => navigate("/top-export-countries"),
-        icon: <FaGlobe />,
-      },
-      {
-        label: "Logout",
-        onClick: () => {
-          localStorage.removeItem("user");
-          setUser(null);
-          navigate("/");
+        {
+          label: "Profile",
+          onClick: () => navigate("/profile"),
+          icon: <FaUser />,
         },
-        icon: <FaTimes />,
-      },
-    ]
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        {
+          label: "Get Quote",
+          onClick: () => navigate("/get-quote"),
+          icon: <FaClipboardList />,
+        },
+        {
+          label: "Why Trust FarmerMart",
+          onClick: () => navigate("/why-trust"),
+          icon: <FaQuestionCircle />,
+        },
+        {
+          label: "Top Export Countries",
+          onClick: () => navigate("/top-export-countries"),
+          icon: <FaGlobe />,
+        },
+        {
+          label: "Logout",
+          onClick: () => {
+            localStorage.removeItem("user");
+            setUser(null);
+            navigate("/");
+          },
+          icon: <FaTimes />,
+        },
+      ]
     : [
-      {
-        label: "Login",
-        onClick: () => navigate("/auth/login"),
-        icon: <FaUser />,
-      },
-      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-      {
-        label: "Get Quote",
-        onClick: () => navigate("/get-quote"),
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Why Trust FarmerMart",
-        onClick: () => navigate("/why-trust"),
-        icon: <FaQuestionCircle />,
-      },
-      {
-        label: "Top Export Countries",
-        onClick: () => navigate("/top-export-countries"),
-        icon: <FaGlobe />,
-      },
-    ];
+        {
+          label: "Login",
+          onClick: () => navigate("/auth/login"),
+          icon: <FaUser />,
+        },
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        {
+          label: "Get Quote",
+          onClick: () => navigate("/get-quote"),
+          icon: <FaClipboardList />,
+        },
+        {
+          label: "Why Trust FarmerMart",
+          onClick: () => navigate("/why-trust"),
+          icon: <FaQuestionCircle />,
+        },
+        {
+          label: "Top Export Countries",
+          onClick: () => navigate("/top-export-countries"),
+          icon: <FaGlobe />,
+        },
+      ];
 
   const renderSigninDropdown = () => (
     <ul className="absolute right-0 mt-0 w-64 bg-white border rounded shadow-lg z-10">
@@ -236,7 +257,12 @@ const Navbar: FC<NavbarProps> = ({
       <div className="flex flex-col lg:flex-col items-start lg:items-center justify-between w-full">
         {/* MOBILE HEADER */}
         <div className="flex w-full items-center justify-between lg:hidden mb-3">
-          <img src={logosmalldevice} alt="small logo" className="w-10 h-10" />
+          <img
+            src={logosmalldevice}
+            alt="small logo"
+            className="w-10 h-10 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
           <div className="flex-1 mx-3 relative">
             <Input
               onChange={(e) => setProduct(e.target.value)}
@@ -258,7 +284,12 @@ const Navbar: FC<NavbarProps> = ({
         {/* DESKTOP HEADER */}
         <div className="hidden lg:flex items-center justify-between w-full">
           <div className="flex-shrink-0">
-            <img src={logo} alt="logo" className="w-40 h-16" />
+            <img
+              src={logo}
+              alt="logo"
+              className="w-40 h-16 cursor-pointer"
+              onClick={() => navigate("/")}
+            />
           </div>
 
           <div className="flex items-center space-x-6 flex-1 justify-between ml-4">
@@ -286,9 +317,7 @@ const Navbar: FC<NavbarProps> = ({
                         setSearchText(e.target.value);
                         setNotFoundMessage("");
                       }}
-                      onKeyDown={(e) =>
-                        e.key === "Enter" && handleSearch()
-                      }
+                      onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                       className="w-full px-2 py-1 border border-gray-300 rounded outline-none text-sm"
                     />
                     <button
@@ -346,20 +375,23 @@ const Navbar: FC<NavbarProps> = ({
             </Button>
 
             <div className="flex items-center space-x-4 flex-shrink-0">
-              {navOptions.map((option) => (
-                <NavIconButton
+            <button className=" flex rounded-[50%]" >
+                {navOptions.map((option) => (
+                <NavIconButton 
                   key={option.value}
                   icon={getNavIcon(option.value)}
                   label={option.label}
+                  onClick={()=>navigate(option?.path)}
                 />
               ))}
+            </button>
               <div className="relative">
                 <button
                   onClick={() => navigate("/addtocart")}
                   className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
                 >
                   <ShoppingCart className="text-lg" />
-                  <span className="text-sm"></span>
+                  <span className="text-sm">Cart</span>
                 </button>
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -372,10 +404,10 @@ const Navbar: FC<NavbarProps> = ({
                 onMouseEnter={() => setSigninOpen(true)}
                 onMouseLeave={() => setSigninOpen(false)}
               >
-                <button className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
+                <button className="flex flex-col items-center justify-center space-y-1 px-3 pt-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full">
                   <FaUser className="text-lg" />
-                  <span className="text-sm">
-                    {user ? user.name : t("NAVBAR.SIGN_IN")}
+                  <span className="text-sm ">
+                    {user ? "Profile" : t("NAVBAR.SIGN_IN")}
                   </span>
                 </button>
                 {signinOpen && renderSigninDropdown()}
@@ -407,11 +439,10 @@ const Navbar: FC<NavbarProps> = ({
                   className="w-full px-3 py-2 border border-gray-300 rounded text-sm text-black pr-8"
                 />
                 <FaChevronDown
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${mobileDropdownOpen ? "rotate-180" : ""
-                    }`}
-                  onClick={() =>
-                    setMobileDropdownOpen((s) => !s)
-                  }
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${
+                    mobileDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  onClick={() => setMobileDropdownOpen((s) => !s)}
                 />
 
                 {mobileDropdownOpen && (
@@ -476,9 +507,7 @@ const Navbar: FC<NavbarProps> = ({
                     className="flex flex-col items-center text-xs hover:text-green-400"
                   >
                     <FaUser className="text-lg" />
-                    <span>
-                      {user ? user.name : t("NAVBAR.SIGN_IN")}
-                    </span>
+                    <span>{user ? user.name : t("NAVBAR.SIGN_IN")}</span>
                   </button>
                   {signinOpen && renderSigninDropdown()}
                 </div>

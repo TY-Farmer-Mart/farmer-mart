@@ -1,5 +1,35 @@
 const users = require("../../models/auth/auth.js");
 
+// Get Profile Details
+const getProfile = async (req, res) => {
+  console.log("passed id for profile from fe", req.body);
+  try {
+    console.log("testing>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...", req)
+    const { id } = req.body;
+
+    if (!id) {
+      return res.status(400).json({ message: "User id is required" });
+    }
+
+    const user = await users.findById(id).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      message: "Profile fetched successfully",
+      user,
+    });
+  } catch (err) {
+    console.error("Error fetching profile:", err);
+    res.status(500).json({
+      message: "Server error",
+      error: err.message,
+    });
+  }
+};
+
 // Edit Profile
 const editProfile = async (req, res) => {
   try {
@@ -25,7 +55,6 @@ const editProfile = async (req, res) => {
 
     if (!updatedUser)
       return res.status(404).json({ message: "User not found" });
-
     res
       .status(200)
       .json({ message: "Profile updated successfully", user: updatedUser });
@@ -35,4 +64,4 @@ const editProfile = async (req, res) => {
   }
 };
 
-module.exports = { editProfile };
+module.exports = { editProfile, getProfile };

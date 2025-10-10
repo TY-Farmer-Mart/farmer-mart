@@ -4,9 +4,11 @@ const dashBoardSlice = createSlice({
   name: "dashBoardSlice",
   initialState: false,
   reducers: {
-    toggleSideBar: state => !state,
+    
+     toggleSideBarOpen: (state) => !state,
+    toggleSideBarClose: () => false,
   },
 });
 
-export const { toggleSideBar } = dashBoardSlice.actions;
+export const { toggleSideBarOpen, toggleSideBarClose } = dashBoardSlice.actions;
 export default dashBoardSlice.reducer;

@@ -6,12 +6,11 @@ import { useTranslation } from "react-i18next";
 
 export default function DeliveryLocation() {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [pincode, setPincode] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [pincode, setPincode] = useState("");
   const [location, setLocation] = useState<string | null>(null);
-
-  const defaultLocationName = t("DELIVERY.defaultLocationName");
-  const defaultLocationDetails = t("DELIVERY.defaultLocationDetails");
+  const defaultLocationName = "Bengaluru 540004";
+  const defaultLocationDetails = "delivery location";
 
   const [savedAddresses, setSavedAddresses] = useState<Address[]>([
     { name: defaultLocationName, details: defaultLocationDetails },
@@ -25,24 +24,37 @@ export default function DeliveryLocation() {
       setLocation(storedLocation);
     } else {
       setLocation(defaultLocationName);
+      localStorage.setItem("deliveryLocation", defaultLocationName);
     }
 
     if (storedAddresses) {
       try {
         const parsed: Address[] = JSON.parse(storedAddresses);
-        const valid: Address[] = parsed.filter(
-          (addr: Address) => addr?.name?.trim() && addr?.details?.trim()
+        const valid = parsed.filter(
+          (addr) => addr?.name?.trim() && addr?.details?.trim()
         );
-        setSavedAddresses(
-          valid.length
-            ? valid
-            : [{ name: defaultLocationName, details: defaultLocationDetails }]
-        );
+        if (valid.length) {
+          setSavedAddresses(valid);
+        } else {
+          const defaultAddr = [
+            { name: defaultLocationName, details: defaultLocationDetails },
+          ];
+          setSavedAddresses(defaultAddr);
+          localStorage.setItem("savedAddresses", JSON.stringify(defaultAddr));
+        }
       } catch {
-        setSavedAddresses([
+        const defaultAddr = [
           { name: defaultLocationName, details: defaultLocationDetails },
-        ]);
+        ];
+        setSavedAddresses(defaultAddr);
+        localStorage.setItem("savedAddresses", JSON.stringify(defaultAddr));
       }
+    } else {
+      const defaultAddr = [
+        { name: defaultLocationName, details: defaultLocationDetails },
+      ];
+      setSavedAddresses(defaultAddr);
+      localStorage.setItem("savedAddresses", JSON.stringify(defaultAddr));
     }
   }, []);
 
@@ -74,7 +86,7 @@ export default function DeliveryLocation() {
           const updatedAddresses: Address[] = [
             { name: newAddress, details },
             ...savedAddresses.filter(
-              (addr: Address) => addr?.name?.trim() && addr?.details?.trim()
+              (addr) => addr?.name?.trim() && addr?.details?.trim()
             ),
           ];
 
@@ -127,7 +139,7 @@ export default function DeliveryLocation() {
             const updatedAddresses: Address[] = [
               { name: newAddress, details },
               ...savedAddresses.filter(
-                (addr: Address) => addr?.name?.trim() && addr?.details?.trim()
+                (addr) => addr?.name?.trim() && addr?.details?.trim()
               ),
             ];
 
@@ -179,7 +191,7 @@ export default function DeliveryLocation() {
             </h2>
 
             <div className="max-h-[200px] overflow-y-auto mb-4">
-              {savedAddresses.map((addr: Address, idx: number) => (
+              {savedAddresses.map((addr, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-3 border p-3 rounded mb-2 cursor-pointer"
@@ -196,7 +208,9 @@ export default function DeliveryLocation() {
                   />
                   <div>
                     <p className="font-medium">{addr.name}</p>
-                    <p className="text-xs md:text-sm text-gray-600">{addr.details}</p>
+                    <p className="text-xs md:text-sm text-gray-600">
+                      {addr.details}
+                    </p>
                   </div>
                 </div>
               ))}

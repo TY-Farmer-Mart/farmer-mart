@@ -264,5 +264,32 @@
     "defaultLocationName": "बैंगलोर - 560004",
     "defaultLocationDetails": "4th मॉडल हाउस, 4th मॉडल स्ट्रीट, NR सर्कल",
     "close": "बंद करें"
+  },
+  "PROFILE": {
+    "EDIT_BTN": "संपादित करें",
+    "MEMBER": "सदस्य हैं",
+    "CONTACT_INFO": "संपर्क जानकारी",
+    "PRIMARY_MOB": "मुख्य मोबाइल:",
+    "PRIMARY_MAIL": "मुख्य ईमेल:",
+    "ADDRESS": "पता",
+    "ALT_MOB": "वैकल्पिक मोबाइल",
+    "ALT_MAIL": "वैकल्पिक ईमेल",
+    "COMPANY_INFO": "कंपनी जानकारी",
+    "COMPANY_NAME": "कंपनी का नाम",
+    "GST": "GSTIN",
+    "FB": "फेसबुक",
+    "IG": "इंस्टाग्राम",
+    "GL_BUSINESS": "गूगल व्यवसाय",
+    "WEBSITE": "कंपनी वेबसाइट",
+    "PAN": "PAN",
+    "BANK_ACC": "बैंक खाता विवरण",
+    "IFSC": "IFSC कोड",
+    "BANK_NAME": "बैंक का नाम",
+    "ACC_NUM": "खाता संख्या",
+    "ACC_TYPE": "खाता प्रकार"
+  },
+  "COMMON": {
+    "CANCEL": "रद्द करें",
+    "UPDATE": "अद्यतन करें"
   }
 }
