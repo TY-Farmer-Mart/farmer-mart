@@ -1,4 +1,6 @@
-import type { CardProduct } from "@/types/cartType";
+
+
+import type { CardProduct } from "@/types/cartType"; 
 export type CartItem = CardProduct;
 
 export interface PriceDetails {
