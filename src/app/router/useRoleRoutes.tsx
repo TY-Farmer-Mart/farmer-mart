@@ -6,7 +6,8 @@ import { ROUTES } from "@/constants/routeConstants";
 import CartLayout from "../layouts/CartLayout";
 import CheckoutLayout from "../layouts/CheckoutLayout";
 import ProductDetailsLayout from "../layouts/ProductDetailsLayout";
-import PaymentLayout from "../layouts/PaymentLayout";
+import PaymentLayout from "@/features/paymentpage/Mainpage";
+// import PaymentLayout from "../../features/paymentpage/PaymentOptions";
 
 export const useRoleRoutes = (): RouteObject[] => {
   const role = "user";
@@ -32,10 +33,10 @@ export const useRoleRoutes = (): RouteObject[] => {
         element: <CheckoutLayout />,
         path: ROUTES.CHECKOUT,
       },
-            {
-                element:<PaymentLayout />,
-                path:ROUTES.PAYMENT_PAGE,
-            }
+      {
+        element: <PaymentLayout />,
+        path: ROUTES.PAYMENT_PAGE,
+      },
     ];
   }
   return [
