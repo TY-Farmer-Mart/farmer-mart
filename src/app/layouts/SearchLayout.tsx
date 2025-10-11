@@ -8,6 +8,11 @@ import LocationSearch from "@/features/productList/LocationSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/redux/productSlice";
 import { RootState, AppDispatch } from "@/redux/store";
+import {
+  FILTER_BUTTON_TEXT,
+  OBSERVER_OPTIONS,
+  CLASSNAMES,
+} from "@/constants/searchpagelayout";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,49 +39,44 @@ const SearchLayout: React.FC = () => {
     if (!mainRef.current || !productListEndRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => setShowForm(entry.isIntersecting),
-      { root: mainRef.current, threshold: 1 }
+      { root: mainRef.current, threshold: OBSERVER_OPTIONS.THRESHOLD }
     );
     observer.observe(productListEndRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
 
-      <div className="flex-1 flex flex-col bg-gray-50 border border-gray-300">
-        <div className="border-b bg-gray-50 p-2 md:p-4">
+      <div className="flex-1 flex flex-col border border-gray-200">
+        <div className={CLASSNAMES.LOCATION_SEARCH_CONTAINER}>
           <LocationSearch />
-        </div>
-
-        <div className="flex justify-end md:hidden p-2">
-          <button
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="bg-blue-600 text-white text-sm px-3 py-2 rounded-md shadow-md"
-          >
-            {isFilterOpen ? "Hide Filters" : "Show Filters"}
-          </button>
+          <div className="flex justify-end sm:justify-start mt-3 md:hidden">
+            <button
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className={CLASSNAMES.FILTER_BUTTON}
+            >
+              {isFilterOpen ? FILTER_BUTTON_TEXT.HIDE : FILTER_BUTTON_TEXT.SHOW}
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
           <aside
-            className={`${
-              isFilterOpen ? "block" : "hidden"
-            } md:block md:w-1/4 lg:w-1/5 p-3 md:p-4  border-gray-200 bg-gray-50 md:relative absolute z-20 w-full `}
+            className={`${isFilterOpen ? "block" : "hidden"} md:block ${
+              CLASSNAMES.FILTER_SIDEBAR
+            }`}
           >
             <FilterSlideBar loading={loading} error={error} />
           </aside>
 
-          <main
-            ref={mainRef}
-            className="flex-1 h-full overflow-y-auto flex flex-col px-2 sm:px-4"
-          >
+          <main ref={mainRef} className={CLASSNAMES.MAIN_CONTAINER}>
             <ProductList
               products={filteredProducts}
               loading={loading}
               error={error}
             />
-
             <div ref={productListEndRef} className="h-4" />
             {showForm && (
               <div className="p-2 sm:p-4">
