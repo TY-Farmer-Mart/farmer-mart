@@ -127,10 +127,10 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       },
     ];
 
-    // Show Categories only when on base /products (no query params)
+    // Show Products only when on base /products (no query params)
     if (!hasAnyParams) {
       sections.push({
-        title: "Categories",
+        title: "Products",
         options: Array.from(
           new Set(
             allProducts.map((p) => p.itemName).filter((v): v is string => !!v)
