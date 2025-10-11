@@ -1,30 +1,12 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LocateFixed } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { LOCATION_SEARCH } from "@/constants/textConstants";
-// import { Input } from "@/components/common/ui/Input";
 import { Button } from "@/components/common/ui/Button";
-import { cn } from "@/utils/helpers";
 import Chip from "@/components/common/ui/Chip";
 import { fetchProducts } from "@/redux/productSlice";
 import { RootState, AppDispatch } from "@/redux/store";
-
-const SCROLL_AMOUNT = 150;
-
-const nearbyLocations = [
-  "Whitefield",
-  "HSR Layout",
-  "Koramangala",
-  "Electronic City",
-  "Marathahalli",
-];
 
 const LocationSearch: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -40,14 +22,9 @@ const LocationSearch: React.FC = () => {
 
   const [activeCity, setActiveCity] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
 
-  const inputRef = useRef<HTMLInputElement>(null);
   const pillContainerRef = useRef<HTMLDivElement>(null);
   const initializedFromParamRef = useRef(false);
-
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -84,66 +61,16 @@ const LocationSearch: React.FC = () => {
         setSearchTerm(cityFromParam);
         initializedFromParamRef.current = true;
       }
-} else {
-  // No location param → clear selection and remove from localStorage
-  setActiveCity("");
-  setSearchTerm("");
-  initializedFromParamRef.current = false;
-  try {
-    localStorage.removeItem("selectedLocation");
-  } catch {}
-}
+    } else {
+      // No location param → clear selection and remove from localStorage
+      setActiveCity("");
+      setSearchTerm("");
+      initializedFromParamRef.current = false;
+      try {
+        localStorage.removeItem("selectedLocation");
+      } catch {}
+    }
   }, [routeLocation.search]);
-
-  const filteredNearby = useMemo(
-    () =>
-      nearbyLocations.filter((loc) =>
-        loc.toLowerCase().includes(searchTerm.toLowerCase())
-      ),
-    [searchTerm]
-  );
-
-  useEffect(() => {
-    const onClickOutside = (e: MouseEvent) => {
-      if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
-        setShowDropdown(false);
-      }
-    };
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, []);
-
-  const checkScroll = useCallback(() => {
-    const el = pillContainerRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(
-      el.scrollWidth > el.clientWidth &&
-        el.scrollLeft + el.clientWidth < el.scrollWidth
-    );
-  }, []);
-
-  useEffect(() => {
-    const el = pillContainerRef.current;
-    if (!el) return;
-
-    checkScroll();
-
-    el.addEventListener("scroll", checkScroll);
-    window.addEventListener("resize", checkScroll);
-
-    return () => {
-      el.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, [checkScroll]);
-
-  const scrollPills = (direction: "left" | "right") => {
-    pillContainerRef.current?.scrollBy({
-      left: direction === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT,
-      behavior: "smooth",
-    });
-  };
 
   const handleNearbyBtnClick = () => {
     if (!navigator.geolocation) {
@@ -165,14 +92,12 @@ const LocationSearch: React.FC = () => {
             "Unknown location";
           setActiveCity(city);
           setSearchTerm(city);
-          setShowDropdown(false);
           // update URL param
           setUrlLocationParam(city);
         } catch {
           setSearchTerm(
             `Lat: ${latitude.toFixed(2)}, Lon: ${longitude.toFixed(2)}`
           );
-          setShowDropdown(false);
         }
       },
       () => {
@@ -182,21 +107,16 @@ const LocationSearch: React.FC = () => {
     );
   };
 
-  const handleSelectNearby = (location: string) => {
-    setActiveCity(location);
-    setSearchTerm(location);
-    setShowDropdown(false);
-    // update URL param
-    setUrlLocationParam(location);
-  };
-
   // Helper: update the 'location' query param in URL
   const setUrlLocationParam = (city: string) => {
     const params = new URLSearchParams(routeLocation.search);
     // Encode spaces as + to match existing style
     const encoded = encodeURIComponent(city).replace(/%20/g, "+");
     params.set("location", encoded);
-    navigate({ pathname: routeLocation.pathname, search: `?${params.toString()}` }, { replace: true });
+    navigate(
+      { pathname: routeLocation.pathname, search: `?${params.toString()}` },
+      { replace: true }
+    );
     // Persist for Navbar to pick globally
     try {
       localStorage.setItem("selectedLocation", city);
@@ -245,7 +165,6 @@ const LocationSearch: React.FC = () => {
                   onClick={() => {
                     setActiveCity(city);
                     setSearchTerm(city);
-                    setShowDropdown(false);
                     setUrlLocationParam(city);
                   }}
                 />
@@ -253,40 +172,6 @@ const LocationSearch: React.FC = () => {
             )}
           </div>
         </div>
-
-        {/* Input kept commented intentionally */}
-        <div className="flex flex-col sm:flex-row sm:items-center w-full max-w-md gap-2 sm:gap-3">
-          <div className="relative flex-grow">
-            {/* <Input
-              ref={inputRef}
-              type="text"
-              placeholder="Select City to find sellers near you"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setShowDropdown(true);
-              }}
-              onFocus={() => setShowDropdown(true)}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-full outline-none text-sm"
-            /> */}
-
-            {/* {showDropdown && filteredNearby.length > 0 && (
-              <ul className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md max-h-40 overflow-auto z-10 shadow-md">
-                {filteredNearby.map((loc) => (
-                  <li
-                    key={loc}
-                    onClick={() => handleSelectNearby(loc)}
-                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                  >
-                    {loc}
-                  </li>
-                ))}
-              </ul>
-            )} */}
-          </div>
-        </div>
-
-        {/* (Chips row moved to be right of Near Me) */}
       </div>
     </div>
   );

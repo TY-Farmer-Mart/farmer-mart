@@ -93,8 +93,13 @@ const productSlice = createSlice({
       }>
     ) => {
       const { key, value } = action.payload;
-      if (state.filters[key] === value) delete state.filters[key];
-      else state.filters[key] = value;
+      if (value === "" || value === null || value === undefined) {
+        delete state.filters[key];
+      } else if (state.filters[key] === value) {
+        delete state.filters[key];
+      } else {
+        state.filters[key] = value;
+      }
 
       state.filteredProducts = applyFilters(state.allProducts, state.filters);
     },

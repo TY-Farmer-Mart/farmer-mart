@@ -41,22 +41,42 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       )
     );
 
+    // First, clear all filters that are not in the URL
+    urlKeys.forEach((key) => {
+      const raw = searchParams.get(key);
+      if (!raw && filters[key]) {
+        // URL parameter is not present but filter exists, clear it
+        dispatch(setFilter({ key, value: "" }));
+      }
+    });
+
+    // Then, set filters from URL parameters
     urlKeys.forEach((key) => {
       const raw = searchParams.get(key);
       if (!raw) return;
 
-      let value = raw;
+      // URL decode the parameter value
+      let value = decodeURIComponent(raw);
+
       if (key === "location") {
         // If URL provides only city (e.g., "Hyderabad"), normalize to a full option like "Hyderabad - Abids"
-        if (!raw.includes(" - ")) {
-          const matched = locationOptions.find((opt) => opt.startsWith(raw));
+        if (!value.includes(" - ")) {
+          const matched = locationOptions.find((opt) => opt.startsWith(value));
           if (matched) value = matched;
         }
       }
 
       if (filters[key] !== value) dispatch(setFilter({ key, value }));
     });
-  }, [allProducts, searchParams, dispatch, filters]);
+  }, [allProducts, searchParams, dispatch]);
+
+  // Clear all filters when component mounts without any URL parameters
+  useEffect(() => {
+    const hasAnyParams = Array.from(searchParams.keys()).length > 0;
+    if (!hasAnyParams && Object.keys(filters).length > 0) {
+      dispatch(clearFilters());
+    }
+  }, [searchParams, dispatch, filters]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
