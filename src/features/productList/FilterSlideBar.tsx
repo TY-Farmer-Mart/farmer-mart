@@ -9,6 +9,7 @@ import type {
   Filters,
   FilterKeys,
   FilterSlideBarProps,
+  Section,
 } from "@/types/productTypes";
 import {
   BUTTON_TEXTS,
@@ -38,7 +39,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       "category",
       "product",
     ];
-    // Build list of full location options from products for normalization
+
     const locationOptions = Array.from(
       new Set(
         allProducts.map((p) => p.location).filter((v): v is string => !!v)
@@ -51,7 +52,6 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
 
       let value = raw;
       if (key === "location") {
-        // If URL provides only city (e.g., "Hyderabad"), normalize to a full option like "Hyderabad - Abids"
         if (!raw.includes(" - ")) {
           const matched = locationOptions.find((opt) => opt.startsWith(raw));
           if (matched) value = matched;
@@ -61,6 +61,17 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       if (filters[key] !== value) dispatch(setFilter({ key, value }));
     });
   }, [allProducts, searchParams, dispatch, filters]);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+        document.body.style.overflow = "";
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const closeDrawer = () => {
     setIsOpen(false);
@@ -102,7 +113,6 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       },
     ];
 
-    // Show Categories only when on base /products (no query params)
     if (!hasAnyParams) {
       sections.push({
         title: SECTION_TITLES.CATEGORIES,
@@ -204,7 +214,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
         {isOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-40 z-40"
+              className="fixed inset-0 bg-black bg-opacity-25 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -215,7 +225,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 p-4 overflow-y-auto"
+              className="fixed left-0 top-[4rem] w-64 h-[calc(100%-4rem)] bg-white shadow-lg z-50 p-4 overflow-y-auto"
             >
               <button
                 onClick={closeDrawer}

@@ -59,3 +59,10 @@ export interface ParsedQuantity {
   unit: string | null;
   label: string;
 }
+
+
+export type Section = {
+  title: string;
+  options: string[];
+  key: FilterKeys;
+};

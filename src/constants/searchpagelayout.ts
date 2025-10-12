@@ -40,3 +40,4 @@ export const SECTION_TITLES = {
   LOCATION: "Location",
   CATEGORIES: "Categories",
 };
+
