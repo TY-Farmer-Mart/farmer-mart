@@ -72,7 +72,7 @@ const HelpCardList: React.FC = () => {
         </div>
       </div>
       <div className="mt-5  flex justify-center ">
-        <LanguageSwitcher/>
+        <LanguageSwitcher />
       </div>
     </section>
   );

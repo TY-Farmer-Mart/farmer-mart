@@ -17,7 +17,7 @@ import {
 
 import logo from "@assets/images/logo_farmer_mart_final.png";
 import { RootState } from "@/redux/store";
-import { ShoppingCart } from "lucide-react";
+import { MessageCircleQuestionMark, ShoppingCart } from "lucide-react";
 import logosmalldevice from "@assets/images/image.jpg";
 import { Button } from "@components/common/ui/Button";
 import { Input } from "@components/common/ui/Input";
@@ -34,14 +34,21 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   label,
   onClick,
   className,
+  cartCount
 
 }) => (
   <button
     onClick={onClick}
-    className={`flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 ${className}`}
+    // className={`flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 ${className}`}
+    className={`relative flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 ${className}`}
   >
     <div className="text-lg">{icon}</div>
     <span className="text-sm">{label}</span>
+    {label === "Cart" && cartCount && cartCount > 0 && (
+      <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+        {cartCount}
+      </span>
+    )}
   </button>
 );
 
@@ -155,8 +162,10 @@ const Navbar: FC<NavbarProps> = ({
         return <FaBox />;
       case "sell":
         return <FaTags />;
+      case "cart":
+        return <ShoppingCart />;
       case "help":
-        return <FaQuestionCircle />;
+        return <MessageCircleQuestionMark />;
       default:
         return null;
     }
@@ -170,6 +179,7 @@ const Navbar: FC<NavbarProps> = ({
     value: opt.value,
     path: opt.path,
   }));
+
   const selectedLabel =
     stateOptions.find((o) => o.value === selectedValue)?.label ?? selectedValue;
 
@@ -374,7 +384,7 @@ const Navbar: FC<NavbarProps> = ({
               {t("NAVBAR.GET_BEST_PRICE")}
             </Button>
 
-            <div className="flex items-center space-x-4 flex-shrink-0">
+            <div className="flex items-center space-x-4 ">
               <button className=" flex rounded-[50%]" >
                 {navOptions.map((option) => (
                   <NavIconButton
@@ -382,10 +392,11 @@ const Navbar: FC<NavbarProps> = ({
                     icon={getNavIcon(option.value)}
                     label={option.label}
                     onClick={() => navigate(option?.path)}
+                    cartCount={cartCount}
                   />
                 ))}
               </button>
-              <div className="relative">
+              {/* <div className="relative">
                 <button
                   onClick={() => navigate("/addtocart")}
                   className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
@@ -399,6 +410,15 @@ const Navbar: FC<NavbarProps> = ({
                   </span>
                 )}
               </div>
+              <div className="relative">
+                <button
+                  onClick={() => navigate("/help")}
+                  className="flex flex-col items-center justify-center space-y-1 px-3 py-2 text-white hover:text-green-400 transition-colors duration-200 rounded-full"
+                >
+                  <MessageCircleQuestionMark size={20} className='text-lg' />
+                  <span className="text-sm">help</span>
+                </button>
+              </div> */}
               <div
                 className="relative"
                 onMouseEnter={() => setSigninOpen(true)}
@@ -489,7 +509,7 @@ const Navbar: FC<NavbarProps> = ({
               <div className="flex items-center justify-around flex-1 gap-4">
                 {navOptions
                   .filter((opt) =>
-                    ["export", "sell", "help"].includes(opt.value)
+                    ["export", "sell", "cart", "help"].includes(opt.value)
                   )
                   .map((opt) => (
                     <button

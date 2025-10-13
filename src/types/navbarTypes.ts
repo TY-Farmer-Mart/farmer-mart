@@ -4,7 +4,7 @@ export interface StateOption {
 }
 
 export interface NavOption {
-  value: "export" | "sell" ;
+  value: "export" | "sell" | "cart" | "help";
   label: string;
   path: string;
 }
@@ -14,6 +14,7 @@ export interface NavIconButtonProps {
   label: string;
   onClick?: () => void;
   className?: string;
+  cartCount?: number
 }
 
 export interface NavbarProps {

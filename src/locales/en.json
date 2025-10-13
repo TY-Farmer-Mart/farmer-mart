@@ -51,8 +51,10 @@
     "SIGN_IN": "Sign In",
     "LOGIN": "Login",
     "NAV_OPTIONS": [
-      { "label": "Export", "value": "export", "path":"" },
-      { "label": "Sell", "value": "sell", "path":"/seller" }
+      { "label": "Export", "value": "export", "path": "" },
+      { "label": "Sell", "value": "sell", "path": "/seller" },
+      { "label": "Cart", "value": "cart", "path": "/cart" },
+      { "label": "Help", "value": "help", "path": "/help" }
     ]
   },
   "MORE_FOR_YOU_TEXT": {
@@ -256,7 +258,7 @@
   "DELIVERY": {
     "deliverTo": "Deliver to:",
     "selectDeliveryAddress": "Change Delivery Address",
-    "defaultLocationName":"Bengaluru 540004",
+    "defaultLocationName": "Bengaluru 540004",
     "usePincode": "Add New Address using Pincode",
     "enterPincode": "Enter pincode",
     "submit": "Submit",

@@ -1,13 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/common/Sidebar";
-import { Home, User, Settings, TextAlignJustify, X, ShoppingCart } from "lucide-react";
+import { Home, User, Settings, TextAlignJustify, X, ShoppingCart, } from "lucide-react";
 import { menuItem } from "@/types/sideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBarOpen, toggleSideBarClose } from "@/redux/dashBoardSlice";
 import { useTranslation } from "react-i18next";
 import { RootState } from "@/redux/store";
 import Navbar from "@/components/common/Navbar";
+
 
 const HomeLayout: React.FC = () => {
   const toggle = useSelector((state: RootState) => state.toggle);
