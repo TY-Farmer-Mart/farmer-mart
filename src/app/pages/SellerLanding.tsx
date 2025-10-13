@@ -1,18 +1,22 @@
 import Navbar from '@/components/common/Navbar'
-import SellerPage from '@/features/seller/SellerPage'
+import SellerNav from '@/features/seller/SellerNav';
 import SellerBusinessDetails from '@/features/seller/SellerBusinessDetails'
-// import SellerProductDetails from '@/features/seller/SellerProductDetails'
-// import SellerRegistration from '@/features/seller/SellerRegistration'
+import SellerProductDetails from '@/features/seller/SellerProductDetails'
+import { useState } from 'react';
+
 function SellerLanding() {
+
+
+
+
   return (
     <>
-    <Navbar/>
-    {/* <SellerRegistration/>    */}
-    <SellerBusinessDetails/>
-    {/* <SellerProductDetails/> */}
-    <SellerPage/> 
+      <Navbar />
+      <SellerNav />
+
+    
     </>
   )
 }
 
-export default SellerLanding
+export default SellerLanding;

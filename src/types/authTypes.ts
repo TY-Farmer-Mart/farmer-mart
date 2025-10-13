@@ -88,3 +88,14 @@ export interface Country {
   name: string;
   flag: string;
 }
+
+export interface Product {
+  name: string;
+  image?: string | null ;
+  onBack?: () => void;
+}
+
+export interface SellerProductDetailsProps {
+  onBack?: () => void;
+}
+

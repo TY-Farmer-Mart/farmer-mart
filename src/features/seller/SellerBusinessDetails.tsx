@@ -12,7 +12,17 @@ interface BusinessFormValues {
   email: string;
 }
 
-const SellerBusinessDetails: React.FC = () => {
+interface Props {
+  onNext: () => void;
+}
+
+const SellerBusinessDetails: React.FC<Props> = ({ onNext }) => {
+
+   const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onNext(); // Move to next step (Product)
+  };
+
   const formik = useFormik<BusinessFormValues>({
     initialValues: {
       name: "",
@@ -55,7 +65,7 @@ const SellerBusinessDetails: React.FC = () => {
         </div>
 
         {/* FORM */}
-        <form onSubmit={formik.handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
           <div>
             <label className="block text-gray-700 font-medium text-start">
@@ -79,9 +89,11 @@ const SellerBusinessDetails: React.FC = () => {
                 className="w-full outline-none bg-transparent"
               />
             </div>
-            {formik.touched.name && formik.errors.name && (
+          <div className="text-start">
+              {formik.touched.name && formik.errors.name && (
               <p className="text-red-500 text-sm mt-1">{formik.errors.name}</p>
             )}
+          </div>
           </div>
 
           {/* Company */}
@@ -90,7 +102,7 @@ const SellerBusinessDetails: React.FC = () => {
               Company/Business/Shop Name<span className="text-red-500">*</span>
             </label>
             <div
-              className={`flex items-center border rounded-md px-3 py-2 ${
+              className={`flex items-center  border rounded-md px-3 py-2 ${
                 formik.touched.companyName && formik.errors.companyName
                   ? "border-red-500"
                   : "border-gray-300"
@@ -107,121 +119,143 @@ const SellerBusinessDetails: React.FC = () => {
                 className="w-full outline-none bg-transparent"
               />
             </div>
-            {formik.touched.companyName && formik.errors.companyName && (
+          <div className="text-start">
+              {formik.touched.companyName && formik.errors.companyName && (
               <p className="text-red-500 text-sm mt-1">
                 {formik.errors.companyName}
               </p>
             )}
           </div>
+          </div>
 
           {/* Pin, City, State */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-start">
-            {/* Pin */}
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                Pin Code<span className="text-red-500">*</span>
-              </label>
-              <div
-                className={`flex items-center border rounded-md px-3 py-2 ${
-                  formik.touched.pinCode && formik.errors.pinCode
-                    ? "border-red-500"
-                    : "border-gray-300"
-                }`}
-              >
-                <MapPin className="w-5 h-5 text-gray-500 mr-2" />
-                <input
-                  type="text"
-                  name="pinCode"
-                  value={formik.values.pinCode}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="w-full outline-none bg-transparent"
-                  placeholder="600001"
-                />
-              </div>
-            </div>
+         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-start">
+  {/* Pin Code */}
+  <div>
+    <label className="block text-gray-700 font-medium mb-1">
+      Pin Code<span className="text-red-500">*</span>
+    </label>
+    <div
+      className={`flex items-center border rounded-md px-3 py-2 ${
+        formik.touched.pinCode && formik.errors.pinCode
+          ? "border-red-500"
+          : "border-gray-300"
+      }`}
+    >
+      <MapPin className="w-5 h-5 text-gray-500 mr-2" />
+      <input
+        type="text"
+        name="pinCode"
+        value={formik.values.pinCode}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        className="w-full outline-none bg-transparent"
+        placeholder="600001"
+      />
+    </div>
+    {/* 🔹 Error message */}
+    {formik.touched.pinCode && formik.errors.pinCode && (
+      <p className="text-red-500 text-sm mt-1">{formik.errors.pinCode}</p>
+    )}
+  </div>
 
-            {/* City */}
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                City<span className="text-red-500">*</span>
-              </label>
-              <div
-                className={`flex items-center border rounded-md px-3 py-2 ${
-                  formik.touched.city && formik.errors.city
-                    ? "border-red-500"
-                    : "border-gray-300"
-                }`}
-              >
-                <Building2 className="w-5 h-5 text-gray-500 mr-2" />
-                <input
-                  type="text"
-                  name="city"
-                  value={formik.values.city}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="w-full outline-none bg-transparent"
-                  placeholder="City"
-                />
-              </div>
-            </div>
+  {/* City */}
+  <div>
+    <label className="block text-gray-700 font-medium mb-1">
+      City<span className="text-red-500">*</span>
+    </label>
+    <div
+      className={`flex items-center border rounded-md px-3 py-2 ${
+        formik.touched.city && formik.errors.city
+          ? "border-red-500"
+          : "border-gray-300"
+      }`}
+    >
+      <Building2 className="w-5 h-5 text-gray-500 mr-2" />
+      <input
+        type="text"
+        name="city"
+        value={formik.values.city}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        className="w-full outline-none bg-transparent"
+        placeholder="City"
+      />
+    </div>
+    {/* 🔹 Error message */}
+    {formik.touched.city && formik.errors.city && (
+      <p className="text-red-500 text-sm mt-1">{formik.errors.city}</p>
+    )}
+  </div>
 
-            {/* State */}
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                State<span className="text-red-500">*</span>
-              </label>
-              <div
-                className={`flex items-center border rounded-md px-3 py-2 ${
-                  formik.touched.state && formik.errors.state
-                    ? "border-red-500"
-                    : "border-gray-300"
-                }`}
-              >
-                <Building2 className="w-5 h-5 text-gray-500 mr-2" />
-                <input
-                  type="text"
-                  name="state"
-                  value={formik.values.state}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="w-full outline-none bg-transparent"
-                  placeholder="State"
-                />
-              </div>
-            </div>
-          </div>
+  {/* State */}
+  <div>
+    <label className="block text-gray-700 font-medium mb-1">
+      State<span className="text-red-500">*</span>
+    </label>
+    <div
+      className={`flex items-center border rounded-md px-3 py-2 ${
+        formik.touched.state && formik.errors.state
+          ? "border-red-500"
+          : "border-gray-300"
+      }`}
+    >
+      <Building2 className="w-5 h-5 text-gray-500 mr-2" />
+      <input
+        type="text"
+        name="state"
+        value={formik.values.state}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        className="w-full outline-none bg-transparent"
+        placeholder="State"
+      />
+    </div>
+    {/* 🔹 Error message */}
+    {formik.touched.state && formik.errors.state && (
+      <p className="text-red-500 text-sm mt-1">{formik.errors.state}</p>
+    )}
+  </div>
+</div>
 
           {/* Email */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-1 text-start">
-              Email ID<span className="text-red-500">*</span>
-            </label>
-            <div
-              className={`flex items-center border rounded-md px-3 py-2 ${
-                formik.touched.email && formik.errors.email
-                  ? "border-red-500"
-                  : "border-gray-300"
-              }`}
-            >
-              <Mail className="w-5 h-5 text-gray-500 mr-2" />
-              <input
-                type="email"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="Enter your email"
-                className="w-full outline-none bg-transparent"
-              />
-              <button
-                type="button"
-                className="text-green-600 text-sm font-medium ml-2"
-              >
-                Verify
-              </button>
-            </div>
-          </div>
+         <div>
+  <label className="block text-gray-700 font-medium mb-1 text-start">
+    Email ID<span className="text-red-500">*</span>
+  </label>
+  <div
+    className={`flex items-start border rounded-md px-3 py-2 ${
+      formik.touched.email && formik.errors.email
+        ? "border-red-500"
+        : "border-gray-300"
+    }`}
+  >
+    <Mail className="w-5 h-5 text-gray-500 mr-2" />
+    <input
+      type="email"
+      name="email"
+      value={formik.values.email}
+      onChange={formik.handleChange}
+      onBlur={formik.handleBlur}
+      placeholder="Enter your email"
+      className="w-full outline-none bg-transparent"
+    />
+    <button
+      type="button"
+      className="text-green-600 text-sm font-medium ml-2"
+    >
+      Verify
+    </button>
+  </div>
+
+  {/* 🔹 Add this block to show validation message */}
+  <div className="text-start">
+    {formik.touched.email && formik.errors.email && (
+      <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+    )}
+  </div>
+</div>
+
 
           {/* Submit */}
           <div className="flex justify-end">
