@@ -1,14 +1,22 @@
 import API from "./index";
 
-export const getCompanies = async (userId: any) => {
+export const getUserProfile = async (userId: string) => {
   try {
-    const response = await API.post("/user/get-companies", { id: userId }); 
-    return response.data; 
+    const response = await API.post("/user/get-profile", { id: userId });
+    return response.data;
   } catch (err: any) {
     throw err.response ? err.response.data : { message: err.message };
   }
 };
 
+export const getCompanies = async (userId: any) => {
+  try {
+    const response = await API.post("/user/get-companies", { id: userId });
+    return response.data;
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};
 
 export const updateCompany = async (data: any) => {
   try {
@@ -19,5 +27,11 @@ export const updateCompany = async (data: any) => {
   }
 };
 
-
-
+export const editUserProfile = async (data: any) => {
+  try {
+    const response = await API.put("/user/edit-profile", data);
+    return response.data;
+  } catch (err: any) {
+    throw err.response ? err.response.data : { message: err.message };
+  }
+};

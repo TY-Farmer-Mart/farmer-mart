@@ -27,21 +27,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       outline:
         "border-2 border-coral-500 text-coral-500 hover:bg-coral-50 focus:ring-coral-500",
       ghost: "text-gray-600 hover:bg-gray-100 focus:ring-gray-500",
+      blue: "px-4 py-2 rounded-xl bg-blue-800 text-white hover:bg-blue-700",
       social: "bg-white  hover:bg-gray-50 text-gray-700 focus:ring-gray-500",
       viewAll:
         "mt-4 bg-green-300 text-white px-8 ml-6 py-2 rounded hover:underline transition text-sm md:text-base",
-       buyNow:
+      buyNow:
         "flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded font-semibold flex items-center text-xs md:text-sm md:rounded rounded-md p-1  justify-center gap-2",
-
+      addToCart:
+        "flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-3 text-xs md:text-sm md:rounded rounded-md p-1  font-semibold flex items-center justify-center md:gap-2 gap-1",
       pillScroll: "px-4 py-2  text-xl transition text-center ",
       circle:
         "w-6 h-6 rounded-full flex items-center justify-center border border-gray-400 text-base",
       activeCity: "bg-white border-red-500 text-red-600",
       inactiveCity: "bg-white hover:bg-gray-100 border-gray-300 text-gray-700",
-      addToCart:
-        "flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-3 text-xs md:text-sm md:rounded rounded-md p-1  font-semibold flex items-center justify-center md:gap-2 gap-1",
-      location:
-        "bg-white text-blue-600 ",
+      location: "bg-white text-blue-600 ",
       submit: "bg-gray-200 text-black hover:bg-gray-300 px-4 rounded-md",
       textLink: "text-blue-600 hover:underline bg-transparent p-0",
       close:

@@ -40,7 +40,7 @@ export interface CheckoutState {
   selectedItems: CartItem[];
 }
 
-// --- Initial State ---
+
 const persisted = loadPersistedCheckout();
 
 const initialState: CheckoutState = {
@@ -50,7 +50,6 @@ const initialState: CheckoutState = {
   selectedItems: [],
 };
 
-// --- Slice ---
 const checkoutSlice = createSlice({
   name: "checkout",
   initialState,

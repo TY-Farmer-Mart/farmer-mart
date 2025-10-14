@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import FilterSlideBar from "@/features/productList/FilterSlideBar";
-import ProductList from "@/features/productList/ProductList";
-import RequirementForm from "@/features/productList/RequirementForm";
-import LocationSearch from "@/features/productList/LocationSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/redux/productSlice";
 import { RootState, AppDispatch } from "@/redux/store";
+import LocationSearch from "@/features/productlist/LocationSearch";
+import FilterSlideBar from "@/features/productlist/FilterSlideBar";
+import ProductList from "@/features/productlist/ProductList";
+import RequirementForm from "@/features/productlist/RequirementForm";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

@@ -34,11 +34,49 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       "category",
       "product",
     ];
+    // Build list of full location options from products for normalization
+    const locationOptions = Array.from(
+      new Set(
+        allProducts.map((p) => p.location).filter((v): v is string => !!v)
+      )
+    );
+
+    // First, clear all filters that are not in the URL
     urlKeys.forEach((key) => {
-      const value = searchParams.get(key);
-      if (value && filters[key] !== value) dispatch(setFilter({ key, value }));
+      const raw = searchParams.get(key);
+      if (!raw && filters[key]) {
+        // URL parameter is not present but filter exists, clear it
+        dispatch(setFilter({ key, value: "" }));
+      }
     });
-  }, [allProducts, searchParams, dispatch, filters]);
+
+    // Then, set filters from URL parameters
+    urlKeys.forEach((key) => {
+      const raw = searchParams.get(key);
+      if (!raw) return;
+
+      // URL decode the parameter value
+      let value = decodeURIComponent(raw);
+
+      if (key === "location") {
+        // If URL provides only city (e.g., "Hyderabad"), normalize to a full option like "Hyderabad - Abids"
+        if (!value.includes(" - ")) {
+          const matched = locationOptions.find((opt) => opt.startsWith(value));
+          if (matched) value = matched;
+        }
+      }
+
+      if (filters[key] !== value) dispatch(setFilter({ key, value }));
+    });
+  }, [allProducts, searchParams, dispatch]);
+
+  // Clear all filters when component mounts without any URL parameters
+  useEffect(() => {
+    const hasAnyParams = Array.from(searchParams.keys()).length > 0;
+    if (!hasAnyParams && Object.keys(filters).length > 0) {
+      dispatch(clearFilters());
+    }
+  }, [searchParams, dispatch, filters]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -56,7 +94,9 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const sidebarSections: Section[] = useMemo(() => {
     if (!allProducts.length) return [];
 
-    return [
+    const hasAnyParams = Array.from(searchParams.keys()).length > 0;
+
+    const sections: Section[] = [
       {
         title: "Price",
         options: [
@@ -85,17 +125,23 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
         ),
         key: "location",
       },
-      {
-        title: "Categories",
+    ];
+
+    // Show Products only when on base /products (no query params)
+    if (!hasAnyParams) {
+      sections.push({
+        title: "Products",
         options: Array.from(
           new Set(
             allProducts.map((p) => p.itemName).filter((v): v is string => !!v)
           )
         ),
         key: "category",
-      },
-    ];
-  }, [allProducts]);
+      });
+    }
+
+    return sections;
+  }, [allProducts, searchParams]);
 
   const handleSelect = (key: FilterKeys, value: string) => {
     dispatch(setFilter({ key, value }));

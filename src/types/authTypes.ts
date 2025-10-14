@@ -7,6 +7,7 @@ export interface ButtonProps
     | "secondary"
     | "outline"
     | "ghost"
+    | "blue"
     | "social"
     | "viewAll"
     | "addToCart"

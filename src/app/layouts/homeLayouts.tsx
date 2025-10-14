@@ -14,6 +14,7 @@ const HomeLayout: React.FC = () => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
   const menuItems: menuItem[] = [
     { name: t("menu.dashboard"), icon: <Home size={20} />, path: "/dashboard" },
     { name: t("menu.profile"), icon: <User size={20} />, path: "/profile" },
@@ -24,6 +25,11 @@ const HomeLayout: React.FC = () => {
       path: "/settings",
     },
   ];
+
+  const userStr = localStorage.getItem("user");
+  const user = userStr ? JSON.parse(userStr) : null;
+
+  console.log("userStr from local string", user)
 
   return (
     <>
@@ -45,27 +51,27 @@ const HomeLayout: React.FC = () => {
                 : "-translate-x-full opacity-0 sm:opacity-100 sm:translate-x-0"
               }
           `}
-        >
-          <Sidebar
-            name="Jabagond Umashankar Muragyappa"
-            address="Gulbarga"
-            menuItem={menuItems}
-            help="Need Help? 9823191415"
-            mobile={9823191415}
-            imageIcon="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          />
-        </div>
-        {/* Main content */}
-        <main
-          className="flex-1 overflow-y-scroll scrollbar-none rounded-bl-2xl mb-4 h-screen bg-gray-100"
-          onClick={() => dispatch(toggleSideBarClose())}
-        >
-          <div className="p-6">
-            <Outlet />
+          >
+            <Sidebar
+              name={user?.user?.name}
+              address={user?.user?.address}
+              menuItem={menuItems}
+              help="Need Help? 9823191415"
+              mobile={user?.user?.contact}
+              imageIcon="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            />
           </div>
-        </main>
+          {/* Main content */}
+          <main
+            className="flex-1 overflow-y-scroll scrollbar-none rounded-bl-2xl mb-4 h-screen bg-white border-r"
+            onClick={() => dispatch(toggleSideBarClose())}
+          >
+            <div className="p-6">
+              <Outlet />
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
     </>
   )
 }

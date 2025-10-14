@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { RootState, AppDispatch } from "@/redux/store";
-import { goToNextStep, goToStep, setSelectedItems, resetCheckout } from "@/redux/checkoutSlice";
+import {
+  goToNextStep,
+  goToStep,
+  setSelectedItems,
+  resetCheckout,
+} from "@/redux/checkoutSlice";
 import LoginStep from "./Steps/LoginStep";
 import AddressStep from "./Steps/AddressStep";
 import OrderSummaryStep from "./Steps/OrderSummaryStep";
@@ -22,26 +27,29 @@ const CheckoutFlow: React.FC = () => {
     (state: RootState) => state.checkout.selectedItems
   );
 
-  // Always call getCartData to avoid conditional hook usage
   const fullCartData = getCartData();
 
-  // Handle navigation state from cart
   useEffect(() => {
     if (location.state?.fromCart && location.state?.selectedItems) {
-      // Clear previous checkout data and set new selected items
       dispatch(resetCheckout());
       dispatch(setSelectedItems(location.state.selectedItems));
     }
   }, [location.state, dispatch]);
 
-  // Use selected items if available, otherwise fall back to cart data
-  const cartData = selectedItems.length > 0 
-    ? {
-        items: selectedItems,
-        itemCount: selectedItems.reduce((sum, item) => sum + (item.quantity || 0), 0),
-        itemsTotal: selectedItems.reduce((sum, item) => sum + (item.price || 0) * (item.quantity || 0), 0)
-      }
-    : fullCartData;
+  const cartData =
+    selectedItems.length > 0
+      ? {
+          items: selectedItems,
+          itemCount: selectedItems.reduce(
+            (sum, item) => sum + (item.quantity || 0),
+            0
+          ),
+          itemsTotal: selectedItems.reduce(
+            (sum, item) => sum + (item.price || 0) * (item.quantity || 0),
+            0
+          ),
+        }
+      : fullCartData;
 
   const { itemCount, itemsTotal } = cartData;
 

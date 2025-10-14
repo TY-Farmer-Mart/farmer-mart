@@ -5,7 +5,12 @@ import type { RootState, AppDispatch } from "@/redux/store";
 import { addAddress, selectAddress } from "@/redux/checkoutSlice";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
-import { AddressFormValues, CityOption, StateOption, StepProps } from "@/types/checkoutTypes";
+import {
+  AddressFormValues,
+  CityOption,
+  StateOption,
+  StepProps,
+} from "@/types/checkoutTypes";
 
 const COUNTRY_CODE = "IN";
 
@@ -34,7 +39,6 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
   const [cityOptions, setCityOptions] = useState<CityOption[]>([]);
   const [selectedStateIso, setSelectedStateIso] = useState<string>("");
 
-
   const AddressSchema = Yup.object({
     name: Yup.string().min(2).max(50).required("Name is required"),
     phone: Yup.string()
@@ -54,9 +58,10 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
       /^$|^\d{10}$/,
       "Enter a valid 10-digit number"
     ),
-    addressType: Yup.mixed<"home" | "work">().oneOf(["home", "work"]).required(),
+    addressType: Yup.mixed<"home" | "work">()
+      .oneOf(["home", "work"])
+      .required(),
   });
-
 
   useEffect(() => {
     const userStr = localStorage.getItem("user");
@@ -74,7 +79,6 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
       );
     }
   }, [dispatch, addresses.length]);
-
 
   useEffect(() => {
     if (selectedAddressId) {
@@ -101,16 +105,16 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
     }
   }, [selectedAddressId, addresses]);
 
-
   useEffect(() => {
     try {
       const states = State.getStatesOfCountry(COUNTRY_CODE) || [];
-      setStateOptions(states.map((s) => ({ name: s.name, isoCode: s.isoCode })));
+      setStateOptions(
+        states.map((s) => ({ name: s.name, isoCode: s.isoCode }))
+      );
     } catch {
       console.error("Failed to load states");
     }
   }, []);
-
 
   useEffect(() => {
     if (selectedStateIso) {
@@ -126,7 +130,6 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
   }, [selectedStateIso]);
 
   if (!isActive) return null;
-
 
   const handleSelect = (id: string) => {
     dispatch(selectAddress(id));
@@ -147,7 +150,6 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
     }
   };
 
-  
   const handleSaveAndContinue = (
     values: AddressFormValues,
     { resetForm }: FormikHelpers<AddressFormValues>
@@ -191,275 +193,271 @@ const AddressStep: React.FC<StepProps> = ({ isActive = true, onNext }) => {
           Delivery Address
         </h2>
 
-
-      {addresses.length > 0 && (
-        <div className="mb-5">
-          <div className="flex flex-col gap-3">
-            {addresses.map((addr) => (
-              <div
-                key={addr.id}
-                className={`p-3 border rounded transition-colors bg-blue-50/30 ${
-                  selectedAddressId === addr.id
-                    ? "border-blue-600"
-                    : "border-gray-200"
-                }`}
-              >
-                <div className="flex items-start justify-between">
-                  <label
-                    className="flex items-start gap-3 flex-1 cursor-pointer"
-                    onClick={() => handleSelect(addr.id)}
-                  >
-                    <input
-                      type="radio"
-                      name="savedAddress"
-                      checked={selectedAddressId === addr.id}
-                      onChange={() => handleSelect(addr.id)}
-                    />
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <p className="font-semibold text-gray-800">
-                          {addr.name}
+        {addresses.length > 0 && (
+          <div className="mb-5">
+            <div className="flex flex-col gap-3">
+              {addresses.map((addr) => (
+                <div
+                  key={addr.id}
+                  className={`p-3 border rounded transition-colors bg-blue-50/30 ${
+                    selectedAddressId === addr.id
+                      ? "border-blue-600"
+                      : "border-gray-200"
+                  }`}
+                >
+                  <div className="flex items-start justify-between">
+                    <label
+                      className="flex items-start gap-3 flex-1 cursor-pointer"
+                      onClick={() => handleSelect(addr.id)}
+                    >
+                      <input
+                        type="radio"
+                        name="savedAddress"
+                        checked={selectedAddressId === addr.id}
+                        onChange={() => handleSelect(addr.id)}
+                      />
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <p className="font-semibold text-gray-800">
+                            {addr.name}
+                          </p>
+                          {addr.addressType && (
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-gray-200 text-gray-700 uppercase">
+                              {addr.addressType}
+                            </span>
+                          )}
+                          {addr.phone && (
+                            <span className="text-gray-700 font-medium">
+                              {addr.phone}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-sm text-gray-800">
+                          {addr.address}
+                          {addr.locality ? `, ${addr.locality}` : ""}
+                          {addr.city ? `, ${addr.city}` : ""}
+                          {addr.state ? `, ${addr.state}` : ""}
+                          {addr.pincode ? ` - ${addr.pincode}` : ""}
                         </p>
-                        {addr.addressType && (
-                          <span className="text-[10px] px-2 py-0.5 rounded bg-gray-200 text-gray-700 uppercase">
-                            {addr.addressType}
-                          </span>
-                        )}
-                        {addr.phone && (
-                          <span className="text-gray-700 font-medium">
-                            {addr.phone}
-                          </span>
-                        )}
                       </div>
-                      <p className="mt-1 text-sm text-gray-800">
-                        {addr.address}
-                        {addr.locality ? `, ${addr.locality}` : ""}
-                        {addr.city ? `, ${addr.city}` : ""}
-                        {addr.state ? `, ${addr.state}` : ""}
-                        {addr.pincode ? ` - ${addr.pincode}` : ""}
-                      </p>
-                    </div>
+                    </label>
+                    <button
+                      type="button"
+                      className="text-blue-600 text-sm font-medium"
+                      onClick={() => editAddress(addr.id)}
+                    >
+                      EDIT
+                    </button>
+                  </div>
+                  <div className="mt-3">
+                    <button
+                      type="button"
+                      onClick={deliverHere}
+                      className={`px-4 py-2 rounded font-semibold ${
+                        selectedAddressId === addr.id
+                          ? "bg-orange-500 text-white"
+                          : "bg-gray-300 text-gray-700 cursor-not-allowed"
+                      }`}
+                      disabled={selectedAddressId !== addr.id}
+                    >
+                      DELIVER HERE
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 pt-3 border-t">
+              <button
+                type="button"
+                className="text-blue-600 font-medium flex items-center gap-2"
+                onClick={startAddNew}
+              >
+                <span className="text-lg">+</span> Add a new address
+              </button>
+            </div>
+          </div>
+        )}
+
+        {(showAddForm || addresses.length === 0) && (
+          <Formik
+            initialValues={form}
+            validationSchema={AddressSchema}
+            enableReinitialize
+            onSubmit={handleSaveAndContinue}
+          >
+            {({ isValid, setFieldValue, values }) => (
+              <Form className="mt-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="name"
+                      placeholder="Name"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="name"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="phone"
+                      placeholder="10-digit mobile number"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="phone"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="pincode"
+                      placeholder="Pincode"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="pincode"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="locality"
+                      placeholder="Locality"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="locality"
+                    />
+                  </div>
+                  <div className="col-span-2">
+                    <Field
+                      as="textarea"
+                      className="border rounded w-full px-3 py-2"
+                      name="address"
+                      placeholder="Address (Area and Street)"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="address"
+                    />
+                  </div>
+                  <div>
+                    <select
+                      className="border rounded px-3 py-2 w-full"
+                      value={
+                        stateOptions.find((s) => s.name === values.state)
+                          ?.isoCode || ""
+                      }
+                      onChange={(e) => {
+                        const iso = e.target.value;
+                        const st = stateOptions.find((s) => s.isoCode === iso);
+                        setFieldValue("state", st ? st.name : "");
+                        setSelectedStateIso(iso);
+                        setFieldValue("city", "");
+                      }}
+                    >
+                      <option value="">--Select State--</option>
+                      {stateOptions.map((s) => (
+                        <option key={s.isoCode} value={s.isoCode}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </select>
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="state"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      as="select"
+                      className="border rounded px-3 py-2 w-full"
+                      name="city"
+                      disabled={!selectedStateIso || cityOptions.length === 0}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                        setFieldValue("city", e.target.value)
+                      }
+                    >
+                      <option value="">--Select City--</option>
+                      {cityOptions.map((c) => (
+                        <option key={c.name} value={c.name}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </Field>
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="city"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="landmark"
+                      placeholder="Landmark (Optional)"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      className="border rounded px-3 py-2 w-full"
+                      name="altPhone"
+                      placeholder="Alternate Phone (Optional)"
+                    />
+                    <ErrorMessage
+                      component="div"
+                      className="text-red-600 text-xs mt-1"
+                      name="altPhone"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <p className="text-sm text-gray-700 mb-2">Address Type</p>
+                  <label className="mr-6 inline-flex items-center gap-2">
+                    <Field type="radio" name="addressType" value="home" /> Home
+                    (All day delivery)
                   </label>
+                  <label className="inline-flex items-center gap-2">
+                    <Field type="radio" name="addressType" value="work" /> Work
+                    (Delivery between 10 AM - 5 PM)
+                  </label>
+                </div>
+
+                <div className="mt-4 grid grid-cols-[1fr_auto] gap-4 items-center">
+                  <button
+                    type="submit"
+                    className={`w-full ${
+                      isValid
+                        ? "bg-orange-500 hover:bg-orange-600"
+                        : "bg-gray-300 cursor-not-allowed"
+                    } text-white py-2 rounded font-semibold`}
+                    disabled={!isValid}
+                  >
+                    Save and Deliver Here
+                  </button>
                   <button
                     type="button"
-                    className="text-blue-600 text-sm font-medium"
-                    onClick={() => editAddress(addr.id)}
+                    className="text-blue-600"
+                    onClick={() => setShowAddForm(false)}
                   >
-                    EDIT
+                    Cancel
                   </button>
                 </div>
-                <div className="mt-3">
-                  <button
-                    type="button"
-                    onClick={deliverHere}
-                    className={`px-4 py-2 rounded font-semibold ${
-                      selectedAddressId === addr.id
-                        ? "bg-orange-500 text-white"
-                        : "bg-gray-300 text-gray-700 cursor-not-allowed"
-                    }`}
-                    disabled={selectedAddressId !== addr.id}
-                  >
-                    DELIVER HERE
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 pt-3 border-t">
-            <button
-              type="button"
-              className="text-blue-600 font-medium flex items-center gap-2"
-              onClick={startAddNew}
-            >
-              <span className="text-lg">+</span> Add a new address
-            </button>
-          </div>
-        </div>
-      )}
-
-
-      {(showAddForm || addresses.length === 0) && (
-        <Formik
-          initialValues={form}
-          validationSchema={AddressSchema}
-          enableReinitialize
-          onSubmit={handleSaveAndContinue}
-        >
-          {({ isValid, setFieldValue, values }) => (
-            <Form className="mt-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="name"
-                    placeholder="Name"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="name"
-                  />
-                </div>
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="phone"
-                    placeholder="10-digit mobile number"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="phone"
-                  />
-                </div>
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="pincode"
-                    placeholder="Pincode"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="pincode"
-                  />
-                </div>
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="locality"
-                    placeholder="Locality"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="locality"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <Field
-                    as="textarea"
-                    className="border rounded w-full px-3 py-2"
-                    name="address"
-                    placeholder="Address (Area and Street)"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="address"
-                  />
-                </div>
-                <div>
-                  <select
-                    className="border rounded px-3 py-2 w-full"
-                    value={
-                      stateOptions.find((s) => s.name === values.state)
-                        ?.isoCode || ""
-                    }
-                    onChange={(e) => {
-                      const iso = e.target.value;
-                      const st = stateOptions.find((s) => s.isoCode === iso);
-                      setFieldValue("state", st ? st.name : "");
-                      setSelectedStateIso(iso);
-                      setFieldValue("city", "");
-                    }}
-                  >
-                    <option value="">--Select State--</option>
-                    {stateOptions.map((s) => (
-                      <option key={s.isoCode} value={s.isoCode}>
-                        {s.name}
-                      </option>
-                    ))}
-                  </select>
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="state"
-                  />
-                </div>
-                <div>
-                  <Field
-                    as="select"
-                    className="border rounded px-3 py-2 w-full"
-                    name="city"
-                    disabled={!selectedStateIso || cityOptions.length === 0}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      setFieldValue("city", e.target.value)
-                    }
-                  >
-                    <option value="">--Select City--</option>
-                    {cityOptions.map((c) => (
-                      <option key={c.name} value={c.name}>
-                        {c.name}
-                      </option>
-                    ))}
-                  </Field>
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="city"
-                  />
-                </div>
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="landmark"
-                    placeholder="Landmark (Optional)"
-                  />
-                </div>
-                <div>
-                  <Field
-                    className="border rounded px-3 py-2 w-full"
-                    name="altPhone"
-                    placeholder="Alternate Phone (Optional)"
-                  />
-                  <ErrorMessage
-                    component="div"
-                    className="text-red-600 text-xs mt-1"
-                    name="altPhone"
-                  />
-                </div>
-              </div>
-
- 
-              <div className="mt-4">
-                <p className="text-sm text-gray-700 mb-2">Address Type</p>
-                <label className="mr-6 inline-flex items-center gap-2">
-                  <Field type="radio" name="addressType" value="home" /> Home
-                  (All day delivery)
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <Field type="radio" name="addressType" value="work" /> Work
-                  (Delivery between 10 AM - 5 PM)
-                </label>
-              </div>
-
-
-              <div className="mt-4 grid grid-cols-[1fr_auto] gap-4 items-center">
-                <button
-                  type="submit"
-                  className={`w-full ${
-                    isValid
-                      ? "bg-orange-500 hover:bg-orange-600"
-                      : "bg-gray-300 cursor-not-allowed"
-                  } text-white py-2 rounded font-semibold`}
-                  disabled={!isValid}
-                >
-                  Save and Deliver Here
-                </button>
-                <button
-                  type="button"
-                  className="text-blue-600"
-                  onClick={() => setShowAddForm(false)}
-                >
-                  Cancel
-                </button>
-              </div>
-            </Form>
-          )}
-        </Formik>
-      )}
+              </Form>
+            )}
+          </Formik>
+        )}
       </div>
     </div>
   );
