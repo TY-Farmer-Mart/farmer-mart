@@ -5,16 +5,10 @@ import SellerProductDetails from '@/features/seller/SellerProductDetails'
 import { useState } from 'react';
 
 function SellerLanding() {
-
-
-
-
   return (
     <>
       <Navbar />
       <SellerNav />
-
-    
     </>
   )
 }

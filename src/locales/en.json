@@ -53,7 +53,7 @@
     "NAV_OPTIONS": [
       { "label": "Export", "value": "export", "path": "" },
       { "label": "Sell", "value": "sell", "path": "/seller" },
-      { "label": "Cart", "value": "cart", "path": "/cart" },
+      { "label": "Cart", "value": "cart", "path": "/addtocart" },
       { "label": "Help", "value": "help", "path": "/help" }
     ]
   },
