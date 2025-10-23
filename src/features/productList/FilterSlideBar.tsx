@@ -9,7 +9,13 @@ import type {
   Filters,
   FilterKeys,
   FilterSlideBarProps,
+  Section,
 } from "@/types/productTypes";
+import {
+  BUTTON_TEXTS,
+  MESSAGES,
+  SECTION_TITLES,
+} from "@/constants/searchpagelayout";
 
 const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +32,6 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
 
   useEffect(() => {
     if (!allProducts.length) return;
-
     const urlKeys: FilterKeys[] = [
       "priceRange",
       "seller",
@@ -34,7 +39,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
       "category",
       "product",
     ];
-    // Build list of full location options from products for normalization
+
     const locationOptions = Array.from(
       new Set(
         allProducts.map((p) => p.location).filter((v): v is string => !!v)
@@ -60,83 +65,78 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
 
       if (key === "location") {
         // If URL provides only city (e.g., "Hyderabad"), normalize to a full option like "Hyderabad - Abids"
-        if (!value.includes(" - ")) {
-          const matched = locationOptions.find((opt) => opt.startsWith(value));
+        if (!raw.includes(" - ")) {
+          const matched = locationOptions.find((opt) => opt.startsWith(raw));
           if (matched) value = matched;
         }
       }
 
       if (filters[key] !== value) dispatch(setFilter({ key, value }));
     });
-  }, [allProducts, searchParams, dispatch]);
-
-  // Clear all filters when component mounts without any URL parameters
-  useEffect(() => {
-    const hasAnyParams = Array.from(searchParams.keys()).length > 0;
-    if (!hasAnyParams && Object.keys(filters).length > 0) {
-      dispatch(clearFilters());
-    }
-  }, [searchParams, dispatch, filters]);
+  }, [allProducts, searchParams, dispatch, filters]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+        document.body.style.overflow = "";
+      }
     };
-  }, [isOpen]);
 
-  type Section = {
-    title: string;
-    options: string[];
-    key: FilterKeys;
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+    document.body.style.overflow = "";
   };
 
-  const sidebarSections: Section[] = useMemo(() => {
+  const sidebarSections = useMemo(() => {
     if (!allProducts.length) return [];
-
     const hasAnyParams = Array.from(searchParams.keys()).length > 0;
 
     const sections: Section[] = [
       {
-        title: "Price",
+        title: SECTION_TITLES.PRICE,
         options: [
           "₹50 and Below",
           "₹50 - ₹100",
           "₹100 - ₹500",
           "₹500 and Above",
         ],
-        key: "priceRange",
+        key: "priceRange" as FilterKeys,
       },
       {
-        title: "Sellers",
+        title: SECTION_TITLES.SELLERS,
         options: Array.from(
           new Set(
             allProducts.map((p) => p.sellerName).filter((v): v is string => !!v)
           )
         ),
-        key: "seller",
+        key: "seller" as FilterKeys,
       },
       {
-        title: "Location",
+        title: SECTION_TITLES.LOCATION,
         options: Array.from(
           new Set(
             allProducts.map((p) => p.location).filter((v): v is string => !!v)
           )
         ),
-        key: "location",
+        key: "location" as FilterKeys,
       },
     ];
 
-    // Show Products only when on base /products (no query params)
+    // Show Categories only when on base /products (no query params)
     if (!hasAnyParams) {
       sections.push({
-        title: "Products",
+        title: "Categories",
         options: Array.from(
           new Set(
             allProducts.map((p) => p.itemName).filter((v): v is string => !!v)
           )
         ),
-        key: "category",
+        key: "category" as FilterKeys,
       });
     }
 
@@ -157,15 +157,15 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
   };
 
   const renderSidebarContent = () => {
-    if (loading) return <p className="p-2">Loading filters...</p>;
-    if (error) return <p className="p-2 text-red-500">{error}</p>;
+    if (loading) return <p className="p-2 text-sm">{MESSAGES.LOADING}</p>;
+    if (error) return <p className="p-2 text-red-500 text-sm">{error}</p>;
 
     return (
       <>
         {sidebarSections.map((section) => (
-          <div key={section.title} className="mb-4  pt-5 pl-2">
+          <div key={section.title} className="mb-4 pt-2">
             <p
-              className="font-semibold mb-2 flex justify-between items-center cursor-pointer bg-slate-400 p-2"
+              className="font-semibold mb-2 flex justify-between items-center cursor-pointer bg-gray-200 p-2 rounded"
               onClick={() => toggleDropdown(section.key)}
             >
               {section.title}
@@ -178,7 +178,7 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
               </span>
             </p>
             {openDropdowns.includes(section.key) && (
-              <ul className="  rounded-md overflow-hidden shadow-sm">
+              <ul className="rounded-md overflow-hidden shadow-sm bg-white">
                 {section.options.map((option) => (
                   <li
                     key={option}
@@ -196,15 +196,16 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
             )}
           </div>
         ))}
+
         {Object.values(filters).some((val) => val) && (
           <button
             onClick={() => {
               dispatch(clearFilters());
               setSearchParams({});
             }}
-            className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600"
+            className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 text-sm"
           >
-            Clear Filters
+            {BUTTON_TEXTS.CLEAR_FILTERS}
           </button>
         )}
       </>
@@ -213,13 +214,20 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
 
   return (
     <>
+      {/* <button
+        onClick={() => setIsOpen(true)}
+        className="md:hidden fixed bottom-4 right-4 p-3 rounded-full bg-gray-50 shadow-lg z-50"
+      >
+        <FunnelPlus size={24} />
+      </button> */}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden absolute top-36 mt-4 left-72 p-2  rounded-md bg-gray-50 shadow"
+        className="md:hidden fixed right-4 p-3 rounded-full bg-blue-400 shadow-lg z-50 "
       >
-        <FunnelPlus size={20} />
+        <FunnelPlus size={24} />
       </button>
-      <div className="hidden lg:block w-60 bg-gray-50   rounded-md flex-col h-full max-h-full overflow-y-auto">
+
+      <div className="hidden md:block w-full bg-gray-50 rounded-md h-full max-h-full overflow-y-auto p-2">
         {renderSidebarContent()}
       </div>
 
@@ -227,24 +235,25 @@ const FilterSlideBar: React.FC<FilterSlideBarProps> = ({ loading, error }) => {
         {isOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-40 z-40"
+              className="fixed inset-0 bg-black bg-opacity-25 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
+              onClick={closeDrawer}
             />
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 p-4 overflow-y-auto"
+              className="fixed left-0 top-[4rem] w-64 h-[calc(100%-4rem)] bg-white shadow-lg z-50 p-4 overflow-y-auto"
             >
               <button
-                onClick={() => setIsOpen(false)}
-                className="mb-4 flex items-center space-x-2"
+                onClick={closeDrawer}
+                className="mb-4 flex items-center space-x-2 text-gray-700"
               >
                 <X className="w-6 h-6" />
+                <span>{BUTTON_TEXTS.CLOSE}</span>
               </button>
               {renderSidebarContent()}
             </motion.div>
