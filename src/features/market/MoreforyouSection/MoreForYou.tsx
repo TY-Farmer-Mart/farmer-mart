@@ -1,22 +1,32 @@
 import React from "react";
 import { Star, Store, Smartphone, Calculator } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-import { MORE_FOR_YOU_TEXT } from "@/constants/textConstants";
 import { Button } from "@/components/common/ui/Button";
 
 const MoreForYou: React.FC = () => {
   const iconComponents = [Star, Store, Smartphone, Calculator];
+  const { t } = useTranslation();
+
+  const services = t("MORE_FOR_YOU_TEXT.SERVICES", {
+    returnObjects: true,
+  }) as Array<{
+    TITLE: string;
+    DESCRIPTION: string;
+    BUTTON: string;
+  }>;
 
   return (
     <div className="mt-2 bg-gray-100">
       <div className="max-w-full mx-auto p-8 rounded-md shadow-sm">
         <h2 className="text-3xl font-bold text-black-500 mb-8 text-left">
-          {MORE_FOR_YOU_TEXT.HEADING}
+          {t("MORE_FOR_YOU_TEXT.HEADING")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {MORE_FOR_YOU_TEXT.SERVICES.map((service, index) => {
-            const Icon = iconComponents[index];
+          {services.map((service, index) => {
+            const Icon = iconComponents[index] || Star;
+
             return (
               <div
                 key={service.TITLE}
@@ -39,7 +49,7 @@ const MoreForYou: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center text-center">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 text-center">
                   {service.TITLE}
                 </h3>
 

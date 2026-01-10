@@ -7,8 +7,9 @@ import { ROUTES } from "@/constants/routeConstants";
 import PublicLayout from "../layouts/PublicLayout";
 import { authRoutes } from "./authRoutes";
 
+
 export const useAppRouter = () => {
-    const roleRoutes = useRoleRoutes();
+  const roleRoutes = useRoleRoutes();
 
   return createBrowserRouter([
     { index: true, element: <LandingPage /> },
@@ -25,5 +26,6 @@ export const useAppRouter = () => {
       path: "*",
       element: <PageNotFound />,
     },
+   
   ]);
 };

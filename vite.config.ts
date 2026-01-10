@@ -9,6 +9,10 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react(), vitePluginSvgr()],
+  server: {
+    host: true, // 👈 exposes to LAN
+    port: 5173, // optional: fix the port
+  },
   resolve: {
     alias: {
       "@constants": path.resolve(__dirname, "src/constants"),

@@ -2,11 +2,10 @@ const bcrypt = require("bcryptjs");
 const users = require("../../models/auth/auth.js");
 
 const signUp = async (req, res) => {
-  const { name, email, contact, role, password, confirmPassword, about } =
-    req.body;
+  const { name, email, contact, role, gstNumber, password, about } = req.body;
 
   // 1. Basic validation
-  if (!name || !email || !contact || !password) {
+  if (!name || !email || !contact || !password || !role) {
     return res
       .status(400)
       .json({ message: "All required fields must be filled" });
@@ -28,6 +27,7 @@ const signUp = async (req, res) => {
       email,
       contact,
       role,
+      gstNumber,
       password: hashedPassword,
       about,
     });

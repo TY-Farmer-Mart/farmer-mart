@@ -16,7 +16,7 @@
                 {
                     "id": "TOM002",
                     "itemName": "Tomato",
-                    "price": 35.0,
+                    "price": 98.0,
                     "quantity": "20 kg",
                     "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
                     "sellerName": "Basavanagudi Veg Traders",
@@ -27,7 +27,7 @@
                 {
                     "id": "TOM003",
                     "itemName": "Tomato",
-                    "price": 45.0,
+                    "price": 145.0,
                     "quantity": "20 kg",
                     "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
                     "sellerName": "Andheri Market Supplier",
@@ -38,7 +38,7 @@
                 {
                     "id": "TOM004",
                     "itemName": "Tomato",
-                    "price": 38.0,
+                    "price": 500.0,
                     "quantity": "20 kg",
                     "imageUrl": "https://5.imimg.com/data5/ANDROID/Default/2024/9/449379136/HA/JO/BA/47241866/product-jpeg-250x250.jpg",
                     "sellerName": "Park Street Greens",
@@ -132,7 +132,7 @@
                 {
                     "id": "POT002",
                     "itemName": "Potato",
-                    "price": 25.0,
+                    "price": 125.0,
                     "quantity": "1 kg",
                     "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/12/366159116/NA/GS/ZK/49916683/fresh-potato-250x250.jpg",
                     "sellerName": "Navrangpura Veg Supplier",
@@ -226,7 +226,7 @@
                 {
                     "id": "CHI002",
                     "itemName": "Green Chilli",
-                    "price": 65.0,
+                    "price": 35.0,
                     "quantity": "500 g",
                     "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2025/8/538392701/KP/HL/NK/108265937/dookan-green-chilli-hari-mirch-250g-d51e7a7b-5ab1-49ad-a7f9-80c1fe1b932f-250x250.jpg",
                     "sellerName": "Nagartapete Chillies",

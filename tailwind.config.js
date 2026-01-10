@@ -11,6 +11,7 @@ export default {
         gray: {
           50: "#f9f9f9",
           100: "#B8B8D2",
+          1000: "#0012ff0f",
           200: "#E2E2E2",
           300: "#BDBDBD",
           400: "#A5A5A5",
@@ -27,7 +28,7 @@ export default {
         },
 
         green: {
-          300: "#007a6e",
+          300: "#74C476",
         },
         blue: {
           50: "#E3F2FD",

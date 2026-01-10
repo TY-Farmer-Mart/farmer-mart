@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const users = require("../../models/auth/auth.js");
+const bcrypt = require("bcryptjs");
 
 const SECRET_KEY =
   "signINSecretKeyForJWTsignINSecretKeyForJWTsignINSecretKeyForJWTsignINSecretKeyForJWT";
@@ -42,6 +43,7 @@ const signIn = async (req, res) => {
         name: user.name,
         password: user.password,
         role: user.role,
+        contact: user.contact,
       },
     });
   } catch (error) {

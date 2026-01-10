@@ -7,8 +7,22 @@ export interface ButtonProps
     | "secondary"
     | "outline"
     | "ghost"
+    | "blue"
     | "social"
-    | "viewAll";
+    | "viewAll"
+    | "addToCart"
+    | "buyNow"
+    | "pillScroll"
+    | "activeCity"
+    | "addToCart"
+    | "buyNow"
+    | "location"
+    | "submit"
+    | "textLink"
+    | "close"
+    | "circle"
+    | "inactiveCity";
+
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
@@ -64,8 +78,14 @@ export interface Service {
   buttonText: string;
 }
 
-
 export interface MoreForYouCardProps {
   heading: string;
   services: Service[];
+}
+
+
+export interface Country {
+  code: string;
+  name: string;
+  flag: string;
 }

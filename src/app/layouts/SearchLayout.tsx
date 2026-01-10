@@ -1,134 +1,86 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "@/redux/productSlice";
+import { RootState, AppDispatch } from "@/redux/store";
+
+import { OBSERVER_OPTIONS, CLASSNAMES } from "@/constants/searchpagelayout";
+
+import LocationSearch from "@/features/productlist/LocationSearch";
+import FilterSlideBar from "@/features/productlist/FilterSlideBar";
 import ProductList from "@/features/productlist/ProductList";
 import RequirementForm from "@/features/productlist/RequirementForm";
-import Footer from "@/components/common/Footer";
-import Navbar from "@/components/common/Navbar";
-import { SidebarSection } from "@/types/sidebarTypes";
-import FilterSlideBar from "@/features/productlist/filterSlideBar";
-
-const sidebarData: SidebarSection[] = [
-  {
-    type: "text",
-    title: "Price",
-    options: [
-      "₹2,000 and Below",
-      "₹2,001-₹9,000",
-      "₹9,001-₹50,000",
-      "₹50,001 and Above",
-    ],
-    showRange: true,
-  },
-  {
-    type: "filter",
-    title: "Filters",
-    options: ["Bengaluru-based Suppliers"],
-  },
-  {
-    type: "text",
-    title: "Usage/Application",
-    options: ["Industrial", "Garage"],
-  },
-  {
-    type: "text",
-    title: "Business Type",
-    options: ["Manufacturer", "Exporter", "Wholesaler", "Retailer"],
-  },
-  {
-    type: "text",
-    title: "Related Category",
-    options: [
-      {
-        label: "Agriculture Production Services",
-        image:
-          "https://3.imimg.com/data3/FN/KW/GLADMIN-171253/agriculture-production-services-125x125.jpg",
-      },
-      {
-        label: "Vermicompost",
-        image:
-          " https://3.imimg.com/data3/CT/UA/GLADMIN-2728/vermicompost-125x125.jpg",
-      },
-      {
-        label: "Organic Fertilizers and Manure",
-        image:
-          "https://3.imimg.com/data3/CS/YS/GLADMIN-156355/vesicular-arbuscular-mycorrhiza-125x125.jpg",
-      },
-      {
-        label: "Agricultural Pesticides",
-        image:
-          "https://3.imimg.com/data3/FU/EW/GLADMIN-3179/agricultural-pesticides-125x125.jpg",
-      },
-      {
-        label: "Press Mud",
-        image:
-          "https://3.imimg.com/data3/YU/RG/GLADMIN-69082/press-mud-125x125.jpg",
-      },
-      {
-        label: "Green Manure",
-        image: "https://3.imimg.com/data3/SR/OL/MY-2/green-manure-125x125.jpg",
-      },
-    ],
-  },
-  {
-    type: "text",
-    title: "Recommended Searches",
-    options: ["agriculture", "agriculture seating"],
-  },
-];
 
 const SearchLayout: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { filteredProducts, loading, error } = useSelector(
+    (state: RootState) => state.products
+  );
+
   const [showForm, setShowForm] = useState(false);
   const productListEndRef = useRef<HTMLDivElement | null>(null);
   const mainRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, []);
+
+  useEffect(() => {
     if (!mainRef.current || !productListEndRef.current) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowForm(entry.isIntersecting);
-      },
-      {
-        root: mainRef.current,
-        threshold: 1,
-      }
+      ([entry]) => setShowForm(entry.isIntersecting),
+      { root: mainRef.current, threshold: OBSERVER_OPTIONS.THRESHOLD }
     );
-
     observer.observe(productListEndRef.current);
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <div className="h-screen flex flex-col">
-        <header className="flex-[1] border-2 text-black flex items-center px-6 font-bold text-lg">
-          Farmer Mart
-        </header>
 
-        <nav className="flex-[1] border-2 text-black flex items-center px-6 font-medium">
-          📍 Location: Bangalore, India
-        </nav>
-
-        <div className="flex-[8] flex w-full overflow-hidden">
-          <aside className="lg:w-1/5 lg:p-1 relative">
-            <FilterSlideBar sidebarData={sidebarData} />
+      <div className="flex-1 flex flex-col border border-gray-200">
+        {/* Location search */}
+        <div className={CLASSNAMES.LOCATION_SEARCH_CONTAINER}>
+          <LocationSearch />
+          {/* ✅ Removed Show/Hide Filter button */}
+        </div>
+        <div className="flex flex-1 flex-col md:flex-row overflow-hidden"></div>
+        {/* Main content area */}
+        <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
+          {/* Product list section */}
+          <aside className={`md:block ${CLASSNAMES.FILTER_SIDEBAR}`}>
+            <FilterSlideBar loading={loading} error={error} />
           </aside>
-          <main
-            ref={mainRef}
-            className="w-full lg:w-4/5 border-2 h-full overflow-y-auto flex flex-col"
-          >
-            <ProductList />
+          <main ref={mainRef} className={CLASSNAMES.MAIN_CONTAINER}>
+            <ProductList
+              products={filteredProducts}
+              loading={loading}
+              error={error}
+            />
 
+            {/* Observer target */}
             <div ref={productListEndRef} className="h-4" />
 
-            {showForm && <RequirementForm />}
+            {/* Requirement form when scrolled */}
+            {showForm && (
+              <div className="p-2 sm:p-4">
+                <RequirementForm />
+              </div>
+            )}
           </main>
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
