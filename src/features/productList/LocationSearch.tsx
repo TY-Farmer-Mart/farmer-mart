@@ -7,18 +7,18 @@ import { Button } from "@/components/common/ui/Button";
 import Chip from "@/components/common/ui/Chip";
 import { fetchProducts } from "@/redux/productSlice";
 import { RootState, AppDispatch } from "@/redux/store";
- 
+
 const LocationSearch: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const routeLocation = useLocation();
   const navigate = useNavigate();
 
   const products = useSelector(
-    (state: RootState) => state.products.allProducts
+    (state: RootState) => state.products.allProducts,
   );
   const loading = useSelector((state: RootState) => state.products.loading);
   const error = useSelector((state: RootState) => state.products.error);
- 
+
   const [activeCity, setActiveCity] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -29,7 +29,7 @@ const LocationSearch: React.FC = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
- 
+
   const cities = useMemo(() => {
     if (!products.length) return [];
     const set = new Set<string>();
@@ -38,7 +38,7 @@ const LocationSearch: React.FC = () => {
     });
     return Array.from(set).sort();
   }, [products]);
- 
+
   useEffect(() => {
     if (cities.length && !initializedFromParamRef.current && !activeCity) {
       setActiveCity(cities[0]);
@@ -49,7 +49,7 @@ const LocationSearch: React.FC = () => {
     const search = routeLocation.search;
     const params = new URLSearchParams(search);
     const locParam = params.get("location");
- 
+
     if (locParam) {
       const decoded = decodeURIComponent(locParam.replace(/\+/g, " "));
       const cityFromParam = decoded.split("-")[0].trim();
@@ -92,7 +92,7 @@ const LocationSearch: React.FC = () => {
       async ({ coords: { latitude, longitude } }) => {
         try {
           const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
           );
           const data = await res.json();
           const city =
@@ -112,7 +112,7 @@ const LocationSearch: React.FC = () => {
       () => {
         alert("Unable to retrieve your location");
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: true, timeout: 10000 },
     );
   };
 
@@ -123,7 +123,7 @@ const LocationSearch: React.FC = () => {
     params.set("location", encoded);
     navigate(
       { pathname: routeLocation.pathname, search: `?${params.toString()}` },
-      { replace: true }
+      { replace: true },
     );
 
     try {
@@ -144,7 +144,7 @@ const LocationSearch: React.FC = () => {
       <h2 className="text-xl sm:text-2xl font-poppins text-left">
         {LOCATION_SEARCH.TITLE} {activeCity}
       </h2>
- 
+
       <div className="flex flex-col gap-4">
         <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <Button
@@ -159,7 +159,7 @@ const LocationSearch: React.FC = () => {
               {LOCATION_SEARCH.NEARME}
             </span>
           </Button>
- 
+
           {/* Mobile: Dropdown for location selection */}
           <div className="relative w-full sm:hidden" ref={dropdownRef}>
             <button
@@ -176,7 +176,7 @@ const LocationSearch: React.FC = () => {
                 }`}
               />
             </button>
- 
+
             {isDropdownOpen && (
               <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                 {loading ? (
@@ -204,11 +204,10 @@ const LocationSearch: React.FC = () => {
               </div>
             )}
           </div>
- 
+
           {/* Desktop: Chips container */}
           <div
             ref={pillContainerRef}
-            className="hidden sm:flex flex-wrap gap-2 justify-end"
             className="hidden sm:flex flex-wrap gap-2 justify-end"
           >
             {loading ? (
@@ -222,7 +221,6 @@ const LocationSearch: React.FC = () => {
                   label={city}
                   isActive={activeCity === city}
                   onClick={() => handleCitySelect(city)}
-                  onClick={() => handleCitySelect(city)}
                 />
               ))
             )}
@@ -232,6 +230,5 @@ const LocationSearch: React.FC = () => {
     </div>
   );
 };
- 
+
 export default LocationSearch;
- 

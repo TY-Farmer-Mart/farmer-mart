@@ -3,6 +3,8 @@ export interface ProfileCardProps {
   location: string;
   memberSince: string;
   rating: string;
+  createdAt: string;
+  address: string;
 }
 
 export interface ContactInfoProps {
@@ -23,7 +25,7 @@ export interface CompanyInfoProps {
   onEdit?: () => void;
 }
 
- export type BankAccountDetailsProps = {
+export type BankAccountDetailsProps = {
   bankName: string;
   accountNumber: string;
   ifscCode: string;

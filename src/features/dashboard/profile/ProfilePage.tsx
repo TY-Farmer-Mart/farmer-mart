@@ -2,17 +2,16 @@ import ProfileCard from "./ProfileCard";
 import { ContactInfoCard } from "./ContactInfoCard";
 import { CompanyInfoCard } from "./CompanyInfoCard";
 import { BankAccountDetailsCard } from "./BankAccountDetailsCard";
-import { profileData } from "../../../utils/profileData";
 import Footer from "@/components/common/Footer";
 
 const ProfilePage = () => {
   return (
     <div className="p-4">
-      <ProfileCard  />
-      <ContactInfoCard {...profileData.contact} />
+      <ProfileCard />
+      <ContactInfoCard />
       <CompanyInfoCard />
-      <BankAccountDetailsCard {...profileData.bank} />
-      <Footer/>
+      <BankAccountDetailsCard />
+      <Footer />
     </div>
   );
 };

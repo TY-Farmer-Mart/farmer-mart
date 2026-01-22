@@ -1,7 +1,7 @@
-import type { CommonCarouselProps, SlideItem } from "@/types/carouselTypes";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from "@/components/common/ui/Button";
+import { CommonCarouselProps, SlideItem } from "@/types/carouselTypes";
 
 export default function CommonCarousel({
   slides,

@@ -4,7 +4,7 @@ export interface StateOption {
 }
 
 export interface NavOption {
-  value: "export" | "sell" ;
+  value: "export" | "sell" | "help";
   label: string;
   path: string;
 }

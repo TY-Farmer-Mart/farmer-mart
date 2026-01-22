@@ -35,12 +35,10 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (
     values: typeof initialValues,
-    { setSubmitting, setErrors }: any
+    { setSubmitting, setErrors }: any,
   ) => {
     // Show loading toast with infinite duration
-    const toastId = showLoading("Registering your account...", {
-      duration: Infinity,
-    });
+    const toastId = showLoading("Registering your account...");
 
     try {
       // Map phone → contact and remove confirmPassword
@@ -124,155 +122,153 @@ const Register: React.FC = () => {
           handleChange,
           handleBlur,
           submitCount,
-        
         }) => (
-          
-           <Form className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Form className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                label={t("AUTH.NAME_LABEL")}
+                placeholder={t("AUTH.NAME_PLACEHOLDER")}
+                name="name"
+                value={values.name}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.name || submitCount > 0) && errors.name
+                    ? errors.name
+                    : ""
+                }
+              />
+
+              <Input
+                label={t("AUTH.PHONE_LABEL")}
+                placeholder={t("AUTH.PHONE_PLACEHOLDER")}
+                name="phone"
+                value={values.phone}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.phone || submitCount > 0) && errors.phone
+                    ? errors.phone
+                    : ""
+                }
+              />
+            </div>
+
             <Input
-              label={t("AUTH.NAME_LABEL")}
-              placeholder={t("AUTH.NAME_PLACEHOLDER")}
-              name="name"
-              value={values.name}
+              label={t("AUTH.EMAIL_LABEL")}
+              placeholder={t("AUTH.EMAIL_PLACEHOLDER")}
+              name="email"
+              type="email"
+              value={values.email}
               className="px-4 py-2"
               onChange={handleChange}
               onBlur={handleBlur}
               error={
-                (touched.name || submitCount > 0) && errors.name
-                  ? errors.name
+                (touched.email || submitCount > 0) && errors.email
+                  ? errors.email
                   : ""
               }
             />
 
-            <Input
-              label={t("AUTH.PHONE_LABEL")}
-              placeholder={t("AUTH.PHONE_PLACEHOLDER")}
-              name="phone"
-              value={values.phone}
+            <SelectInput
+              label={t("AUTH.ROLE_LABEL")}
+              name="role"
+              value={values.role}
               className="px-4 py-2"
               onChange={handleChange}
               onBlur={handleBlur}
+              options={ROLE_OPTIONS}
+              requiredIndicator
               error={
-                (touched.phone || submitCount > 0) && errors.phone
-                  ? errors.phone
+                (touched.role || submitCount > 0) && errors.role
+                  ? errors.role
                   : ""
               }
             />
-          </div>
 
-          <Input
-            label={t("AUTH.EMAIL_LABEL")}
-            placeholder={t("AUTH.EMAIL_PLACEHOLDER")}
-            name="email"
-            type="email"
-            value={values.email}
-            className="px-4 py-2"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={
-              (touched.email || submitCount > 0) && errors.email
-                ? errors.email
-                : ""
-            }
-          />
+            {values.role === "vendor" && (
+              <Input
+                label={t("AUTH.GST_LABEL")}
+                placeholder={t("AUTH.GST_PLACEHOLDER")}
+                name="gstNumber"
+                value={values.gstNumber}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.gstNumber || submitCount > 0) && errors.gstNumber
+                    ? errors.gstNumber
+                    : ""
+                }
+              />
+            )}
 
-          <SelectInput
-            label={t("AUTH.ROLE_LABEL")}
-            name="role"
-            value={values.role}
-            className="px-4 py-2"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            options={ROLE_OPTIONS}
-            requiredIndicator
-            error={
-              (touched.role || submitCount > 0) && errors.role
-                ? errors.role
-                : ""
-            }
-          />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                label={t("AUTH.PASSWORD_LABEL")}
+                placeholder={t("AUTH.PASSWORD_PLACEHOLDER")}
+                name="password"
+                type="password"
+                value={values.password}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.password || submitCount > 0) && errors.password
+                    ? errors.password
+                    : ""
+                }
+              />
 
-          {values.role === "vendor" && (
-            <Input
-              label={t("AUTH.GST_LABEL")}
-              placeholder={t("AUTH.GST_PLACEHOLDER")}
-              name="gstNumber"
-              value={values.gstNumber}
-              className="px-4 py-2"
+              <Input
+                label={t("AUTH.CONFIRM_PASSWORD_LABEL")}
+                placeholder={t("AUTH.CONFIRM_PASSWORD_PLACEHOLDER")}
+                name="confirmPassword"
+                type="password"
+                value={values.confirmPassword}
+                className="px-4 py-2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.confirmPassword || submitCount > 0) &&
+                  errors.confirmPassword
+                    ? errors.confirmPassword
+                    : ""
+                }
+              />
+            </div>
+
+            <Textarea
+              label={t("AUTH.ABOUT_LABEL")}
+              placeholder={t("AUTH.ABOUT_PLACEHOLDER")}
+              name="about"
+              value={values.about}
               onChange={handleChange}
               onBlur={handleBlur}
               error={
-                (touched.gstNumber || submitCount > 0) && errors.gstNumber
-                  ? errors.gstNumber
-                  : ""
-              }
-            />
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              label={t("AUTH.PASSWORD_LABEL")}
-              placeholder={t("AUTH.PASSWORD_PLACEHOLDER")}
-              name="password"
-              type="password"
-              value={values.password}
-              className="px-4 py-2"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={
-                (touched.password || submitCount > 0) && errors.password
-                  ? errors.password
+                (touched.about || submitCount > 0) && errors.about
+                  ? errors.about
                   : ""
               }
             />
 
-            <Input
-              label={t("AUTH.CONFIRM_PASSWORD_LABEL")}
-              placeholder={t("AUTH.CONFIRM_PASSWORD_PLACEHOLDER")}
-              name="confirmPassword"
-              type="password"
-              value={values.confirmPassword}
-              className="px-4 py-2"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={
-                (touched.confirmPassword || submitCount > 0) &&
-                errors.confirmPassword
-                  ? errors.confirmPassword
-                  : ""
-              }
-            />
-          </div>
+            <Button type="submit" variant="primary" className="w-full">
+              {t("AUTH.SIGNUP_BUTTON")}
+            </Button>
 
-          <Textarea
-            label={t("AUTH.ABOUT_LABEL")}
-            placeholder={t("AUTH.ABOUT_PLACEHOLDER")}
-            name="about"
-            value={values.about}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={
-              (touched.about || submitCount > 0) && errors.about
-                ? errors.about
-                : ""
-            }
-          />
+            <p className="text-center text-sm text-gray-600 m-0 py-2">
+              {t("AUTH.ALREADY_HAVE_ACCOUNT")}
 
-          <Button type="submit" variant="primary" className="w-full">
-            {t("AUTH.SIGNUP_BUTTON")}
-          </Button>
-
-          <p className="text-center text-sm text-gray-600 m-0 py-2">
-            {t("AUTH.ALREADY_HAVE_ACCOUNT")}
-
-            <span
-              className="text-green-600 hover:underline"
-              onClick={() => navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
-            >
-              {t("AUTH.TITLE")}
-            </span>
-          </p>
-        </Form>
+              <span
+                className="text-green-600 hover:underline"
+                onClick={() => navigate(`${ROUTES.AUTH}${ROUTES.LOGIN}`)}
+              >
+                {t("AUTH.TITLE")}
+              </span>
+            </p>
+          </Form>
         )}
       </Formik>
     </>

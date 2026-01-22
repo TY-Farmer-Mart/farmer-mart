@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Farming_Equipment_Category_data } from "@/utils/products";
 import ProductCategory from "@/components/common/ui/Reusablecard";
 

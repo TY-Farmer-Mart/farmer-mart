@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import Register from "./Register";
-import { AuthWrapper } from "./Authwrapper";
+import { AuthWrapper } from "./AuthWrapper";
 
 const RegisterPage: React.FC = () => {
   const { t } = useTranslation();

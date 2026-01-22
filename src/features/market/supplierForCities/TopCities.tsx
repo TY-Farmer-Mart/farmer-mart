@@ -1,4 +1,3 @@
-import React from "react";
 import delhi from "@/assets/cities/delhii.jpg";
 import bengaluru from "@/assets/cities/Bengaluru.jpg";
 import chennai from "@/assets/cities/Chennai.jpg";

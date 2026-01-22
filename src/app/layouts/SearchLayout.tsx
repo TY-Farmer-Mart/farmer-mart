@@ -6,16 +6,15 @@ import { fetchProducts } from "@/redux/productSlice";
 import { RootState, AppDispatch } from "@/redux/store";
 
 import { OBSERVER_OPTIONS, CLASSNAMES } from "@/constants/searchpagelayout";
-
-import LocationSearch from "@/features/productlist/LocationSearch";
-import FilterSlideBar from "@/features/productlist/FilterSlideBar";
-import ProductList from "@/features/productlist/ProductList";
-import RequirementForm from "@/features/productlist/RequirementForm";
+import LocationSearch from "@/features/productList/LocationSearch";
+import FilterSlideBar from "@/features/productList/FilterSlideBar";
+import ProductList from "@/features/productList/ProductList";
+import RequirementForm from "@/features/productList/RequirementForm";
 
 const SearchLayout: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { filteredProducts, loading, error } = useSelector(
-    (state: RootState) => state.products
+    (state: RootState) => state.products,
   );
 
   const [showForm, setShowForm] = useState(false);
@@ -36,7 +35,7 @@ const SearchLayout: React.FC = () => {
     if (!mainRef.current || !productListEndRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => setShowForm(entry.isIntersecting),
-      { root: mainRef.current, threshold: OBSERVER_OPTIONS.THRESHOLD }
+      { root: mainRef.current, threshold: OBSERVER_OPTIONS.THRESHOLD },
     );
     observer.observe(productListEndRef.current);
     return () => observer.disconnect();

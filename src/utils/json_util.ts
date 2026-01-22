@@ -1,5 +1,4 @@
 import { Product } from "@/types/authTypes";
-import { FooterData } from "@/types/footerType";
 import { CategoryData } from "@/types/marketTypes";
 import FlowerSeed from "@/assets/images/FlowerSeed.jpg";
 import GrassSeed from "@/assets/images/GrassSeeds.jpg";
