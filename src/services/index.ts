@@ -6,7 +6,7 @@ const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 // Create Axios instance with base URL from env
 const API = axios.create({
-  baseURL
+  baseURL,
 });
 
 // Request interceptor to attach token (if any) from localStorage
@@ -16,7 +16,7 @@ API.interceptors.request.use(
     const user = userStr ? JSON.parse(userStr) : null;
     if (user?.token) {
       // eslint-disable-next-line
-      config.headers = config.headers || {} as any;
+      config.headers = config.headers || ({} as any);
 
       config.headers.Authorization = `Bearer ${user.token}`;
     }

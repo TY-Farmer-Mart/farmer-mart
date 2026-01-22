@@ -34,7 +34,6 @@ const NavIconButton: FC<NavIconButtonProps> = ({
   label,
   onClick,
   className,
-
 }) => (
   <button
     onClick={onClick}
@@ -92,7 +91,7 @@ const Navbar: FC<NavbarProps> = ({
       if (persisted && persisted !== selectedValue) {
         setSelectedValue(persisted);
       }
-    } catch { }
+    } catch {}
   }, []);
 
   // Sync controlled state
@@ -119,7 +118,7 @@ const Navbar: FC<NavbarProps> = ({
     // Persist globally so it reflects on all pages
     try {
       localStorage.setItem("selectedLocation", value);
-    } catch { }
+    } catch {}
     setStatets?.(value);
     setDropdownOpen(false);
     setMobileDropdownOpen(false);
@@ -175,60 +174,60 @@ const Navbar: FC<NavbarProps> = ({
 
   const signinOptions = user
     ? [
-      {
-        label: "Profile",
-        onClick: () => navigate("/profile"),
-        icon: <FaUser />,
-      },
-      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-      {
-        label: "Get Quote",
-        onClick: () => navigate("/get-quote"),
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Why Trust FarmerMart",
-        onClick: () => navigate("/why-trust"),
-        icon: <FaQuestionCircle />,
-      },
-      {
-        label: "Top Export Countries",
-        onClick: () => navigate("/top-export-countries"),
-        icon: <FaGlobe />,
-      },
-      {
-        label: "Logout",
-        onClick: () => {
-          localStorage.removeItem("user");
-          setUser(null);
-          navigate("/");
+        {
+          label: "Profile",
+          onClick: () => navigate("/profile"),
+          icon: <FaUser />,
         },
-        icon: <FaTimes />,
-      },
-    ]
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        {
+          label: "Get Quote",
+          onClick: () => navigate("/get-quote"),
+          icon: <FaClipboardList />,
+        },
+        {
+          label: "Why Trust FarmerMart",
+          onClick: () => navigate("/why-trust"),
+          icon: <FaQuestionCircle />,
+        },
+        {
+          label: "Top Export Countries",
+          onClick: () => navigate("/top-export-countries"),
+          icon: <FaGlobe />,
+        },
+        {
+          label: "Logout",
+          onClick: () => {
+            localStorage.removeItem("user");
+            setUser(null);
+            navigate("/");
+          },
+          icon: <FaTimes />,
+        },
+      ]
     : [
-      {
-        label: "Login",
-        onClick: () => navigate("/auth/login"),
-        icon: <FaUser />,
-      },
-      { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
-      {
-        label: "Get Quote",
-        onClick: () => navigate("/get-quote"),
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Why Trust FarmerMart",
-        onClick: () => navigate("/why-trust"),
-        icon: <FaQuestionCircle />,
-      },
-      {
-        label: "Top Export Countries",
-        onClick: () => navigate("/top-export-countries"),
-        icon: <FaGlobe />,
-      },
-    ];
+        {
+          label: "Login",
+          onClick: () => navigate("/auth/login"),
+          icon: <FaUser />,
+        },
+        { label: "Home", onClick: () => navigate("/"), icon: <FaHome /> },
+        {
+          label: "Get Quote",
+          onClick: () => navigate("/get-quote"),
+          icon: <FaClipboardList />,
+        },
+        {
+          label: "Why Trust FarmerMart",
+          onClick: () => navigate("/why-trust"),
+          icon: <FaQuestionCircle />,
+        },
+        {
+          label: "Top Export Countries",
+          onClick: () => navigate("/top-export-countries"),
+          icon: <FaGlobe />,
+        },
+      ];
 
   const renderSigninDropdown = () => (
     <ul className="absolute right-0 mt-0 w-64 bg-white border rounded shadow-lg z-10">
@@ -254,6 +253,7 @@ const Navbar: FC<NavbarProps> = ({
 
   return (
     <nav className="w-full shadow border-b bg-blue-900 px-4 sm:px-6 py-3 sticky top-0 z-50">
+      {/* <nav className="w-full sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-green-100"> */}
       <div className="flex flex-col lg:flex-col items-start lg:items-center justify-between w-full">
         {/* MOBILE HEADER */}
         <div className="flex w-full items-center justify-between lg:hidden mb-3">
@@ -293,7 +293,6 @@ const Navbar: FC<NavbarProps> = ({
           </div>
 
           <div className="flex items-center space-x-6 flex-1 justify-between ml-4">
-            {/* Desktop Location Dropdown */}
             <div className="relative" ref={desktopDropdownRef}>
               <button
                 type="button"
@@ -375,7 +374,7 @@ const Navbar: FC<NavbarProps> = ({
             </Button>
 
             <div className="flex items-center space-x-4 flex-shrink-0">
-              <button className=" flex rounded-[50%]" >
+              <button className=" flex rounded-[50%]">
                 {navOptions.map((option) => (
                   <NavIconButton
                     key={option.value}
@@ -439,8 +438,9 @@ const Navbar: FC<NavbarProps> = ({
                   className="w-full px-3 py-2 border border-gray-300 rounded text-sm text-black pr-8"
                 />
                 <FaChevronDown
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${mobileDropdownOpen ? "rotate-180" : ""
-                    }`}
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-transform duration-200 ${
+                    mobileDropdownOpen ? "rotate-180" : ""
+                  }`}
                   onClick={() => setMobileDropdownOpen((s) => !s)}
                 />
 
@@ -520,3 +520,215 @@ const Navbar: FC<NavbarProps> = ({
 };
 
 export default Navbar;
+
+// import { FC, useEffect, useRef, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import {
+//   FaBars,
+//   FaChevronDown,
+//   FaMapMarkerAlt,
+//   FaSearch,
+//   FaTimes,
+//   FaUser,
+// } from "react-icons/fa";
+// import { ShoppingCart } from "lucide-react";
+// import { useSelector } from "react-redux";
+// import { useTranslation } from "react-i18next";
+
+// import logo from "@assets/images/logo_farmer_mart_final.png";
+// import { RootState } from "@/redux/store";
+// import { Button } from "@components/common/ui/Button";
+// import { Input } from "@components/common/ui/Input";
+// import { NavbarProps, NavOption } from "@/types/navbarTypes";
+
+// const Navbar: FC<NavbarProps> = ({
+//   state: controlledState,
+//   setStatets,
+//   stateOptions = [
+//     { value: "Hyderabad - Abids", label: "Hyderabad - Abids" },
+//     { value: "Bengaluru - Basavanagudi", label: "Bengaluru - Basavanagudi" },
+//     { value: "Mumbai - Andheri", label: "Mumbai - Andheri" },
+//   ],
+// }) => {
+//   const navigate = useNavigate();
+//   const { t } = useTranslation();
+
+//   const [user, setUser] = useState<{ name: string } | null>(null);
+//   const [selectedValue, setSelectedValue] = useState(
+//     controlledState ?? stateOptions[0].value
+//   );
+//   const [product, setProduct] = useState("");
+//   const [dropdownOpen, setDropdownOpen] = useState(false);
+//   const [mobileMenu, setMobileMenu] = useState(false);
+
+//   const dropdownRef = useRef<HTMLDivElement>(null);
+
+//   const cartItems = useSelector((state: RootState) => state.cart.items);
+//   const cartCount = cartItems.length;
+
+//   useEffect(() => {
+//     const stored = localStorage.getItem("user");
+//     if (stored) setUser(JSON.parse(stored));
+//   }, []);
+
+//   useEffect(() => {
+//     const persisted = localStorage.getItem("selectedLocation");
+//     if (persisted) setSelectedValue(persisted);
+//   }, []);
+
+//   useEffect(() => {
+//     const handler = (e: MouseEvent) => {
+//       if (!dropdownRef.current?.contains(e.target as Node)) {
+//         setDropdownOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handler);
+//     return () => document.removeEventListener("mousedown", handler);
+//   }, []);
+
+//   const handleSelect = (value: string) => {
+//     setSelectedValue(value);
+//     localStorage.setItem("selectedLocation", value);
+//     setStatets?.(value);
+//     setDropdownOpen(false);
+//   };
+
+//   const handleSearch = () => {
+//     if (!product) return;
+//     navigate(
+//       `/products?product=${encodeURIComponent(
+//         product
+//       )}&location=${encodeURIComponent(selectedValue)}`
+//     );
+//   };
+
+//   const navOptions: NavOption[] = t("NAVBAR.NAV_OPTIONS", {
+//     returnObjects: true,
+//   });
+
+//   return (
+//     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-green-100">
+//       {/* DESKTOP */}
+//       <div className="hidden lg:flex items-center justify-between px-6 py-4">
+//         {/* Brand */}
+//         <div
+//           className="flex items-center gap-3 cursor-pointer"
+//           onClick={() => navigate("/")}
+//         >
+//           <img src={logo} alt="Farmer Mart" className="w-36" />
+//           <span className="text-sm text-gray-500 hidden xl:block">
+//             From Farms to Businesses
+//           </span>
+//         </div>
+
+//         {/* Search */}
+//         <div className="flex items-center gap-3 flex-1 max-w-2xl mx-10">
+//           {/* Location */}
+//           <div className="relative" ref={dropdownRef}>
+//             <button
+//               onClick={() => setDropdownOpen((s) => !s)}
+//               className="flex items-center gap-2 px-3 py-2 border rounded-lg bg-gray-50 text-sm"
+//             >
+//               <FaMapMarkerAlt className="text-green-600" />
+//               <span className="truncate max-w-[120px]">
+//                 {stateOptions.find((o) => o.value === selectedValue)?.label}
+//               </span>
+//               <FaChevronDown className="text-xs" />
+//             </button>
+
+//             {dropdownOpen && (
+//               <div className="absolute mt-2 w-56 bg-white border rounded-lg shadow">
+//                 {stateOptions.map((opt) => (
+//                   <div
+//                     key={opt.value}
+//                     onClick={() => handleSelect(opt.value)}
+//                     className="px-4 py-2 hover:bg-green-50 cursor-pointer text-sm"
+//                   >
+//                     {opt.label}
+//                   </div>
+//                 ))}
+//               </div>
+//             )}
+//           </div>
+
+//           {/* Product Input */}
+//           <div className="relative flex-1">
+//             <Input
+//               value={product}
+//               onChange={(e) => setProduct(e.target.value)}
+//               placeholder="Search products, crops, suppliers…"
+//               className="pr-10 rounded-lg"
+//             />
+//             <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
+//           </div>
+
+//           <Button
+//             onClick={handleSearch}
+//             disabled={!product}
+//             className="bg-green-600 hover:bg-green-700 text-white rounded-lg px-5"
+//           >
+//             Get Price
+//           </Button>
+//         </div>
+
+//         {/* Actions */}
+//         <div className="flex items-center gap-6">
+//           {navOptions.map((opt) => (
+//             <button
+//               key={opt.value}
+//               onClick={() => navigate(opt.path)}
+//               className="text-sm text-gray-600 hover:text-green-700"
+//             >
+//               {opt.label}
+//             </button>
+//           ))}
+
+//           <div className="relative cursor-pointer">
+//             <ShoppingCart onClick={() => navigate("/addtocart")} />
+//             {cartCount > 0 && (
+//               <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+//                 {cartCount}
+//               </span>
+//             )}
+//           </div>
+
+//           <FaUser
+//             className="cursor-pointer"
+//             onClick={() => navigate(user ? "/profile" : "/auth/login")}
+//           />
+//         </div>
+//       </div>
+
+//       {/* MOBILE */}
+//       <div className="lg:hidden px-4 py-3 flex items-center justify-between">
+//         <img
+//           src={logo}
+//           alt="Farmer Mart"
+//           className="w-28"
+//           onClick={() => navigate("/")}
+//         />
+//         <button onClick={() => setMobileMenu((s) => !s)}>
+//           {mobileMenu ? <FaTimes /> : <FaBars />}
+//         </button>
+//       </div>
+
+//       {mobileMenu && (
+//         <div className="lg:hidden px-4 pb-4 space-y-4">
+//           <Input
+//             value={product}
+//             onChange={(e) => setProduct(e.target.value)}
+//             placeholder="Search products…"
+//           />
+//           <Button
+//             onClick={handleSearch}
+//             className="w-full bg-green-600 text-white"
+//           >
+//             Get Price
+//           </Button>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navbar;

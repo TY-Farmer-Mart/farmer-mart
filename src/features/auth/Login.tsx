@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { LoginSchema, LoginFormValues } from "@/schemas/loginSchema";
 import { AiOutlineApple } from "react-icons/ai";
-import Googleimg from "@assets/images/google.svg";
+import GoogleImg from "@assets/images/google.svg";
 import { ROUTES } from "@/constants/routeConstants";
 import { loginUser } from "../../services/auth";
 import { useTranslation } from "react-i18next";
@@ -116,7 +116,7 @@ const Login = () => {
           variant="social"
           className="w-full flex items-center justify-center gap-2 text-sm p-1"
         >
-          <img src={Googleimg} alt="Google" className="w-10 h-5 inline" />
+          <img src={GoogleImg} alt="Google" className="w-10 h-5 inline" />
           {t("AUTH.CONTINUE_WITH_GOOGLE")}
         </Button>
 

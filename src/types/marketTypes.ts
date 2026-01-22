@@ -10,11 +10,11 @@ export type LeftCard = {
   title: string;
   description: string;
   image: string;
-  onViewAll?: () => void; 
+  onViewAll?: () => void;
 };
 
 export type CategorySectionType = {
-  leftCard: Omit<LeftCard, "onViewAll">; 
+  leftCard: Omit<LeftCard, "onViewAll">;
   categories: CategoryItem[];
 };
 
@@ -33,4 +33,15 @@ export interface CustomSelectProps {
   options: Option[];
   placeholder?: string;
   className?: string; // optional extra classes
+}
+
+export interface Category {
+  id?: string | number;
+  title: string;
+  image: string;
+  items: string[];
+}
+
+export interface CategoryUseCaseCardProps {
+  category: Category;
 }

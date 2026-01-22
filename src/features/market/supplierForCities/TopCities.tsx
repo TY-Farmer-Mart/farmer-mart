@@ -6,52 +6,71 @@ import mumbai from "@/assets/cities/mumbaai.jpg";
 import ahmedabad from "@/assets/cities/Ahmedabad.jpg";
 import kolkata from "@/assets/cities/koolkata.jpg";
 import pune from "@/assets/cities/pune.jpg";
-import surat from "@/assets/cities/suurat.jpg";
-import jaipur from "@/assets/cities/jaipur.jpg";
 import hydrabad from "@/assets/cities/Hydrabad.jpg";
-import { useTranslation } from "react-i18next";
-import { CITY_KEYS } from "@/constants/textConstants";
 
-const IMAGES: Record<string, string> = {
-  Delhi: delhi,
-  Bengaluru: bengaluru,
-  Chennai: chennai,
-  Mumbai: mumbai,
-  Ahmedabad: ahmedabad,
-  Kolkata: kolkata,
-  Pune: pune,
-  Surat: surat,
-  Jaipur: jaipur,
-  Hyderabad: hydrabad,
-};
+const CITY_DATA = [
+  { name: "Delhi", img: delhi, suppliers: "3,200+" },
+  { name: "Mumbai", img: mumbai, suppliers: "2,800+" },
+  { name: "Bengaluru", img: bengaluru, suppliers: "2,100+" },
+  { name: "Hyderabad", img: hydrabad, suppliers: "1,900+" },
+  { name: "Chennai", img: chennai, suppliers: "1,600+" },
+  { name: "Pune", img: pune, suppliers: "1,400+" },
+  { name: "Ahmedabad", img: ahmedabad, suppliers: "1,800+" },
+  { name: "Kolkata", img: kolkata, suppliers: "1,300+" },
+];
 
-const TopCities: React.FC = () => {
-  const { t } = useTranslation();
-
-  const cities = t("TOP_CITIES.LIST", { returnObjects: true }) as string[];
-
+const TopCities = () => {
   return (
-    <section className="w-full px-4 py-8 bg-gray-100 mt-4">
-      <h2 className="text-left text-2xl md:text-3xl font-semibold text-black-500 mb-8">
-        {t("TOP_CITIES.HEADING")}
-      </h2>
+    <section className="bg-green-50 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-black-900 text-left">
+          Find Suppliers from Top Cities
+        </h2>
+        <p className="text-black-900 text-left mt-2 mb-12">
+          Strong supplier presence across major trading hubs
+        </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-8 gap-x-6 bg-white p-5 rounded-xl">
-        {cities.map((city, index) => (
-          <div
-            key={city}
-            className="flex flex-col items-center text-center group"
-          >
-            <div className="w-20 h-20 flex items-center justify-center rounded-full border border-gray-300 p-4 transition-transform group-hover:scale-110">
-              <img
-                src={IMAGES[CITY_KEYS[index]]}
-                alt={city}
-                className="w-full h-full object-contain"
-              />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+          {CITY_DATA.map((city) => (
+            <div
+              key={city.name}
+              className="
+                group bg-white rounded-2xl
+                border border-gray-200
+                p-6 text-center
+                hover:border-green-600
+                hover:shadow-xl
+                transition
+                cursor-pointer
+              "
+            >
+              <div
+                className="
+                  w-24 h-24 mx-auto
+                  rounded-full
+                  bg-green-50
+                  flex items-center justify-center
+                  group-hover:bg-green-100
+                  transition
+                "
+              >
+                <img
+                  src={city.img}
+                  alt={city.name}
+                  className="w-14 h-14 object-contain text-black-900"
+                />
+              </div>
+
+              <h3 className="mt-4 text-lg font-semibold text-black-900">
+                {city.name}
+              </h3>
+
+              <span className="inline-block mt-2 px-3 py-1 text-sm rounded-full bg-green-100 text-green-700">
+                {city.suppliers} suppliers
+              </span>
             </div>
-            <p className="mt-3 text-gray-800 font-medium">{city}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
