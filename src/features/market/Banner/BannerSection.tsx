@@ -243,7 +243,6 @@ const BannerSection = () => {
                     name="product"
                     component="div"
                     className="!text-red-500 text-xs mt-1"
-                    style={{ color: "#ef4444" }}
                   >
                     {(msg) => t(msg)}
                   </ErrorMessage>
