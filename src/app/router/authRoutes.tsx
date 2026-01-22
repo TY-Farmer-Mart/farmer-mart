@@ -1,9 +1,9 @@
 import { ROUTES } from "@/constants/routeConstants";
+import LoginPage from "@/features/auth/LoginPage";
 
 import { lazy } from "react";
 
 const RegisterPage = lazy(() => import("../../features/auth/RegisterPage"));
-const LoginPage = lazy(() => import("../../features/auth/Loginpage"));
 
 export const authRoutes = [
   {

@@ -2,7 +2,7 @@ import { AuthWrapper } from "./AuthWrapper";
 import Login from "./Login";
 import { useTranslation } from "react-i18next";
 
-const Loginpage = () => {
+const LoginPage = () => {
   const { t } = useTranslation();
   return (
     <AuthWrapper title={t("AUTH.TITLE")}>
@@ -11,4 +11,4 @@ const Loginpage = () => {
   );
 };
 
-export default Loginpage;
+export default LoginPage;
